@@ -26,4 +26,4 @@ Day 01, February 07, 2022.
 4. Appbar creation
 Day 02, February 08, 2022
 1. Login
-2. Rergister
+2. Register
