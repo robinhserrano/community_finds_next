@@ -84,6 +84,9 @@ export default function Navbar({ title, children }) {
         </Toolbar>
       </AppBar>
       <Container className={classes.main}>{children}</Container>
+      <footer className={classes.footer}>
+        <Typography>All rights reserved. Community Finds 2021-2022.</Typography>
+      </footer>
     </div>
   );
 }

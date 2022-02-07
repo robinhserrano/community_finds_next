@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   appbar: {
     backgroundColor: "#3a7196",
-    height: 50,
+    height: 40,
     "& a": {
       color: "#ffffff",
     },
@@ -35,6 +35,10 @@ const useStyles = makeStyles({
   main: {
     minHeight: "80vh",
     minWidth: "80vw",
+  },
+  footer: {
+    marginTop: "10px",
+    textAlign: "center",
   },
 });
 
