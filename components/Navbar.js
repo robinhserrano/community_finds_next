@@ -16,7 +16,6 @@ export default function Navbar({ title, children }) {
           {title ? `${title} - Community Finds` : "Community Finds"}
         </title>
       </Head>
-
       <Toolbar className={classes.appbar}>
         <div className={classes.grow}></div>
         <NextLink href="/login" passHref>

@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
   secondAppbar: {
     backgroundColor: "#ffffff",
-    height: 120,
+    height: 90,
     borderBottomStyle: "ridge",
     "& a": {
       color: "#000000",
