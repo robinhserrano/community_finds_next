@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { AppBar, Link, Toolbar, Typography } from "@mui/material";
+import { AppBar, Container, Link, Toolbar, Typography } from "@mui/material";
 import useStyles from "../utils/styles";
 import NextLink from "next/link";
 //
@@ -33,6 +33,25 @@ export default function Navbar({ title, children }) {
           </NextLink>
         </Toolbar>
       </AppBar>
+      <Toolbar className={classes.secondAppbar}>
+        <Typography style={{ marginLeft: "200px" }}>COMMUNITY FINDS</Typography>
+        <div className={classes.toolbarGrow}></div>
+        <NextLink href="/lostitem" passHref>
+          <Link color="inherit" underline="hover">
+            <Typography className={classes.textStyle}>
+              SUBMIT LOST ITEM
+            </Typography>
+          </Link>
+        </NextLink>
+        <NextLink href="/lostitem" passHref>
+          <Link color="inherit" underline="hover">
+            <Typography className={classes.textStyle}>
+              VIEW RECENT POST
+            </Typography>
+          </Link>
+        </NextLink>
+      </Toolbar>
+      <Container className={classes.main}>{children}</Container>
     </div>
   );
 }

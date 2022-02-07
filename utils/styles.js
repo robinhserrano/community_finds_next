@@ -8,8 +8,26 @@ const useStyles = makeStyles({
       color: "#ffffff",
     },
   },
+  secondAppbar: {
+    backgroundColor: "#ffffff",
+    height: 70,
+    borderBottomStyle: "ridge",
+  },
   grow: {
     flexGrow: 0.75,
+  },
+  toolbarGrow: {
+    flexGrow: 0.66,
+  },
+  textStyle: {
+    font: "SansSerif",
+    fontSize: "12px",
+    letterSpacing: "1px",
+    marginRight: "20px",
+  },
+  main: {
+    minHeight: "80vh",
+    minWidth: "80vw",
   },
 });
 
