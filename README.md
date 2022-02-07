@@ -22,5 +22,6 @@ Timeline of the development:
 Day 01, February 07, 2022.
 1. Building of NextJs application
 2. Firebase implementation.
-3. Login
-4. Register
+3. Added files fore rendering processes in the code.
+4. Login
+5. Register
