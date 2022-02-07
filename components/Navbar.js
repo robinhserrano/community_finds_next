@@ -23,7 +23,6 @@ export default function Navbar({ title, children }) {
           <Link>
             <Typography
               style={{
-                marginBottom: "24px",
                 font: "SansSerif",
                 fontSize: "15px",
                 letterSpacing: "1px",
@@ -35,7 +34,6 @@ export default function Navbar({ title, children }) {
         </NextLink>
         <Typography
           style={{
-            marginBottom: "24px",
             fontSize: "25px",
             marginLeft: "20px",
             marginRight: "20px",
@@ -48,7 +46,6 @@ export default function Navbar({ title, children }) {
           <Link>
             <Typography
               style={{
-                marginBottom: "24px",
                 font: "SansSerif",
                 fontSize: "15px",
                 letterSpacing: "1px",
