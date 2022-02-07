@@ -24,6 +24,7 @@ Day 01, February 07, 2022.
 2. Firebase implementation.
 3. Added files fore rendering processes in the code.
 4. Appbar creation
+
 Day 02, February 08, 2022
 1. Login
 2. Register
