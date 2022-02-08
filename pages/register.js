@@ -82,7 +82,7 @@ export default function Register() {
             })
               .then(() => console.log("DATA"))
               .catch(() => console.log("Failed"));
-            console.log("Success. The user is created in firebase");
+            alert("Success. The user is created in firebase");
             router.push("/login");
           })
           .catch((error) => {
