@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <Navbar>
       <div>
-        {" "}
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Dui nunc mattis enim
         ut tellus elementum sagittis. Volutpat lacus laoreet non curabitur
