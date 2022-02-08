@@ -4,7 +4,7 @@ import { AppBar, Container, Link, Toolbar, Typography } from "@mui/material";
 import useStyles from "../utils/styles";
 import NextLink from "next/link";
 import Image from "next/image";
-import logo from "../public/images/logo.png";
+import logo from "../public/images/logofinal.png";
 //
 
 export default function Navbar({ title, children }) {
@@ -64,7 +64,7 @@ export default function Navbar({ title, children }) {
             src={logo}
             alt="logo"
             width={350}
-            height={250}
+            height={200}
           />
           <div className={classes.toolbarGrow}></div>
           <NextLink href="/lost-item" passHref>
