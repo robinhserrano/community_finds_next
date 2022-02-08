@@ -39,39 +39,9 @@ export default function Register() {
       return;
     } else {
       try {
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA");
-        console.log(name);
-        console.log(email);
-        console.log(password);
-        console.log(phone);
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA");
-        // const res = await createUserWithEmailAndPassword(auth, email, password);
-        // const user = res.user;
-        // console.log(user.uid);
-        // console.log('YYYYYYYYYYYYYYYYYYYY');
-
-        //let collRef = collection(db, 'users'); // returns a collection ref. ie. creates one if one does not exist.
-        // let inputObject = { name : "trying to create a collection"}
-        // await addDoc(collRef , inputObject , { merge : true})
-
-        // db.collection('users').add({
-        // 	uid: user.uid,
-        // 	name: name,
-        // 	email: email,
-        // 	password: password,
-        // 	phone: phone
-        // });
-
-        //console.log('YYYYYYYYYYYYYYYYYYYY');
         createUserWithEmailAndPassword(auth, email, password)
           .then((authUser) => {
             console.log(authUser.user.uid);
-
-            // await addDoc(collection(db, 'users'), {
-            // 	a: 'a'
-            // })
-            // 	.then(() => console.log('DATA'))
-            // 	.catch(() => console.log('Failed'));
 
             addDoc(collection(db, "users"), {
               id: authUser.user.uid,
@@ -79,6 +49,7 @@ export default function Register() {
               email: email,
               password: password,
               phone: phone,
+              role: "user",
             })
               .then(() => console.log("DATA"))
               .catch(() => console.log("Failed"));
@@ -270,13 +241,7 @@ export default function Register() {
           </ListItem>
 
           <ListItem>
-            <Button
-              variant="contained"
-              type="submit"
-              fullWidth
-              color="primary"
-              onClick={submitHandler}
-            >
+            <Button variant="contained" type="submit" fullWidth color="primary">
               Register
             </Button>
           </ListItem>

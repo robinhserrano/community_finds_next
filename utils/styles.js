@@ -32,6 +32,11 @@ const useStyles = makeStyles({
     letterSpacing: "1px",
     marginRight: "30px",
   },
+  form: {
+    width: "100%",
+    maxWidth: 800,
+    margin: "0 auto",
+  },
   main: {
     minHeight: "80vh",
     minWidth: "80vw",
