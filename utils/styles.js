@@ -3,14 +3,14 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   appbar: {
     backgroundColor: "#3a7196",
-    height: 50,
+    height: 40,
     "& a": {
       color: "#ffffff",
     },
   },
   secondAppbar: {
     backgroundColor: "#ffffff",
-    height: 120,
+    height: 90,
     borderBottomStyle: "ridge",
     "& a": {
       color: "#000000",
@@ -32,9 +32,18 @@ const useStyles = makeStyles({
     letterSpacing: "1px",
     marginRight: "30px",
   },
+  form: {
+    width: "100%",
+    maxWidth: 800,
+    margin: "0 auto",
+  },
   main: {
     minHeight: "80vh",
     minWidth: "80vw",
+  },
+  footer: {
+    marginTop: "10px",
+    textAlign: "center",
   },
 });
 

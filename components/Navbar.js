@@ -16,10 +16,9 @@ export default function Navbar({ title, children }) {
           {title ? `${title} - Community Finds` : "Community Finds"}
         </title>
       </Head>
-
       <Toolbar className={classes.appbar}>
         <div className={classes.grow}></div>
-        <NextLink href="/login" passHref>
+        <NextLink href="/admin-login" passHref>
           <Link>
             <Typography
               style={{
@@ -68,14 +67,14 @@ export default function Navbar({ title, children }) {
             height={250}
           />
           <div className={classes.toolbarGrow}></div>
-          <NextLink href="/lostitem" passHref>
+          <NextLink href="/lost-item" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
                 SUBMIT LOST ITEM
               </Typography>
             </Link>
           </NextLink>
-          <NextLink href="/lostitem" passHref>
+          <NextLink href="/recent-item" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
                 VIEW RECENT POST
@@ -85,6 +84,9 @@ export default function Navbar({ title, children }) {
         </Toolbar>
       </AppBar>
       <Container className={classes.main}>{children}</Container>
+      <footer className={classes.footer}>
+        <Typography>All rights reserved. Community Finds 2021-2022.</Typography>
+      </footer>
     </div>
   );
 }
