@@ -131,43 +131,8 @@ export default function Login() {
               <Link>Register</Link>
             </NextLink>
           </ListItem>
-          <SignInButton />
         </List>
       </form>
     </div>
   );
 }
-
-//sign In with google
-function SignInButton() {
-  const router = useRouter();
-  const signInWithGoogle = async () => {
-    await auth.signInWithPopup(googleAuthProvider);
-    // Create refs for both documents
-    const userDoc = firestore.doc(`users/${auth.currentUser.uid}`);
-    //const usernameDoc = firestore.doc(usernames/${formValue});
-
-    // Commit both docs together as a batch write.
-    const batch = firestore.batch();
-    batch.set(userDoc, {
-      name: auth.currentUser.displayName,
-      id: auth.currentUser.uid,
-      email: auth.currentUser.email,
-    });
-    //batch.set(usernameDoc, { uid: user.uid });
-    if (!userDoc) {
-      throw new Error("There was an error in Login");
-    }
-    if (userDoc) {
-      router.push("/lobby");
-    }
-    await batch.commit();
-  };
-  return (
-    <Button onClick={signInWithGoogle} variant="contained">
-      Sign in with Google
-    </Button>
-  );
-}
-
-// <Image src={googleIcon} height={50} width={50} alt="google icon" />
