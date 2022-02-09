@@ -82,7 +82,7 @@ export default function Register() {
       <div
         title="Register"
         style={{
-          marginLeft: 700,
+          marginLeft: "30%",
           marginTop: 150,
           backgroundColor: "white",
           width: 700,
