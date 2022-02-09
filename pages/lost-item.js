@@ -1,4 +1,4 @@
-import { List, ListItem, TextField, Typography } from "@mui/material";
+import { Grid, List, ListItem, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import Navbar from "../components/Navbar";
@@ -25,6 +25,7 @@ export default function LostItem() {
           ✔ The Location Is Only Limited to Sto. Domingo Angeles City.
         </Typography>
       </div>
+      {/* pasok sa grid para mahati screeen sosa */}
       <form>
         {/* item Lost */}
         <List className={classes.inputField}>
