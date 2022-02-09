@@ -86,7 +86,7 @@ export default function Register() {
           marginTop: 150,
           backgroundColor: "white",
           width: 700,
-          height: 600,
+          height: 750,
           position: "absolute",
         }}
       >
@@ -271,6 +271,13 @@ export default function Register() {
               >
                 Register
               </Button>
+            </ListItem>
+            <ListItem style={{ marginLeft: "35%" }}>
+              <NextLink href={"/terms-and-conditions"} passHref>
+                <Link>
+                  <Typography>Terms and Conditions</Typography>
+                </Link>
+              </NextLink>
             </ListItem>
             <ListItem>
               Already have an Account? &nbsp;

@@ -152,7 +152,7 @@ export default function Login() {
                     <ListItem>
                       Don&apos;t have an account? &nbsp;
                       <NextLink
-                        href={`/register?redirect=${redirect || "/lobby"}`}
+                        href={`/register?redirect=${redirect || "/"}`}
                         passHref
                       >
                         <Link>Register</Link>
