@@ -28,3 +28,7 @@ Day 01, February 07, 2022.
 Day 02, February 08, 2022
 1. Login
 2. Register
+
+Day 03, February 09, 2022
+1. Index.js content
+2. Submit lost item creation
