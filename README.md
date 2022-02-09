@@ -6,6 +6,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 How to Install NextJS?
 1. Install NodeJs -> https://nodejs.org/en/download/
 2. Install ReactJS and NextJS -> https://www.youtube.com/watch?v=A63UxsQsEbU&t=210s
+3. Install Git -> https://git-scm.com/downloads
+
+How to extract files from the Github
+1. Git Clone or download the zip file.
+2. Open in VsCode in the right folder directory.
+3. npm i  (to install the node modules and .next files)
+4. the run the program -> npm run dev
 
 First, run the development server:
 
