@@ -18,7 +18,7 @@ export default function Navbar({ title, children }) {
       </Head>
       <Toolbar className={classes.appbar}>
         <div className={classes.grow}></div>
-        <NextLink href="/admin-login" passHref>
+        {/* <NextLink href="/admin-login" passHref>
           <Link>
             <Typography
               style={{
@@ -30,8 +30,8 @@ export default function Navbar({ title, children }) {
               ADMIN LOGIN
             </Typography>
           </Link>
-        </NextLink>
-        <Typography
+        </NextLink> */}
+        {/* <Typography
           style={{
             fontSize: "25px",
             marginLeft: "20px",
@@ -40,7 +40,7 @@ export default function Navbar({ title, children }) {
           }}
         >
           |
-        </Typography>
+        </Typography> */}
         <NextLink href="/login" passHref>
           <Link>
             <Typography
@@ -50,7 +50,7 @@ export default function Navbar({ title, children }) {
                 letterSpacing: "1px",
               }}
             >
-              CUSTOMER LOGIN
+              USER LOGIN
             </Typography>
           </Link>
         </NextLink>
@@ -59,18 +59,29 @@ export default function Navbar({ title, children }) {
       <AppBar position="sticky">
         <Toolbar position="absolute" className={classes.secondAppbar}>
           <div className={classes.logoGrow}></div>
-          <Image
-            className={classes.logoGrow}
-            src={logo}
-            alt="logo"
-            width={350}
-            height={200}
-          />
+          <NextLink href={"/"} passHref>
+            <Link>
+              <Image
+                className={classes.logoGrow}
+                src={logo}
+                alt="logo"
+                width={350}
+                height={200}
+              />
+            </Link>
+          </NextLink>
           <div className={classes.toolbarGrow}></div>
           <NextLink href="/lost-item" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
                 SUBMIT LOST ITEM
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/found-item" passHref>
+            <Link color="inherit" underline="hover">
+              <Typography className={classes.textStyle}>
+                VIEW FOUND ITEM
               </Typography>
             </Link>
           </NextLink>

@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     },
   },
   grow: {
-    flexGrow: 0.85,
+    flexGrow: 0.885,
   },
   logoGrow: {
     flexGrow: 0.15,
@@ -44,6 +44,9 @@ const useStyles = makeStyles({
   footer: {
     marginTop: "10px",
     textAlign: "center",
+  },
+  inputField: {
+    width: 550,
   },
 });
 
