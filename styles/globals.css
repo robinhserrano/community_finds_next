@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+  width: 500px;
+  height: 50px;
+}

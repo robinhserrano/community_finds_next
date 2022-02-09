@@ -51,7 +51,7 @@ export default function Login() {
     <Box sx={{ width: "100%" }}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={7}>
-          <Image src={sideImage} alt="logo" width={"1200"} height={1040} />
+          <Image src={sideImage} alt="logo" width={1200} height={1000} />
         </Grid>
         <Grid item xs={5}>
           <Grid container spacing={3}>
