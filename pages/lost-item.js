@@ -75,8 +75,9 @@ export default function LostItem() {
               ✔ The Location Is Only Limited to Sto. Domingo Angeles City.
             </Typography>
             <br /> <br />
-            <Typography variant="h7" style={{ color: "red" }}>
-              * Please be descriptive when submitting your lost property report,
+            <Typography variant="h7">
+              <b style={{ color: "red" }}>* </b>
+              Please be descriptive when submitting your lost property report,
               the more information you give us the better chance you have of
               retrieving your items.
             </Typography>
@@ -223,8 +224,8 @@ export default function LostItem() {
               control={control}
               defaultValue=""
               rules={{
-                required: false,
-                minLength: 2,
+                required: true,
+                minLength: 10,
               }}
               render={({ field }) => (
                 <TextField
@@ -236,7 +237,7 @@ export default function LostItem() {
                   helperText={
                     errors.information
                       ? errors.information.type === "minLength"
-                        ? "Information length should be more than 1"
+                        ? "Information length should be more than 10"
                         : "Information is required"
                       : ""
                   }
@@ -274,7 +275,7 @@ export default function LostItem() {
                     errors.primaryColor
                       ? errors.primaryColor.type === "minLength"
                         ? "Primary Color length should be more than 1"
-                        : "Primary Color is required"
+                        : "Primary Color is optional"
                       : ""
                   }
                   {...field}
@@ -295,7 +296,7 @@ export default function LostItem() {
             </span>
             <div style={{ marginBottom: 10 }}></div>
             <Controller
-              name="category"
+              name="secondaryColor"
               control={control}
               defaultValue=""
               rules={{
@@ -306,14 +307,14 @@ export default function LostItem() {
                 <TextField
                   variant="outlined"
                   fullWidth
-                  id="category"
-                  label="Category"
+                  id="secondaryColor"
+                  label="Secondary Color"
                   error={Boolean(errors.category)}
                   helperText={
                     errors.category
                       ? errors.category.type === "minLength"
-                        ? "Category length should be more than 1"
-                        : "Categoryis required"
+                        ? "Secondary length should be more than 1"
+                        : "Secondary color is required"
                       : ""
                   }
                   {...field}
