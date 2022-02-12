@@ -10,6 +10,8 @@ import {
   FilledInput,
   InputAdornment,
   DateRange,
+  Autocomplete,
+  Button,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -57,6 +59,17 @@ export default function LostItem() {
 
   const { result, uploader } = useDisplayImage();
 
+  const options = top100Films.map((option) => {
+    const firstLetter = option.title[0].toUpperCase();
+    return {
+      firstLetter: /[0-9]/.test(firstLetter) ? "0-9" : firstLetter,
+      ...option,
+    };
+  });
+
+  const submitHandler = () => {
+    // insert firebase code here
+  };
   return (
     <Navbar>
       <div>
@@ -127,7 +140,12 @@ export default function LostItem() {
           </List>
         </Grid>
         <Grid item xs={6}>
-          Date Lost
+          {/* Date Lost */}
+          <Typography>Date Lost *</Typography>
+          <span>
+            (Please add the approximate date of when the item was lost.)
+          </span>
+          <div style={{ marginBottom: 10 }}></div>
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
@@ -141,6 +159,7 @@ export default function LostItem() {
               (Animals/Pets, Clothing, Electronics, Personal Accessories etc.)
               This field is required.
             </span>
+
             <div style={{ marginBottom: 10 }}></div>
             <Controller
               name="category"
@@ -171,7 +190,12 @@ export default function LostItem() {
           </List>
         </Grid>
         <Grid item xs={6}>
-          Time Lost
+          {/* Time Lost */}
+          <Typography>Time Lost *</Typography>
+          <span>
+            (Please add the approximate time of day the item was lost.)
+          </span>
+          <div style={{ marginBottom: 10 }}></div>
           <div>
             <Datetime dateFormat={false} style={{ width: "100%" }} />
           </div>
@@ -283,10 +307,6 @@ export default function LostItem() {
               )}
             />
           </List>
-        </Grid>
-        <Grid item xs={6}></Grid>
-
-        <Grid item xs={6}>
           {/* Secondary Item Color */}
           <List className={classes.inputField}>
             <Typography>Secondary Item Color *</Typography>
@@ -324,39 +344,329 @@ export default function LostItem() {
           </List>
         </Grid>
         <Grid item xs={6}>
-          Upload Image
-          <Container
-            style={{
-              minWidth: 200,
-              maxWidth: 200,
-              minHeight: 250,
-              maxHeight: 250,
-            }}
-          >
-            <div className="App">
-              <input
-                type="file"
-                accept=".jpg, .jpeg, .png"
-                value={imageInput}
-                onChange={(e) => {
-                  setImage(e.target.files[0]);
-                  uploader(e);
-                  setImageInput(event.target.value);
-                }}
-              />
-              {result && (
-                <Image
-                  ref={imageRef}
-                  src={result}
-                  width={200}
-                  height={250}
-                  alt=""
+          {/* Upload Image */}
+          <Typography>Upload Image *</Typography>
+          <span>(This image will display on the Website.)</span>
+          <div style={{ marginBottom: 10 }}></div>
+          <div className="App">
+            <input
+              type="file"
+              accept=".jpg, .jpeg, .png"
+              value={imageInput}
+              onChange={(e) => {
+                setImage(e.target.files[0]);
+                uploader(e);
+                setImageInput(event.target.value);
+              }}
+            />
+          </div>
+          {result && (
+            <Image
+              ref={imageRef}
+              src={result}
+              width={200}
+              height={250}
+              alt=""
+            />
+          )}
+        </Grid>
+      </Grid>
+      <br /> <br /> <br /> <br /> <br /> <br />
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={6}>
+          <Typography variant="h3">Location Information</Typography>
+          <br /> <br /> <br />
+        </Grid>
+        <Grid item xs={6}></Grid>
+        <Grid item xs={6}>
+          {/* Where did you Lost It? */}
+          <List className={classes.inputField}>
+            <Typography>Where did you Lost It *</Typography>
+            <span>
+              (Please provide an approximate location of the lost property (Bar,
+              Restaurant, Park, etc.))
+            </span>
+            <div style={{ marginBottom: 10 }}></div>
+            <Autocomplete
+              id="grouped-demo"
+              options={options.sort(
+                (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
+              )}
+              groupBy={(option) => option.firstLetter}
+              getOptionLabel={(option) => option.title}
+              sx={{ width: 300 }}
+              renderInput={(params) => (
+                <TextField {...params} label="Select Type" />
+              )}
+            />
+          </List>
+        </Grid>
+        <Grid item xs={6}>
+          {/* Zip Code */}
+          <List className={classes.inputField}>
+            <Typography>Zip Code *</Typography>
+            <span>
+              (Please provide your zip code(10004, 10028, 10002, etc.) This
+              field may auto-populate.)
+            </span>
+            <div style={{ marginBottom: 10 }}></div>
+            <Controller
+              name="zipCode"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: true,
+                minLength: 2,
+              }}
+              render={({ field }) => (
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="zipCode"
+                  label="Zip Code"
+                  error={Boolean(errors.zipcode)}
+                  helperText={
+                    errors.zipcode
+                      ? errors.zipcode.type === "minLength"
+                        ? "Zip Code length should be more than 1"
+                        : "Zip Code color is required"
+                      : ""
+                  }
+                  {...field}
                 />
               )}
-            </div>
-          </Container>
+            />
+          </List>
+        </Grid>
+        <Grid item xs={6}>
+          {/* Name/Location */}
+          <List className={classes.inputField}>
+            <Typography>Name/Location *</Typography>
+
+            <div style={{ marginBottom: 10 }}></div>
+            <Controller
+              name="nameLocation"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: true,
+                minLength: 2,
+              }}
+              render={({ field }) => (
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="namelocation"
+                  label="Name/Location"
+                  error={Boolean(errors.namelocation)}
+                  helperText={
+                    errors.namelocation
+                      ? errors.namelocation.type === "minLength"
+                        ? "NameLocation Code length should be more than 1"
+                        : "NameLocation Code color is required"
+                      : ""
+                  }
+                  {...field}
+                />
+              )}
+            />
+          </List>
+        </Grid>
+        <Grid item xs={6}></Grid>
+      </Grid>
+      <br /> <br /> <br /> <br /> <br /> <br />
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={6}>
+          <Typography variant="h3">Contact Information</Typography>
+          <br /> <br /> <br />
+        </Grid>
+        <Grid item xs={6}></Grid>
+        <Grid item xs={6}>
+          {/* First Name */}
+          <List className={classes.inputField}>
+            <Typography>First Name *</Typography>
+            <span>
+              (Please enter your first name(This will appear on your
+              submission))
+            </span>
+            <div style={{ marginBottom: 10 }}></div>
+            <Controller
+              name="firstname"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: true,
+                minLength: 2,
+              }}
+              render={({ field }) => (
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="firstname"
+                  label="First Name"
+                  error={Boolean(errors.firstname)}
+                  helperText={
+                    errors.firstname
+                      ? errors.firstname.type === "minLength"
+                        ? "First Name Code length should be more than 1"
+                        : "First Name Code color is required"
+                      : ""
+                  }
+                  {...field}
+                />
+              )}
+            />
+          </List>
+        </Grid>
+        <Grid item xs={6}>
+          {/* Last Name */}
+          <List className={classes.inputField}>
+            <Typography>Last Name *</Typography>
+            <span>
+              (Please enter your last name(This will appear on your submission)
+              )
+            </span>
+            <div style={{ marginBottom: 10 }}></div>
+            <Controller
+              name="lastname"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: true,
+                minLength: 2,
+              }}
+              render={({ field }) => (
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="lastname"
+                  label="Last Name"
+                  error={Boolean(errors.lastname)}
+                  helperText={
+                    errors.lastname
+                      ? errors.lastname.type === "minLength"
+                        ? "Last Name Code length should be more than 1"
+                        : "Last Name Code color is required"
+                      : ""
+                  }
+                  {...field}
+                />
+              )}
+            />
+          </List>
+        </Grid>
+        <Grid item xs={6}>
+          {/* Phone Number */}
+          <Typography>Phone Number *</Typography>
+          <span>
+            (Please enter the phone number to display on your submission )
+          </span>
+          <List className={classes.inputField}>
+            <div style={{ marginBottom: 10 }}></div>
+            <Controller
+              name="phone"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: true,
+                minLength: 11,
+                maxLength: 11,
+              }}
+              render={({ field }) => (
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="tel"
+                  label="Mobile Number"
+                  error={Boolean(errors.phone)}
+                  helperText={
+                    errors.phone
+                      ? errors.phone.type === "minLength"
+                        ? "Phone number length should 11 Digits"
+                        : "Phone number is required"
+                      : ""
+                  }
+                  {...field}
+                />
+              )}
+            />
+          </List>
+        </Grid>
+        <Grid item xs={6}>
+          {/* Email */}
+          <Typography>Email *</Typography>
+          <span>
+            Please enter your email(This will appear on your submission)
+          </span>
+          <List className={classes.inputField}>
+            <Controller
+              name="email"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: true,
+                pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+              }}
+              render={({ field }) => (
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="email"
+                  label="Email"
+                  inputProps={{ type: "email" }}
+                  error={Boolean(errors.email)}
+                  helperText={
+                    errors.email
+                      ? errors.email.type === "pattern"
+                        ? "Email is not valid"
+                        : "Email is required"
+                      : ""
+                  }
+                  {...field}
+                />
+              )}
+            />
+          </List>
+        </Grid>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Grid item xs={6}></Grid>
+          <Grid item xs={2.9}></Grid>
+
+          <Grid item xs={3}>
+            <List>
+              <ListItem>
+                <Button
+                  style={{
+                    background: "#366e97",
+                    color: "white",
+                    width: "150px",
+                    height: "70px",
+                  }}
+                  onSubmit={handleSubmit(submitHandler)}
+                >
+                  Submit
+                </Button>
+              </ListItem>
+            </List>
+          </Grid>
         </Grid>
       </Grid>
     </Navbar>
   );
 }
+
+const top100Films = [
+  { title: "Cafe" },
+  { title: "Restaurant" },
+  { title: "Church" },
+  { title: "Hotel" },
+  { title: "House" },
+  { title: "Motel" },
+  { title: "Bar" },
+  { title: "Barangay Hall" },
+  { title: "Plaza" },
+  { title: "Covered Court" },
+  { title: "Jeep" },
+  { title: "Taxi" },
+  { title: "Autoparts" },
+];
