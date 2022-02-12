@@ -80,15 +80,13 @@ export default function Navbar({ title, children }) {
           </NextLink>
           <NextLink href="/found-item" passHref>
             <Link color="inherit" underline="hover">
-              <Typography className={classes.textStyle}>
-                VIEW FOUND ITEM
-              </Typography>
+              <Typography className={classes.textStyle}>CLAIM ITEM</Typography>
             </Link>
           </NextLink>
           <NextLink href="/recent-item" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
-                VIEW RECENT POST
+                VIEW CLAIMED ITEMS
               </Typography>
             </Link>
           </NextLink>

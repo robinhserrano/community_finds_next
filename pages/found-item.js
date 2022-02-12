@@ -18,7 +18,7 @@ import { Controller, useForm } from "react-hook-form";
 import Navbar from "../components/Navbar";
 import useStyles from "../utils/styles";
 import Image from "next/image";
-import sideImage from "../public/images/search.png";
+import sideImage from "../public/images/serach.png";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -27,7 +27,7 @@ import Datetime from "react-datetime";
 
 //
 
-export default function LostItem() {
+export default function FoundItem() {
   const [startDate, setStartDate] = useState(new Date());
 
   const classes = useStyles();
@@ -76,12 +76,12 @@ export default function LostItem() {
         <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
-            <Typography variant="h3">Submit Lost Items</Typography>
+            <Typography variant="h3">Submit Found Items</Typography>
             <br /> <br />
             <Typography variant="h5">✔ </Typography>
             <br /> <br />
             <Typography variant="h5">
-              ✔ Users are able to view lost items.{" "}
+              ✔ Users are able to view found items.{" "}
             </Typography>
             <br /> <br />
             <Typography variant="h5">
@@ -90,9 +90,9 @@ export default function LostItem() {
             <br /> <br />
             <Typography variant="h7">
               <b style={{ color: "red" }}>* </b>
-              Please be descriptive when submitting your lost property report,
-              the more information you give us the better chance you have of
-              retrieving your items.
+              Please be descriptive when reporting found property, the more
+              information you give us the better chance we have of reuniting the
+              lost property to the owne
             </Typography>
           </Grid>
           <Grid item xs={6}>
@@ -103,16 +103,16 @@ export default function LostItem() {
       {/* pasok sa grid para mahati screeen sosa */}
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
-          {/* item Lost */}
+          {/* item found */}
           <List className={classes.inputField}>
-            <Typography>Item Lost *</Typography>
+            <Typography>Item Found *</Typography>
             <span>
               (Dog, Jacket, Smartphone, Wallet, etc.) This field may
               auto-populate
             </span>
             <div style={{ marginBottom: 10 }}></div>
             <Controller
-              name="itemLost"
+              name="itemFound"
               control={control}
               defaultValue=""
               rules={{
@@ -123,14 +123,14 @@ export default function LostItem() {
                 <TextField
                   variant="outlined"
                   fullWidth
-                  id="itemLost"
-                  label="Item Lost"
-                  error={Boolean(errors.itemLost)}
+                  id="itemFound"
+                  label="Item Found"
+                  error={Boolean(errors.itemFound)}
                   helperText={
-                    errors.itemLost
-                      ? errors.itemLost.type === "minLength"
-                        ? "Lost item length should be than 1"
-                        : "Lost item is required"
+                    errors.itemFound
+                      ? errors.itemFound.type === "minLength"
+                        ? "Found item length should be than 1"
+                        : "Found item is required"
                       : ""
                   }
                   {...field}
@@ -140,10 +140,10 @@ export default function LostItem() {
           </List>
         </Grid>
         <Grid item xs={6}>
-          {/* Date Lost */}
-          <Typography>Date Lost *</Typography>
+          {/* Date Found */}
+          <Typography>Date Found *</Typography>
           <span>
-            (Please add the approximate date of when the item was lost.)
+            (Please add the approximate date of when the item was Found.)
           </span>
           <div style={{ marginBottom: 10 }}></div>
           <DatePicker
@@ -190,10 +190,10 @@ export default function LostItem() {
           </List>
         </Grid>
         <Grid item xs={6}>
-          {/* Time Lost */}
-          <Typography>Time Lost *</Typography>
+          {/* Time Found */}
+          <Typography>Time Found *</Typography>
           <span>
-            (Please add the approximate time of day the item was lost.)
+            (Please add the approximate time of day the item was found.)
           </span>
           <div style={{ marginBottom: 10 }}></div>
           <div>
@@ -239,7 +239,7 @@ export default function LostItem() {
           <List className={classes.inputField}>
             <Typography>Additional Information *</Typography>
             <span>
-              Please provide any additional details/description of your lost
+              Please provide any additional details/description of your found
               property.
             </span>
             <div style={{ marginBottom: 10 }}></div>
@@ -276,7 +276,7 @@ export default function LostItem() {
           <List className={classes.inputField}>
             <Typography>Primary Color *</Typography>
             <span>
-              Please add the color that best represents the lost property
+              Please add the color that best represents the found property
               (Black, Red, Blue, etc.)
             </span>
             <div style={{ marginBottom: 10 }}></div>
@@ -379,12 +379,12 @@ export default function LostItem() {
         </Grid>
         <Grid item xs={6}></Grid>
         <Grid item xs={6}>
-          {/* Where did you Lost It? */}
+          {/* Where did you Found It? */}
           <List className={classes.inputField}>
-            <Typography>Where did you Lost It *</Typography>
+            <Typography>Where did you Found It *</Typography>
             <span>
-              (Please provide an approximate location of the lost property (Bar,
-              Restaurant, Park, etc.))
+              (Please provide an approximate location of the found property
+              (Bar, Restaurant, Park, etc.))
             </span>
             <div style={{ marginBottom: 10 }}></div>
             <Autocomplete
