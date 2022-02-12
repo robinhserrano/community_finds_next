@@ -24,6 +24,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datetime/css/react-datetime.css";
 import Datetime from "react-datetime";
+import { app, db } from "../lib/firebase";
+import { addDoc, collection } from "@firebase/firestore";
+import { v4 as uuidv4, v4 } from "uuid";
 
 //
 
@@ -67,8 +70,34 @@ export default function LostItem() {
     };
   });
 
+  const lostdDate = startDate.toString();
+
   const submitHandler = () => {
-    // insert firebase code here
+    var lostItemId = v4();
+    try {
+      addDoc(collection(db, "lost-item"), {
+        //item lost
+        id: lostItemId,
+        name: itemLost,
+        category: category,
+        brand: brand,
+        primaryColor: primaryColor,
+        secondaryColor: secondaryColor,
+        image: result,
+        zipcode: zipCode,
+        location: nameLocation,
+        information: information,
+        date: lostdDate,
+        // timeLost:
+        //contact
+        fName: firstname,
+        lName: lastname,
+        mobile: tel,
+        email: email,
+      }).then(() => alert("Missing File Submitted to Cloud Firestore"));
+    } catch (err) {
+      alert(err);
+    }
   };
   return (
     <Navbar>
@@ -456,12 +485,12 @@ export default function LostItem() {
                 <TextField
                   variant="outlined"
                   fullWidth
-                  id="namelocation"
+                  id="nameLocation"
                   label="Name/Location"
                   error={Boolean(errors.namelocation)}
                   helperText={
-                    errors.namelocation
-                      ? errors.namelocation.type === "minLength"
+                    errors.nameLocation
+                      ? errors.nameLocation.type === "minLength"
                         ? "NameLocation Code length should be more than 1"
                         : "NameLocation Code color is required"
                       : ""
@@ -642,7 +671,7 @@ export default function LostItem() {
                     width: "150px",
                     height: "70px",
                   }}
-                  onSubmit={handleSubmit(submitHandler)}
+                  onClick={handleSubmit(submitHandler)}
                 >
                   Submit
                 </Button>
