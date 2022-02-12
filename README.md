@@ -39,3 +39,8 @@ Day 02, February 08, 2022
 Day 03, February 09, 2022
 1. Index.js content
 2. Submit lost item creation
+
+Day 04, February 12, 2022
+1. Finishing Submit Lost Item UI
+2. Implementing Mapbox 
+3. Implementing Firebase Firestore in the Lost Item
