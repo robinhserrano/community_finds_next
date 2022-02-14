@@ -75,26 +75,28 @@ export default function LostItem() {
   const submitHandler = () => {
     var lostItemId = v4();
     try {
-      addDoc(collection(db, "lost-item"), {
-        //item lost
-        id: lostItemId,
-        name: itemLost,
-        category: category,
-        brand: brand,
-        primaryColor: primaryColor,
-        secondaryColor: secondaryColor,
-        image: result,
-        zipcode: zipCode,
-        location: nameLocation,
-        information: information,
-        date: lostdDate,
-        // timeLost:
-        //contact
-        fName: firstname,
-        lName: lastname,
-        mobile: tel,
-        email: email,
-      }).then(() => alert("Missing File Submitted to Cloud Firestore"));
+      app
+        .firestore(collection(db, "missingItems"), {
+          //item lost
+          id: lostItemId,
+          name: itemLost,
+          category: category,
+          brand: brand,
+          primaryColor: primaryColor,
+          secondaryColor: secondaryColor,
+          image: result,
+          zipcode: zipCode,
+          location: nameLocation,
+          information: information,
+          date: lostdDate,
+          // timeLost:
+          //contact
+          fName: firstname,
+          lName: lastname,
+          mobile: tel,
+          email: email,
+        })
+        .then(() => alert("Missing File Submitted to Cloud Firestore"));
     } catch (err) {
       alert(err);
     }
