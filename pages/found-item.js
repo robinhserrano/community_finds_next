@@ -36,6 +36,7 @@ import clothingIcon from "../public/images/clothing.png";
 import electronicsIcon from "../public/images/electronics.png";
 import keysIcon from "../public/images/keys.png";
 import walletIcon from "../public/images/wallet.png";
+import ProductCard from "../components/Product";
 
 //
 
@@ -197,6 +198,7 @@ export default function FoundItem() {
               />
             </div>
           </Grid>
+          {/* <ProductCard /> */}
         </Grid>
       </div>
     </Navbar>

@@ -76,7 +76,7 @@ export default function LostItem() {
     var lostItemId = v4();
     try {
       app
-        .firestore(collection(db, "missingItems"), {
+        .addDoc(collection(db, "missingItems"), {
           //item lost
           id: lostItemId,
           name: itemLost,
@@ -101,7 +101,6 @@ export default function LostItem() {
       alert(err);
     }
   };
-
   return (
     <Navbar>
       <div>
