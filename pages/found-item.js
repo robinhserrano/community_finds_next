@@ -88,8 +88,8 @@ export default function FoundItem() {
                 style={{ display: "flex" }}
                 className={classes.parentFlexRight}
               >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={allIcon} height={50} width={50} alt="all-icon" />
+                <div style={{ marginTop: 50, marginBottom: 30 }} />
+                <Image src={allIcon} height={30} width={30} alt="all-icon" />
                 <Typography variant="h5" className={classes.categoriesGrow}>
                   All
                 </Typography>
@@ -101,8 +101,8 @@ export default function FoundItem() {
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={animalIcon}
-                  height={50}
-                  width={50}
+                  height={30}
+                  width={30}
                   alt="animal-icon"
                 />
                 <Typography variant="h5" className={classes.categoriesGrow}>
@@ -114,7 +114,7 @@ export default function FoundItem() {
                 className={classes.parentFlexRight}
               >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={bagIcon} height={50} width={50} alt="bag-icon" />
+                <Image src={bagIcon} height={30} width={30} alt="bag-icon" />
                 <Typography variant="h5" className={classes.categoriesGrow}>
                   Bags
                 </Typography>
@@ -124,7 +124,7 @@ export default function FoundItem() {
                 className={classes.parentFlexRight}
               >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={cashIcon} height={50} width={50} alt="cash-icon" />
+                <Image src={cashIcon} height={30} width={30} alt="cash-icon" />
                 <Typography variant="h5" className={classes.categoriesGrow}>
                   Cash
                 </Typography>
@@ -136,8 +136,8 @@ export default function FoundItem() {
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={clothingIcon}
-                  height={50}
-                  width={50}
+                  height={30}
+                  width={30}
                   alt="clothing-icon"
                 />
                 <Typography variant="h5" className={classes.categoriesGrow}>
@@ -152,8 +152,8 @@ export default function FoundItem() {
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={electronicsIcon}
-                  height={50}
-                  width={50}
+                  height={30}
+                  width={30}
                   alt="electronics-icon"
                 />
                 <Typography variant="h5" className={classes.categoriesGrow}>
@@ -165,7 +165,7 @@ export default function FoundItem() {
                 className={classes.parentFlexRight}
               >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={keysIcon} height={50} width={50} alt="key-icon" />
+                <Image src={keysIcon} height={30} width={30} alt="key-icon" />
                 <Typography variant="h5" className={classes.categoriesGrow}>
                   Keys
                 </Typography>
@@ -177,8 +177,8 @@ export default function FoundItem() {
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={walletIcon}
-                  height={50}
-                  width={50}
+                  height={30}
+                  width={30}
                   alt="wallet-icon"
                 />
                 <Typography variant="h5" className={classes.categoriesGrow}>
