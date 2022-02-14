@@ -12,6 +12,11 @@ import {
   DateRange,
   Autocomplete,
   Button,
+  Card,
+  CardHeader,
+  CardContent,
+  CardActionArea,
+  CardMedia,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -19,11 +24,18 @@ import Navbar from "../components/Navbar";
 import useStyles from "../utils/styles";
 import Image from "next/image";
 import sideImage from "../public/images/serach.png";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datetime/css/react-datetime.css";
 import Datetime from "react-datetime";
+import allIcon from "../public/images/all.png";
+import animalIcon from "../public/images/animal.png";
+import bagIcon from "../public/images/bag.png";
+import cashIcon from "../public/images/cash.png";
+import clothingIcon from "../public/images/clothing.png";
+import electronicsIcon from "../public/images/electronics.png";
+import keysIcon from "../public/images/keys.png";
+import walletIcon from "../public/images/wallet.png";
 
 //
 
@@ -67,33 +79,66 @@ export default function FoundItem() {
       <div>
         <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={3} style={{ borderStyle: "solid", fontSize: 30 }}>
-            Categories
-            <Grid item xs={6}>
-              *Electronics
-            </Grid>
-            <Grid item xs={6}>
-              *Bags
-            </Grid>
-            <Grid item xs={6}>
-              *Animals
-            </Grid>
-            <Grid item xs={6}>
-              *Keys
-            </Grid>
-            <Grid item xs={6}>
-              *Wallet
-            </Grid>
-            <Grid item xs={6}>
-              *Clothing
-            </Grid>
-            <Grid item xs={6}>
-              *Cash
-            </Grid>
-            <Grid item xs={6}>
-              *Dignity
-            </Grid>
+          <Grid item xs={3}>
+            <Card style={{ width: 250 }}>
+              <CardContent align="center" style={{ borderStyle: "solid" }}>
+                <Typography variant="h4">Categories</Typography>
+              </CardContent>
+              <CardActionArea style={{ display: "flex" }}>
+                <Image src={allIcon} height={30} width={30} alt="all-icon" />
+                <Typography variant="h5">All</Typography>
+              </CardActionArea>
+              <CardActionArea style={{ display: "flex" }}>
+                <Image
+                  src={animalIcon}
+                  height={30}
+                  width={30}
+                  alt="animal-icon"
+                />
+                <Typography variant="h5">Animals</Typography>
+              </CardActionArea>
+              <CardActionArea style={{ display: "flex" }}>
+                <Image src={bagIcon} height={30} width={30} alt="bag-icon" />
+                <Typography variant="h5">Bags</Typography>
+              </CardActionArea>
+              <CardActionArea style={{ display: "flex" }}>
+                <Image src={cashIcon} height={30} width={30} alt="cash-icon" />
+                <Typography variant="h5">Cash</Typography>
+              </CardActionArea>
+              <CardActionArea style={{ display: "flex" }}>
+                <Image
+                  src={clothingIcon}
+                  height={30}
+                  width={30}
+                  alt="clothing-icon"
+                />
+                <Typography variant="h5">Clothing</Typography>
+              </CardActionArea>
+              <CardActionArea style={{ display: "flex" }}>
+                <Image
+                  src={electronicsIcon}
+                  height={30}
+                  width={30}
+                  alt="electronics-icon"
+                />
+                <Typography variant="h5">Electronics</Typography>
+              </CardActionArea>
+              <CardActionArea style={{ display: "flex" }}>
+                <Image src={keysIcon} height={30} width={30} alt="key-icon" />
+                <Typography variant="h5">Keys</Typography>
+              </CardActionArea>
+              <CardActionArea style={{ display: "flex" }}>
+                <Image
+                  src={walletIcon}
+                  height={30}
+                  width={30}
+                  alt="wallet-icon"
+                />
+                <Typography variant="h5">Wallet</Typography>
+              </CardActionArea>
+            </Card>
           </Grid>
+
           <Grid item xs={9}>
             <div className={classes.searchContainer}>
               <input
@@ -102,7 +147,6 @@ export default function FoundItem() {
                 placeholder="Search/Enter the Item your looking for here"
               />
             </div>
-            search at card
           </Grid>
         </Grid>
       </div>
