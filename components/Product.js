@@ -43,8 +43,8 @@ export default function ProductCard(props) {
           <CardMedia>
             component="img" title={card.itemLost}
             image={card.itemLost}
-            height={300}
-            width={300}
+            height={150}
+            width={150}
             alt={"no image"}
           </CardMedia>
           <CardActionArea>

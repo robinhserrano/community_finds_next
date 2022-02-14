@@ -12,7 +12,7 @@ How to extract files from the Github
 1. Git Clone or download the zip file.
 2. Open in VsCode in the right folder directory.
 3. npm i  (to install the node modules and .next files)
-4. the run the program -> npm run dev
+4. then run the program -> npm run dev
 
 First, run the development server:
 
