@@ -48,6 +48,17 @@ const useStyles = makeStyles({
   inputField: {
     width: 550,
   },
+  searchContainer: {
+    position: "center",
+    textAlign: "center",
+    marginTop: "20px",
+    borderRadius: 50,
+  },
+  search: {
+    padding: "10px",
+    width: "40vw",
+    fontSize: "20px",
+  },
 });
 
 export default useStyles;
