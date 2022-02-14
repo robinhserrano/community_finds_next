@@ -84,66 +84,106 @@ export default function FoundItem() {
               <CardContent align="center" style={{ borderStyle: "solid" }}>
                 <Typography variant="h4">Categories</Typography>
               </CardContent>
-              <CardActionArea style={{ display: "flex" }}>
+              <CardActionArea
+                style={{ display: "flex" }}
+                className={classes.parentFlexRight}
+              >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={allIcon} height={30} width={30} alt="all-icon" />
-                <Typography variant="h5">All</Typography>
+                <Image src={allIcon} height={50} width={50} alt="all-icon" />
+                <Typography variant="h5" className={classes.categoriesGrow}>
+                  All
+                </Typography>
               </CardActionArea>
-              <CardActionArea style={{ display: "flex" }}>
+              <CardActionArea
+                style={{ display: "flex" }}
+                className={classes.parentFlexRight}
+              >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={animalIcon}
-                  height={30}
-                  width={30}
+                  height={50}
+                  width={50}
                   alt="animal-icon"
                 />
-                <Typography variant="h5">Animals</Typography>
+                <Typography variant="h5" className={classes.categoriesGrow}>
+                  Animals
+                </Typography>
               </CardActionArea>
-              <CardActionArea style={{ display: "flex" }}>
+              <CardActionArea
+                style={{ display: "flex" }}
+                className={classes.parentFlexRight}
+              >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={bagIcon} height={30} width={30} alt="bag-icon" />
-                <Typography variant="h5">Bags</Typography>
+                <Image src={bagIcon} height={50} width={50} alt="bag-icon" />
+                <Typography variant="h5" className={classes.categoriesGrow}>
+                  Bags
+                </Typography>
               </CardActionArea>
-              <CardActionArea style={{ display: "flex" }}>
+              <CardActionArea
+                style={{ display: "flex" }}
+                className={classes.parentFlexRight}
+              >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={cashIcon} height={30} width={30} alt="cash-icon" />
-                <Typography variant="h5">Cash</Typography>
+                <Image src={cashIcon} height={50} width={50} alt="cash-icon" />
+                <Typography variant="h5" className={classes.categoriesGrow}>
+                  Cash
+                </Typography>
               </CardActionArea>
-              <CardActionArea style={{ display: "flex" }}>
+              <CardActionArea
+                style={{ display: "flex" }}
+                className={classes.parentFlexRight}
+              >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={clothingIcon}
-                  height={30}
-                  width={30}
+                  height={50}
+                  width={50}
                   alt="clothing-icon"
                 />
-                <Typography variant="h5">Clothing</Typography>
+                <Typography variant="h5" className={classes.categoriesGrow}>
+                  Clothing
+                </Typography>
               </CardActionArea>
 
-              <CardActionArea style={{ display: "flex" }}>
+              <CardActionArea
+                style={{ display: "flex" }}
+                className={classes.parentFlexRight}
+              >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={electronicsIcon}
-                  height={30}
-                  width={30}
+                  height={50}
+                  width={50}
                   alt="electronics-icon"
                 />
-                <Typography variant="h5">Electronics</Typography>
+                <Typography variant="h5" className={classes.categoriesGrow}>
+                  Electronics
+                </Typography>
               </CardActionArea>
-              <CardActionArea style={{ display: "flex" }}>
+              <CardActionArea
+                style={{ display: "flex" }}
+                className={classes.parentFlexRight}
+              >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={keysIcon} height={30} width={30} alt="key-icon" />
-                <Typography variant="h5">Keys</Typography>
+                <Image src={keysIcon} height={50} width={50} alt="key-icon" />
+                <Typography variant="h5" className={classes.categoriesGrow}>
+                  Keys
+                </Typography>
               </CardActionArea>
-              <CardActionArea style={{ display: "flex" }}>
+              <CardActionArea
+                style={{ display: "flex" }}
+                className={classes.parentFlexRight}
+              >
                 <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={walletIcon}
-                  height={30}
-                  width={30}
+                  height={50}
+                  width={50}
                   alt="wallet-icon"
                 />
-                <Typography variant="h5">Wallet</Typography>
+                <Typography variant="h5" className={classes.categoriesGrow}>
+                  Wallet
+                </Typography>
               </CardActionArea>
             </Card>
           </Grid>

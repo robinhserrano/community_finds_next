@@ -25,6 +25,9 @@ const useStyles = makeStyles({
   toolbarGrow: {
     flexGrow: 0.66,
   },
+  categoriesGrow: {
+    marginLeft: "60px",
+  },
 
   textStyle: {
     font: "SansSerif",
@@ -58,6 +61,13 @@ const useStyles = makeStyles({
     padding: "10px",
     width: "40vw",
     fontSize: "20px",
+  },
+  leftAlignItem: {
+    marginRight: "auto",
+  },
+  parentFlexRight: {
+    display: "flex",
+    justifyContent: "flex-start",
   },
 });
 
