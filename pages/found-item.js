@@ -85,10 +85,12 @@ export default function FoundItem() {
                 <Typography variant="h4">Categories</Typography>
               </CardContent>
               <CardActionArea style={{ display: "flex" }}>
+                <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image src={allIcon} height={30} width={30} alt="all-icon" />
                 <Typography variant="h5">All</Typography>
               </CardActionArea>
               <CardActionArea style={{ display: "flex" }}>
+                <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={animalIcon}
                   height={30}
@@ -98,14 +100,17 @@ export default function FoundItem() {
                 <Typography variant="h5">Animals</Typography>
               </CardActionArea>
               <CardActionArea style={{ display: "flex" }}>
+                <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image src={bagIcon} height={30} width={30} alt="bag-icon" />
                 <Typography variant="h5">Bags</Typography>
               </CardActionArea>
               <CardActionArea style={{ display: "flex" }}>
+                <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image src={cashIcon} height={30} width={30} alt="cash-icon" />
                 <Typography variant="h5">Cash</Typography>
               </CardActionArea>
               <CardActionArea style={{ display: "flex" }}>
+                <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={clothingIcon}
                   height={30}
@@ -114,7 +119,9 @@ export default function FoundItem() {
                 />
                 <Typography variant="h5">Clothing</Typography>
               </CardActionArea>
+
               <CardActionArea style={{ display: "flex" }}>
+                <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={electronicsIcon}
                   height={30}
@@ -124,10 +131,12 @@ export default function FoundItem() {
                 <Typography variant="h5">Electronics</Typography>
               </CardActionArea>
               <CardActionArea style={{ display: "flex" }}>
+                <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image src={keysIcon} height={30} width={30} alt="key-icon" />
                 <Typography variant="h5">Keys</Typography>
               </CardActionArea>
               <CardActionArea style={{ display: "flex" }}>
+                <div style={{ marginTop: 30, marginBottom: 30 }} />
                 <Image
                   src={walletIcon}
                   height={30}
