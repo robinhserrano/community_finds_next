@@ -70,6 +70,7 @@ export default function LostItem() {
   const submitHandler = () => {
     // insert firebase code here
   };
+
   return (
     <Navbar>
       <div>
