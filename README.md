@@ -44,3 +44,8 @@ Day 04, February 12, 2022
 1. Finishing Submit Lost Item UI
 2. Implementing Mapbox 
 3. Implementing Firebase Firestore in the Lost Item
+
+Day 05, February 14, 2022
+1. Creating pages
+2. Applying filter
+3. creation of card Items
