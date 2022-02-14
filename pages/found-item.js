@@ -88,7 +88,7 @@ export default function FoundItem() {
                 style={{ display: "flex" }}
                 className={classes.parentFlexRight}
               >
-                <div style={{ marginTop: 50, marginBottom: 30 }} />
+                <div style={{ marginTop: 50, marginBottom: 20 }} />
                 <Image src={allIcon} height={30} width={30} alt="all-icon" />
                 <Typography variant="h5" className={classes.categoriesGrow}>
                   All
