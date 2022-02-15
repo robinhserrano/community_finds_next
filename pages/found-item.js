@@ -188,17 +188,20 @@ export default function FoundItem() {
               </CardActionArea>
             </Card>
           </Grid>
-
           <Grid item xs={9}>
-            <div className={classes.searchContainer}>
+            <div
+              className={classes.searchContainer}
+              style={{ marginBottom: "20px" }}
+            >
               <input
                 type="search"
                 className={classes.search}
                 placeholder="Search/Enter the Item your looking for here"
               />
             </div>
+            {/* <ProductCard /> */}
+            <ProductCard />
           </Grid>
-          {/* <ProductCard /> */}
         </Grid>
       </div>
     </Navbar>
