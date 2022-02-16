@@ -13,8 +13,9 @@ import {
 } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app, db, auth } from "../lib/firebase";
-import { collection, addDoc, doc } from "firebase/firestore";
+import { auth, firestore } from "../lib/firebase";
+import firebase from "firebase/compat/app";
+// import { collection, addDoc, doc } from "firebase/firestore";
 import Image from "next/image";
 import bgImage from "../public/images/register.jpg";
 // import firebase from 'firebase/compat/app';
@@ -45,23 +46,26 @@ export default function Register() {
         createUserWithEmailAndPassword(auth, email, password)
           .then((authUser) => {
             console.log(authUser.user.uid);
+            console.log("Success. The user is created in firebase");
 
-            addDoc(collection(db, "users"), {
-              id: authUser.user.uid,
-              name: name,
-              email: email,
-              password: password,
-              phone: phone,
-              role: "user",
-            })
-              .then(() => console.log("DATA"))
-              .catch(() => console.log("Failed"));
-            alert("Success. The user is created in firebase");
-            router.push("/login");
+            firebase
+              .firestore()
+              .collection("users")
+              .doc(authUser.user.uid)
+              .set({
+                id: authUser.user.uid,
+                name: name,
+                email: email,
+                phone: phone,
+                password: password,
+                role: "user",
+              })
+              .then(alert("The User  was now saved."));
           })
           .catch((error) => {
             console.log(error.message);
           });
+        router.push("/login");
       } catch (err) {
         alert(err);
       }

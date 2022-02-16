@@ -19,14 +19,14 @@ import Navbar from "../components/Navbar";
 import useStyles from "../utils/styles";
 import Image from "next/image";
 import sideImage from "../public/images/search.png";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datetime/css/react-datetime.css";
 import Datetime from "react-datetime";
-import { app, db } from "../lib/firebase";
-import { addDoc, collection } from "@firebase/firestore";
 import { v4 as uuidv4, v4 } from "uuid";
+import "firebase/compat/firestore";
+import firebase from "firebase/compat/app";
+import { firestore, postToJSON } from "../lib/firebase";
 
 //
 
@@ -75,26 +75,28 @@ export default function LostItem() {
   const submitHandler = () => {
     var lostItemId = v4();
     try {
-      app
-        .addDoc(collection(db, "missingItems"), {
-          //item lost
-          id: lostItemId,
-          name: itemLost,
-          category: category,
-          brand: brand,
-          primaryColor: primaryColor,
-          secondaryColor: secondaryColor,
-          image: result,
-          zipcode: zipCode,
-          location: nameLocation,
-          information: information,
-          date: lostdDate,
-          // timeLost:
-          //contact
-          fName: firstname,
-          lName: lastname,
-          mobile: tel,
-          email: email,
+      firebase
+        .firestore()
+        .collection("missingItems")
+        .doc(lostItemId)
+        .set({
+          // itemLost: itemLost,
+          // category: category,
+          // brand: brand,
+          // primaryColor: primaryColor,
+          // secondaryColor: secondaryColor,
+          // image: result,
+          // zipcode: zipCode,
+          // location: nameLocation,
+          // information: information,
+          // date: lostdDate,
+          // // timeLost:
+          // //contact
+          // fName: firstname,
+          // lName: lastname,
+          // mobile: phone,
+          // email: email,
+          status: "missing",
         })
         .then(() => alert("Missing File Submitted to Cloud Firestore"));
     } catch (err) {
