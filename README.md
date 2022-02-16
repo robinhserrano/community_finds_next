@@ -49,3 +49,8 @@ Day 05, February 14, 2022
 1. Creating pages
 2. Applying filter
 3. creation of card Items
+
+Day 06, February 16, 2022
+1. Added Content to Homepage
+2. Added Redux
+3. Debugging Firebase

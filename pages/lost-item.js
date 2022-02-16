@@ -80,7 +80,7 @@ export default function LostItem() {
         .collection("missingItems")
         .doc(lostItemId)
         .set({
-          // itemLost: itemLost,
+          name: itemLost,
           // category: category,
           // brand: brand,
           // primaryColor: primaryColor,
@@ -675,7 +675,7 @@ export default function LostItem() {
                     width: "150px",
                     height: "70px",
                   }}
-                  onClick={handleSubmit(submitHandler)}
+                  type="submit"
                 >
                   Submit
                 </Button>
