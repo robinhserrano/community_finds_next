@@ -38,6 +38,7 @@ import keysIcon from "../public/images/keys.png";
 import walletIcon from "../public/images/wallet.png";
 import { firestore, postToJSON } from "../lib/firebase";
 import NextLink from "next/link";
+
 //
 export async function getServerSideProps() {
   const postsQuery = firestore.collectionGroup("missingItems");

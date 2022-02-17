@@ -28,6 +28,8 @@ import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 import { firestore, postToJSON } from "../lib/firebase";
 
+import { useSelector, useDispatch } from "react-redux";
+import { ITEM_OWNER_INFORMATION } from "../redux/actionTypes";
 //
 
 export default function LostItem() {
@@ -41,8 +43,12 @@ export default function LostItem() {
   } = useForm();
 
   const [imageInput, setImageInput] = useState("");
+
   const [image, setImage] = React.useState("");
   const imageRef = React.useRef(null);
+  const dispatch = useDispatch();
+  const { itemimageValue } = useSelector((state) => state.page);
+
   function useDisplayImage() {
     const [result, setResult] = React.useState("");
 
@@ -101,7 +107,7 @@ export default function LostItem() {
           brand: brand,
           primaryColor: primaryColor,
           secondaryColor: secondaryColor,
-          // image: result,
+          image: itemimageValue,
           zipcode: zipCode,
           location: nameLocation,
           information: information,
@@ -420,6 +426,16 @@ export default function LostItem() {
                 alt=""
               />
             )}
+            <button
+              onClick={() =>
+                dispatch({
+                  type: ITEM_OWNER_INFORMATION,
+                  payload: { itemimageValue: result },
+                })
+              }
+            >
+              Save Image
+            </button>
           </Grid>
         </Grid>
         <br /> <br /> <br /> <br /> <br /> <br />
