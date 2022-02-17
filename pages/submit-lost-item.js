@@ -13,6 +13,10 @@ import {
   Autocomplete,
   Button,
   Input,
+  InputLabel,
+  MenuItem,
+  Select,
+  ListSubheader,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -34,6 +38,17 @@ import { ITEM_OWNER_INFORMATION } from "../redux/actionTypes";
 //
 
 export default function LostItem() {
+  const [category, setCategory] = React.useState("");
+  const [typelocation, setTypeLocation] = React.useState("");
+
+  const handleChange = (event) => {
+    setCategory(event.target.value);
+  };
+
+  const handleChanges = (event) => {
+    setTypeLocation(event.target.value);
+  };
+
   const [startDate, setStartDate] = useState(new Date());
 
   const classes = useStyles();
@@ -81,7 +96,6 @@ export default function LostItem() {
 
   const submitHandler = async ({
     itemLost,
-    category,
     brand,
     primaryColor,
     secondaryColor,
@@ -112,7 +126,7 @@ export default function LostItem() {
           location: nameLocation,
           information: information,
           date: lostdDate,
-          // locationtype: ,
+          locationtype: typelocation,
           //mapbox:
           // timeLost:
           firstname: firstname,
@@ -126,6 +140,21 @@ export default function LostItem() {
       alert(err);
     }
   };
+
+  const animal = "Animals";
+  const bags = "Bags";
+  const cash = "Cash";
+  const clothing = "Clothing";
+  const electronics = "Electronics";
+  const keys = "Keys";
+  const wallet = "Wallet";
+  const bhall = "Barangay Hall";
+  const plaze = "Plaza";
+  const ccourt = "Covered Court";
+  const jeep = "Jeep";
+  const taxi = "Taxi";
+  const autoparts = "Autoparts";
+
   return (
     <Navbar>
       <div>
@@ -216,34 +245,33 @@ export default function LostItem() {
                 (Animals/Pets, Clothing, Electronics, Personal Accessories etc.)
                 This field is required.
               </span>
-
               <div style={{ marginBottom: 10 }}></div>
-              <Controller
-                name="category"
-                control={control}
-                defaultValue=""
-                rules={{
-                  required: true,
-                  minLength: 2,
-                }}
-                render={({ field }) => (
-                  <TextField
-                    variant="outlined"
-                    fullWidth
-                    id="category"
-                    label="Category"
-                    error={Boolean(errors.category)}
-                    helperText={
-                      errors.category
-                        ? errors.category.type === "minLength"
-                          ? "Category length should be more than 1"
-                          : "Categoryis required"
-                        : ""
-                    }
-                    {...field}
-                  />
-                )}
-              />
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Categories
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={category}
+                  label="Category"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={animal}>Animals</MenuItem>
+                  <MenuItem value={bags}>Bags</MenuItem>
+                  <MenuItem value={cash}>Cash</MenuItem>
+                  <MenuItem value={clothing}>Clothing</MenuItem>
+                  <MenuItem value={electronics}>Electronics</MenuItem>
+                  <MenuItem value={keys}>Keys</MenuItem>
+                  <MenuItem value={wallet}>Wallet</MenuItem>
+                  <MenuItem value={bhall}>Barangay Hall</MenuItem>
+                  <MenuItem value={plaze}>Plaza</MenuItem>
+                  <MenuItem value={ccourt}>Covered Court</MenuItem>
+                  <MenuItem value={jeep}>Jeep</MenuItem>
+                  <MenuItem value={taxi}>Taxi</MenuItem>
+                  <MenuItem value={autoparts}>Autoparts</MenuItem>
+                </Select>
+              </FormControl>
             </List>
           </Grid>
           <Grid item xs={6}>
@@ -465,18 +493,74 @@ export default function LostItem() {
                 (Bar, Restaurant, Park, etc.))
               </span>
               <div style={{ marginBottom: 10 }}></div>
-              <Autocomplete
-                id="grouped-demo"
-                options={options.sort(
-                  (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
-                )}
-                groupBy={(option) => option.firstLetter}
-                getOptionLabel={(option) => option.title}
-                sx={{ width: 300 }}
-                renderInput={(params) => (
-                  <TextField {...params} label="Select Type" />
-                )}
-              />
+              <FormControl fullWidth>
+                <InputLabel htmlFor="grouped-select">Select Type</InputLabel>
+                <Select
+                  defaultValue=""
+                  id="grouped-select"
+                  value={typelocation}
+                  label="Type Location"
+                  onChange={handleChanges}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <ListSubheader
+                    style={{
+                      background: "lightgray",
+                      fontSize: "30px",
+                    }}
+                  >
+                    SUBDIVISION/VILLAGE
+                  </ListSubheader>
+                  <MenuItem value={"Leoncia Village"}>Leoncia Village</MenuItem>
+                  <MenuItem value={"Mansfield Residences"}>
+                    Mansfield Residences
+                  </MenuItem>
+                  <MenuItem value={"L&S Subdivision"}>L&S Subdivision</MenuItem>
+                  <MenuItem value={"Villa Dolores Subdivision"}>
+                    Villa Dolores Subdivision
+                  </MenuItem>
+                  <MenuItem value={"Villa Gloria Subdivision"}>
+                    Villa Gloria Subdivision
+                  </MenuItem>
+                  <MenuItem value={"Palmera Homes"}>Palmera Homes</MenuItem>
+                  <ListSubheader
+                    style={{
+                      background: "lightgray",
+                      fontSize: "30px",
+                    }}
+                  >
+                    LANDMARK
+                  </ListSubheader>
+                  <MenuItem value={"Sacred Heart Medical Center"}>
+                    Sacred Heart Medical Center
+                  </MenuItem>
+                  <MenuItem value={"Carmelite Monastery"}>
+                    Carmelite Monastery
+                  </MenuItem>
+                  <MenuItem value={"LTO Angeles"}>LTO Angeles</MenuItem>
+                  <ListSubheader
+                    style={{
+                      background: "lightgray",
+                      fontSize: "30px",
+                    }}
+                  >
+                    SCHOOL
+                  </ListSubheader>
+                  <MenuItem value={"La Vertice School"}>
+                    La Vertice School
+                  </MenuItem>
+                  <MenuItem
+                    value={
+                      "International School for Culinary Arts and Hotel Management Pampanga"
+                    }
+                  >
+                    International School for Culinary Arts and Hotel Management
+                    Pampanga
+                  </MenuItem>
+                </Select>
+              </FormControl>
             </List>
           </Grid>
           <Grid item xs={6}>
@@ -752,6 +836,21 @@ const top100Films = [
   { title: "House" },
   { title: "Motel" },
   { title: "Bar" },
+  { title: "Barangay Hall" },
+  { title: "Plaza" },
+  { title: "Covered Court" },
+  { title: "Jeep" },
+  { title: "Taxi" },
+  { title: "Autoparts" },
+];
+const allCategories = [
+  { title: "Animals" },
+  { title: "Bags" },
+  { title: "Cash" },
+  { title: "Clothing" },
+  { title: "Electronics" },
+  { title: "Keys" },
+  { title: "Wallet" },
   { title: "Barangay Hall" },
   { title: "Plaza" },
   { title: "Covered Court" },
