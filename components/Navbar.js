@@ -18,7 +18,7 @@ export default function Navbar({ title, children }) {
       </Head>
       <Toolbar className={classes.appbar}>
         <div className={classes.grow}></div>
-        {/* <NextLink href="/admin-login" passHref>
+        <NextLink href="/contact-us" passHref>
           <Link>
             <Typography
               style={{
@@ -27,11 +27,11 @@ export default function Navbar({ title, children }) {
                 letterSpacing: "1px",
               }}
             >
-              ADMIN LOGIN
+              CONTACT US
             </Typography>
           </Link>
-        </NextLink> */}
-        {/* <Typography
+        </NextLink>
+        <Typography
           style={{
             fontSize: "25px",
             marginLeft: "20px",
@@ -40,7 +40,30 @@ export default function Navbar({ title, children }) {
           }}
         >
           |
-        </Typography> */}
+        </Typography>
+        <NextLink href="/about-us" passHref>
+          <Link>
+            <Typography
+              style={{
+                font: "SansSerif",
+                fontSize: "15px",
+                letterSpacing: "1px",
+              }}
+            >
+              ABOUT US
+            </Typography>
+          </Link>
+        </NextLink>
+        <Typography
+          style={{
+            fontSize: "25px",
+            marginLeft: "20px",
+            marginRight: "20px",
+            color: "#ffffff",
+          }}
+        >
+          |
+        </Typography>
         <NextLink href="/login" passHref>
           <Link>
             <Typography
@@ -71,7 +94,7 @@ export default function Navbar({ title, children }) {
             </Link>
           </NextLink>
           <div className={classes.toolbarGrow}></div>
-          <NextLink href="/lost-item" passHref>
+          <NextLink href="/submit-lost-item" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
                 SUBMIT LOST ITEM

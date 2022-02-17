@@ -36,45 +36,32 @@ import clothingIcon from "../public/images/clothing.png";
 import electronicsIcon from "../public/images/electronics.png";
 import keysIcon from "../public/images/keys.png";
 import walletIcon from "../public/images/wallet.png";
-import ProductCard from "../components/Product";
-
+import { firestore, postToJSON } from "../lib/firebase";
+import NextLink from "next/link";
 //
+export async function getServerSideProps() {
+  const postsQuery = firestore.collectionGroup("missingItems");
 
-export default function FoundItem() {
-  const [startDate, setStartDate] = useState(new Date());
+  const posts = (await postsQuery.get()).docs.map(postToJSON);
+
+  // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  // console.log(posts);
+  // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+  return {
+    props: { posts },
+  };
+}
+
+export default function FoundItem(props) {
+  const [posts, setPosts] = useState(props.posts);
+
+  const missingItems = posts.filter((itemLost) => {
+    return itemLost;
+  });
 
   const classes = useStyles();
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm();
 
-  const [imageInput, setImageInput] = useState("");
-  const [image, setImage] = React.useState("");
-  const imageRef = React.useRef(null);
-  function useDisplayImage() {
-    const [result, setResult] = React.useState("");
-
-    function uploader(e) {
-      const imageFile = e.target.files[0];
-
-      const reader = new FileReader();
-      reader.addEventListener("load", (e) => {
-        setResult(e.target.result);
-      });
-
-      reader.readAsDataURL(imageFile);
-    }
-
-    return { result, uploader };
-  }
-
-  const { result, uploader } = useDisplayImage();
-
-  const submitHandler = () => {
-    // insert firebase code here
-  };
   return (
     <Navbar>
       <div>
@@ -199,8 +186,61 @@ export default function FoundItem() {
                 placeholder="Search/Enter the Item your looking for here"
               />
             </div>
-            {/* <ProductCard /> */}
-            <ProductCard />
+            <Grid
+              container
+              spacing={{ xs: 2, md: 3 }}
+              columns={{ xs: 4, sm: 8, md: 12 }}
+            >
+              {missingItems.map((info) => (
+                <Grid item xs={2} sm={4} md={4} key={info.id}>
+                  <Card
+                    style={{
+                      marginBottom: "20px",
+                      marginTop: "30px",
+                      marginRight: "20px",
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      title={info.category}
+                      image={info.image}
+                      height={300}
+                      width={150}
+                      alt={"no image"}
+                      style={{ borderStyle: "solid", borderColor: "#3a7196" }}
+                    />
+                    <CardContent>
+                      <Typography>
+                        <b> Item Lost: </b> {info.name}
+                      </Typography>
+                    </CardContent>
+                    <CardContent>
+                      <Typography>
+                        <b> Location: </b>
+                        {info.location} - {info.mapLocation}
+                      </Typography>
+                    </CardContent>
+                    <CardContent>
+                      <NextLink href={`./missing-item/${info.id}`}>
+                        <Button
+                          variant="outlined"
+                          style={{ marginRight: "70px" }}
+                        >
+                          <Typography>View Item</Typography>
+                        </Button>
+                      </NextLink>
+                      <NextLink href={"/"} passHref>
+                        <Button variant="contained">
+                          <Typography>Found It?</Typography>
+                        </Button>
+                      </NextLink>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+
+            <Grid item xs={4}></Grid>
           </Grid>
         </Grid>
       </div>

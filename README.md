@@ -54,3 +54,9 @@ Day 06, February 16, 2022
 1. Added Content to Homepage
 2. Added Redux
 3. Debugging Firebase
+
+Day 07, February 17, 2022
+1. Debugging of Firebase
+2. Creation of Slug
+3. Creation of About Us
+4. Creation of Contact Us
