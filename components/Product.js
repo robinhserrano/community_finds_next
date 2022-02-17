@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mui/material";
 import React, { useState } from "react";
-import { postToJSON } from "../lib/firebase";
+import { firestore, postToJSON } from "../lib/firebase";
 import "firebase/compat/firestore";
 import NextLink from "next/link";
 import data from "../utils/data";
@@ -17,23 +17,20 @@ import data from "../utils/data";
 //
 
 export async function getServerSideProps() {
-  const postsQuery = firestore.collectionGroup("missingItems");
-  // .where('published', '==', true)
-  // .orderBy('createdAt', 'desc')
-  // .limit(LIMIT);
+  const postsQuery = firestore.collectionGroup("users");
 
   const posts = (await postsQuery.get()).docs.map(postToJSON);
 
-  //   console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-  //   console.log(post);
-  //   console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  console.log(posts);
+  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
-  // return {
-  //   props: { posts }, // will be passed to the page component as props
-  // };
+  return {
+    props: { posts },
+  };
 }
 
-export default function ProductCard(props) {
+export default function ProductCard() {
   // const [posts, setPosts] = useState(props.posts);
 
   // const missingProduct = posts.filter((missingItems) => {

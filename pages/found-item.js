@@ -37,8 +37,22 @@ import electronicsIcon from "../public/images/electronics.png";
 import keysIcon from "../public/images/keys.png";
 import walletIcon from "../public/images/wallet.png";
 import ProductCard from "../components/Product";
+import { firestore, postToJSON } from "../lib/firebase";
 
 //
+export async function getServerSideProps() {
+  const postsQuery = firestore.collectionGroup("missingItems");
+
+  const posts = (await postsQuery.get()).docs.map(postToJSON);
+
+  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  console.log(posts);
+  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+  return {
+    props: { posts },
+  };
+}
 
 export default function FoundItem() {
   const [startDate, setStartDate] = useState(new Date());
@@ -199,7 +213,6 @@ export default function FoundItem() {
                 placeholder="Search/Enter the Item your looking for here"
               />
             </div>
-            {/* <ProductCard /> */}
             <ProductCard />
           </Grid>
         </Grid>
