@@ -12,6 +12,7 @@ import {
   DateRange,
   Autocomplete,
   Button,
+  Input,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -88,7 +89,6 @@ export default function LostItem() {
     zipCode,
     nameLocation,
     information,
-    lostdDate,
     firstname,
     lastname,
     phone,
@@ -111,8 +111,8 @@ export default function LostItem() {
           zipcode: zipCode,
           location: nameLocation,
           information: information,
-          // date: lostdDate,
-          //locationtype:
+          date: lostdDate,
+          // locationtype: ,
           //mapbox:
           // timeLost:
           firstname: firstname,
@@ -403,10 +403,13 @@ export default function LostItem() {
           <Grid item xs={6}>
             {/* Upload Image */}
             <Typography>Upload Image *</Typography>
-            <span>(This image will display on the Website.)</span>
+            <span>
+              (This image will display on the Website. Do not enter high
+              resolution images such as 4k resolution.)
+            </span>
             <div style={{ marginBottom: 10 }}></div>
             <div className="App">
-              <input
+              {/* <Input
                 type="file"
                 accept=".jpg, .jpeg, .png"
                 value={imageInput}
@@ -415,7 +418,25 @@ export default function LostItem() {
                   uploader(e);
                   setImageInput(event.target.value);
                 }}
-              />
+              /> */}
+              <label htmlFor="contained-button-file">
+                <Input
+                  accept="image/*"
+                  id="contained-button-file"
+                  multiple
+                  type="file"
+                  style={{ display: "none" }}
+                  value={imageInput}
+                  onChange={(e) => {
+                    setImage(e.target.files[0]);
+                    uploader(e);
+                    setImageInput(event.target.value);
+                  }}
+                />
+                <Button variant="contained" component="span">
+                  Upload
+                </Button>
+              </label>
             </div>
             {result && (
               <Image
@@ -426,16 +447,6 @@ export default function LostItem() {
                 alt=""
               />
             )}
-            <button
-              onClick={() =>
-                dispatch({
-                  type: ITEM_OWNER_INFORMATION,
-                  payload: { itemimageValue: result },
-                })
-              }
-            >
-              Save Image
-            </button>
           </Grid>
         </Grid>
         <br /> <br /> <br /> <br /> <br /> <br />
@@ -714,6 +725,12 @@ export default function LostItem() {
                       height: "70px",
                     }}
                     type="submit"
+                    onClick={() =>
+                      dispatch({
+                        type: ITEM_OWNER_INFORMATION,
+                        payload: { itemimageValue: result },
+                      })
+                    }
                   >
                     Submit
                   </Button>

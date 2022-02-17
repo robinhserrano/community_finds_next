@@ -12,7 +12,7 @@ import online from "../public/images/online.png";
 export default function Home() {
   return (
     <Navbar>
-      <div style={{ marginTop: "80px" }}></div>
+      <div style={{ marginTop: "30px" }}></div>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
           <Typography variant="h4">

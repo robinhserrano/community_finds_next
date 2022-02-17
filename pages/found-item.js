@@ -225,14 +225,14 @@ export default function FoundItem(props) {
                       <NextLink href={`./missing-item/${info.id}`}>
                         <Button
                           variant="outlined"
-                          style={{ marginRight: "70px" }}
+                          style={{ marginRight: "60px" }}
                         >
                           <Typography>View Item</Typography>
                         </Button>
                       </NextLink>
                       <NextLink href={"/"} passHref>
                         <Button variant="contained">
-                          <Typography>Found It?</Typography>
+                          <Typography>Claim item</Typography>
                         </Button>
                       </NextLink>
                     </CardContent>
