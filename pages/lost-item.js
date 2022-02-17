@@ -95,6 +95,7 @@ export default function LostItem() {
         .collection("missingItems")
         .doc(lostItemId)
         .set({
+          id: lostItemId,
           name: itemLost,
           category: category,
           brand: brand,
@@ -105,6 +106,8 @@ export default function LostItem() {
           location: nameLocation,
           information: information,
           // date: lostdDate,
+          //locationtype:
+          //mapbox:
           // timeLost:
           firstname: firstname,
           lastname: lastname,
@@ -510,8 +513,8 @@ export default function LostItem() {
                     helperText={
                       errors.nameLocation
                         ? errors.nameLocation.type === "minLength"
-                          ? "NameLocation Code length should be more than 1"
-                          : "NameLocation Code color is required"
+                          ? "Location Code length should be more than 1"
+                          : "Location Code color is required"
                         : ""
                     }
                     {...field}
