@@ -505,7 +505,7 @@ export default function LostItem() {
                     variant="outlined"
                     fullWidth
                     id="nameLocation"
-                    label="Name/Location"
+                    label="Location"
                     error={Boolean(errors.namelocation)}
                     helperText={
                       errors.nameLocation
