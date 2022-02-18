@@ -35,58 +35,148 @@ export default function ItemDetails(props) {
 
   return (
     <Navbar>
-      <Typography>Lost Item Details</Typography>
-
-      <Typography>Lost Item: {profile.name}</Typography>
-      <Typography>Item ID: {profile.id}</Typography>
+      <br /> <br /> <br /> <br /> <br />
+      <Typography style={{ backgroundColor: "lightgray", padding: "1px" }}>
+        <div
+          style={{
+            marginLeft: "15px",
+            margin: "10px",
+            fontSize: "20px",
+            fontWeight: 200,
+          }}
+        >
+          Lost Item Details
+        </div>
+      </Typography>
+      <br /> <br />
+      <Typography style={{ fontSize: "50px" }}>
+        Lost Item: {profile.name}
+      </Typography>
+      <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
+        <i> Item ID: {profile.id}</i>
+      </Typography>
+      <br /> <br /> <br /> <br />
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
           <Card>
-            <CardContent>
-              <Typography>Item Lost</Typography>
-              <span>{profile.name}</span>
+            <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Item Lost
+              </Typography>
+              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
+                {profile.name}
+              </span>
             </CardContent>
-            <CardContent>
-              <Typography>Category</Typography>
-              <span>{profile.category}</span>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Category
+              </Typography>
+              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
+                {profile.category}
+              </span>
             </CardContent>
-            <CardContent>
-              <Typography>Brand</Typography>
-              <span>{profile.brand}</span>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Brand
+              </Typography>
+              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
+                {profile.brand}
+              </span>
             </CardContent>
-            <CardContent>
-              <Typography>Primary Color</Typography>
-              <span>{profile.primaryColor}</span>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Primary Color
+              </Typography>
+              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
+                {profile.primaryColor}
+              </span>
             </CardContent>
-            <CardContent>
-              <Typography>Secondary Item Color</Typography>
-              <span>{profile.secondaryColor}</span>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Secondary Item Color
+              </Typography>
+              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
+                {profile.secondaryColor}
+              </span>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={6}>
           <Card>
-            <CardContent>
-              <Typography>Date Lost</Typography>
-              <span>{profile.date}</span>
+            <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Date Lost
+              </Typography>
+              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
+                {profile.date}
+              </span>
             </CardContent>
-            <CardContent>
-              <Typography>Time Lost</Typography>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Time Lost
+              </Typography>
               {/* <span>{profile.date}</span> */}
             </CardContent>
-            <CardContent>
-              <Typography>Location Lost</Typography>
-              <span>{profile.location}</span>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Location Lost
+              </Typography>
+              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
+                {profile.location}
+              </span>
             </CardContent>
-            <CardContent style={{ height: 185 }}>
-              <Typography>Additional Information</Typography>
-              <span>{profile.information}</span>
+            <CardContent style={{ height: 185, borderStyle: "outset" }}>
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Additional Information
+              </Typography>
+              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
+                {profile.information}
+              </span>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={6}>
           <Card>
-            <CardContent style={{ align: "center" }}>
+            <CardContent
+              style={{
+                align: "center",
+                borderStyle: "ridge",
+              }}
+            >
               <Image
                 src={profile.image}
                 alt={profile.name}
@@ -98,16 +188,19 @@ export default function ItemDetails(props) {
         </Grid>
         <Grid item xs={6}>
           <Card>
-            <CardContent>
-              <Typography>
+            <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
+            <CardContent
+              style={{
+                borderStyle: "outset",
+              }}
+            >
+              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
                 Name: {profile.firstname} {profile.lastname}
+                <br />
+                Email: {profile.email}
+                <br />
+                Phone: {profile.phone}
               </Typography>
-            </CardContent>
-            <CardContent>
-              <Typography>Email: {profile.email}</Typography>
-            </CardContent>
-            <CardContent>
-              <Typography>Phone: {profile.phone}</Typography>
             </CardContent>
           </Card>
         </Grid>
