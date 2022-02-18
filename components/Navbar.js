@@ -114,14 +114,7 @@ export default function Navbar({ title, children }) {
                 onClick={loginClickHandler}
                 className={classes.navbarButton}
               >
-                <Image
-                  src={userIcon}
-                  alt={user.displayName}
-                  width={30}
-                  height={30}
-                />
-
-                {/*if a user is logged in the login button will change into their name*/}
+                <Image src={userIcon} alt={user.name} width={25} height={25} />
               </Button>
               <Menu
                 id="simple-menu"
