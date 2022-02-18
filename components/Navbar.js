@@ -1,15 +1,55 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Head from "next/head";
-import { AppBar, Container, Link, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Container,
+  Link,
+  Toolbar,
+  Typography,
+  Button,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import useStyles from "../utils/styles";
 import NextLink from "next/link";
 import Image from "next/image";
 import logo from "../public/images/logo.png";
-// import logo from "../public/images/logofinal.png";
+import userIcon from "../public/images/userIcon.png";
+import { getAuth, signOut } from "firebase/auth";
+import { UserContext } from "../lib/context";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 //
 
 export default function Navbar({ title, children }) {
   const classes = useStyles();
+  const router = useRouter();
+  // for the user
+  const { user } = useContext(UserContext);
+  Cookies.set("user", user);
+  // for the user
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const loginClickHandler = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+  const loginMenuCloseHandler = (e, redirect) => {
+    setAnchorEl(null);
+    if (redirect) {
+      router.push("/");
+    }
+  };
+  const auth = getAuth();
+  const logoutClickHandler = () => {
+    setAnchorEl(null);
+
+    signOut(auth).then(() => {
+      //Sign out
+    });
+    Cookies.remove(user);
+    router.push("/");
+  };
+
   return (
     <div>
       <Head>
@@ -65,21 +105,66 @@ export default function Navbar({ title, children }) {
         >
           |
         </Typography>
-        <NextLink href="/login" passHref>
-          <Link>
-            <Typography
-              style={{
-                font: "SansSerif",
-                fontSize: "15px",
-                letterSpacing: "1px",
-              }}
-            >
-              USER LOGIN
-            </Typography>
-          </Link>
-        </NextLink>
-      </Toolbar>
+        <div>
+          {user != null ? (
+            <>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={loginClickHandler}
+                className={classes.navbarButton}
+              >
+                <Image
+                  src={userIcon}
+                  alt={user.displayName}
+                  width={30}
+                  height={30}
+                />
 
+                {/*if a user is logged in the login button will change into their name*/}
+              </Button>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={loginMenuCloseHandler}
+              >
+                <MenuItem>
+                  <li>
+                    <NextLink href={"/profile"} passHref>
+                      Profile
+                    </NextLink>
+                  </li>
+                </MenuItem>
+
+                <MenuItem>
+                  <NextLink href={"/user-view-post"} passHref>
+                    View Post
+                  </NextLink>
+                </MenuItem>
+                <li>
+                  <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
+                </li>
+              </Menu>
+            </>
+          ) : (
+            <NextLink href="/login" passHref>
+              <Link>
+                <Typography
+                  style={{
+                    font: "SansSerif",
+                    fontSize: "15px",
+                    letterSpacing: "1px",
+                  }}
+                >
+                  USER LOGIN
+                </Typography>
+              </Link>
+            </NextLink>
+          )}
+        </div>
+      </Toolbar>
       <AppBar position="sticky">
         <Toolbar position="absolute" className={classes.secondAppbar}>
           <div className={classes.logoGrow}></div>
