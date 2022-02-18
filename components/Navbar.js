@@ -26,7 +26,9 @@ export default function Navbar({ title, children }) {
   const router = useRouter();
   // for the user
   const { user } = useContext(UserContext);
+  console.log(user);
   Cookies.set("user", user);
+
   // for the user
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -114,7 +116,7 @@ export default function Navbar({ title, children }) {
                 onClick={loginClickHandler}
                 className={classes.navbarButton}
               >
-                <Image src={userIcon} alt={user.name} width={25} height={25} />
+                <Image src={userIcon} alt={user.name} width={30} height={30} />
               </Button>
               <Menu
                 id="simple-menu"
@@ -124,11 +126,9 @@ export default function Navbar({ title, children }) {
                 onClose={loginMenuCloseHandler}
               >
                 <MenuItem>
-                  <li>
-                    <NextLink href={"/profile"} passHref>
-                      Profile
-                    </NextLink>
-                  </li>
+                  <NextLink href={"/profile"} passHref>
+                    Profile
+                  </NextLink>
                 </MenuItem>
 
                 <MenuItem>
@@ -136,9 +136,14 @@ export default function Navbar({ title, children }) {
                     View Post
                   </NextLink>
                 </MenuItem>
-                <li>
-                  <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
-                </li>
+                {user.role === "admin" && (
+                  <MenuItem>
+                    <NextLink href={"/profile"} passHref>
+                      Admin Dashboard
+                    </NextLink>
+                  </MenuItem>
+                )}
+                <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
               </Menu>
             </>
           ) : (
