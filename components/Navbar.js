@@ -96,7 +96,7 @@ export default function Navbar({ title, children }) {
             </Link>
           </NextLink>
           <div className={classes.toolbarGrow}></div>
-          <NextLink href="/submit-lost-item" passHref>
+          <NextLink href="/submit-lost-item-form" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
                 SUBMIT LOST ITEM
