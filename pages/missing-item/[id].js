@@ -2,8 +2,9 @@ import React, { useState, useContext } from "react";
 import Navbar from "../../components/Navbar";
 import { firestore, postToJSON } from "../../lib/firebase";
 import { useRouter } from "next/router";
-import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import Image from "next/image";
+import NextLink from "next/link";
 //
 export async function getServerSideProps() {
   const postsQuery = firestore.collectionGroup("missingItems");
@@ -194,6 +195,33 @@ export default function ItemDetails(props) {
               </Typography>
             </CardContent>
           </Card>
+        </Grid>
+        <Grid item xs={12}>
+          MAP HERE
+        </Grid>
+        <Grid item xs={10}>
+          <NextLink href={"/found-item"}>
+            <Button
+              style={{
+                width: "200px",
+                height: "70px",
+              }}
+            >
+              <Typography variant="h6"> GO BACK TO LIST </Typography>
+            </Button>
+          </NextLink>
+        </Grid>
+        <Grid item xs={2}>
+          <Button
+            style={{
+              background: "#366e97",
+              color: "white",
+              width: "150px",
+              height: "70px",
+            }}
+          >
+            <Typography variant="h6"> CLAIM ITEM </Typography>
+          </Button>
         </Grid>
       </Grid>
     </Navbar>
