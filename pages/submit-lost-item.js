@@ -26,8 +26,9 @@ import Image from "next/image";
 import sideImage from "../public/images/search.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "react-datetime/css/react-datetime.css";
+
 import Datetime from "react-datetime";
+import "react-datetime/css/react-datetime.css";
 import { v4 as uuidv4, v4 } from "uuid";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
@@ -50,6 +51,7 @@ export default function LostItem() {
   };
 
   const [startDate, setStartDate] = useState(new Date());
+  const [startTime, setStartTime] = React.useState("");
 
   const classes = useStyles();
   const {
@@ -93,6 +95,7 @@ export default function LostItem() {
   });
 
   const lostdDate = startDate.toString();
+  const lostTime = startTime.toString();
 
   const submitHandler = async ({
     itemLost,
@@ -125,10 +128,10 @@ export default function LostItem() {
           zipcode: zipCode,
           location: nameLocation,
           information: information,
-          date: lostdDate,
+          // date: lostdDate,
           locationtype: typelocation,
           //mapbox:
-          // timeLost:
+          timeLost: lostTime,
           firstname: firstname,
           lastname: lastname,
           phone: phone,
@@ -154,6 +157,10 @@ export default function LostItem() {
   const jeep = "Jeep";
   const taxi = "Taxi";
   const autoparts = "Autoparts";
+
+  console.log("yyyyyyyyyyyyyyyyyyyyyyyy");
+  console.log(lostTime);
+  console.log("yyyyyyyyyyyyyyyyyyyyyyyy");
 
   return (
     <Navbar>
@@ -226,15 +233,17 @@ export default function LostItem() {
             </List>
           </Grid>
           <Grid item xs={6}>
-            {/* Date Lost */}
-            <Typography>Date Lost *</Typography>
+            {/* Date and Time Lost */}
+            <Typography>Date Lost and Time Lost *</Typography>
             <span>
               (Please add the approximate date of when the item was lost.)
+              <br />
+              (Please add the approximate time of day the item was lost.)
             </span>
             <div style={{ marginBottom: 10 }}></div>
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
+            <Datetime
+              selected={startTime}
+              onChange={(time) => setStartTime(time)}
             />
           </Grid>
           <Grid item xs={6}>
@@ -275,15 +284,41 @@ export default function LostItem() {
             </List>
           </Grid>
           <Grid item xs={6}>
-            {/* Time Lost */}
-            <Typography>Time Lost *</Typography>
-            <span>
-              (Please add the approximate time of day the item was lost.)
-            </span>
-            <div style={{ marginBottom: 10 }}></div>
-            <div>
-              <Datetime dateFormat={false} style={{ width: "100%" }} />
-            </div>
+            {/* Additional Information */}
+            <List className={classes.inputField}>
+              <Typography>Additional Information *</Typography>
+              <span>
+                Please provide any additional details/description of your lost
+                property.
+              </span>
+              <div style={{ marginBottom: 10 }}></div>
+              <Controller
+                name="information"
+                control={control}
+                defaultValue=""
+                rules={{
+                  required: true,
+                  minLength: 10,
+                }}
+                render={({ field }) => (
+                  <TextField
+                    variant="outlined"
+                    fullWidth
+                    id="information"
+                    label="Information"
+                    error={Boolean(errors.information)}
+                    helperText={
+                      errors.information
+                        ? errors.information.type === "minLength"
+                          ? "Information length should be more than 10"
+                          : "Information is required"
+                        : ""
+                    }
+                    {...field}
+                  />
+                )}
+              />
+            </List>
           </Grid>
           <Grid item xs={6}>
             {/* brand */}
@@ -320,41 +355,52 @@ export default function LostItem() {
             </List>
           </Grid>
           <Grid item xs={6}>
-            {/* Additional Information */}
-            <List className={classes.inputField}>
-              <Typography>Additional Information *</Typography>
-              <span>
-                Please provide any additional details/description of your lost
-                property.
-              </span>
-              <div style={{ marginBottom: 10 }}></div>
-              <Controller
-                name="information"
-                control={control}
-                defaultValue=""
-                rules={{
-                  required: true,
-                  minLength: 10,
-                }}
-                render={({ field }) => (
-                  <TextField
-                    variant="outlined"
-                    fullWidth
-                    id="information"
-                    label="Information"
-                    error={Boolean(errors.information)}
-                    helperText={
-                      errors.information
-                        ? errors.information.type === "minLength"
-                          ? "Information length should be more than 10"
-                          : "Information is required"
-                        : ""
-                    }
-                    {...field}
-                  />
-                )}
+            {/* Upload Image */}
+            <Typography>Upload Image *</Typography>
+            <span>
+              (This image will display on the Website. Do not enter high
+              resolution images such as 4k resolution.)
+            </span>
+            <div style={{ marginBottom: 10 }}></div>
+            <div className="App">
+              {/* <Input
+               type="file"
+               accept=".jpg, .jpeg, .png"
+               value={imageInput}
+               onChange={(e) => {
+                 setImage(e.target.files[0]);
+                 uploader(e);
+                 setImageInput(event.target.value);
+               }}
+             /> */}
+              <label htmlFor="contained-button-file">
+                <Input
+                  accept="image/*"
+                  id="contained-button-file"
+                  multiple
+                  type="file"
+                  style={{ display: "none" }}
+                  value={imageInput}
+                  onChange={(e) => {
+                    setImage(e.target.files[0]);
+                    uploader(e);
+                    setImageInput(event.target.value);
+                  }}
+                />
+                <Button variant="contained" component="span">
+                  Upload
+                </Button>
+              </label>
+            </div>
+            {result && (
+              <Image
+                ref={imageRef}
+                src={result}
+                width={200}
+                height={250}
+                alt=""
               />
-            </List>
+            )}
           </Grid>
           <Grid item xs={6}>
             {/* Primary Color */}
@@ -427,54 +473,6 @@ export default function LostItem() {
                 )}
               />
             </List>
-          </Grid>
-          <Grid item xs={6}>
-            {/* Upload Image */}
-            <Typography>Upload Image *</Typography>
-            <span>
-              (This image will display on the Website. Do not enter high
-              resolution images such as 4k resolution.)
-            </span>
-            <div style={{ marginBottom: 10 }}></div>
-            <div className="App">
-              {/* <Input
-                type="file"
-                accept=".jpg, .jpeg, .png"
-                value={imageInput}
-                onChange={(e) => {
-                  setImage(e.target.files[0]);
-                  uploader(e);
-                  setImageInput(event.target.value);
-                }}
-              /> */}
-              <label htmlFor="contained-button-file">
-                <Input
-                  accept="image/*"
-                  id="contained-button-file"
-                  multiple
-                  type="file"
-                  style={{ display: "none" }}
-                  value={imageInput}
-                  onChange={(e) => {
-                    setImage(e.target.files[0]);
-                    uploader(e);
-                    setImageInput(event.target.value);
-                  }}
-                />
-                <Button variant="contained" component="span">
-                  Upload
-                </Button>
-              </label>
-            </div>
-            {result && (
-              <Image
-                ref={imageRef}
-                src={result}
-                width={200}
-                height={250}
-                alt=""
-              />
-            )}
           </Grid>
         </Grid>
         <br /> <br /> <br /> <br /> <br /> <br />

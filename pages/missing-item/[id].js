@@ -131,22 +131,13 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Date Lost
+                Date and Time Lost
               </Typography>
               <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.date}
+                {profile.timeLost}
               </span>
             </CardContent>
-            <CardContent
-              style={{
-                borderStyle: "outset",
-              }}
-            >
-              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Time Lost
-              </Typography>
-              {/* <span>{profile.date}</span> */}
-            </CardContent>
+
             <CardContent
               style={{
                 borderStyle: "outset",
