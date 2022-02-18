@@ -4,7 +4,8 @@ import { AppBar, Container, Link, Toolbar, Typography } from "@mui/material";
 import useStyles from "../utils/styles";
 import NextLink from "next/link";
 import Image from "next/image";
-import logo from "../public/images/logofinal.png";
+import logo from "../public/images/logo.png";
+// import logo from "../public/images/logofinal.png";
 //
 
 export default function Navbar({ title, children }) {
@@ -88,8 +89,9 @@ export default function Navbar({ title, children }) {
                 className={classes.logoGrow}
                 src={logo}
                 alt="logo"
-                width={350}
-                height={200}
+                width={400}
+                height={90}
+                padding={0}
               />
             </Link>
           </NextLink>
