@@ -168,9 +168,7 @@ export default function LostItem() {
         <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
-            <Typography variant="h3">Submit Lost Items</Typography>
-            <br /> <br />
-            <Typography variant="h5">✔ </Typography>
+            <Typography variant="h3">Submit Lost/Found Items</Typography>
             <br /> <br />
             <Typography variant="h5">
               ✔ Users are able to view lost items.{" "}
@@ -263,6 +261,7 @@ export default function LostItem() {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={category}
+                  required={true}
                   label="Category"
                   onChange={handleChange}
                 >
@@ -496,6 +495,7 @@ export default function LostItem() {
                 <Select
                   defaultValue=""
                   id="grouped-select"
+                  required={true}
                   value={typelocation}
                   label="Type Location"
                   onChange={handleChanges}
@@ -616,6 +616,7 @@ export default function LostItem() {
                   <TextField
                     variant="outlined"
                     fullWidth
+                    required={true}
                     id="nameLocation"
                     label="Location"
                     error={Boolean(errors.namelocation)}
