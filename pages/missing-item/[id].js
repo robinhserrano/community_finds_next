@@ -187,6 +187,8 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+                Owner Details
+                <br />
                 Name: {profile.firstname} {profile.lastname}
                 <br />
                 Email: {profile.email}
@@ -212,7 +214,7 @@ export default function ItemDetails(props) {
           </NextLink>
         </Grid>
         <Grid item xs={2}>
-          <NextLink href={"/claim-lost-item-form"} passHref>
+          <NextLink href={`/claim-item-form/${profile.id}`}>
             <Button
               style={{
                 background: "#366e97",

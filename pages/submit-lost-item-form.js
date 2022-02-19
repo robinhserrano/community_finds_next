@@ -272,12 +272,6 @@ export default function LostItem() {
                   <MenuItem value={electronics}>Electronics</MenuItem>
                   <MenuItem value={keys}>Keys</MenuItem>
                   <MenuItem value={wallet}>Wallet</MenuItem>
-                  <MenuItem value={bhall}>Barangay Hall</MenuItem>
-                  <MenuItem value={plaze}>Plaza</MenuItem>
-                  <MenuItem value={ccourt}>Covered Court</MenuItem>
-                  <MenuItem value={jeep}>Jeep</MenuItem>
-                  <MenuItem value={taxi}>Taxi</MenuItem>
-                  <MenuItem value={autoparts}>Autoparts</MenuItem>
                 </Select>
               </FormControl>
             </List>
@@ -850,10 +844,4 @@ const allCategories = [
   { title: "Electronics" },
   { title: "Keys" },
   { title: "Wallet" },
-  { title: "Barangay Hall" },
-  { title: "Plaza" },
-  { title: "Covered Court" },
-  { title: "Jeep" },
-  { title: "Taxi" },
-  { title: "Autoparts" },
 ];

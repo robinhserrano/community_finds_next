@@ -230,7 +230,7 @@ export default function FoundItem(props) {
                           <Typography>View Item</Typography>
                         </Button>
                       </NextLink>
-                      <NextLink href={"/claim-lost-item-form"} passHref>
+                      <NextLink href={`/claim-item-form/${info.id}`} passHref>
                         <Button variant="contained">
                           <Typography>Claim item</Typography>
                         </Button>
