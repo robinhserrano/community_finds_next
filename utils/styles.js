@@ -69,6 +69,10 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "flex-start",
   },
+  section: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
 });
 
 export default useStyles;
