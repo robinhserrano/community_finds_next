@@ -9,7 +9,7 @@ import russel from "../public/images/russel.png";
 //
 export default function ContactUs() {
   return (
-    <Navbar>
+    <Navbar title={"Contact-Us"}>
       <div>
         <Typography
           style={{ textAlign: "center", marginTop: "20px" }}

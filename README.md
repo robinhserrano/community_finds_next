@@ -60,3 +60,16 @@ Day 07, February 17, 2022
 2. Creation of Slug
 3. Creation of About Us
 4. Creation of Contact Us
+
+Day 08, February 18, 2022
+1. Fixing of bugs
+2. Implementation of User
+3. Building User Profile
+4. fixing slug 
+5. Adding location
+
+Day 09, February 19, 2022
+1. Completed user profile
+2. Implementation of MapBox
+3. Building of Submit form
+4. Fixing bugs in the code
