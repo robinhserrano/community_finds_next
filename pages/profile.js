@@ -54,17 +54,18 @@ export default function Profile(props) {
 
   useEffect(() => {
     if (!user) {
-      return router.push("/login");
+      return router.push("/");
     }
+    const profileName = posts.filter((doc) => {
+      return doc.id.includes(auth.currentUser.uid);
+    });
     setValue("name", profileName[0].name);
     setValue("email", user.email);
     setValue("phone", user.phone);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const profileName = posts.filter((doc) => {
-    return doc.id.includes(auth.currentUser.uid);
-  });
+
   const submitHandler = async ({
     name,
     email,
@@ -178,7 +179,7 @@ export default function Profile(props) {
                             fullWidth
                             disabled={true}
                             id="phone"
-                            label={user.phone}
+                            label="Mobile Number"
                             inputProps={{ type: "tel" }}
                             error={Boolean(errors.phone)}
                             helperText={
