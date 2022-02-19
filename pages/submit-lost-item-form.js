@@ -158,10 +158,6 @@ export default function LostItem() {
   const taxi = "Taxi";
   const autoparts = "Autoparts";
 
-  console.log("yyyyyyyyyyyyyyyyyyyyyyyy");
-  console.log(lostTime);
-  console.log("yyyyyyyyyyyyyyyyyyyyyyyy");
-
   return (
     <Navbar>
       <div>

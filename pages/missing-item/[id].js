@@ -63,63 +63,48 @@ export default function ItemDetails(props) {
             <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
             <CardContent
               style={{
-                borderStyle: "outset",
+                borderStyle: "groove",
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Item Lost
+                <b> Item Lost:</b> {profile.name}
               </Typography>
-              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.name}
-              </span>
             </CardContent>
             <CardContent
               style={{
-                borderStyle: "outset",
+                borderStyle: "groove",
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Category
+                <b> Category:</b> {profile.category}
               </Typography>
-              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.category}
-              </span>
             </CardContent>
             <CardContent
               style={{
-                borderStyle: "outset",
+                borderStyle: "groove",
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Brand
+                <b> Brand: </b> {profile.brand}
               </Typography>
-              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.brand}
-              </span>
             </CardContent>
             <CardContent
               style={{
-                borderStyle: "outset",
+                borderStyle: "groove",
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Primary Color
+                <b> Primary Color: </b> {profile.primaryColor}
               </Typography>
-              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.primaryColor}
-              </span>
             </CardContent>
             <CardContent
               style={{
-                borderStyle: "outset",
+                borderStyle: "groove",
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Secondary Item Color
+                <b> Secondary Item Color: </b> {profile.secondaryColor}
               </Typography>
-              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.secondaryColor}
-              </span>
             </CardContent>
           </Card>
         </Grid>
@@ -128,36 +113,27 @@ export default function ItemDetails(props) {
             <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
             <CardContent
               style={{
-                borderStyle: "outset",
+                borderStyle: "groove",
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Date and Time Lost
+                <b> Date and Time Lost: </b> {profile.timeLost}
               </Typography>
-              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.timeLost}
-              </span>
             </CardContent>
 
             <CardContent
               style={{
-                borderStyle: "outset",
+                borderStyle: "groove",
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Location Lost
+                <b> Location Lost: </b> {profile.location}
               </Typography>
-              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.location}
-              </span>
             </CardContent>
-            <CardContent style={{ height: 185, borderStyle: "outset" }}>
+            <CardContent style={{ height: 185, borderStyle: "groove" }}>
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Additional Information
+                <b> Additional Information: </b> {profile.information}
               </Typography>
-              <span style={{ fontSize: "30px", marginLeft: "30px" }}>
-                {profile.information}
-              </span>
             </CardContent>
           </Card>
         </Grid>
@@ -183,7 +159,7 @@ export default function ItemDetails(props) {
             <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
             <CardContent
               style={{
-                borderStyle: "outset",
+                borderStyle: "groove",
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
