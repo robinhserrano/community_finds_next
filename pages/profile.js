@@ -35,6 +35,7 @@ export async function getServerSideProps() {
   // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
   // console.log(posts);
   // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
   return {
     props: { posts }, // will be passed to the page component as props
   };
@@ -60,8 +61,8 @@ export default function Profile(props) {
       return doc.id.includes(auth.currentUser.uid);
     });
     setValue("name", profileName[0].name);
-    setValue("email", user.email);
-    setValue("phone", user.phone);
+    setValue("email", profileName[0].email);
+    setValue("phone", profileName[0].phone);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
