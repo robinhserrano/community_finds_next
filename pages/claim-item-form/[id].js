@@ -143,9 +143,9 @@ export default function ClaimLostItemForm(props) {
           lastname: lastname,
           phone: phone,
           email: email,
-          status: "missing",
+          status: "processing",
         })
-        .then(() => alert("Missing File Submitted to Cloud Firestore"));
+        .then(() => alert("Your claim is now being process."));
     } catch (err) {
       alert(err);
     }

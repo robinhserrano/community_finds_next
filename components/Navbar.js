@@ -136,7 +136,7 @@ export default function Navbar({ title, children }) {
                     View Post
                   </NextLink>
                 </MenuItem>
-                {user.role === "admin" && (
+                {user === "admin" && (
                   <MenuItem>
                     <NextLink href={"/profile"} passHref>
                       Admin Dashboard
