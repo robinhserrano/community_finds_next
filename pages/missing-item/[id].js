@@ -212,16 +212,18 @@ export default function ItemDetails(props) {
           </NextLink>
         </Grid>
         <Grid item xs={2}>
-          <Button
-            style={{
-              background: "#366e97",
-              color: "white",
-              width: "150px",
-              height: "70px",
-            }}
-          >
-            <Typography variant="h6"> CLAIM ITEM </Typography>
-          </Button>
+          <NextLink href={"/claim-lost-item-form"} passHref>
+            <Button
+              style={{
+                background: "#366e97",
+                color: "white",
+                width: "150px",
+                height: "70px",
+              }}
+            >
+              <Typography variant="h6"> CLAIM ITEM </Typography>
+            </Button>
+          </NextLink>
         </Grid>
       </Grid>
     </Navbar>

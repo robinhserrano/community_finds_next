@@ -218,7 +218,7 @@ export default function FoundItem(props) {
                     <CardContent>
                       <Typography>
                         <b> Location: </b>
-                        {info.location} - {info.typelocation}
+                        {info.location} - {info.locationtype}
                       </Typography>
                     </CardContent>
                     <CardContent>
