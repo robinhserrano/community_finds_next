@@ -73,107 +73,127 @@ export default function FoundItem(props) {
               <CardContent align="center" style={{ borderStyle: "solid" }}>
                 <Typography variant="h4">Categories</Typography>
               </CardContent>
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 50, marginBottom: 20 }} />
-                <Image src={allIcon} height={30} width={30} alt="all-icon" />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  All
-                </Typography>
-              </CardActionArea>
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image
-                  src={animalIcon}
-                  height={30}
-                  width={30}
-                  alt="animal-icon"
-                />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  Animals
-                </Typography>
-              </CardActionArea>
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={bagIcon} height={30} width={30} alt="bag-icon" />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  Bags
-                </Typography>
-              </CardActionArea>
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={cashIcon} height={30} width={30} alt="cash-icon" />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  Cash
-                </Typography>
-              </CardActionArea>
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image
-                  src={clothingIcon}
-                  height={30}
-                  width={30}
-                  alt="clothing-icon"
-                />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  Clothing
-                </Typography>
-              </CardActionArea>
-
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image
-                  src={electronicsIcon}
-                  height={30}
-                  width={30}
-                  alt="electronics-icon"
-                />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  Electronics
-                </Typography>
-              </CardActionArea>
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image src={keysIcon} height={30} width={30} alt="key-icon" />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  Keys
-                </Typography>
-              </CardActionArea>
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image
-                  src={walletIcon}
-                  height={30}
-                  width={30}
-                  alt="wallet-icon"
-                />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  Wallet
-                </Typography>
-              </CardActionArea>
+              <NextLink href={"/found-item"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 50, marginBottom: 20 }} />
+                  <Image src={allIcon} height={30} width={30} alt="all-icon" />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    All
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
+              <NextLink href={"/missing-animals"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image
+                    src={animalIcon}
+                    height={30}
+                    width={30}
+                    alt="animal-icon"
+                  />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Animals
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
+              <NextLink href={"/missing-bags"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image src={bagIcon} height={30} width={30} alt="bag-icon" />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Bags
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
+              <NextLink href={"/missing-cash"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image
+                    src={cashIcon}
+                    height={30}
+                    width={30}
+                    alt="cash-icon"
+                  />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Cash
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
+              <NextLink href={"/missing-clothing"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image
+                    src={clothingIcon}
+                    height={30}
+                    width={30}
+                    alt="clothing-icon"
+                  />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Clothing
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
+              <NextLink href={"/missing-electronics"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image
+                    src={electronicsIcon}
+                    height={30}
+                    width={30}
+                    alt="electronics-icon"
+                  />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Electronics
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
+              <NextLink href={"/missing-keys"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image src={keysIcon} height={30} width={30} alt="key-icon" />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Keys
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
+              <NextLink href={"/missing-wallets"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image
+                    src={walletIcon}
+                    height={30}
+                    width={30}
+                    alt="wallet-icon"
+                  />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Wallet
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
             </Card>
           </Grid>
           <Grid item xs={9}>
