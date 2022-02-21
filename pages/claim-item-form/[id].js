@@ -552,6 +552,20 @@ export default function ClaimLostItemForm(props) {
               </List>
             </Grid>
             <Grid item xs={6}>
+              {/* Date and Time Found */}
+              <Typography>Date Found and Time Found *</Typography>
+              <span>
+                (Please add the approximate date of when the item was found.)
+                <br />
+                (Please add the approximate time of day the item was found.)
+              </span>
+              <div style={{ marginBottom: 10 }}></div>
+              <Datetime
+                selected={startTime}
+                onChange={(time) => setStartTime(time)}
+              />
+            </Grid>
+            <Grid item xs={6}>
               {/* Upload Image */}
               <Typography>Upload Image *</Typography>
               <span>
@@ -600,50 +614,37 @@ export default function ClaimLostItemForm(props) {
               )}
             </Grid>
             <Grid item xs={6}>
-              {/* Date and Time Found */}
-              <Typography>Date Found and Time Found *</Typography>
-              <span>
-                (Please add the approximate date of when the item was found.)
-                <br />
-                (Please add the approximate time of day the item was found.)
-              </span>
-              <div style={{ marginBottom: 10 }}></div>
-              <Datetime
-                selected={startTime}
-                onChange={(time) => setStartTime(time)}
-              />
-            </Grid>
-            <Grid item xs={6}></Grid>
-            <Grid
-              container
-              rowSpacing={1}
-              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-            >
-              <Grid item xs={6}></Grid>
-              <Grid item xs={2.9}></Grid>
+              {" "}
+              <Grid
+                container
+                rowSpacing={1}
+                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+              >
+                <Grid item xs={6}></Grid>
 
-              <Grid item xs={3}>
-                <List>
-                  <ListItem>
-                    <Button
-                      style={{
-                        background: "#366e97",
-                        color: "white",
-                        width: "150px",
-                        height: "70px",
-                      }}
-                      type="submit"
-                      onClick={() =>
-                        dispatch({
-                          type: ITEM_OWNER_INFORMATION,
-                          payload: { itemimageValue: result },
-                        })
-                      }
-                    >
-                      Submit
-                    </Button>
-                  </ListItem>
-                </List>
+                <Grid item xs={3}>
+                  <List>
+                    <ListItem>
+                      <Button
+                        style={{
+                          background: "#366e97",
+                          color: "white",
+                          width: "150px",
+                          height: "70px",
+                        }}
+                        type="submit"
+                        onClick={() =>
+                          dispatch({
+                            type: ITEM_OWNER_INFORMATION,
+                            payload: { itemimageValue: result },
+                          })
+                        }
+                      >
+                        Submit
+                      </Button>
+                    </ListItem>
+                  </List>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

@@ -344,54 +344,6 @@ export default function LostItem() {
             </List>
           </Grid>
           <Grid item xs={6}>
-            {/* Upload Image */}
-            <Typography>Upload Image *</Typography>
-            <span>
-              (This image will display on the Website. Do not enter high
-              resolution images such as 4k resolution.)
-            </span>
-            <div style={{ marginBottom: 10 }}></div>
-            <div className="App">
-              {/* <Input
-               type="file"
-               accept=".jpg, .jpeg, .png"
-               value={imageInput}
-               onChange={(e) => {
-                 setImage(e.target.files[0]);
-                 uploader(e);
-                 setImageInput(event.target.value);
-               }}
-             /> */}
-              <label htmlFor="contained-button-file">
-                <Input
-                  accept="image/*"
-                  id="contained-button-file"
-                  multiple
-                  type="file"
-                  style={{ display: "none" }}
-                  value={imageInput}
-                  onChange={(e) => {
-                    setImage(e.target.files[0]);
-                    uploader(e);
-                    setImageInput(event.target.value);
-                  }}
-                />
-                <Button variant="contained" component="span">
-                  Upload
-                </Button>
-              </label>
-            </div>
-            {result && (
-              <Image
-                ref={imageRef}
-                src={result}
-                width={200}
-                height={250}
-                alt=""
-              />
-            )}
-          </Grid>
-          <Grid item xs={6}>
             {/* Primary Color */}
             <List className={classes.inputField}>
               <Typography>Primary Color *</Typography>
@@ -427,6 +379,8 @@ export default function LostItem() {
                 )}
               />
             </List>
+          </Grid>
+          <Grid item xs={6}>
             {/* Secondary Item Color */}
             <List className={classes.inputField}>
               <Typography>Secondary Item Color *</Typography>
@@ -463,8 +417,58 @@ export default function LostItem() {
               />
             </List>
           </Grid>
+          <Grid item xs={6}>
+            {/* Upload Image */}
+            <Typography>Upload Image *</Typography>
+            <span>
+              (This image will display on the Website. Do not enter high
+              resolution images such as 4k resolution.)
+            </span>
+            <div style={{ marginBottom: 10 }}></div>
+            <div className="App">
+              {/* <Input
+             type="file"
+             accept=".jpg, .jpeg, .png"
+             value={imageInput}
+             onChange={(e) => {
+               setImage(e.target.files[0]);
+               uploader(e);
+               setImageInput(event.target.value);
+             }}
+           /> */}
+              <label htmlFor="contained-button-file">
+                <Input
+                  accept="image/*"
+                  id="contained-button-file"
+                  multiple
+                  type="file"
+                  style={{ display: "none" }}
+                  value={imageInput}
+                  onChange={(e) => {
+                    setImage(e.target.files[0]);
+                    uploader(e);
+                    setImageInput(event.target.value);
+                  }}
+                />
+                <Button variant="contained" component="span">
+                  Upload
+                </Button>
+              </label>
+            </div>
+            {result && (
+              <Image
+                ref={imageRef}
+                src={result}
+                width={200}
+                height={200}
+                alt=""
+              />
+            )}
+          </Grid>
+          <Grid item xs={6}></Grid>
+          <Grid item xs={6}></Grid>
         </Grid>
-        <br /> <br /> <br /> <br /> <br /> <br />
+        <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
             <Typography variant="h3">Location Information</Typography>
