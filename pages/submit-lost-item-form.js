@@ -551,6 +551,38 @@ export default function LostItem() {
                     International School for Culinary Arts and Hotel Management
                     Pampanga
                   </MenuItem>
+                  <ListSubheader
+                    style={{
+                      background: "lightgray",
+                      fontSize: "30px",
+                    }}
+                  >
+                    PUROK
+                  </ListSubheader>
+                  <MenuItem value={"Purok 1&2 - San angelo sibdivision"}>
+                    Purok 1&2 - San angelo sibdivision
+                  </MenuItem>
+                  <MenuItem value={"Purok 3- Sto. Rosario street"}>
+                    Purok 3- Sto. Rosario street
+                  </MenuItem>
+                  <MenuItem value={"Purok 4- Villa angela"}>
+                    Purok 4- Villa angela
+                  </MenuItem>
+                  <MenuItem value={"Purok 5- L&S subdivision"}>
+                    Purok 5- L&S subdivision
+                  </MenuItem>
+                  <MenuItem value={"Purok 6- Villa Leoncia"}>
+                    Purok 6- Villa Leoncia
+                  </MenuItem>
+                  <MenuItem value={"Purok 7- Villa Dolores"}>
+                    Purok 7- Villa Dolores
+                  </MenuItem>
+                  <MenuItem value={"Purok 8- Palmera Homes"}>
+                    Purok 8- Palmera Homes
+                  </MenuItem>
+                  <MenuItem value={"Purok 9- Mansfield Residence"}>
+                    Purok 9- Mansfield Residence
+                  </MenuItem>
                 </Select>
               </FormControl>
             </List>
