@@ -78,3 +78,4 @@ Day 10, February 21,2020
 1. Adding Filters
 2. Added search filter
 3. fixed Grids
+4. Added Terms and conditions
