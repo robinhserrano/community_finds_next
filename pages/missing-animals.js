@@ -54,11 +54,11 @@ export async function getServerSideProps() {
   };
 }
 
-export default function FoundItem(props) {
+export default function MissingAnimals(props) {
   const [posts, setPosts] = useState(props.posts);
 
   const missingItems = posts.filter((itemLost) => {
-    return itemLost;
+    return itemLost.category.toLowerCase().includes("animals");
   });
 
   const classes = useStyles();

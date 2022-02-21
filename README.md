@@ -73,3 +73,7 @@ Day 09, February 19, 2022
 2. Implementation of MapBox
 3. Building of Submit form
 4. Fixing bugs in the code
+
+Day 10, February 21,2020
+1. Adding Filters
+2. Added search filter
