@@ -28,7 +28,7 @@ export default function Home() {
             their lost items.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
-          <NextLink href="/lost-item" passHref>
+          <NextLink href="/submit-lost-item-form" passHref>
             <Button
               variant="outlined"
               style={{ width: 200, height: 60, marginRight: 30 }}
