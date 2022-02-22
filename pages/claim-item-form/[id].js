@@ -28,14 +28,14 @@ import found from "../../public/images/found.png";
 import foundme from "../../public/images/foundme.png";
 import { firestore, postToJSON } from "../../lib/firebase";
 import { useRouter } from "next/router";
-
 import useStyles from "../../utils/styles";
 import { Controller, useForm } from "react-hook-form";
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 import { useSelector, useDispatch } from "react-redux";
 import { ITEM_OWNER_INFORMATION } from "../../redux/actionTypes";
-
+import "firebase/compat/firestore";
+import firebase from "firebase/compat/app";
 //
 
 export async function getServerSideProps() {
@@ -105,44 +105,32 @@ export default function ClaimLostItemForm(props) {
   }
 
   const submitHandler = async ({
-    itemLost,
     brand,
-    primaryColor,
-    secondaryColor,
     result,
-    zipCode,
-    nameLocation,
     information,
     firstname,
     lastname,
     phone,
     email,
   }) => {
-    var lostItemId = v4();
     try {
       firebase
         .firestore()
         .collection("missingItems")
-        .doc(lostItemId)
+        .doc(profile.id)
         .update({
-          id: lostItemId,
-          name: itemLost,
-          category: category,
-          brand: brand,
-          primaryColor: primaryColor,
-          secondaryColor: secondaryColor,
-          image: itemimageValue,
-          zipcode: zipCode,
-          location: nameLocation,
-          information: information,
+          claim_brand: brand,
+          claim_image: itemimageValue,
+          // claim_location: nameLocation,
+          claim_information: information,
           // date: lostdDate,
-          locationtype: typelocation,
+          claim_locationtype: typelocation,
           //mapbox:
           timeLost: lostTime,
-          firstname: firstname,
-          lastname: lastname,
-          phone: phone,
-          email: email,
+          claim_firstname: firstname,
+          claim_lastname: lastname,
+          claim_phone: phone,
+          claim_email: email,
           status: "processing",
         })
         .then(() => alert("Your claim is now being process."));
