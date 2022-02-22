@@ -5,6 +5,8 @@ import firebase from "firebase/compat/app";
 import { firestore, postToJSON, auth } from "../lib/firebase";
 import { Button, Table, TableCell, TableRow, Typography } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 //
 
 export async function getServerSideProps() {
@@ -31,7 +33,7 @@ export default function UserViewPost(props) {
   const missingItems = posts.filter((itemLost) => {
     return itemLost.user_id.includes(auth.currentUser.uid);
   });
-
+  const router = useRouter();
   const removeMissingItemHandler = (e) => {
     try {
       firestore
@@ -39,6 +41,7 @@ export default function UserViewPost(props) {
         .doc(e)
         .delete()
         .then(alert("This missing item is now deleted"));
+      router.push("/user-view-post");
     } catch (error) {
       console.log(error);
       alert(error);
