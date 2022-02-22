@@ -32,7 +32,7 @@ import "react-datetime/css/react-datetime.css";
 import { v4 as uuidv4, v4 } from "uuid";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
-import { firestore, postToJSON } from "../lib/firebase";
+import { firestore, postToJSON, auth } from "../lib/firebase";
 
 import { useSelector, useDispatch } from "react-redux";
 import { ITEM_OWNER_INFORMATION } from "../redux/actionTypes";
@@ -119,6 +119,7 @@ export default function LostItem() {
         .doc(lostItemId)
         .set({
           id: lostItemId,
+          user_id: auth.currentUser.uid,
           name: itemLost,
           category: category,
           brand: brand,

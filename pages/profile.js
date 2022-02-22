@@ -85,7 +85,7 @@ export default function Profile(props) {
                   <ListItemText primary="User Profile" />
                 </ListItem>
               </NextLink>
-              <NextLink href="/view-post" passHref>
+              <NextLink href="/user-view-post" passHref>
                 <ListItem button component="a">
                   <ListItemText primary="View Post" />
                 </ListItem>
