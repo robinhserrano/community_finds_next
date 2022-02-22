@@ -73,7 +73,9 @@ export default function MissingKeys(props) {
       setPosts(filteredPosts);
     } else {
       const filter = missingItems.filter((missing) => {
-        return missing.name.toLowerCase().includes(e.target.value);
+        return missing.name
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase());
       });
       setPosts(filter);
     }
