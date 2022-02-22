@@ -42,7 +42,9 @@ import NextLink from "next/link";
 //
 export async function getServerSideProps() {
   const postsQuery = firestore.collectionGroup("missingItems");
-
+  // .where("status", "==", "missing");
+  // .orderBy('createdAt', 'desc')
+  // .limit(LIMIT);
   const posts = (await postsQuery.get()).docs.map(postToJSON);
 
   // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
@@ -58,7 +60,7 @@ export default function FoundItem(props) {
   const [posts, setPosts] = useState(props.posts);
 
   const missingItems = posts.filter((itemLost) => {
-    return itemLost;
+    return itemLost.status.toLowerCase().includes("missing");
   });
 
   const classes = useStyles();

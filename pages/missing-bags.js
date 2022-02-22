@@ -58,7 +58,10 @@ export default function MissingBags(props) {
   const [posts, setPosts] = useState(props.posts);
 
   const missingItems = posts.filter((itemLost) => {
-    return itemLost.category.toLowerCase().includes("bag");
+    return (
+      itemLost.category.toLowerCase().includes("bag") &&
+      itemLost.status.toLowerCase().includes("missing")
+    );
   });
 
   const classes = useStyles();
