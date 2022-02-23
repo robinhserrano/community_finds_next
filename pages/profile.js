@@ -90,6 +90,11 @@ export default function Profile(props) {
                   <ListItemText primary="View Post" />
                 </ListItem>
               </NextLink>
+              <NextLink href="/user-claim-post" passHref>
+                <ListItem button component="a">
+                  <ListItemText primary="Claimer" />
+                </ListItem>
+              </NextLink>
             </List>
           </Card>
         </Grid>

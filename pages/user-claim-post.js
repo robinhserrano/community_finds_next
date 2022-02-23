@@ -36,21 +36,26 @@ export async function getServerSideProps() {
 
 //
 
-export default function UserViewPost(props) {
+export default function UserClaimPost(props) {
   const [posts, setPosts] = useState(props.posts);
 
   const missingItems = posts.filter((itemLost) => {
-    return itemLost.user_id.includes(auth.currentUser.uid);
+    return (
+      itemLost.user_id.includes(auth.currentUser.uid) &&
+      itemLost.status.toLowerCase().includes("processing")
+    );
   });
   const router = useRouter();
-  const removeMissingItemHandler = (e) => {
+  const claimerSubmitHandler = (e) => {
     try {
       firestore
         .collection("missingItems")
         .doc(e)
-        .delete()
-        .then(alert("This missing item is now deleted"));
-      router.push("/user-view-post");
+        .update({
+          status: "claimed",
+        })
+        .then(alert("The Item is now claimed. Thank you for helping."));
+      router.push("/user-claim-post");
     } catch (error) {
       console.log(error);
       alert(error);
@@ -106,10 +111,10 @@ export default function UserViewPost(props) {
             <TableCell align="right">
               <Button
                 variant="contained"
-                color="error"
-                onClick={() => removeMissingItemHandler(info.id)}
+                color="success"
+                onClick={() => claimerSubmitHandler(info.id)}
               >
-                Delete Post
+                Claimed
               </Button>
             </TableCell>
           </TableRow>

@@ -136,13 +136,11 @@ export default function Navbar({ title, children }) {
                     View Post
                   </NextLink>
                 </MenuItem>
-                {user === "admin" && (
-                  <MenuItem>
-                    <NextLink href={"/profile"} passHref>
-                      Admin Dashboard
-                    </NextLink>
-                  </MenuItem>
-                )}
+                <MenuItem>
+                  <NextLink href={"/user-claim-post"} passHref>
+                    Claimer
+                  </NextLink>
+                </MenuItem>
                 <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
               </Menu>
             </>
