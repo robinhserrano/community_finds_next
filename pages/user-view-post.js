@@ -6,6 +6,7 @@ import { firestore, postToJSON, auth } from "../lib/firebase";
 import { Button, Table, TableCell, TableRow, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import NextLink from "next/link";
 
 //
 
@@ -89,7 +90,9 @@ export default function UserViewPost(props) {
               <Typography>{info.status}</Typography>
             </TableCell>
             <TableCell align="right">
-              <Button variant="outlined">Edit Post</Button>
+              <NextLink href={`/user-edit-post/${info.id}`}>
+                <Button variant="outlined">Edit Post</Button>
+              </NextLink>
             </TableCell>
             <TableCell align="right">
               <Button
