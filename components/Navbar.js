@@ -189,7 +189,7 @@ export default function Navbar({ title, children }) {
               <Typography className={classes.textStyle}>CLAIM ITEM</Typography>
             </Link>
           </NextLink>
-          <NextLink href="/recent-item" passHref>
+          <NextLink href="/claimed-items" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
                 VIEW CLAIMED ITEMS
