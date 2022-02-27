@@ -56,7 +56,7 @@ export default function UserClaimerInformation(props) {
             "The Item and claimer post did not match. The item will now considered as missing again."
           )
         );
-      // router.push("/user-claim-post");
+      router.push("/");
     } catch (error) {
       console.log(error);
       alert(error);
@@ -72,6 +72,7 @@ export default function UserClaimerInformation(props) {
           status: "claimed",
         })
         .then(alert("The Item is now claimed. Thank you for helping."));
+      router.push("/");
     } catch (error) {
       console.log(error);
       alert(error);
