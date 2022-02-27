@@ -74,6 +74,8 @@ export default function UserClaimPost(props) {
           <TableCell>Item Location</TableCell>
           <TableCell>Item Location Type</TableCell>
           <TableCell>Item Status</TableCell>
+          <TableCell>Claimer name</TableCell>
+          <TableCell>Claimer Mobile</TableCell>
           <TableCell align="center">Action</TableCell>
           <TableCell align="center">Action</TableCell>
         </TableRow>
@@ -103,9 +105,17 @@ export default function UserClaimPost(props) {
             <TableCell>
               <Typography>{info.status}</Typography>
             </TableCell>
+            <TableCell>
+              <Typography>
+                {info.claim_firstname} {info.claim_lastname}
+              </Typography>
+            </TableCell>
+            <TableCell>
+              <Typography>{info.claim_phone}</Typography>
+            </TableCell>
             <TableCell align="right">
-              <NextLink href={`/user-edit-post/${info.id}`}>
-                <Button variant="outlined">Edit Post</Button>
+              <NextLink href={`/user-claimer-information/${info.id}`}>
+                <Button variant="outlined">view</Button>
               </NextLink>
             </TableCell>
             <TableCell align="right">

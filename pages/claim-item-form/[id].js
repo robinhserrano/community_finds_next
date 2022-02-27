@@ -126,7 +126,7 @@ export default function ClaimLostItemForm(props) {
           // date: lostdDate,
           claim_locationtype: typelocation,
           //mapbox:
-          timeLost: lostTime,
+          claim_timeLost: lostTime,
           claim_firstname: firstname,
           claim_lastname: lastname,
           claim_phone: phone,
