@@ -10,6 +10,7 @@ import {
   TextField,
   Typography,
   Grid,
+  Checkbox,
 } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -265,6 +266,15 @@ export default function Register() {
                 )}
               />
             </ListItem>
+            <ListItem>
+              <Checkbox required={true} />
+              <Typography> I agree to the &nbsp;</Typography>
+              <NextLink href={"/terms-and-conditions"} passHref>
+                <Link>
+                  <Typography>Terms and Conditions</Typography>
+                </Link>
+              </NextLink>
+            </ListItem>
 
             <ListItem>
               <Button
@@ -276,13 +286,7 @@ export default function Register() {
                 Register
               </Button>
             </ListItem>
-            <ListItem style={{ marginLeft: "35%" }}>
-              <NextLink href={"/terms-and-conditions"} passHref>
-                <Link>
-                  <Typography>Terms and Conditions</Typography>
-                </Link>
-              </NextLink>
-            </ListItem>
+
             <ListItem>
               Already have an Account? &nbsp;
               <NextLink href={`/login?redirect=${redirect || "/"}`} passHref>
