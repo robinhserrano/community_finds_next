@@ -17,6 +17,7 @@ import {
   MenuItem,
   Select,
   ListSubheader,
+  Checkbox,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -822,7 +823,15 @@ export default function LostItem() {
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             <Grid item xs={6}></Grid>
-            <Grid item xs={2.9}></Grid>
+            <Grid item xs={2.9}>
+              <ListItem>
+                <Checkbox required={true} />
+                <Typography>
+                  I agree that my data will be collected and shared in the
+                  website.
+                </Typography>
+              </ListItem>
+            </Grid>
 
             <Grid item xs={3}>
               <List>
