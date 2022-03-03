@@ -21,11 +21,11 @@ export default function Home() {
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
             Community finds is a community base online platform which aims to
-            help and it is generalize for the citizen of Sto Domingo Angeles
-            City. They can report both lost and found items in this website.
-            Once the items were reported in our system it will go through our
-            matching system, with that it can help the citizen to easily find
-            their lost items.
+            help and it is generalize for the citizen of Baligo Angeles City.
+            They can report both lost and found items in this website. Once the
+            items were reported in our system it will go through our matching
+            system, with that it can help the citizen to easily find their lost
+            items.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <NextLink href="/submit-lost-item-form" passHref>
