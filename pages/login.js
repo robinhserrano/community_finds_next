@@ -37,9 +37,10 @@ export default function Login() {
           alert("Successfully Signed In");
         })
         .catch((error) => {
-          console.log(error.message);
-        });
-      router.push(redirect || "/");
+          alert("Invalid email or Password", {
+            variant: "error",
+          });
+      router.push(login?redirect || "/");
     } catch (err) {
       alert("Invalid email or Password", {
         variant: "error",

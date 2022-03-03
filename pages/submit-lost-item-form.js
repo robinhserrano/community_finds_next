@@ -27,14 +27,12 @@ import Image from "next/image";
 import sideImage from "../public/images/search.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 import { v4 as uuidv4, v4 } from "uuid";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 import { firestore, postToJSON, auth } from "../lib/firebase";
-
 import { useSelector, useDispatch } from "react-redux";
 import { ITEM_OWNER_INFORMATION } from "../redux/actionTypes";
 //
