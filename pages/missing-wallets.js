@@ -77,7 +77,7 @@ export default function MissingWallet(props) {
           .toLowerCase()
           .includes(e.target.value.toLowerCase());
       });
-      });
+
       setPosts(filter);
     }
   };
