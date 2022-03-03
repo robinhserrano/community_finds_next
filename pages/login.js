@@ -35,14 +35,13 @@ export default function Login() {
       signInWithEmailAndPassword(auth, email, password)
         .then((authUser) => {
           alert("Successfully Signed In");
+          router.push(redirect || "/");
         })
         .catch((error) => {
-          alert("Invalid email or Password", {
-            variant: "error",
-          });
-      router.push(login?redirect || "/");
+          alert("invalid email or password");
+        });
     } catch (err) {
-      alert("Invalid email or Password", {
+      console.log("Invalid email or Password", {
         variant: "error",
       });
     }
