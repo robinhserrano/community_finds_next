@@ -505,54 +505,36 @@ export default function LostItem() {
                       fontSize: "30px",
                     }}
                   >
-                    SUBDIVISION/VILLAGE
+                    Private and Public Places
                   </ListSubheader>
-                  <MenuItem value={"Leoncia Village"}>Leoncia Village</MenuItem>
-                  <MenuItem value={"Mansfield Residences"}>
-                    Mansfield Residences
+                  <MenuItem value={"Government Offices"}>
+                    Government Offices
                   </MenuItem>
-                  <MenuItem value={"L&S Subdivision"}>L&S Subdivision</MenuItem>
-                  <MenuItem value={"Villa Dolores Subdivision"}>
-                    Villa Dolores Subdivision
+                  <MenuItem value={"Religous Institutions"}>
+                    Religous Institutions
                   </MenuItem>
-                  <MenuItem value={"Villa Gloria Subdivision"}>
-                    Villa Gloria Subdivision
+                  <MenuItem value={"Malls and Commercial Centers"}>
+                    Malls and Commercial Centers
                   </MenuItem>
-                  <MenuItem value={"Palmera Homes"}>Palmera Homes</MenuItem>
-                  <ListSubheader
-                    style={{
-                      background: "lightgray",
-                      fontSize: "30px",
-                    }}
-                  >
-                    LANDMARK
-                  </ListSubheader>
-                  <MenuItem value={"Sacred Heart Medical Center"}>
-                    Sacred Heart Medical Center
+                  <MenuItem value={"School or Colleges"}>
+                    School or Colleges
                   </MenuItem>
-                  <MenuItem value={"Carmelite Monastery"}>
-                    Carmelite Monastery
+                  <MenuItem value={"Junk Shop"}>Junk Shop</MenuItem>
+                  <MenuItem value={"Sari-Sari Store"}>Sari-Sari Store</MenuItem>
+
+                  <MenuItem value={"Convinient Store"}>
+                    Convinient Store
                   </MenuItem>
-                  <MenuItem value={"LTO Angeles"}>LTO Angeles</MenuItem>
-                  <ListSubheader
-                    style={{
-                      background: "lightgray",
-                      fontSize: "30px",
-                    }}
-                  >
-                    SCHOOL
-                  </ListSubheader>
-                  <MenuItem value={"La Vertice School"}>
-                    La Vertice School
-                  </MenuItem>
-                  <MenuItem
-                    value={
-                      "International School for Culinary Arts and Hotel Management Pampanga"
-                    }
-                  >
-                    International School for Culinary Arts and Hotel Management
-                    Pampanga
-                  </MenuItem>
+                  <MenuItem value={"Hospitals"}>Hospital</MenuItem>
+                  <MenuItem value={"Cemetery"}>Cemetery</MenuItem>
+
+                  <MenuItem value={"Park"}>Park</MenuItem>
+                  <MenuItem value={"Bars"}>Bars</MenuItem>
+                  <MenuItem value={"Private Offices"}>Private Office</MenuItem>
+                  <MenuItem value={"Clinics"}>Clinic</MenuItem>
+                  <MenuItem value={"Hotels"}>Hotel</MenuItem>
+                  <MenuItem value={"Motels"}>Motel</MenuItem>
+                  <MenuItem value={"Gym"}>Gym</MenuItem>
                   <ListSubheader
                     style={{
                       background: "lightgray",
@@ -561,30 +543,21 @@ export default function LostItem() {
                   >
                     PUROK
                   </ListSubheader>
-                  <MenuItem value={"Purok 1&2 - San angelo sibdivision"}>
-                    Purok 1&2 - San angelo sibdivision
-                  </MenuItem>
-                  <MenuItem value={"Purok 3- Sto. Rosario street"}>
-                    Purok 3- Sto. Rosario street
-                  </MenuItem>
-                  <MenuItem value={"Purok 4- Villa angela"}>
-                    Purok 4- Villa angela
-                  </MenuItem>
-                  <MenuItem value={"Purok 5- L&S subdivision"}>
-                    Purok 5- L&S subdivision
-                  </MenuItem>
-                  <MenuItem value={"Purok 6- Villa Leoncia"}>
-                    Purok 6- Villa Leoncia
-                  </MenuItem>
-                  <MenuItem value={"Purok 7- Villa Dolores"}>
-                    Purok 7- Villa Dolores
-                  </MenuItem>
-                  <MenuItem value={"Purok 8- Palmera Homes"}>
-                    Purok 8- Palmera Homes
-                  </MenuItem>
-                  <MenuItem value={"Purok 9- Mansfield Residence"}>
-                    Purok 9- Mansfield Residence
-                  </MenuItem>
+                  <MenuItem value={"Purok 1"}>Purok 1</MenuItem>
+                  <MenuItem value={"Purok 2"}>Purok 2</MenuItem>
+                  <MenuItem value={"Purok 3"}>Purok 3</MenuItem>
+                  <MenuItem value={"Purok 4"}>Purok 4</MenuItem>
+                  <MenuItem value={"Purok 5"}>Purok 5</MenuItem>
+                  <MenuItem value={"Purok 6"}>Purok 6</MenuItem>
+                  <MenuItem value={"Purok 7"}>Purok 7</MenuItem>
+                  <MenuItem value={"Purok 8"}>Purok 8</MenuItem>
+                  <MenuItem value={"Purok 9"}>Purok 9</MenuItem>
+                  <MenuItem value={"Purok 10"}>Purok 10</MenuItem>
+                  <MenuItem value={"Purok 11"}>Purok 11</MenuItem>
+                  <MenuItem value={"Purok 12"}>Purok 12</MenuItem>
+                  <MenuItem value={"Purok 13"}>Purok 13</MenuItem>
+                  <MenuItem value={"Purok 14"}>Purok 14</MenuItem>
+                  <MenuItem value={"Purok 15"}>Purok 15</MenuItem>
                 </Select>
               </FormControl>
             </List>
@@ -629,8 +602,10 @@ export default function LostItem() {
           <Grid item xs={6}>
             {/* Name/Location */}
             <List className={classes.inputField}>
-              <Typography>Name/Location *</Typography>
-
+              <Typography>Place/Location *</Typography>
+              <span>
+                Please Specify the Area from where you have found/lost the item
+              </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="nameLocation"
