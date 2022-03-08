@@ -5,6 +5,13 @@ import { useRouter } from "next/router";
 import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import NextLink from "next/link";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "next-share";
+
 //
 export async function getServerSideProps() {
   const postsQuery = firestore.collectionGroup("missingItems");
@@ -177,7 +184,7 @@ export default function ItemDetails(props) {
         <Grid item xs={12}>
           MAP HERE
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={7}>
           <NextLink href={"/found-item"}>
             <Button
               style={{
@@ -188,6 +195,32 @@ export default function ItemDetails(props) {
               <Typography variant="h6"> GO BACK TO LIST </Typography>
             </Button>
           </NextLink>
+        </Grid>
+        {/* <Grid item xs={1}>
+          <Typography>Share on </Typography>
+        </Grid> */}
+        <Grid item xs={3}>
+          {/* need manipulation of data into variable para maging dynamic */}
+          <FacebookShareButton
+            url={("https://missing-item/", profile.id)}
+            quote={
+              "next-share is a social share buttons for your next React apps."
+            }
+            hashtag={"#missing"}
+            style={{ marginRight: "20px" }}
+          >
+            <FacebookIcon size={70} round />
+          </FacebookShareButton>
+
+          <TwitterShareButton
+            url={("https://missing-item/", profile.id)}
+            quote={
+              "next-share is a social share buttons for your next React apps."
+            }
+            hashtag={"#missing"}
+          >
+            <TwitterIcon size={70} round />
+          </TwitterShareButton>
         </Grid>
         <Grid item xs={2}>
           <NextLink href={`/claim-item-form/${profile.id}`}>
