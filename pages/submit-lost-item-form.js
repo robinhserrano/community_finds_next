@@ -171,7 +171,7 @@ export default function LostItem() {
             </Typography>
             <br /> <br />
             <Typography variant="h5">
-              ✔ The Location Is Only Limited to Sto. Domingo Angeles City.
+              ✔ The Location Is Only Limited to Balibago Angeles City.
             </Typography>
             <br /> <br />
             <Typography variant="h7">

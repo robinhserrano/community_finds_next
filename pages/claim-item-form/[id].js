@@ -112,6 +112,7 @@ export default function ClaimLostItemForm(props) {
     lastname,
     phone,
     email,
+    nameLocation,
   }) => {
     try {
       firebase
@@ -121,7 +122,7 @@ export default function ClaimLostItemForm(props) {
         .update({
           claim_brand: brand,
           claim_image: itemimageValue,
-          // claim_location: nameLocation,
+          claim_location: nameLocation,
           claim_information: information,
           // date: lostdDate,
           claim_locationtype: typelocation,
@@ -542,6 +543,44 @@ export default function ClaimLostItemForm(props) {
                     <MenuItem value={"Purok 15"}>Purok 15</MenuItem>
                   </Select>
                 </FormControl>
+              </List>
+            </Grid>
+            <Grid item xs={6}>
+              <br />
+              <List className={classes.inputField}>
+                <Typography>Place/Location *</Typography>
+                <span>
+                  Please Specify the Area from where you have found/lost the
+                  item
+                </span>
+                <div style={{ marginBottom: 10 }}></div>
+                <Controller
+                  name="nameLocation"
+                  control={control}
+                  defaultValue=""
+                  rules={{
+                    required: true,
+                    minLength: 2,
+                  }}
+                  render={({ field }) => (
+                    <TextField
+                      variant="outlined"
+                      fullWidth
+                      required={true}
+                      id="nameLocation"
+                      label="Location"
+                      error={Boolean(errors.namelocation)}
+                      helperText={
+                        errors.nameLocation
+                          ? errors.nameLocation.type === "minLength"
+                            ? "Location Code length should be more than 1"
+                            : "Location Code color is required"
+                          : ""
+                      }
+                      {...field}
+                    />
+                  )}
+                />
               </List>
             </Grid>
             <Grid item xs={6}>
