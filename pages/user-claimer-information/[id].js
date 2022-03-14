@@ -194,7 +194,7 @@ export default function UserClaimerInformation(props) {
                 src={profile.image}
                 alt={profile.name}
                 height={600}
-                width={700}
+                width={750}
               />
             </CardContent>
           </Card>
@@ -225,33 +225,51 @@ export default function UserClaimerInformation(props) {
 
         <Grid item xs={6}>
           <Typography variant="h4">Claimer Information</Typography>
-          <Card>
-            <CardContent style={{ textAlign: "center" }}>
-              <Typography>Claimer Information</Typography>
-            </CardContent>
+          <Card
+            style={{
+              borderStyle: "groove",
+              borderRadius: "10px",
+            }}
+          >
+            <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
             <CardContent>
-              <Typography>
-                Name: {profile.claim_firstname} {profile.claim_lastname}
+              <Typography style={{ fontSize: "25px" }}>
+                <b> Name: </b>
+                {profile.claim_firstname} {profile.claim_lastname}
               </Typography>
             </CardContent>
             <CardContent>
-              <Typography>Email: {profile.claim_email}</Typography>
+              <Typography style={{ fontSize: "25px" }}>
+                <b>Email: </b>
+                {profile.claim_email}
+              </Typography>
             </CardContent>
             <CardContent>
-              <Typography>Phone Number: {profile.claim_phone}</Typography>
+              <Typography style={{ fontSize: "25px" }}>
+                <b>Phone Number: </b>
+                {profile.claim_phone}
+              </Typography>
             </CardContent>
             <CardContent>
-              <Typography>Location: {profile.claim_locationtype}</Typography>
+              <Typography style={{ fontSize: "25px" }}>
+                <b>Location: </b>
+                {profile.claim_locationtype} {profile.location}
+              </Typography>
             </CardContent>
             <CardContent>
-              <Typography>
-                Item Description: {profile.claim_information}
+              <Typography style={{ fontSize: "25px" }}>
+                <b>Item Description: </b>
+                {profile.claim_information}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={6}>
+          <br /> <br />
           <Card>
+            <CardContent
+              style={{ backgroundColor: "#346e98", borderRadius: "10px" }}
+            ></CardContent>
             <CardContent>
               <img
                 src={profile.claim_image}
