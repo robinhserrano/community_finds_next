@@ -755,6 +755,7 @@ export default function LostItem() {
             </List>
           </Grid>
           <Grid item xs={6}>
+            <br />
             {/* Email */}
             <Typography>Email *</Typography>
             <span>
