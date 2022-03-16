@@ -40,6 +40,7 @@ import { ITEM_OWNER_INFORMATION } from "../redux/actionTypes";
 export default function LostItem() {
   const [category, setCategory] = React.useState("");
   const [typelocation, setTypeLocation] = React.useState("");
+  const [propertycategory, setPropertCcategory] = React.useState("");
 
   const handleChange = (event) => {
     setCategory(event.target.value);
@@ -47,6 +48,10 @@ export default function LostItem() {
 
   const handleChanges = (event) => {
     setTypeLocation(event.target.value);
+  };
+
+  const handleChangess = (event) => {
+    setPropertCcategory(event.target.value);
   };
 
   const [startDate, setStartDate] = useState(new Date());
@@ -120,6 +125,7 @@ export default function LostItem() {
           id: lostItemId,
           user_id: auth.currentUser.uid,
           name: itemLost,
+          propertycategory: propertycategory,
           category: category,
           brand: brand,
           primaryColor: primaryColor,
@@ -190,9 +196,45 @@ export default function LostItem() {
       <form onSubmit={handleSubmit(submitHandler)}>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item sm={6}>
-            {/* item Lost */}
+            {/* Property Category */}
             <List className={classes.inputField}>
-              <Typography>Item Lost *</Typography>
+              <Typography>Property Category *</Typography>
+              <span>(Found Property or Lost Property)</span>
+              <div style={{ marginBottom: 10 }}></div>
+              <FormControl fullWidth>
+                <InputLabel htmlFor="grouped-select">
+                  Select Property Category
+                </InputLabel>
+                <Select
+                  defaultValue=""
+                  id="grouped-select"
+                  required={true}
+                  value={propertycategory}
+                  label="Type Location"
+                  onChange={handleChanges}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <ListSubheader
+                    style={{
+                      background: "lightgray",
+                      fontSize: "30px",
+                    }}
+                  >
+                    Choose Property Type
+                  </ListSubheader>
+                  <MenuItem value={"Lost Property"}>Lost Property</MenuItem>
+                  <MenuItem value={"Found Property"}>Found Property</MenuItem>
+                </Select>
+              </FormControl>
+            </List>
+          </Grid>
+
+          <Grid item sm={6}>
+            {/* item Property */}
+            <List className={classes.inputField}>
+              <Typography>Item Property *</Typography>
               <span>
                 (Dog, Jacket, Smartphone, Wallet, etc.) This field may
                 auto-populate
