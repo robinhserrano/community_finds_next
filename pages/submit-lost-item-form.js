@@ -40,7 +40,7 @@ import { ITEM_OWNER_INFORMATION } from "../redux/actionTypes";
 export default function LostItem() {
   const [category, setCategory] = React.useState("");
   const [typelocation, setTypeLocation] = React.useState("");
-  const [propertycategory, setPropertCcategory] = React.useState("");
+  const [propertycategory, setPropertCategory] = React.useState("");
 
   const handleChange = (event) => {
     setCategory(event.target.value);
@@ -50,8 +50,8 @@ export default function LostItem() {
     setTypeLocation(event.target.value);
   };
 
-  const handleChangess = (event) => {
-    setPropertCcategory(event.target.value);
+  const propertyChange = (event) => {
+    setPropertCategory(event.target.value);
   };
 
   const [startDate, setStartDate] = useState(new Date());
@@ -170,7 +170,7 @@ export default function LostItem() {
         <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item sm={6}>
-            <Typography variant="h3">Submit Lost/Found Items</Typography>
+            <Typography variant="h3">Submit Lost/Found Property</Typography>
             <br /> <br />
             <Typography variant="h5">
               ✔ Users are able to view lost items.{" "}
@@ -202,7 +202,7 @@ export default function LostItem() {
               <span>(Found Property or Lost Property)</span>
               <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
-                <InputLabel htmlFor="grouped-select">
+                <InputLabel id="grouped-select">
                   Select Property Category
                 </InputLabel>
                 <Select
@@ -210,8 +210,8 @@ export default function LostItem() {
                   id="grouped-select"
                   required={true}
                   value={propertycategory}
-                  label="Type Location"
-                  onChange={handleChanges}
+                  label="Selec Property Catergory"
+                  onChange={propertyChange}
                 >
                   <MenuItem value="">
                     <em>None</em>
@@ -253,7 +253,7 @@ export default function LostItem() {
                     variant="outlined"
                     fullWidth
                     id="itemLost"
-                    label="Item Lost"
+                    label="Item Property"
                     error={Boolean(errors.itemLost)}
                     helperText={
                       errors.itemLost

@@ -53,15 +53,15 @@ export default function ItemDetails(props) {
             fontWeight: 200,
           }}
         >
-          Lost Item Details
+          {profile.propertycategory} Details
         </div>
       </Typography>
       <br /> <br />
       <Typography style={{ fontSize: "50px" }}>
-        Lost Item: {profile.name}
+        {profile.propertycategory}: {profile.name}
       </Typography>
       <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
-        <i> Item ID: {profile.id}</i>
+        <i> Property ID: {profile.id}</i>
       </Typography>
       <br /> <br /> <br /> <br />
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -74,7 +74,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Item Lost:</b> {profile.name}
+                <b> Property Lost:</b> {profile.name}
               </Typography>
             </CardContent>
             <CardContent
@@ -170,7 +170,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Owner Details
+                Contact Details
                 <br />
                 Name: {profile.firstname} {profile.lastname}
                 <br />

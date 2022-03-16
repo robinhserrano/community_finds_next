@@ -1,4 +1,4 @@
-import { CardContent, Typography, Card } from "@mui/material";
+import { CardContent, Typography, Card, Grid } from "@mui/material";
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { firestore, postToJSON } from "../lib/firebase";
@@ -33,23 +33,31 @@ export default function ClaimedItems(props) {
         clear, to reunite missing items back to their rightful owner.
       </Typography>
       <div style={{ marginTop: "3%" }}></div>
-      {missingItems.map((info) => (
-        <Card style={{ width: 330 }}>
-          <CardContent>
-            <img
-              src={info.claim_image}
-              alt={info.name}
-              height={300}
-              width={300}
-            />
-          </CardContent>
-          <CardContent>
-            <Typography style={{ textAlign: "center" }}>
-              Item Returned: {info.name}
-            </Typography>
-          </CardContent>
-        </Card>
-      ))}
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {missingItems.map((info) => (
+          <Grid item xs={2} sm={2} md={3}>
+            <Card style={{ width: 330 }}>
+              <CardContent>
+                <img
+                  src={info.claim_image}
+                  alt={info.name}
+                  height={300}
+                  width={300}
+                />
+              </CardContent>
+              <CardContent>
+                <Typography style={{ textAlign: "center" }}>
+                  Item Returned: {info.name}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </Navbar>
   );
 }

@@ -145,7 +145,7 @@ export default function ClaimLostItemForm(props) {
         <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
-            <Typography variant="h3">Claim Lost Item</Typography>
+            <Typography variant="h3">Claim Lost Property</Typography>
             <br />
             <Typography variant="h5" style={{ backgroundColor: "lightgray" }}>
               <b>Item ID: </b>
