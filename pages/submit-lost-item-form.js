@@ -163,7 +163,7 @@ export default function LostItem() {
       <div>
         <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             <Typography variant="h3">Submit Lost/Found Items</Typography>
             <br /> <br />
             <Typography variant="h5">
@@ -181,7 +181,7 @@ export default function LostItem() {
               retrieving your items.
             </Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             <Image src={sideImage} alt="logo" width={500} height={500} />
           </Grid>
         </Grid>
@@ -189,7 +189,7 @@ export default function LostItem() {
       {/* pasok sa grid para mahati screeen sosa */}
       <form onSubmit={handleSubmit(submitHandler)}>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* item Lost */}
             <List className={classes.inputField}>
               <Typography>Item Lost *</Typography>
@@ -226,7 +226,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Date and Time Lost */}
             <Typography>Date Lost and Time Lost *</Typography>
             <span>
@@ -240,7 +240,7 @@ export default function LostItem() {
               onChange={(time) => setStartTime(time)}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* category */}
             <List className={classes.inputField}>
               <Typography>Category *</Typography>
@@ -272,7 +272,7 @@ export default function LostItem() {
               </FormControl>
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Additional Information */}
             <List className={classes.inputField}>
               <Typography>Additional Information *</Typography>
@@ -309,7 +309,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* brand */}
             <List className={classes.inputField}>
               <Typography>Brand *</Typography>
@@ -343,7 +343,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Primary Color */}
             <List className={classes.inputField}>
               <Typography>Primary Color *</Typography>
@@ -380,7 +380,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Secondary Item Color */}
             <List className={classes.inputField}>
               <Typography>Secondary Item Color *</Typography>
@@ -417,7 +417,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Upload Image */}
             <Typography>Upload Image *</Typography>
             <span>
@@ -470,12 +470,12 @@ export default function LostItem() {
         </Grid>
         <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             <Typography variant="h3">Location Information</Typography>
             <br /> <br /> <br />
           </Grid>
           <Grid item xs={6}></Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Where did you Lost It? */}
             <List className={classes.inputField}>
               <Typography>Where did you Lost It *</Typography>
@@ -560,7 +560,7 @@ export default function LostItem() {
               </FormControl>
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Zip Code */}
             <List className={classes.inputField}>
               <Typography>Zip Code *</Typography>
@@ -597,7 +597,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Name/Location */}
             <List className={classes.inputField}>
               <Typography>Place/Location *</Typography>
@@ -634,7 +634,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}></Grid>
+          <Grid item sm={6}></Grid>
         </Grid>
         <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -642,8 +642,8 @@ export default function LostItem() {
             <Typography variant="h3">Contact Information</Typography>
             <br /> <br /> <br />
           </Grid>
-          <Grid item xs={6}></Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}></Grid>
+          <Grid item sm={6}>
             {/* First Name */}
             <List className={classes.inputField}>
               <Typography>First Name *</Typography>
@@ -680,7 +680,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Last Name */}
             <List className={classes.inputField}>
               <Typography>Last Name *</Typography>
@@ -717,7 +717,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             {/* Phone Number */}
             <Typography>Phone Number *</Typography>
             <span>
@@ -754,7 +754,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6}>
             <br />
             {/* Email */}
             <Typography>Email *</Typography>
@@ -797,7 +797,7 @@ export default function LostItem() {
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             <Grid item xs={6}></Grid>
-            <Grid item xs={2.9}>
+            <Grid item sm={2.9}>
               <ListItem>
                 <Checkbox required={true} />
                 <Typography>
@@ -807,7 +807,7 @@ export default function LostItem() {
               </ListItem>
             </Grid>
 
-            <Grid item xs={3}>
+            <Grid item sm={3}>
               <List>
                 <ListItem>
                   <Button
