@@ -132,7 +132,7 @@ export default function LostItem() {
 					primaryColor: primaryColor,
 					secondaryColor: secondaryColor,
 					image: itemimageValue,
-					zipcode: zipCode,
+					zipcode: "2009",
 					location: nameLocation,
 					information: information,
 					// date: lostdDate,
@@ -597,7 +597,8 @@ export default function LostItem() {
 										variant="outlined"
 										fullWidth
 										id="zipCode"
-										label="Zip Code"
+										label="2009"
+										disabled={true}
 										error={Boolean(errors.zipcode)}
 										helperText={
 											errors.zipcode ? errors.zipcode.type === 'minLength' ? (
