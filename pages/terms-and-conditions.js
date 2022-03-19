@@ -20,11 +20,11 @@ export default function TermsAndConditions() {
           media channel, mobile website or mobile application related, linked,
           or otherwise connected thereto (collectively, the “Site”). We are
           registered in the Philippines and have our registered office at
-          Barangay Santo Domingo, Angeles City, and Pampanga 2009. You agree
-          that by accessing the Site, you have read, understood, and agreed to
-          be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF
-          THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE
-          SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+          Balibago, Angeles City, and Pampanga 2009. You agree that by accessing
+          the Site, you have read, understood, and agreed to be bound by all of
+          these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF
+          USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU
+          MUST DISCONTINUE USE IMMEDIATELY.
         </Typography>
         <br /> <br />
         <Typography variant="h4">Description of Service</Typography>
