@@ -606,16 +606,6 @@ export default function ClaimLostItemForm(props) {
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <div className="App">
-                {/* <Input
-               type="file"
-               accept=".jpg, .jpeg, .png"
-               value={imageInput}
-               onChange={(e) => {
-                 setImage(e.target.files[0]);
-                 uploader(e);
-                 setImageInput(event.target.value);
-               }}
-             /> */}
                 <label htmlFor="contained-button-file">
                   <Input
                     accept="image/*"
