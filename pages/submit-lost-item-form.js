@@ -672,7 +672,11 @@ export default function LostItem() {
 										console.error(error);
 									}
 								)}
-						/>
+						>
+							<Marker longitude={-100} latitude={40} anchor="bottom">
+								<img src="../public/images/animal.png" />
+							</Marker>
+						</Map>
 					</Grid>
 				</Grid>
 				<br /> <br /> <br /> <br /> <br /> <br />
