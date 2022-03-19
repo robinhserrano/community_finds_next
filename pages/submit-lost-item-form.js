@@ -44,6 +44,13 @@ export default function LostItem() {
   const [category, setCategory] = React.useState("");
   const [typelocation, setTypeLocation] = React.useState("");
   const [propertycategory, setPropertCategory] = React.useState("");
+  const [viewport, setViewport] = useState({
+    width: "100%",
+    height: "100%",
+    latitude: 120.5978,
+    longitude: 15.1685,
+    zoom: 12,
+  });
 
   Geocode.setApiKey("AIzaSyD2h6U3EeCYqNLwsrwCxOS8MB8EsLwPsJE");
   Geocode.setLocationType("ROOFTOP");
@@ -685,11 +692,13 @@ export default function LostItem() {
           </Grid>
           <Grid item sm={6}>
             <Map
-              initialViewState={{
-                longitude: 120.5978,
-                latitude: 15.1685,
-                zoom: 12,
-              }}
+              //   initialViewState={{
+              //     longitude: 120.5978,
+              //     latitude: 15.1685,
+              //     zoom: 12,
+              //   }}
+              {...viewport}
+              onViewportChange={(nextViewport) => setViewport(nextViewport)}
               style={{ width: 600, height: 400 }}
               mapStyle="mapbox://styles/mapbox/streets-v9"
               mapboxAccessToken="pk.eyJ1IjoiY29tbXVuaXR5ZmluZHMiLCJhIjoiY2t6ajlsc3U1MXNtOTJ2bzB0ZXBxd21ncSJ9.2YEDuBOv1PAkUl8VsR9mag"
