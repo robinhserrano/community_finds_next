@@ -35,19 +35,16 @@ import firebase from "firebase/compat/app";
 import { firestore, postToJSON, auth } from "../lib/firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { ITEM_OWNER_INFORMATION } from "../redux/actionTypes";
+import { useRouter } from "next/router";
 import Map, { Marker } from "react-map-gl";
 import Geocode from "react-geocode";
-import animalIcon from "../public/images/animal.png";
-import { width } from "@mui/system";
 //
 
 export default function LostItem() {
+  const router = useRouter();
   const [category, setCategory] = React.useState("");
   const [typelocation, setTypeLocation] = React.useState("");
-  const [propertycategory, setPropertCategory] = React.useState("");
-
-  Geocode.setApiKey("AIzaSyD2h6U3EeCYqNLwsrwCxOS8MB8EsLwPsJE");
-  Geocode.setLocationType("ROOFTOP");
+  const [propertycategory, setPropertCcategory] = React.useState("");
 
   const handleChange = (event) => {
     setCategory(event.target.value);
@@ -58,7 +55,7 @@ export default function LostItem() {
   };
 
   const propertyChange = (event) => {
-    setPropertCategory(event.target.value);
+    setPropertCcategory(event.target.value);
   };
 
   const [startDate, setStartDate] = useState(new Date());
@@ -77,10 +74,6 @@ export default function LostItem() {
   const imageRef = React.useRef(null);
   const dispatch = useDispatch();
   const { itemimageValue } = useSelector((state) => state.page);
-
-  const [latVal, setlatVal] = React.useState(0);
-  const [longVal, setlongVal] = React.useState(0);
-  const [address, setAddress] = React.useState("");
 
   function useDisplayImage() {
     const [result, setResult] = React.useState("");
@@ -118,7 +111,6 @@ export default function LostItem() {
     primaryColor,
     secondaryColor,
     result,
-    zipCode,
     nameLocation,
     information,
     firstname,
@@ -156,6 +148,7 @@ export default function LostItem() {
           status: "missing",
         })
         .then(() => alert("Missing File Submitted to Cloud Firestore"));
+      router.push("/found-item");
     } catch (err) {
       alert(err);
     }
@@ -175,16 +168,24 @@ export default function LostItem() {
   const taxi = "Taxi";
   const autoparts = "Autoparts";
 
+  //Mapbox code
+  Geocode.setApiKey("AIzaSyD2h6U3EeCYqNLwsrwCxOS8MB8EsLwPsJE");
+  Geocode.setLocationType("ROOFTOP");
+  const [latVal, setlatVal] = React.useState(0);
+  const [longVal, setlongVal] = React.useState(0);
+  const [address, setAddress] = React.useState("");
+  console.log(address);
+
   return (
     <Navbar>
       <div>
         <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item sm={6}>
-            <Typography variant="h3">Submit Lost/Found Property</Typography>
+            <Typography variant="h3">Submit Lost/Found Properties</Typography>
             <br /> <br />
             <Typography variant="h5">
-              ✔ Users are able to view lost items.{" "}
+              ✔ Users are able to view lost Properties.{" "}
             </Typography>
             <br /> <br />
             <Typography variant="h5">
@@ -195,7 +196,7 @@ export default function LostItem() {
               <b style={{ color: "red" }}>* </b>
               Please be descriptive when submitting your lost property report,
               the more information you give us the better chance you have of
-              retrieving your items.
+              retrieving your Properties.
             </Typography>
           </Grid>
           <Grid item sm={6}>
@@ -211,9 +212,9 @@ export default function LostItem() {
             <List className={classes.inputField}>
               <Typography>Property Category *</Typography>
               <span>(Found Property or Lost Property)</span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
-                <InputLabel id="grouped-select">
+                <InputLabel htmlFor="grouped-select">
                   Select Property Category
                 </InputLabel>
                 <Select
@@ -221,7 +222,7 @@ export default function LostItem() {
                   id="grouped-select"
                   required={true}
                   value={propertycategory}
-                  label="Selec Property Catergory"
+                  label="Select Property Category"
                   onChange={propertyChange}
                 >
                   <MenuItem value="">
@@ -245,12 +246,12 @@ export default function LostItem() {
           <Grid item sm={6}>
             {/* item Property */}
             <List className={classes.inputField}>
-              <Typography>Item Property *</Typography>
+              <Typography> Property *</Typography>
               <span>
                 (Dog, Jacket, Smartphone, Wallet, etc.) This field may
                 auto-populate
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="itemLost"
                 control={control}
@@ -264,7 +265,7 @@ export default function LostItem() {
                     variant="outlined"
                     fullWidth
                     id="itemLost"
-                    label="Item Property"
+                    label="Property Lost/Found"
                     error={Boolean(errors.itemLost)}
                     helperText={
                       errors.itemLost
@@ -287,7 +288,7 @@ export default function LostItem() {
               <br />
               (Please add the approximate time of day the item was lost.)
             </span>
-            <div style={{ marginBottom: 10 }} />
+            <div style={{ marginBottom: 10 }}></div>
             <Datetime
               selected={startTime}
               onChange={(time) => setStartTime(time)}
@@ -301,7 +302,7 @@ export default function LostItem() {
                 (Animals/Pets, Clothing, Electronics, Personal Accessories etc.)
                 This field is required.
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">
                   Categories
@@ -333,7 +334,7 @@ export default function LostItem() {
                 Please provide any additional details/description of your lost
                 property.
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="information"
                 control={control}
@@ -367,7 +368,7 @@ export default function LostItem() {
             <List className={classes.inputField}>
               <Typography>Brand *</Typography>
               <span>(Ralph Lauren, Samsung, KitchenAid, etc.)</span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="brand"
                 control={control}
@@ -404,7 +405,7 @@ export default function LostItem() {
                 Please add the color that best represents the lost property
                 (Black, Red, Blue, etc.)
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="primaryColor"
                 control={control}
@@ -441,7 +442,7 @@ export default function LostItem() {
                 Please add a color that acts as a less dominant (Leave blank if
                 not applicable.)
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="secondaryColor"
                 control={control}
@@ -477,8 +478,18 @@ export default function LostItem() {
               (This image will display on the Website. Do not enter high
               resolution images such as 4k resolution.)
             </span>
-            <div style={{ marginBottom: 10 }} />
+            <div style={{ marginBottom: 10 }}></div>
             <div className="App">
+              {/* <Input
+             type="file"
+             accept=".jpg, .jpeg, .png"
+             value={imageInput}
+             onChange={(e) => {
+               setImage(e.target.files[0]);
+               uploader(e);
+               setImageInput(event.target.value);
+             }}
+           /> */}
               <label htmlFor="contained-button-file">
                 <Input
                   accept="image/*"
@@ -508,8 +519,8 @@ export default function LostItem() {
               />
             )}
           </Grid>
-          <Grid item xs={6} />
-          <Grid item xs={6} />
+          <Grid item xs={6}></Grid>
+          <Grid item xs={6}></Grid>
         </Grid>
         <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -517,7 +528,7 @@ export default function LostItem() {
             <Typography variant="h3">Location Information</Typography>
             <br /> <br /> <br />
           </Grid>
-          <Grid item xs={6} />
+          <Grid item xs={6}></Grid>
           <Grid item sm={6}>
             {/* Where did you Lost It? */}
             <List className={classes.inputField}>
@@ -526,7 +537,7 @@ export default function LostItem() {
                 (Please provide an approximate location of the lost property
                 (Bar, Restaurant, Park, etc.))
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
                 <InputLabel htmlFor="grouped-select">Select Type</InputLabel>
                 <Select
@@ -605,19 +616,20 @@ export default function LostItem() {
           </Grid>
           <Grid item sm={6}>
             {/* Zip Code */}
+            <br />
             <List className={classes.inputField}>
               <Typography>Zip Code *</Typography>
               <span>
-                (Please provide your zip code(10004, 10028, 10002, etc.) This
-                field may auto-populate.)
+                (Please provide your zip code(2009) This field may
+                auto-populate.)
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="zipCode"
                 control={control}
                 defaultValue=""
                 rules={{
-                  required: true,
+                  required: false,
                   minLength: 2,
                 }}
                 render={({ field }) => (
@@ -625,8 +637,8 @@ export default function LostItem() {
                     variant="outlined"
                     fullWidth
                     id="zipCode"
+                    disabled
                     label="2009"
-                    disabled={true}
                     error={Boolean(errors.zipcode)}
                     helperText={
                       errors.zipcode
@@ -648,13 +660,13 @@ export default function LostItem() {
               <span>
                 Please Specify the Area from where you have found/lost the item
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="nameLocation"
                 control={control}
                 defaultValue=""
                 rules={{
-                  required: true,
+                  required: false,
                   minLength: 2,
                 }}
                 render={({ field }) => (
@@ -663,8 +675,8 @@ export default function LostItem() {
                     variant="outlined"
                     fullWidth
                     required={false}
-                    disabled
                     id="nameLocation"
+                    disabled
                     label={address}
                     error={Boolean(errors.namelocation)}
                     helperText={
@@ -707,11 +719,7 @@ export default function LostItem() {
                   }
                 )
               }
-            >
-              {/* <Marker longitude={longVal} latitude={latVal} anchor="top-right">
-                <p>📌</p>
-              </Marker> */}
-            </Map>
+            ></Map>
           </Grid>
         </Grid>
         <br /> <br /> <br /> <br /> <br /> <br />
@@ -720,7 +728,7 @@ export default function LostItem() {
             <Typography variant="h3">Contact Information</Typography>
             <br /> <br /> <br />
           </Grid>
-          <Grid item sm={6} />
+          <Grid item sm={6}></Grid>
           <Grid item sm={6}>
             {/* First Name */}
             <List className={classes.inputField}>
@@ -729,7 +737,7 @@ export default function LostItem() {
                 (Please enter your first name(This will appear on your
                 submission))
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="firstname"
                 control={control}
@@ -766,7 +774,7 @@ export default function LostItem() {
                 (Please enter your last name(This will appear on your
                 submission) )
               </span>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="lastname"
                 control={control}
@@ -802,7 +810,7 @@ export default function LostItem() {
               (Please enter the phone number to display on your submission )
             </span>
             <List className={classes.inputField}>
-              <div style={{ marginBottom: 10 }} />
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="phone"
                 control={control}
@@ -874,7 +882,7 @@ export default function LostItem() {
             rowSpacing={1}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
-            <Grid item xs={6} />
+            <Grid item xs={6}></Grid>
             <Grid item sm={2.9}>
               <ListItem>
                 <Checkbox required={true} />

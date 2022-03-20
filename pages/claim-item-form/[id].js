@@ -135,6 +135,7 @@ export default function ClaimLostItemForm(props) {
           status: "processing",
         })
         .then(() => alert("Your claim is now being process."));
+      router.push("/");
     } catch (err) {
       alert(err);
     }

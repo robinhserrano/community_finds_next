@@ -251,7 +251,7 @@ export default function FoundItem(props) {
                     />
                     <CardContent>
                       <Typography>
-                        <b> Property Lost/Found: </b> {info.name}
+                        <b> {info.propertycategory}: </b> {info.name}
                       </Typography>
                     </CardContent>
                     <CardContent>
