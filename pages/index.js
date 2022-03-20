@@ -22,23 +22,23 @@ export default function Home() {
           <Typography variant="h5" style={{ textAlign: "justify" }}>
             Community finds is a community base online platform which aims to
             help and it is generalize for the citizen of Baligo Angeles City.
-            They can report both lost and found items in this website. Once the
-            items were reported in our system it will go through our matching
-            system, with that it can help the citizen to easily find their lost
-            items.
+            They can report both lost and found propterties in this website.
+            Once the propterty were reported in our system it will go through
+            our matching system, with that it can help the citizen to easily
+            find their lost propterties.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <NextLink href="/submit-lost-item-form" passHref>
             <Button
               variant="outlined"
-              style={{ width: 200, height: 60, marginRight: 30 }}
+              style={{ width: 250, height: 60, marginRight: 30 }}
             >
-              Submit Lost Item
+              Submit Lost Property
             </Button>
           </NextLink>
           <NextLink href={"/found-item"}>
-            <Button variant="contained" style={{ width: 200, height: 60 }}>
-              Claim Item
+            <Button variant="contained" style={{ width: 250, height: 60 }}>
+              Claim Property
             </Button>
           </NextLink>
         </Grid>
@@ -52,17 +52,17 @@ export default function Home() {
           <br />
           <Typography variant="h5" style={{ textAlign: "justify" }}>
             When you use Community Finds, you join a community of people from
-            Barangay Balibago who can post their lost or found item within the
-            area. Aside from that, persons who are not residents of the region
-            but are certain to have lost their item/s inside the area may
-            utilize the Community Finds by uploading the specifics of their lost
-            item/s and other necessary information. This is to provide the
-            residents and nonresidents a greater opportunity of finding their
-            lost items. Community Finds is also a place to provide inspiration
-            and motivation to others to post their found item and to return it
-            to the rightful owner. The guidelines below help keep the community
-            to fully understand and make it possible to understand Community
-            Finds.
+            Barangay Balibago who can post their lost or found property within
+            the area. Aside from that, persons who are not residents of the
+            region but are certain to have lost their property inside the area
+            may utilize the Community Finds by uploading the specifics of their
+            lost property and other necessary information. This is to provide
+            the residents and nonresidents a greater opportunity of finding
+            their lost propterties. Community Finds is also a place to provide
+            inspiration and motivation to others to post their found property
+            and to return it to the rightful owner. The guidelines below help
+            keep the community to fully understand and make it possible to
+            understand Community Finds.
           </Typography>
         </Grid>
         <Grid item xs={12}></Grid>
@@ -87,7 +87,8 @@ export default function Home() {
             </li>
             <li>
               Community Finds recommend you to go to barangay hall or police
-              station to do the claiming or handing items for security purposes.
+              station to do the claiming or handing propterties for security
+              purposes.
             </li>
           </Typography>
         </Grid>
@@ -100,7 +101,8 @@ export default function Home() {
           <br />
           <Typography variant="h6">
             <li>
-              Do not post content that is not related to a lost or found item.
+              Do not post content that is not related to a lost or found
+              property.
             </li>
             <li>
               Do not post content that is disrespectful, malicious or offensive.
@@ -108,7 +110,7 @@ export default function Home() {
             <li> Do not spam any contact information given by other users.</li>
             <li>
               Do not trick other members of the community, who are simply
-              seeking for their lost items.
+              seeking for their lost propterties.
             </li>
           </Typography>
         </Grid>
@@ -140,8 +142,8 @@ export default function Home() {
 
           <Typography style={{ textAlign: "center" }}>Ease of Use</Typography>
           <Typography style={{ fontSize: "13px", textAlign: "center" }}>
-            Submitting lost or found items is simple and hassle free. Input the
-            required information and let our system go to work.
+            Submitting lost or found propterties is simple and hassle free.
+            Input the required information and let our system go to work.
           </Typography>
         </Grid>
         <Grid item xs={4} style={{ marginTop: "60px" }}>
@@ -153,8 +155,8 @@ export default function Home() {
             Easy Match Making
           </Typography>
           <Typography style={{ fontSize: "13px", textAlign: "center" }}>
-            Users can easily see item posted here so that they might find the
-            person possibly holding their lost item.
+            Users can easily see property posted here so that they might find
+            the person possibly holding their lost property.
           </Typography>
         </Grid>
         <Grid item xs={4} style={{ marginTop: "60px" }}>

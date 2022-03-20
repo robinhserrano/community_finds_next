@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     flexGrow: 0.15,
   },
   toolbarGrow: {
-    flexGrow: 0.66,
+    flexGrow: 0.63,
   },
   categoriesGrow: {
     marginLeft: "60px",

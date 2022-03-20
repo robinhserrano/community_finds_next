@@ -180,19 +180,21 @@ export default function Navbar({ title, children }) {
           <NextLink href="/submit-lost-item-form" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
-                SUBMIT LOST ITEM
+                SUBMIT LOST PROPERTY
               </Typography>
             </Link>
           </NextLink>
           <NextLink href="/found-item" passHref>
             <Link color="inherit" underline="hover">
-              <Typography className={classes.textStyle}>CLAIM ITEM</Typography>
+              <Typography className={classes.textStyle}>
+                CLAIM PROPERTY
+              </Typography>
             </Link>
           </NextLink>
           <NextLink href="/claimed-items" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
-                VIEW CLAIMED ITEMS
+                VIEW CLAIMED PROPERTIES
               </Typography>
             </Link>
           </NextLink>

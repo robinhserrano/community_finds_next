@@ -252,7 +252,7 @@ export default function MissingAnimals(props) {
                     />
                     <CardContent>
                       <Typography>
-                        <b> Item Lost: </b> {info.name}
+                        <b> Property Lost/Found: </b> {info.name}
                       </Typography>
                     </CardContent>
                     <CardContent>
@@ -267,12 +267,12 @@ export default function MissingAnimals(props) {
                           variant="outlined"
                           style={{ marginRight: "60px" }}
                         >
-                          <Typography>View Item</Typography>
+                          <Typography>View Property</Typography>
                         </Button>
                       </NextLink>
                       <NextLink href={`/claim-item-form/${info.id}`} passHref>
                         <Button variant="contained">
-                          <Typography>Claim item</Typography>
+                          <Typography>Claim Property</Typography>
                         </Button>
                       </NextLink>
                     </CardContent>
