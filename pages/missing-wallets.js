@@ -253,7 +253,7 @@ export default function MissingWallet(props) {
                     />
                     <CardContent>
                       <Typography>
-                        <b> Item Lost: </b> {info.name}
+                        <b> {info.propertycategory}: </b> {info.name}
                       </Typography>
                     </CardContent>
                     <CardContent>
@@ -266,14 +266,15 @@ export default function MissingWallet(props) {
                       <NextLink href={`./missing-item/${info.id}`}>
                         <Button
                           variant="outlined"
-                          style={{ marginRight: "60px" }}
+                          fullWidth
+                          style={{ marginBottom: "20px" }}
                         >
-                          <Typography>View Item</Typography>
+                          <Typography>View Property</Typography>
                         </Button>
                       </NextLink>
                       <NextLink href={`/claim-item-form/${info.id}`} passHref>
-                        <Button variant="contained">
-                          <Typography>Claim item</Typography>
+                        <Button variant="contained" fullWidth>
+                          <Typography>Claim Property</Typography>
                         </Button>
                       </NextLink>
                     </CardContent>

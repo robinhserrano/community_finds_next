@@ -30,7 +30,7 @@ export default function ClaimedItems(props) {
       <div style={{ marginTop: "4%" }}></div>
       <Typography style={{ textAlign: "center" }} variant="h4">
         Thank you for helping our community grow! Your actions made our goal
-        clear, to reunite missing items back to their rightful owner.
+        clear, to reunite missing properties back to their rightful owner.
       </Typography>
       <div style={{ marginTop: "3%" }}></div>
       <Grid
@@ -51,7 +51,7 @@ export default function ClaimedItems(props) {
               </CardContent>
               <CardContent>
                 <Typography style={{ textAlign: "center" }}>
-                  Item Returned: {info.name}
+                  properties Returned: {info.name}
                 </Typography>
               </CardContent>
             </Card>

@@ -101,7 +101,7 @@ export default function ClaimLostItemForm(props) {
   const profile = slugClient.find((items) => items.id === id);
 
   if (!profile) {
-    return <div>The item here was already claimed</div>;
+    return <div>The property here was already claimed</div>;
   }
 
   const submitHandler = async ({
@@ -146,25 +146,28 @@ export default function ClaimLostItemForm(props) {
         <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
-            <Typography variant="h3">Claim Lost Property</Typography>
+            <Typography variant="h3">
+              Claim {profile.propertycategory}
+            </Typography>
             <br />
             <Typography variant="h5" style={{ backgroundColor: "lightgray" }}>
-              <b>Item ID: </b>
+              <b>Property ID: </b>
               {profile.id}
             </Typography>
             <br />
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              Please provide us the most accurate information about the item so
-              that we could determine that you are the real owner of this item.
+              Please provide us the most accurate information about the property
+              so that we could determine that you are the real owner of this
+              property.
             </Typography>
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              For safety purposes please provide image of the item.
+              For safety purposes please provide image of the property.
             </Typography>
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              Please indicate the date of the item when you lost it.
+              Please indicate the date of the property when you lost/found it.
             </Typography>
           </Grid>
           <Grid item xs={3}>
@@ -192,7 +195,7 @@ export default function ClaimLostItemForm(props) {
               <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Item Lost: </b>
+                  <b>{profile.propertycategory}: </b>
                   {profile.name}
                 </Typography>
               </CardContent>
@@ -210,13 +213,13 @@ export default function ClaimLostItemForm(props) {
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Date and Time Lost: </b>
+                  <b>Date and Time Lost/Found: </b>
                   {profile.date}
                 </Typography>
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Location Lost: </b>
+                  <b>Location Lost/Found: </b>
                   {profile.location} - {profile.locationtype}
                 </Typography>
               </CardContent>
@@ -383,13 +386,13 @@ export default function ClaimLostItemForm(props) {
             </Grid>
             <br /> <br /> <br />
             <Grid item xs={6}>
-              <Typography variant="h3">Item Description</Typography>
+              <Typography variant="h3">Property Description</Typography>
             </Grid>
             <Grid item xs={6}></Grid>
             <Grid item xs={6}>
               {/* Item Description */}
               <List className={classes.inputField}>
-                <Typography> Item Description *</Typography>
+                <Typography> Property Description *</Typography>
                 <span>
                   Please provide details/description of your the property that
                   you found.
@@ -552,7 +555,7 @@ export default function ClaimLostItemForm(props) {
                 <Typography>Place/Location *</Typography>
                 <span>
                   Please Specify the Area from where you have found/lost the
-                  item
+                  property
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -588,9 +591,10 @@ export default function ClaimLostItemForm(props) {
               {/* Date and Time Found */}
               <Typography>Date Found and Time Found *</Typography>
               <span>
-                (Please add the approximate date of when the item was found.)
+                (Please add the approximate date of when the property was
+                found.)
                 <br />
-                (Please add the approximate time of day the item was found.)
+                (Please add the approximate time of day the property was found.)
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Datetime

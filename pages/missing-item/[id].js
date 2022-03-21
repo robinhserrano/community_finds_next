@@ -38,7 +38,7 @@ export default function ItemDetails(props) {
   const profile = slugClient.find((items) => items.id === id);
 
   if (!profile) {
-    return <div>Item no longer here please return to home page</div>;
+    return <div>Property is no longer here please return to home page</div>;
   }
 
   return (
@@ -74,7 +74,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Property Lost:</b> {profile.name}
+                <b>{profile.propertycategory}:</b> {profile.name}
               </Typography>
             </CardContent>
             <CardContent
@@ -110,7 +110,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Secondary Item Color: </b> {profile.secondaryColor}
+                <b> Secondary Color: </b> {profile.secondaryColor}
               </Typography>
             </CardContent>
           </Card>
@@ -124,7 +124,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Date and Time Lost: </b> {profile.timeLost}
+                <b> Date and Time Lost/Found: </b> {profile.timeLost}
               </Typography>
             </CardContent>
 
@@ -134,7 +134,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Location Lost: </b> {profile.location}
+                <b> Location Lost/Found: </b> {profile.location}
               </Typography>
             </CardContent>
             <CardContent style={{ height: 185, borderStyle: "groove" }}>
@@ -181,9 +181,6 @@ export default function ItemDetails(props) {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12}>
-          MAP HERE
-        </Grid>
         <Grid item xs={7}>
           <NextLink href={"/found-item"}>
             <Button
@@ -228,11 +225,11 @@ export default function ItemDetails(props) {
               style={{
                 background: "#366e97",
                 color: "white",
-                width: "150px",
+                width: "250px",
                 height: "70px",
               }}
             >
-              <Typography variant="h6"> CLAIM ITEM </Typography>
+              <Typography variant="h6"> CLAIM PROPERTY </Typography>
             </Button>
           </NextLink>
         </Grid>

@@ -31,7 +31,7 @@ export default function UserClaimerInformation(props) {
   const profile = slugClient.find((items) => items.id === id);
 
   if (!profile) {
-    return <div>Item no longer here please return to home page</div>;
+    return <div>Property is no longer here please return to home page</div>;
   }
 
   const didNotMatch = (e) => {
@@ -53,7 +53,7 @@ export default function UserClaimerInformation(props) {
         })
         .then(
           alert(
-            "The Item and claimer post did not match. The item will now considered as missing again."
+            "The Item and claimer post did not match. The property will now  be considered as missing again."
           )
         );
       router.push("/");
@@ -91,15 +91,15 @@ export default function UserClaimerInformation(props) {
             fontWeight: 200,
           }}
         >
-          Lost Item Details
+          {profile.propertycategory} Details
         </div>
       </Typography>
       <br /> <br />
       <Typography style={{ fontSize: "50px" }}>
-        Lost Item: {profile.name}
+        {profile.propertycategory}: {profile.name}
       </Typography>
       <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
-        <i> Item ID: {profile.id}</i>
+        <i> Property ID: {profile.id}</i>
       </Typography>
       <br /> <br /> <br /> <br />
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -112,7 +112,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Item Lost:</b> {profile.name}
+                <b> {profile.propertycategory}:</b> {profile.name}
               </Typography>
             </CardContent>
             <CardContent
@@ -148,7 +148,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Secondary Item Color: </b> {profile.secondaryColor}
+                <b> Secondary Color: </b> {profile.secondaryColor}
               </Typography>
             </CardContent>
           </Card>
@@ -162,7 +162,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Date and Time Lost: </b> {profile.timeLost}
+                <b> Date and Time Lost/Found: </b> {profile.timeLost}
               </Typography>
             </CardContent>
 
@@ -172,7 +172,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Location Lost: </b> {profile.location}
+                <b> Location Lost/Found: </b> {profile.location}
               </Typography>
             </CardContent>
             <CardContent style={{ height: 185, borderStyle: "groove" }}>

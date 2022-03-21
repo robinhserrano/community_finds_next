@@ -20,7 +20,7 @@ export default function AboutUs() {
         We provide a positive community environment for residents, barangay
         officers, staff, and visitors of Barangay Balibago, Angeles City,
         Pampanga, by responding to risks and emerging issues related to lost and
-        found items.
+        found properties.
       </Typography>
       <br />
       <Typography variant="h4">
@@ -43,15 +43,15 @@ export default function AboutUs() {
         of great restaurants, retail centers, bars, clubs, and casinos. Also,
         with a population of over 45,798 people, it has the largest population
         in Angeles City. An estimate of 13% of the total population of the
-        Barangay report lost items yearly. Out of these reports, roughly 50% are
-        only being solved and returned to the owner.
+        Barangay report lost properties yearly. Out of these reports, roughly
+        50% are only being solved and returned to the owner.
       </Typography>
       <br />
       <Typography variant="h5" style={{ textAlign: "justify" }}>
         With this, Community Finds is developed to help the community of
         Barangay Balibago regarding this issue through an online platform that
-        stores and manages information for lost and found items. Enabling them
-        to report such items and reach other users of the community.
+        stores and manages information for lost and found properties. Enabling
+        them to report such properties and reach other users of the community.
       </Typography>
       <br />
       <Typography variant="h4">
@@ -65,7 +65,7 @@ export default function AboutUs() {
       <br />
       <Typography variant="h5">
         We want to help you spread out word to the community about your lost or
-        found items through our website.
+        found properties through our website.
       </Typography>
       <br />
       <Typography variant="h5">

@@ -31,12 +31,13 @@ export default function TermsAndConditions() {
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
           &emsp; Community Finds provides users with a unique online resource
-          for the purpose of reuniting lost items with their respective owners
-          (the “Service”). Using algorithms to connect those who lost an item to
-          those who have found a similar item, Community Finds provides a unique
-          approach in which individuals can search or input lost or found items
-          to facilitate contact with other individuals in possession or with
-          information regarding a lost or found items.{" "}
+          for the purpose of reuniting lost properties with their respective
+          owners (the “Service”). Using algorithms to connect those who lost an
+          property to those who have found a similar property, Community Finds
+          provides a unique approach in which individuals can search or input
+          lost or found properties to facilitate contact with other individuals
+          in possession or with information regarding a lost or found
+          properties.{" "}
         </Typography>
         <br /> <br />
         <Typography variant="h4">Requirements</Typography>

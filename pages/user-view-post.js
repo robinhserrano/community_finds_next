@@ -63,12 +63,12 @@ export default function UserViewPost(props) {
 
       <Table>
         <TableRow>
-          <TableCell>Item Picture</TableCell>
-          <TableCell>Item Name</TableCell>
-          <TableCell>Item Brand</TableCell>
-          <TableCell>Item Location</TableCell>
-          <TableCell>Item Location Type</TableCell>
-          <TableCell>Item Status</TableCell>
+          <TableCell>Property Picture</TableCell>
+          <TableCell>Property Name</TableCell>
+          <TableCell>Property Brand</TableCell>
+          <TableCell>Property Location</TableCell>
+          <TableCell>Property Location Type</TableCell>
+          <TableCell>Property Status</TableCell>
           <TableCell align="center">Action</TableCell>
           <TableCell align="center">Action</TableCell>
         </TableRow>
