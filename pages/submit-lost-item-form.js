@@ -693,6 +693,11 @@ export default function LostItem() {
             </List>
           </Grid>
           <Grid item sm={12}>
+            <Typography
+              style={{ color: "red", fontSize: "20px", fontWeight: "bold" }}
+            >
+              Please Click anywhere fron the Map to get an address.
+            </Typography>
             <Map
               initialViewState={{
                 longitude: 120.5978,
