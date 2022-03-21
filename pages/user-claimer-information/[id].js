@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import Navbar from "../../components/Navbar";
-import { firestore, postToJSON } from "../../lib/firebase";
+import { firestore, postToJSON, auth } from "../../lib/firebase";
 import { useRouter } from "next/router";
 import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import Image from "next/image";
@@ -50,6 +50,7 @@ export default function UserClaimerInformation(props) {
           claim_phone: "",
           claim_image: "",
           claim_location: "",
+          claim_user_id: auth.currentUser.uid,
         })
         .then(
           alert(

@@ -77,7 +77,7 @@ export default function UserClaimPost(props) {
           <TableCell>Claimer name</TableCell>
           <TableCell>Claimer Mobile</TableCell>
           <TableCell align="center">Action</TableCell>
-          <TableCell align="center">Action</TableCell>
+          {/* <TableCell align="center">Action</TableCell> */}
         </TableRow>
 
         {missingItems.map((info) => (
@@ -118,7 +118,7 @@ export default function UserClaimPost(props) {
                 <Button variant="outlined">view</Button>
               </NextLink>
             </TableCell>
-            <TableCell align="right">
+            {/* <TableCell align="right">
               <Button
                 variant="contained"
                 color="success"
@@ -126,7 +126,7 @@ export default function UserClaimPost(props) {
               >
                 Claimed
               </Button>
-            </TableCell>
+            </TableCell> */}
           </TableRow>
         ))}
       </Table>
