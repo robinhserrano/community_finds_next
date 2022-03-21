@@ -219,9 +219,7 @@ export default function UserClaimerInformation(props) {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12}>
-          MAP HERE
-        </Grid>
+        <Grid item xs={12}></Grid>
 
         <Grid item xs={6}>
           <Typography variant="h4">Claimer Information</Typography>

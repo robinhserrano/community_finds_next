@@ -532,7 +532,7 @@ export default function LostItem() {
           <Grid item sm={6}>
             {/* Where did you Lost It? */}
             <List className={classes.inputField}>
-              <Typography>Where did you Lost It *</Typography>
+              <Typography>Where did you Lost/Found It *</Typography>
               <span>
                 (Please provide an approximate location of the lost property
                 (Bar, Restaurant, Park, etc.))
@@ -658,7 +658,8 @@ export default function LostItem() {
             <List className={classes.inputField}>
               <Typography>Place/Location *</Typography>
               <span>
-                Please Specify the Area from where you have found/lost the item
+                Please Specify the Area from where you have found/lost the
+                property
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -696,7 +697,7 @@ export default function LostItem() {
             <Typography
               style={{ color: "red", fontSize: "20px", fontWeight: "bold" }}
             >
-              Please Click anywhere fron the Map to get an address.
+              Please Click anywhere from the Map to get an address.
             </Typography>
             <Map
               initialViewState={{
@@ -823,14 +824,13 @@ export default function LostItem() {
                 rules={{
                   required: true,
                   minLength: 11,
-                  maxLength: 11,
                 }}
                 render={({ field }) => (
                   <TextField
                     variant="outlined"
                     fullWidth
                     id="tel"
-                    label="Mobile Number"
+                    label="Mobile Number ex: +63 945 412 2501"
                     error={Boolean(errors.phone)}
                     helperText={
                       errors.phone
