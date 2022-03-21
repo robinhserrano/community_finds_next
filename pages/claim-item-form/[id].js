@@ -134,7 +134,11 @@ export default function ClaimLostItemForm(props) {
           claim_email: email,
           status: "processing",
         })
-        .then(() => alert("Your claim is now being process."));
+        .then(() =>
+          alert(
+            "Your claim is now being process. Wait for the owner to contact or reach you!"
+          )
+        );
       router.push("/");
     } catch (err) {
       alert(err);
