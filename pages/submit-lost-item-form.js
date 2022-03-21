@@ -830,7 +830,7 @@ export default function LostItem() {
                     variant="outlined"
                     fullWidth
                     id="tel"
-                    label="Mobile Number ex: +63 945 412 2501"
+                    label="Mobile Number"
                     error={Boolean(errors.phone)}
                     helperText={
                       errors.phone
