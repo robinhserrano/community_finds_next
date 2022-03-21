@@ -180,7 +180,7 @@ export default function Navbar({ title, children }) {
           <NextLink href="/submit-lost-item-form" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
-                SUBMIT LOST PROPERTY
+                SUBMIT LOST/FOUND PROPERTY
               </Typography>
             </Link>
           </NextLink>
