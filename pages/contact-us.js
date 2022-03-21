@@ -50,7 +50,7 @@ export default function ContactUs() {
                 <Typography>Course: BSIT major in Web Development </Typography>
               </CardContent>
               <CardContent>
-                <Typography>Contact No: 0955-844-2291</Typography>
+                <Typography>Contact No: 09558442291</Typography>
               </CardContent>
               <CardContent>
                 <Typography>Email: sorianokevin1008@gmail.com</Typography>
@@ -69,7 +69,7 @@ export default function ContactUs() {
                 <Typography>Course: BSIT major in Web Development </Typography>
               </CardContent>
               <CardContent>
-                <Typography>Contact No: 0949 106 1869</Typography>
+                <Typography>Contact No: 09491061869</Typography>
               </CardContent>
               <CardContent>
                 <Typography>Email: Iannroxas0@gmail.com</Typography>
@@ -88,7 +88,7 @@ export default function ContactUs() {
                 <Typography>Course: BSIT major in Web Development </Typography>
               </CardContent>
               <CardContent>
-                <Typography>Contact No: 0960 561 9325 </Typography>
+                <Typography>Contact No: 09605619325 </Typography>
               </CardContent>
               <CardContent>
                 <Typography>Email: floresrussel2626@gmail.com </Typography>
