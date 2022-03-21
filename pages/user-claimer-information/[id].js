@@ -50,7 +50,6 @@ export default function UserClaimerInformation(props) {
           claim_phone: "",
           claim_image: "",
           claim_location: "",
-          claim_user_id: auth.currentUser.uid,
         })
         .then(
           alert(

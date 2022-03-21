@@ -132,6 +132,7 @@ export default function ClaimLostItemForm(props) {
           claim_lastname: lastname,
           claim_phone: phone,
           claim_email: email,
+          claim_user_id: auth.currentUser.uid,
           status: "processing",
         })
         .then(() =>

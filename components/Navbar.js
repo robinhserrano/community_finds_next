@@ -9,6 +9,7 @@ import {
   Button,
   Menu,
   MenuItem,
+  Badge,
 } from "@mui/material";
 import useStyles from "../utils/styles";
 import NextLink from "next/link";
@@ -130,7 +131,6 @@ export default function Navbar({ title, children }) {
                     Profile
                   </NextLink>
                 </MenuItem>
-
                 <MenuItem>
                   <NextLink href={"/user-view-post"} passHref>
                     View Post
