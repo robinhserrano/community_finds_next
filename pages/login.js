@@ -18,17 +18,8 @@ import { auth, googleAuthProvider, firestore } from "../lib/firebase";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
 import sideImage from "../public/images/login.jpg";
-import { Store } from "../utils/Store";
 
 export default function Login() {
-  const { state, dispatch } = useContext(Store);
-  const { userInfo } = state;
-  useEffect(() => {
-    if (userInfo) {
-      router.push("/");
-    }
-  }, []);
-
   const {
     handleSubmit,
     control,
@@ -45,11 +36,6 @@ export default function Login() {
       signInWithEmailAndPassword(auth, email, password)
         .then((authUser) => {
           alert("Successfully Signed In");
-          // dispatch({ type: "USER_LOGIN", payload: data });
-          // Cookies.set("userInfo", data);
-          // console.log("Login information");
-          // console.log(userInfo);
-          // console.log("Login information");
           router.push(redirect || "/");
         })
         .catch((error) => {

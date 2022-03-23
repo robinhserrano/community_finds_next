@@ -19,7 +19,7 @@ import {
   ListSubheader,
   Checkbox,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import Navbar from "../components/Navbar";
 import useStyles from "../utils/styles";
@@ -38,14 +38,26 @@ import { ITEM_OWNER_INFORMATION } from "../redux/actionTypes";
 import { useRouter } from "next/router";
 import Map, { Marker } from "react-map-gl";
 import Geocode from "react-geocode";
+import { UserContext } from "../lib/context";
+import Cookies from "js-cookie";
 //
 
 export default function LostItem() {
   const router = useRouter();
+  const { user } = useContext(UserContext);
+
   const [category, setCategory] = React.useState("");
   const [typelocation, setTypeLocation] = React.useState("");
   const [propertycategory, setPropertCcategory] = React.useState("");
+  //
 
+  useEffect(() => {
+    if (!user) {
+      alert("No user detected, Please Log in first");
+      router.push("/login?redirect=/submit-lost-item-form");
+    }
+  }, []);
+  //
   const handleChange = (event) => {
     setCategory(event.target.value);
   };
