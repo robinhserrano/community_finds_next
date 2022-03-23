@@ -21,11 +21,10 @@ export default function Home() {
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
             Community finds is a community base online platform which aims to
-            help and it is generalize for the citizen of Baligo Angeles City.
+            help and it is generalize for the citizen of Balibago Angeles City.
             They can report both lost and found propterties in this website.
-            Once the propterty were reported in our system it will go through
-            our matching system, with that it can help the citizen to easily
-            find their lost propterties.
+            Once the propterty were reported in our system, with that it can
+            help the citizen to easily find their lost propterties.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <NextLink href="/submit-lost-item-form" passHref>
@@ -120,15 +119,6 @@ export default function Home() {
           </Typography>
           <br />
           <Typography variant="h6">
-            <li>
-              Community Finds will provide an email verification, to ensure the
-              email address is existent, active and valid.
-            </li>
-            <li>
-              Community Finds will provide an email authentication, to prove
-              that the email is not forged and it belongs to a user who claims
-              to be from.
-            </li>
             <li>
               Community Finds make sure the collection of information that you
               will provide are secured following the data Privacy law.
