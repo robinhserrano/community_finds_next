@@ -22,9 +22,9 @@ export default function Home() {
           <Typography variant="h5" style={{ textAlign: "justify" }}>
             Community finds is a community base online platform which aims to
             help and it is generalize for the citizen of Balibago Angeles City.
-            They can report both lost and found propterties in this website.
-            Once the propterty were reported in our system, with that it can
-            help the citizen to easily find their lost propterties.
+            They can report both lost and found properties in this website. Once
+            the propterty were reported in our system, with that it can help the
+            citizen to easily find their lost properties.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <NextLink href="/submit-lost-item-form" passHref>
@@ -57,7 +57,7 @@ export default function Home() {
             may utilize the Community Finds by uploading the specifics of their
             lost property and other necessary information. This is to provide
             the residents and nonresidents a greater opportunity of finding
-            their lost propterties. Community Finds is also a place to provide
+            their lost properties. Community Finds is also a place to provide
             inspiration and motivation to others to post their found property
             and to return it to the rightful owner. The guidelines below help
             keep the community to fully understand and make it possible to
@@ -86,7 +86,7 @@ export default function Home() {
             </li>
             <li>
               Community Finds recommend you to go to barangay hall or police
-              station to do the claiming or handing propterties for security
+              station to do the claiming or handing properties for security
               purposes.
             </li>
           </Typography>
@@ -109,7 +109,7 @@ export default function Home() {
             <li> Do not spam any contact information given by other users.</li>
             <li>
               Do not trick other members of the community, who are simply
-              seeking for their lost propterties.
+              seeking for their lost properties.
             </li>
           </Typography>
         </Grid>
@@ -132,8 +132,8 @@ export default function Home() {
 
           <Typography style={{ textAlign: "center" }}>Ease of Use</Typography>
           <Typography style={{ fontSize: "13px", textAlign: "center" }}>
-            Submitting lost or found propterties is simple and hassle free.
-            Input the required information and let our system go to work.
+            Submitting lost or found properties is simple and hassle free. Input
+            the required information and let our system go to work.
           </Typography>
         </Grid>
         <Grid item xs={4} style={{ marginTop: "60px" }}>
