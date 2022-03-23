@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { useUserData } from "../lib/hooks";
 import { UserContext } from "../lib/context";
+import { StoreProvider } from "../utils/Store";
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
@@ -16,9 +17,11 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <UserContext.Provider value={userData}>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <StoreProvider>
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
+      </StoreProvider>
     </UserContext.Provider>
   );
 }
