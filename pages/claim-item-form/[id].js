@@ -26,7 +26,7 @@ import Navbar from "../../components/Navbar";
 import Image from "next/image";
 import found from "../../public/images/found.png";
 import foundme from "../../public/images/foundme.png";
-import { firestore, postToJSON } from "../../lib/firebase";
+import { firestore, postToJSON, auth } from "../../lib/firebase";
 import { useRouter } from "next/router";
 import useStyles from "../../utils/styles";
 import { Controller, useForm } from "react-hook-form";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Navbar";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
@@ -15,6 +15,7 @@ import {
 import Image from "next/image";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
+import { UserContext } from "../lib/context";
 
 //
 
@@ -38,6 +39,8 @@ export async function getServerSideProps() {
 
 export default function UserClaimPost(props) {
   const [posts, setPosts] = useState(props.posts);
+  const { user } = useContext(UserContext);
+  const router = useRouter();
 
   const missingItems = posts.filter((itemLost) => {
     return (
@@ -45,7 +48,6 @@ export default function UserClaimPost(props) {
       itemLost.status.toLowerCase().includes("processing")
     );
   });
-  const router = useRouter();
   const claimerSubmitHandler = (e) => {
     try {
       firestore
