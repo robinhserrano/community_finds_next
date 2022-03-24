@@ -38,6 +38,8 @@ export default function Login() {
           alert("Successfully Signed In");
       
           localStorage.setItem('user', authUser.user.uid);
+
+        
    
 
 
