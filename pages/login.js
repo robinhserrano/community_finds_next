@@ -36,6 +36,11 @@ export default function Login() {
       signInWithEmailAndPassword(auth, email, password)
         .then((authUser) => {
           alert("Successfully Signed In");
+      
+          localStorage.setItem('user', authUser.user.uid);
+   
+
+
           router.push(redirect || "/");
         })
         .catch((error) => {

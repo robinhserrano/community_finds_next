@@ -1,5 +1,5 @@
 import { Button, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, {useEffect} from "react";
 import Navbar from "../components/Navbar";
 import NextLink from "next/link";
 import Image from "next/image";
@@ -10,6 +10,16 @@ import online from "../public/images/online.png";
 //
 
 export default function Home() {
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      console.log(loggedInUser)
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      //const foundUser = JSON.parse(loggedInUser);
+      // setUser(foundUser);
+    }
+  }, []);
   return (
     <Navbar>
       <div style={{ marginTop: "30px" }}></div>
@@ -20,6 +30,7 @@ export default function Home() {
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
+
             Community finds is a community base online platform which aims to
             help and it is generalize for the citizen of Balibago Angeles City.
             They can report both lost and found properties in this website. Once

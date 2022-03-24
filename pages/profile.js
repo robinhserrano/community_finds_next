@@ -53,12 +53,14 @@ export default function Profile(props) {
   const { user } = useContext(UserContext);
   const [posts] = useState(props.posts);
 
+  //NEW CODE
   useEffect(() => {
-    if (!user) {
+    const loggedInUser = localStorage.getItem("user");
+    if (!loggedInUser) {
       return router.push("/");
     }
     const profileName = posts.filter((doc) => {
-      return doc.id.includes(auth.currentUser.uid);
+      return doc.id.includes(loggedInUser);
     });
     setValue("name", profileName[0].name);
     setValue("email", profileName[0].email);
@@ -66,6 +68,8 @@ export default function Profile(props) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  //NEW CODE
+
 
   const submitHandler = async ({
     name,

@@ -7,6 +7,7 @@ import {
   Button,
   Card,
   CardContent,
+  colors,
   Table,
   TableCell,
   TableRow,
@@ -16,7 +17,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
 import { UserContext } from "../lib/context";
-
+var ls = require('local-storage');
 //
 
 export async function getServerSideProps() {
@@ -38,13 +39,30 @@ export async function getServerSideProps() {
 //
 
 export default function UserClaimPost(props) {
+
+
+  
   const [posts, setPosts] = useState(props.posts);
   const { user } = useContext(UserContext);
   const router = useRouter();
 
+
+//NEWCODE
+  const [currentUser, setUser] = useState();
+  
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+    }else{
+      router.push('/login')
+    }
+  }, []);
+//NEWCODE
+
   const missingItems = posts.filter((itemLost) => {
     return (
-      itemLost.user_id.includes(auth.currentUser.uid) &&
+      itemLost.user_id.includes(currentUser ) &&
       itemLost.status.toLowerCase().includes("processing")
     );
   });

@@ -167,7 +167,7 @@ export default function MissingBags(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-document"} passHref>
+              <NextLink href={"/missing-document"} passHref/>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}

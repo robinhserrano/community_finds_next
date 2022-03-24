@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
@@ -39,8 +39,22 @@ export async function getServerSideProps() {
 export default function UserViewPost(props) {
   const [posts, setPosts] = useState(props.posts);
 
+  
+//NEWCODE
+const [currentUser, setUser] = useState();
+  
+useEffect(() => {
+  const loggedInUser = localStorage.getItem("user");
+  if (loggedInUser) {
+    setUser(loggedInUser);
+  }else{
+    router.push('/login')
+  }
+}, []);
+//NEWCODE
+
   const missingItems = posts.filter((itemLost) => {
-    return itemLost.user_id.includes(auth.currentUser.uid);
+    return itemLost.user_id.includes(currentUser);
   });
   const router = useRouter();
   const removeMissingItemHandler = (e) => {
@@ -56,6 +70,8 @@ export default function UserViewPost(props) {
       alert(error);
     }
   };
+
+  
 
   return (
     <Navbar>
