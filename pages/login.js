@@ -18,6 +18,7 @@ import { auth, googleAuthProvider, firestore } from "../lib/firebase";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
 import sideImage from "../public/images/login.jpg";
+import firebase from "firebase/compat/app";
 
 export default function Login() {
   const {
@@ -35,15 +36,13 @@ export default function Login() {
     try {
       signInWithEmailAndPassword(auth, email, password)
         .then((authUser) => {
-          alert("Successfully Signed In");
-      
-          localStorage.setItem('user', authUser.user.uid);
-
-        
-   
-
-
-          router.push(redirect || "/");
+          localStorage.setItem("user", authUser.user.uid);
+          if (firebase.auth().currentUser.emailVerified) {
+            alert("Successfully Signed In");
+            router.push(redirect || "/");
+          } else {
+            alert("Please Verify your email first");
+          }
         })
         .catch((error) => {
           alert("invalid email or password");

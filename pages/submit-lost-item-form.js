@@ -50,14 +50,20 @@ export default function LostItem() {
   const [typelocation, setTypeLocation] = React.useState("");
   const [propertycategory, setPropertCcategory] = React.useState("");
   //
+  //NEWCODE
+  const [currentUser, setUser] = useState();
 
   useEffect(() => {
-    if (!user) {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+    } else {
       alert("No user detected, Please Log in first");
       router.push("/login?redirect=/submit-lost-item-form");
     }
   }, []);
-  //
+  //NEWCODE
+
   const handleChange = (event) => {
     setCategory(event.target.value);
   };
@@ -174,6 +180,7 @@ export default function LostItem() {
   const keys = "Keys";
   const wallet = "Wallet";
   const bhall = "Barangay Hall";
+  const document = "Document";
   const plaze = "Plaza";
   const ccourt = "Covered Court";
   const jeep = "Jeep";

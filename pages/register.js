@@ -48,10 +48,7 @@ export default function Register() {
           .then((authUser) => {
             console.log(authUser.user.uid);
             console.log("Success. The user is created in firebase");
-            
 
-           
-          
             firebase
               .firestore()
               .collection("users")
@@ -63,11 +60,14 @@ export default function Register() {
                 phone: phone,
                 password: password,
                 role: "user",
-              })
+              });
             //  .then((e) => e.sent alert("The User  was now saved."));
-
-              var user = firebase.auth().currentUser;
-              user.sendEmailVerification();
+            console.log(firebase.auth().currentUser.emailVerified);
+            var user = firebase.auth().currentUser;
+            user.sendEmailVerification();
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
+            console.log(firebase.auth().currentUser.emailVerified);
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
           })
           .catch((error) => {
             console.log(error.message);
