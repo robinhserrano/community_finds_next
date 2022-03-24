@@ -331,6 +331,7 @@ export default function LostItem() {
                   <MenuItem value={bags}>Bags</MenuItem>
                   <MenuItem value={cash}>Cash</MenuItem>
                   <MenuItem value={clothing}>Clothing</MenuItem>
+                  <MenuItem value={document}>Document</MenuItem>
                   <MenuItem value={electronics}>Electronics</MenuItem>
                   <MenuItem value={keys}>Keys</MenuItem>
                   <MenuItem value={wallet}>Wallet</MenuItem>
@@ -485,23 +486,13 @@ export default function LostItem() {
           </Grid>
           <Grid item sm={6}>
             {/* Upload Image */}
-            <Typography>Upload Image *</Typography>
+            <Typography>Upload Image</Typography>
             <span>
               (This image will display on the Website. Do not enter high
               resolution images such as 4k resolution.)
             </span>
             <div style={{ marginBottom: 10 }}></div>
             <div className="App">
-              {/* <Input
-             type="file"
-             accept=".jpg, .jpeg, .png"
-             value={imageInput}
-             onChange={(e) => {
-               setImage(e.target.files[0]);
-               uploader(e);
-               setImageInput(event.target.value);
-             }}
-           /> */}
               <label htmlFor="contained-button-file">
                 <Input
                   accept="image/*"

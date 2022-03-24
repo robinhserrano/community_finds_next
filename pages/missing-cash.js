@@ -36,6 +36,7 @@ import clothingIcon from "../public/images/clothing.png";
 import electronicsIcon from "../public/images/electronics.png";
 import keysIcon from "../public/images/keys.png";
 import walletIcon from "../public/images/wallet.png";
+import documentIcon from "../public/images/documentIcon.png";
 import { firestore, postToJSON } from "../lib/firebase";
 import NextLink from "next/link";
 
@@ -166,6 +167,22 @@ export default function MissingCash(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
+              <NextLink href={"/missing-document"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image
+                    src={documentIcon}
+                    height={30}
+                    width={30}
+                    alt="document-icon"
+                  />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Documents
+                  </Typography>
+                </CardActionArea>
               <NextLink href={"/missing-electronics"} passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
