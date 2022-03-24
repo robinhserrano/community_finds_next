@@ -20,6 +20,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { UserContext } from "../lib/context";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import { firestore, postToJSON } from "../lib/firebase";
 //
 
 export default function Navbar({ title, children }) {
