@@ -229,7 +229,7 @@ export default function ItemDetails(props) {
                 height: "70px",
               }}
             >
-              <Typography variant="h6"> CLAIM PROPERTY </Typography>
+              <Typography variant="h6">CLAIM PROPERTY</Typography>
             </Button>
           </NextLink>
         </Grid>

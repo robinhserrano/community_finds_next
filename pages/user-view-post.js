@@ -39,19 +39,18 @@ export async function getServerSideProps() {
 export default function UserViewPost(props) {
   const [posts, setPosts] = useState(props.posts);
 
-  
-//NEWCODE
-const [currentUser, setUser] = useState();
-  
-useEffect(() => {
-  const loggedInUser = localStorage.getItem("user");
-  if (loggedInUser) {
-    setUser(loggedInUser);
-  }else{
-    router.push('/login')
-  }
-}, []);
-//NEWCODE
+  //NEWCODE
+  const [currentUser, setUser] = useState();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+    } else {
+      router.push("/login");
+    }
+  }, []);
+  //NEWCODE
 
   const missingItems = posts.filter((itemLost) => {
     return itemLost.user_id.includes(currentUser);
@@ -70,8 +69,6 @@ useEffect(() => {
       alert(error);
     }
   };
-
-  
 
   return (
     <Navbar>
@@ -92,12 +89,7 @@ useEffect(() => {
         {missingItems.map((info) => (
           <TableRow>
             <TableCell>
-              <Image
-                src={info.image}
-                alt={info.name}
-                height={100}
-                width={100}
-              />
+              <img src={info.image} alt={info.name} height={100} width={100} />
             </TableCell>
             <TableCell>
               <Typography>{info.name}</Typography>

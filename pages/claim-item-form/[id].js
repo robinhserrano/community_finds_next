@@ -609,7 +609,7 @@ export default function ClaimLostItemForm(props) {
             </Grid>
             <Grid item xs={6}>
               {/* Upload Image */}
-              <Typography>Upload Image *</Typography>
+              <Typography>Upload Image </Typography>
               <span>
                 (This image will display on the Website. Do not enter high
                 resolution images such as 4k resolution.)

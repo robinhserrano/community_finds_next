@@ -50,6 +50,7 @@ export default function Navbar({ title, children }) {
       //Sign out
     });
     Cookies.remove(user);
+    localStorage.clear();
     router.push("/");
   };
 
