@@ -83,8 +83,7 @@ export default function FoundItem(props) {
       setValue("email", profileName[0].email);
       setValue("phone", profileName[0].phone);
     } else {
-      alert("No user detected, Please Log in first");
-      router.push("/login?redirect=/submit-lost-item-form");
+      router.push("/login?redirect=/submit-found-property-form");
     }
   }, []);
   //NEWCODE

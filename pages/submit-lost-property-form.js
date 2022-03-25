@@ -83,8 +83,7 @@ export default function LostItem(props) {
       setValue("email", profileName[0].email);
       setValue("phone", profileName[0].phone);
     } else {
-      alert("No user detected, Please Log in first");
-      router.push("/login?redirect=/submit-lost-item-form");
+      router.push("/login?redirect=/submit-lost-property-form");
     }
   }, []);
   //NEWCODE
@@ -229,7 +228,7 @@ export default function LostItem(props) {
             <Typography variant="h3">Submit Lost Properties</Typography>
             <br /> <br />
             <Typography variant="h5">
-              ✔ Verified Users are able to view Lost Properties.{" "}
+              ✔ Verified Users are able to view submitted Lost Properties.{" "}
             </Typography>
             <br /> <br />
             <Typography variant="h5">

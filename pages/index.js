@@ -1,5 +1,5 @@
 import { Button, Grid, Typography } from "@mui/material";
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import NextLink from "next/link";
 import Image from "next/image";
@@ -13,9 +13,9 @@ export default function Home() {
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-      console.log(loggedInUser)
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      console.log(loggedInUser);
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       //const foundUser = JSON.parse(loggedInUser);
       // setUser(foundUser);
     }
@@ -30,15 +30,14 @@ export default function Home() {
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
-
-            Community finds is a community base online platform which aims to
+            Community finds is a community base online platform that aims to
             help and it is generalize for the citizen of Balibago Angeles City.
             They can report both lost and found properties in this website. Once
-            the propterty were reported in our system, with that it can help the
+            the property were reported in our system, with that it can help the
             citizen to easily find their lost properties.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
-          <NextLink href="/submit-lost-item-form" passHref>
+          {/* <NextLink href="/submit-lost-item-form" passHref>
             <Button
               variant="outlined"
               style={{ width: 250, height: 60, marginRight: 30 }}
@@ -46,11 +45,19 @@ export default function Home() {
               Submit Lost Property
             </Button>
           </NextLink>
-          <NextLink href={"/found-item"}>
+          <NextLink href={"/lost-property"}>
             <Button variant="contained" style={{ width: 250, height: 60 }}>
               Claim Property
             </Button>
           </NextLink>
+          <NextLink href="/submit-lost-item-form" passHref>
+            <Button
+              variant="outlined"
+              style={{ width: 250, height: 60, marginRight: 30 }}
+            >
+              Submit Lost Property
+            </Button>
+          </NextLink> */}
         </Grid>
         <Grid item xs={6}>
           <Image src={announcement} />
@@ -96,15 +103,15 @@ export default function Home() {
               users;
             </li>
             <li>
-              Community Finds recommend you to go to barangay hall or police
-              station to do the claiming or handing properties for security
+              Community Finds recommends you to go to the barangay hall or the
+              police station for claiming or handing properties for security
               purposes.
             </li>
           </Typography>
         </Grid>
         <Grid item xs={12}></Grid>
         <Grid item xs={12}></Grid>
-        <Grid item xs={5}>
+        <Grid item xs={12}>
           <Typography variant="h4">
             <b>Please do not:</b>
           </Typography>
@@ -117,56 +124,44 @@ export default function Home() {
             <li>
               Do not post content that is disrespectful, malicious or offensive.
             </li>
-            <li> Do not spam any contact information given by other users.</li>
+            <li>
+              Do not spam other users through contact information provided.
+            </li>
             <li>
               Do not trick other members of the community, who are simply
               seeking for their lost properties.
             </li>
           </Typography>
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={12}>
           <Typography variant="h4">
             <b>Security and Safety:</b>
           </Typography>
           <br />
           <Typography variant="h6">
+            <li>Only verified user can use this website.</li>
             <li>
-              Community Finds make sure the collection of information that you
-              will provide are secured following the data Privacy law.
+              Community Finds makes sure the collection of information that you
+              will provide are secured following the RA 10173 or Data Privacy
+              Act of 2012.
             </li>
           </Typography>
         </Grid>
-        <Grid item xs={4} style={{ marginTop: "60px" }}>
-          <center>
-            <Image src={ease} height={200} width={300} />
-          </center>
-
-          <Typography style={{ textAlign: "center" }}>Ease of Use</Typography>
-          <Typography style={{ fontSize: "13px", textAlign: "center" }}>
+        <Grid item xs={6} style={{ marginTop: "60px", marginBottom: "30px" }}>
+          <Typography variant="h5" style={{ textAlign: "center" }}>
+            <b>Ease of Use</b>
+          </Typography>
+          <Typography style={{ fontSize: "18px", textAlign: "center" }}>
             Submitting lost or found properties is simple and hassle free. Input
             the required information and let our system go to work.
           </Typography>
         </Grid>
-        <Grid item xs={4} style={{ marginTop: "60px" }}>
-          <center>
-            <Image src={match} height={200} width={300} />
-          </center>
 
-          <Typography style={{ textAlign: "center" }}>
-            Easy Match Making
+        <Grid item xs={6} style={{ marginTop: "60px", marginBottom: "30px" }}>
+          <Typography variant="h5" style={{ textAlign: "center" }}>
+            <b>Online</b>
           </Typography>
-          <Typography style={{ fontSize: "13px", textAlign: "center" }}>
-            Users can easily see property posted here so that they might find
-            the person possibly holding their lost property.
-          </Typography>
-        </Grid>
-        <Grid item xs={4} style={{ marginTop: "60px" }}>
-          <center>
-            <Image src={online} height={200} width={300} />
-          </center>
-
-          <Typography style={{ textAlign: "center" }}>Online</Typography>
-          <Typography style={{ fontSize: "13px", textAlign: "center" }}>
+          <Typography style={{ fontSize: "18px", textAlign: "center" }}>
             Community Finds is an online platform that is available to anyone.
           </Typography>
         </Grid>

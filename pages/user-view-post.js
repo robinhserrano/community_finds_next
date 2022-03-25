@@ -47,7 +47,7 @@ export default function UserViewPost(props) {
     if (loggedInUser) {
       setUser(loggedInUser);
     } else {
-      router.push("/login");
+      router.push("/login?redirect=/user-view-post");
     }
   }, []);
   //NEWCODE
@@ -78,7 +78,7 @@ export default function UserViewPost(props) {
         <TableRow>
           <TableCell>Property Picture</TableCell>
           <TableCell>Property Name</TableCell>
-          <TableCell>Property Brand</TableCell>
+          <TableCell>Property Type</TableCell>
           <TableCell>Property Location</TableCell>
           <TableCell>Property Location Type</TableCell>
           <TableCell>Property Status</TableCell>

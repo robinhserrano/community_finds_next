@@ -127,7 +127,7 @@ export default function Register() {
                     variant="outlined"
                     fullWidth
                     id="name"
-                    label="Name"
+                    label="Full Name"
                     type={"name"}
                     value={name}
                     onInput={(e) => setName(e.target.value)}
@@ -257,7 +257,7 @@ export default function Register() {
                     id="confirmPassword"
                     value={confirmPassword}
                     onInput={(e) => setConfirmPassword(e.target.value)}
-                    label="confirm Password"
+                    label="Confirm Password"
                     inputProps={{ type: "password" }}
                     error={Boolean(errors.confirmPassword)}
                     helperText={

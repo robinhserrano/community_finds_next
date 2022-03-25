@@ -18,7 +18,7 @@ import {
   CardActionArea,
   CardMedia,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import Navbar from "../components/Navbar";
 import useStyles from "../utils/styles";
@@ -39,6 +39,7 @@ import walletIcon from "../public/images/wallet.png";
 import documentIcon from "../public/images/documentIcon.png";
 import { firestore, postToJSON } from "../lib/firebase";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 //
 export async function getServerSideProps() {
@@ -59,7 +60,22 @@ export async function getServerSideProps() {
 
 export default function FoundItem(props) {
   const [posts, setPosts] = useState(props.posts);
+  const router = useRouter();
+  //NEWCODE
+  const [currentUser, setUser] = useState();
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+      const profileName = posts.filter((doc) => {
+        return doc.id.includes(loggedInUser);
+      });
+    } else {
+      router.push("/login?redirect=/lost-property");
+    }
+  }, []);
+  //NEWCODE
   const missingItems = posts.filter((itemLost) => {
     return (
       itemLost.status.toLowerCase().includes("missing") &&

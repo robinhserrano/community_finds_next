@@ -18,7 +18,7 @@ import {
   CardActionArea,
   CardMedia,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import Navbar from "../components/Navbar";
 import useStyles from "../utils/styles";
@@ -42,7 +42,7 @@ import NextLink from "next/link";
 
 //
 export async function getServerSideProps() {
-  const postsQuery = firestore.collectionGroup("missingItems");
+  const postsQuery = firestore.collectionGroup("foundItems");
   // .where("status", "==", "missing");
   // .orderBy('createdAt', 'desc')
   // .limit(LIMIT);
@@ -59,6 +59,21 @@ export async function getServerSideProps() {
 
 export default function FoundItem(props) {
   const [posts, setPosts] = useState(props.posts);
+  //NEWCODE
+  const [currentUser, setUser] = useState();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+      const profileName = posts.filter((doc) => {
+        return doc.id.includes(loggedInUser);
+      });
+    } else {
+      router.push("/login?redirect=/lost-property");
+    }
+  }, []);
+  //NEWCODE
 
   const missingItems = posts.filter((itemLost) => {
     return (

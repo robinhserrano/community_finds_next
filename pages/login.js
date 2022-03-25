@@ -15,7 +15,7 @@ import NextLink from "next/link";
 import useStyles from "../utils/styles";
 import { Controller, useForm } from "react-hook-form";
 import { auth, googleAuthProvider, firestore } from "../lib/firebase";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import Image from "next/image";
 import sideImage from "../public/images/login.jpg";
 import firebase from "firebase/compat/app";
@@ -41,7 +41,11 @@ export default function Login() {
             alert("Successfully Signed In");
             router.push(redirect || "/");
           } else {
-            alert("Please Verify your email first");
+            alert("Please Verify your email first before you log in");
+            signOut(auth).then(() => {
+              //Sign out
+              localStorage.clear();
+            });
           }
         })
         .catch((error) => {

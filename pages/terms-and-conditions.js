@@ -1,11 +1,17 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import React from "react";
 import Navbar from "../components/Navbar";
+import NextLink from "next/link";
 
 export default function TermsAndConditions() {
   return (
     <Navbar>
       <div style={{ marginTop: "5%" }}>
+        <NextLink href={"/register"} passHref>
+          <Button sx={{ fontSize: "20px" }} variant="outlined">
+            Back to Register Page
+          </Button>
+        </NextLink>
         <Typography variant="h3" style={{ textAlign: "center" }}>
           User Agreement for Community Finds
         </Typography>
