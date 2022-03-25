@@ -297,7 +297,7 @@ export default function FoundItem(props) {
                       </Typography>
                     </CardContent>
                     <CardContent>
-                      <NextLink href={`./found-item/${info.id}`}>
+                      <NextLink href={`./found-property/${info.id}`}>
                         <Button
                           variant="outlined"
                           fullWidth
@@ -306,7 +306,7 @@ export default function FoundItem(props) {
                           <Typography>View Details</Typography>
                         </Button>
                       </NextLink>
-                      <NextLink href={`/claim-item-form/${info.id}`} passHref>
+                      <NextLink href={`/claim-property-form/${info.id}`}>
                         <Button variant="contained" fullWidth>
                           <Typography>Claim Property</Typography>
                         </Button>
