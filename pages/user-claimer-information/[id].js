@@ -66,7 +66,7 @@ export default function UserClaimerInformation(props) {
   const claimerSubmitHandler = (e) => {
     try {
       firestore
-        .collection("missingItems")
+        .collection("foundItems")
         .doc(e)
         .update({
           status: "claimed",

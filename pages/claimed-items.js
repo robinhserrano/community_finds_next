@@ -5,24 +5,29 @@ import { firestore, postToJSON } from "../lib/firebase";
 //
 export async function getServerSideProps() {
   const postsQuery = firestore.collectionGroup("missingItems");
+  const postsQuery2 = firestore.collectionGroup("foundItems");
   // .where("status", "==", "missing");
   // .orderBy('createdAt', 'desc')
   // .limit(LIMIT);
   const posts = (await postsQuery.get()).docs.map(postToJSON);
-
+  const posts2 = (await postsQuery2.get()).docs.map(postToJSON);
   // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
   // console.log(posts);
   // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
   return {
-    props: { posts },
+    props: { posts, posts2 },
   };
 }
 
 export default function ClaimedItems(props) {
   const [posts, setPosts] = useState(props.posts);
+  const [posts2, setPosts2] = useState(props.posts2);
 
   const missingItems = posts.filter((itemLost) => {
+    return itemLost.status.toLowerCase().includes("claimed");
+  });
+  const missingItems2 = posts2.filter((itemLost) => {
     return itemLost.status.toLowerCase().includes("claimed");
   });
   return (
@@ -44,14 +49,33 @@ export default function ClaimedItems(props) {
               <CardContent>
                 <img
                   src={info.claim_image}
-                  alt={info.name}
+                  alt={info.lostPropertyName}
                   height={300}
                   width={300}
                 />
               </CardContent>
               <CardContent>
                 <Typography style={{ textAlign: "center" }}>
-                  properties Returned: {info.name}
+                  properties Returned: {info.lostPropertyName}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+        {missingItems2.map((info) => (
+          <Grid item xs={2} sm={2} md={3}>
+            <Card style={{ width: 330 }}>
+              <CardContent>
+                <img
+                  src={info.claim_image}
+                  alt={info.foundPropertyName}
+                  height={300}
+                  width={300}
+                />
+              </CardContent>
+              <CardContent>
+                <Typography style={{ textAlign: "center" }}>
+                  properties Claimed: {info.foundPropertyName}
                 </Typography>
               </CardContent>
             </Card>
