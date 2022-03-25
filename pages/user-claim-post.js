@@ -21,7 +21,7 @@ var ls = require("local-storage");
 //
 
 export async function getServerSideProps() {
-  const postsQuery = firestore.collectionGroup("missingItems");
+  const postsQuery = firestore.collectionGroup("foundItems");
   // .where("status", "==", "missing");
   // .orderBy('createdAt', 'desc')
   // .limit(LIMIT);
@@ -51,7 +51,7 @@ export default function UserClaimPost(props) {
     if (loggedInUser) {
       setUser(loggedInUser);
     } else {
-      router.push("/login?redirect=/user-finder-post");
+      router.push("/login?redirect=/user-claim-post");
     }
   }, []);
   //NEWCODE
@@ -90,8 +90,8 @@ export default function UserClaimPost(props) {
           <TableCell>Property Location</TableCell>
           <TableCell>Property Location Type</TableCell>
           <TableCell>Property Status</TableCell>
-          <TableCell>Finder name</TableCell>
-          <TableCell>Finder Mobile</TableCell>
+          <TableCell>Claimer name</TableCell>
+          <TableCell>Claimer Mobile</TableCell>
           <TableCell align="center">Action</TableCell>
           {/* <TableCell align="center">Action</TableCell> */}
         </TableRow>
@@ -101,13 +101,13 @@ export default function UserClaimPost(props) {
             <TableCell>
               <Image
                 src={info.image}
-                alt={info.name}
+                alt={info.foundPropertyName}
                 height={100}
                 width={100}
               />
             </TableCell>
             <TableCell>
-              <Typography>{info.lostPropertyName}</Typography>
+              <Typography>{info.foundPropertyName}</Typography>
             </TableCell>
             <TableCell>
               <Typography>{info.brand}</Typography>
@@ -128,7 +128,7 @@ export default function UserClaimPost(props) {
               <Typography>{info.claim_phone}</Typography>
             </TableCell>
             <TableCell align="right">
-              <NextLink href={`/user-finder-information/${info.id}`}>
+              <NextLink href={`/user-claimer-information/${info.id}`}>
                 <Button variant="outlined">view</Button>
               </NextLink>
             </TableCell>

@@ -240,13 +240,13 @@ export default function ClaimLostItemForm(props) {
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Date and Time Lost/Found: </b>
+                  <b>Date and Time Lost: </b>
                   {profile.date}
                 </Typography>
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Location Lost/Found: </b>
+                  <b>Location Lost: </b>
                   {profile.location} - {profile.locationtype}
                 </Typography>
               </CardContent>
@@ -424,8 +424,8 @@ export default function ClaimLostItemForm(props) {
               <List className={classes.inputField}>
                 <Typography> Property Description *</Typography>
                 <span>
-                  Please provide details/description of your the property that
-                  you find.
+                  Please provide details/description of the property that you
+                  find.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -624,8 +624,7 @@ export default function ClaimLostItemForm(props) {
               <List className={classes.inputField}>
                 <Typography>Place/Location *</Typography>
                 <span>
-                  Please Specify the Area from where you have found/lost the
-                  property
+                  Please Specify the Area from where you have lost the property
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller

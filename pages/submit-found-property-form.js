@@ -188,9 +188,9 @@ export default function FoundItem(props) {
           status: "missing",
         })
         .then(() =>
-          alert("Missing Property has been Submitted to Cloud Firestore")
+          alert("Found Property has been Submitted to Cloud Firestore")
         );
-      router.push("/lost-property");
+      router.push("/found-property");
     } catch (err) {
       alert(err);
     }

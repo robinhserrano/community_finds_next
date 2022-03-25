@@ -285,7 +285,13 @@ export default function MissingElectronics(props) {
                     />
                     <CardContent>
                       <Typography>
-                        <b> {info.propertycategory}: </b> {info.name}
+                        <b>{info.propertycategory}: </b> {info.lostPropertyName}
+                      </Typography>
+                    </CardContent>
+                    <CardContent>
+                      <Typography>
+                        <b> Type: </b>
+                        {info.brand}
                       </Typography>
                     </CardContent>
                     <CardContent>

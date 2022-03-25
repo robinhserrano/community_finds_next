@@ -124,7 +124,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Date and Time Lost/Found: </b> {profile.timeLost}
+                <b> Date and Time Lost: </b> {profile.timeLost}
               </Typography>
             </CardContent>
 
@@ -134,7 +134,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Location Lost/Found: </b> {profile.location}
+                <b> Location Lost: </b> {profile.location}
               </Typography>
             </CardContent>
             <CardContent style={{ height: 185, borderStyle: "groove" }}>

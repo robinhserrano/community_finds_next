@@ -287,8 +287,12 @@ export default function FoundItem(props) {
                     />
                     <CardContent>
                       <Typography>
-                        <b> {info.propertycategory}: </b> {info.name}
+                        <b> {info.propertycategory}: </b>
+                        {info.foundPropertyName}
                       </Typography>
+                    </CardContent>
+                    <CardContent>
+                      <b>Type:</b> {info.brand}
                     </CardContent>
                     <CardContent>
                       <Typography>
