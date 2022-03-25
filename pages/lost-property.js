@@ -288,12 +288,12 @@ export default function FoundItem(props) {
                           fullWidth
                           style={{ marginBottom: "20px" }}
                         >
-                          <Typography>View Property</Typography>
+                          <Typography>View Details</Typography>
                         </Button>
                       </NextLink>
                       <NextLink href={`/claim-item-form/${info.id}`} passHref>
                         <Button variant="contained" fullWidth>
-                          <Typography>Claim Property</Typography>
+                          <Typography>Found Property</Typography>
                         </Button>
                       </NextLink>
                     </CardContent>

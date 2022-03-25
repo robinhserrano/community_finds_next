@@ -93,7 +93,7 @@ export default function MissingClothes(props) {
               <CardContent align="center" style={{ borderStyle: "solid" }}>
                 <Typography variant="h4">Categories</Typography>
               </CardContent>
-              <NextLink href={"/found-item"} passHref>
+              <NextLink href={"/lost-property"} passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -184,6 +184,7 @@ export default function MissingClothes(props) {
                     Documents
                   </Typography>
                 </CardActionArea>
+              </NextLink>
               <NextLink href={"/missing-electronics"} passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
