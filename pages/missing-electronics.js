@@ -89,13 +89,15 @@ export default function MissingElectronics(props) {
       setPosts(filteredPosts);
     } else {
       const filter = missingItems.filter((missing) => {
-        return (missing.lostPropertyName
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase()) || missing.location
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase()) || missing.brand
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase()))
+        return (
+          missing.lostPropertyName
+            .toLowerCase()
+            .includes(e.target.value.toLowerCase()) ||
+          missing.location
+            .toLowerCase()
+            .includes(e.target.value.toLowerCase()) ||
+          missing.brand.toLowerCase().includes(e.target.value.toLowerCase())
+        );
       });
       setPosts(filter);
     }
@@ -316,7 +318,7 @@ export default function MissingElectronics(props) {
                       </NextLink>
                       <NextLink href={`/found-property-form/${info.id}`}>
                         <Button variant="contained" fullWidth>
-                          <Typography>Claim Property</Typography>
+                          <Typography>Found Property</Typography>
                         </Button>
                       </NextLink>
                     </CardContent>
