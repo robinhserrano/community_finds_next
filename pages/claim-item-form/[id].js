@@ -21,7 +21,7 @@ import {
   Select,
   ListSubheader,
 } from "@mui/material";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Image from "next/image";
 import found from "../../public/images/found.png";
@@ -35,19 +35,22 @@ import "react-datetime/css/react-datetime.css";
 import { useSelector, useDispatch } from "react-redux";
 import { ITEM_OWNER_INFORMATION } from "../../redux/actionTypes";
 import "firebase/compat/firestore";
+import { UserContext } from "../../lib/context";
 import firebase from "firebase/compat/app";
 //
 
 export async function getServerSideProps() {
   const postsQuery = firestore.collectionGroup("missingItems");
+  const postsQuery2 = firestore.collectionGroup("users");
   // .where('published', '==', true)
   // .orderBy('createdAt', 'desc')
   // .limit(LIMIT);
 
   const posts = (await postsQuery.get()).docs.map(postToJSON);
+  const posts2 = (await postsQuery2.get()).docs.map(postToJSON);
   // console.log(posts);
   return {
-    props: { posts }, // will be passed to the page component as props
+    props: { posts, posts2 }, // will be passed to the page component as props
   };
 }
 
@@ -56,8 +59,30 @@ export default function ClaimLostItemForm(props) {
   const {
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm();
+  const [posts2] = useState(props.posts2);
+  const { user } = useContext(UserContext);
+
+  // //NEWCODE
+  const [currentUser, setUser] = useState();
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+      const profileName = posts2.filter((doc) => {
+        return doc.id.includes(loggedInUser);
+      });
+      setValue("name", profileName[0].name);
+      setValue("email", profileName[0].email);
+      setValue("phone", profileName[0].phone);
+    } else {
+      router.push("/login?redirect=/submit-found-property-form");
+    }
+  }, []);
+  //NEWCODE
+
   const [typelocation, setTypeLocation] = React.useState("");
   const handleChanges = (event) => {
     setTypeLocation(event.target.value);
@@ -108,8 +133,7 @@ export default function ClaimLostItemForm(props) {
     brand,
     result,
     information,
-    firstname,
-    lastname,
+    name,
     phone,
     email,
     nameLocation,
@@ -128,8 +152,7 @@ export default function ClaimLostItemForm(props) {
           claim_locationtype: typelocation,
           //mapbox:
           claim_timeLost: lostTime,
-          claim_firstname: firstname,
-          claim_lastname: lastname,
+          claim_fullname: name,
           claim_phone: phone,
           claim_email: email,
           claim_user_id: auth.currentUser.uid,
@@ -245,14 +268,14 @@ export default function ClaimLostItemForm(props) {
             <Grid item xs={6}>
               {/* First Name */}
               <List className={classes.inputField}>
-                <Typography>First Name *</Typography>
+                <Typography>Full Name *</Typography>
                 <span>
-                  (Please enter your first name(This will appear on your
+                  (Please enter your full name(This will appear on your
                   submission))
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
-                  name="firstname"
+                  name="name"
                   control={control}
                   defaultValue=""
                   rules={{
@@ -263,8 +286,9 @@ export default function ClaimLostItemForm(props) {
                     <TextField
                       variant="outlined"
                       fullWidth
-                      id="firstname"
-                      label="First Name"
+                      disabled
+                      id="name"
+                      label="Full Name"
                       error={Boolean(errors.firstname)}
                       helperText={
                         errors.firstname
@@ -279,8 +303,7 @@ export default function ClaimLostItemForm(props) {
                 />
               </List>
             </Grid>
-            <Grid item xs={6}>
-              {/* Last Name */}
+            {/* <Grid item xs={6}>
               <List className={classes.inputField}>
                 <Typography>Last Name *</Typography>
                 <span>
@@ -315,7 +338,7 @@ export default function ClaimLostItemForm(props) {
                   )}
                 />
               </List>
-            </Grid>
+            </Grid> */}
             <Grid item xs={6}>
               {/* Phone Number */}
               <Typography>Phone Number *</Typography>
@@ -338,6 +361,7 @@ export default function ClaimLostItemForm(props) {
                       variant="outlined"
                       fullWidth
                       id="tel"
+                      disabled
                       label="Mobile Number"
                       error={Boolean(errors.phone)}
                       helperText={
@@ -373,6 +397,7 @@ export default function ClaimLostItemForm(props) {
                       variant="outlined"
                       fullWidth
                       id="email"
+                      disabled
                       label="Email"
                       inputProps={{ type: "email" }}
                       error={Boolean(errors.email)}
@@ -389,6 +414,7 @@ export default function ClaimLostItemForm(props) {
                 />
               </List>
             </Grid>
+            <Grid item sm={6}></Grid>
             <br /> <br /> <br />
             <Grid item xs={6}>
               <Typography variant="h3">Property Description</Typography>
@@ -400,7 +426,7 @@ export default function ClaimLostItemForm(props) {
                 <Typography> Property Description *</Typography>
                 <span>
                   Please provide details/description of your the property that
-                  you found.
+                  you find.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller

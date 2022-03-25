@@ -170,7 +170,7 @@ export default function FoundItem(props) {
         .set({
           id: lostItemId,
           user_id: auth.currentUser.uid,
-          name: itemLost,
+          found_name: itemLost,
           propertycategory: propertycategory,
           category: category,
           brand: brand,

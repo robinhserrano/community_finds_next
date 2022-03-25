@@ -182,8 +182,9 @@ export default function ItemDetails(props) {
           </Card>
         </Grid>
         <Grid item xs={7}>
-          <NextLink href={"/found-item"}>
+          <NextLink href={"/lost-property"}>
             <Button
+              variant="outlined"
               style={{
                 width: "200px",
                 height: "70px",
