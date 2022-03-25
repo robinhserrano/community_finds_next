@@ -43,7 +43,9 @@ import NextLink from "next/link";
 //
 export async function getServerSideProps() {
   const postsQuery = firestore.collectionGroup("missingItems");
-
+  // .where("status", "==", "missing");
+  // .orderBy('createdAt', 'desc')
+  // .limit(LIMIT);
   const posts = (await postsQuery.get()).docs.map(postToJSON);
 
   // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
@@ -55,14 +57,13 @@ export async function getServerSideProps() {
   };
 }
 
-export default function MissingBags(props) {
+export default function FoundItem(props) {
   const [posts, setPosts] = useState(props.posts);
 
   const missingItems = posts.filter((itemLost) => {
     return (
-      itemLost.category.toLowerCase().includes("bag") &&
       itemLost.status.toLowerCase().includes("missing") &&
-      itemLost.propertycategory.toLowerCase().includes("lost property")
+      itemLost.propertycategory.toLowerCase().includes("found property")
     );
   });
 
@@ -168,22 +169,23 @@ export default function MissingBags(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-document"} passHref />
-              <CardActionArea
-                style={{ display: "flex" }}
-                className={classes.parentFlexRight}
-              >
-                <div style={{ marginTop: 30, marginBottom: 30 }} />
-                <Image
-                  src={documentIcon}
-                  height={30}
-                  width={30}
-                  alt="document-icon"
-                />
-                <Typography variant="h5" className={classes.categoriesGrow}>
-                  Documents
-                </Typography>
-              </CardActionArea>
+              <NextLink href={"/missing-document"} passHref>
+                <CardActionArea
+                  style={{ display: "flex" }}
+                  className={classes.parentFlexRight}
+                >
+                  <div style={{ marginTop: 30, marginBottom: 30 }} />
+                  <Image
+                    src={documentIcon}
+                    height={30}
+                    width={30}
+                    alt="document-icon"
+                  />
+                  <Typography variant="h5" className={classes.categoriesGrow}>
+                    Documents
+                  </Typography>
+                </CardActionArea>
+              </NextLink>
               <NextLink href={"/missing-electronics"} passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
@@ -264,7 +266,7 @@ export default function MissingBags(props) {
                       title={info.category}
                       image={info.image}
                       height={300}
-                      width={150}
+                      width={200}
                       alt={"no image"}
                       style={{ borderStyle: "solid", borderColor: "#3a7196" }}
                     />

@@ -179,24 +179,38 @@ export default function Navbar({ title, children }) {
             </Link>
           </NextLink>
           <div className={classes.toolbarGrow}></div>
-          <NextLink href="/submit-lost-item-form" passHref>
+          <NextLink href="/submit-lost-property-form" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
-                SUBMIT LOST/FOUND PROPERTY
+                SUBMIT LOST PROPERTY
               </Typography>
             </Link>
           </NextLink>
-          <NextLink href="/found-item" passHref>
+          <NextLink href="/submit-found-property-form" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
-                CLAIM PROPERTY
+                SUBMIT FOUND PROPERTY
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/lost-property" passHref>
+            <Link color="inherit" underline="hover">
+              <Typography className={classes.textStyle}>
+                LOST PROPERTY
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/found-property" passHref>
+            <Link color="inherit" underline="hover">
+              <Typography className={classes.textStyle}>
+                FOUND PROPERTY
               </Typography>
             </Link>
           </NextLink>
           <NextLink href="/claimed-items" passHref>
             <Link color="inherit" underline="hover">
               <Typography className={classes.textStyle}>
-                VIEW CLAIMED PROPERTIES
+                VIEW RETURNED PROPERTIES
               </Typography>
             </Link>
           </NextLink>

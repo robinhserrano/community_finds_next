@@ -61,7 +61,8 @@ export default function MissingKeys(props) {
   const missingItems = posts.filter((itemLost) => {
     return (
       itemLost.category.toLowerCase().includes("keys") &&
-      itemLost.status.toLowerCase().includes("missing")
+      itemLost.status.toLowerCase().includes("missing") &&
+      itemLost.propertycategory.toLowerCase().includes("lost property")
     );
   });
 

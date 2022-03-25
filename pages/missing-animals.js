@@ -61,7 +61,8 @@ export default function MissingAnimals(props) {
   const missingItems = posts.filter((itemLost) => {
     return (
       itemLost.category.toLowerCase().includes("animals") &&
-      itemLost.status.toLowerCase().includes("missing")
+      itemLost.status.toLowerCase().includes("missing") &&
+      itemLost.propertycategory.toLowerCase().includes("lost property")
     );
   });
 

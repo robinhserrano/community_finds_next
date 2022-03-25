@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     },
   },
   grow: {
-    flexGrow: 0.86,
+    flexGrow: 0.935,
   },
   logoGrow: {
     flexGrow: 0.15,

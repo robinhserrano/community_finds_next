@@ -61,7 +61,10 @@ export default function FoundItem(props) {
   const [posts, setPosts] = useState(props.posts);
 
   const missingItems = posts.filter((itemLost) => {
-    return itemLost.status.toLowerCase().includes("missing");
+    return (
+      itemLost.status.toLowerCase().includes("missing") &&
+      itemLost.propertycategory.toLowerCase().includes("lost property")
+    );
   });
 
   const classes = useStyles();

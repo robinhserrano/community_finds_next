@@ -61,7 +61,8 @@ export default function MissingWallet(props) {
   const missingItems = posts.filter((itemLost) => {
     return (
       itemLost.category.toLowerCase().includes("document") &&
-      itemLost.status.toLowerCase().includes("missing")
+      itemLost.status.toLowerCase().includes("missing") &&
+      itemLost.propertycategory.toLowerCase().includes("lost property")
     );
   });
 

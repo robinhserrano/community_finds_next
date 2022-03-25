@@ -40,11 +40,30 @@ import Map, { Marker } from "react-map-gl";
 import Geocode from "react-geocode";
 import { UserContext } from "../lib/context";
 import Cookies from "js-cookie";
-//
 
-export default function LostItem() {
+//
+export async function getServerSideProps() {
+  const postsQuery = firestore.collectionGroup("users");
+
+  // .where('published', '==', true)
+  // .orderBy('createdAt', 'desc')
+  // .limit(LIMIT);
+
+  const posts = (await postsQuery.get()).docs.map(postToJSON);
+
+  // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  // console.log(posts);
+  // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+  return {
+    props: { posts }, // will be passed to the page component as props
+  };
+}
+//
+export default function FoundItem(props) {
   const router = useRouter();
   const { user } = useContext(UserContext);
+  const [posts] = useState(props.posts);
 
   const [category, setCategory] = React.useState("");
   const [typelocation, setTypeLocation] = React.useState("");
@@ -57,6 +76,12 @@ export default function LostItem() {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       setUser(loggedInUser);
+      const profileName = posts.filter((doc) => {
+        return doc.id.includes(loggedInUser);
+      });
+      setValue("name", profileName[0].name);
+      setValue("email", profileName[0].email);
+      setValue("phone", profileName[0].phone);
     } else {
       alert("No user detected, Please Log in first");
       router.push("/login?redirect=/submit-lost-item-form");
@@ -83,6 +108,7 @@ export default function LostItem() {
   const {
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm();
 
@@ -131,8 +157,8 @@ export default function LostItem() {
     result,
     nameLocation,
     information,
-    firstname,
-    lastname,
+    name,
+    // lastname,
     phone,
     email,
   }) => {
@@ -140,7 +166,7 @@ export default function LostItem() {
     try {
       firebase
         .firestore()
-        .collection("missingItems")
+        .collection("foundItems")
         .doc(lostItemId)
         .set({
           id: lostItemId,
@@ -155,17 +181,16 @@ export default function LostItem() {
           zipcode: "2009",
           location: address,
           information: information,
-          // date: lostdDate,
           locationtype: typelocation,
-          //mapbox:
           timeLost: lostTime,
-          firstname: firstname,
-          lastname: lastname,
+          fullName: name,
           phone: phone,
           email: email,
           status: "missing",
         })
-        .then(() => alert("Missing File Submitted to Cloud Firestore"));
+        .then(() =>
+          alert("Missing Property has been Submitted to Cloud Firestore")
+        );
       router.push("/found-item");
     } catch (err) {
       alert(err);
@@ -201,10 +226,10 @@ export default function LostItem() {
         <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item sm={6}>
-            <Typography variant="h3">Submit Lost/Found Properties</Typography>
+            <Typography variant="h3">Submit Found Properties</Typography>
             <br /> <br />
             <Typography variant="h5">
-              ✔ Users are able to view lost Properties.{" "}
+              ✔ Verified Users are able to view submitted Found Properties.{" "}
             </Typography>
             <br /> <br />
             <Typography variant="h5">
@@ -213,7 +238,7 @@ export default function LostItem() {
             <br /> <br />
             <Typography variant="h7">
               <b style={{ color: "red" }}>* </b>
-              Please be descriptive when submitting your lost property report,
+              Please be descriptive when submitting your found property report,
               the more information you give us the better chance you have of
               retrieving your Properties.
             </Typography>
@@ -230,7 +255,7 @@ export default function LostItem() {
             {/* Property Category */}
             <List className={classes.inputField}>
               <Typography>Property Category *</Typography>
-              <span>(Found Property or Lost Property)</span>
+              <span>(Found Property)</span>
               <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
                 <InputLabel htmlFor="grouped-select">
@@ -255,7 +280,6 @@ export default function LostItem() {
                   >
                     Choose Property Type
                   </ListSubheader>
-                  <MenuItem value={"Lost Property"}>Lost Property</MenuItem>
                   <MenuItem value={"Found Property"}>Found Property</MenuItem>
                 </Select>
               </FormControl>
@@ -265,7 +289,7 @@ export default function LostItem() {
           <Grid item sm={6}>
             {/* item Property */}
             <List className={classes.inputField}>
-              <Typography> Property *</Typography>
+              <Typography> Property Found Name *</Typography>
               <span>
                 (Dog, Jacket, Smartphone, Wallet, etc.) This field may
                 auto-populate
@@ -284,7 +308,7 @@ export default function LostItem() {
                     variant="outlined"
                     fullWidth
                     id="itemLost"
-                    label="Property Lost/Found"
+                    label="Property Found Name"
                     error={Boolean(errors.itemLost)}
                     helperText={
                       errors.itemLost
@@ -301,11 +325,11 @@ export default function LostItem() {
           </Grid>
           <Grid item sm={6}>
             {/* Date and Time Lost */}
-            <Typography>Date Lost and Time Lost *</Typography>
+            <Typography>Date Found and Time Found *</Typography>
             <span>
-              (Please add the approximate date of when the item was lost.)
+              (Please add the approximate date of when the item was found.)
               <br />
-              (Please add the approximate time of day the item was lost.)
+              (Please add the approximate time of day the item was found.)
             </span>
             <div style={{ marginBottom: 10 }}></div>
             <Datetime
@@ -317,10 +341,7 @@ export default function LostItem() {
             {/* category */}
             <List className={classes.inputField}>
               <Typography>Category *</Typography>
-              <span>
-                (Animals/Pets, Clothing, Electronics, Personal Accessories etc.)
-                This field is required.
-              </span>
+              <span>(Animals/Pets, Clothing, Electronics, Documents etc.)</span>
               <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">
@@ -347,11 +368,12 @@ export default function LostItem() {
             </List>
           </Grid>
           <Grid item sm={6}>
+            <br />
             {/* Additional Information */}
             <List className={classes.inputField}>
               <Typography>Additional Information *</Typography>
               <span>
-                Please provide any additional details/description of your lost
+                Please provide any additional details/description of your found
                 property.
               </span>
               <div style={{ marginBottom: 10 }}></div>
@@ -386,8 +408,10 @@ export default function LostItem() {
           <Grid item sm={6}>
             {/* brand */}
             <List className={classes.inputField}>
-              <Typography>Brand *</Typography>
+              <Typography>Type *</Typography>
               <span>(Ralph Lauren, Samsung, KitchenAid, etc.)</span>
+              <br />
+              <span>(For animals please indicate the breed)</span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="brand"
@@ -402,7 +426,7 @@ export default function LostItem() {
                     variant="outlined"
                     fullWidth
                     id="brand"
-                    label="Brand"
+                    label="Type"
                     error={Boolean(errors.brand)}
                     helperText={
                       errors.brand
@@ -422,7 +446,7 @@ export default function LostItem() {
             <List className={classes.inputField}>
               <Typography>Primary Color *</Typography>
               <span>
-                Please add the color that best represents the lost property
+                Please add the color that best represents the found property
                 (Black, Red, Blue, etc.)
               </span>
               <div style={{ marginBottom: 10 }}></div>
@@ -456,8 +480,9 @@ export default function LostItem() {
           </Grid>
           <Grid item sm={6}>
             {/* Secondary Item Color */}
+            <br />
             <List className={classes.inputField}>
-              <Typography>Secondary Item Color *</Typography>
+              <Typography>Secondary Item Color </Typography>
               <span>
                 Please add a color that acts as a less dominant (Leave blank if
                 not applicable.)
@@ -542,10 +567,10 @@ export default function LostItem() {
           <Grid item sm={6}>
             {/* Where did you Lost It? */}
             <List className={classes.inputField}>
-              <Typography>Where did you Lost/Found It *</Typography>
+              <Typography>Where did you Found It *</Typography>
               <span>
-                (Please provide an approximate location of the lost property
-                (Bar, Restaurant, Park, etc.))
+                Please provide an approximate location of the found property
+                (Bar, Restaurant, Park, etc.)
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
@@ -668,8 +693,7 @@ export default function LostItem() {
             <List className={classes.inputField}>
               <Typography>Place/Location *</Typography>
               <span>
-                Please Specify the Area from where you have found/lost the
-                property
+                Please Specify the Area from where you have found the property
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -748,14 +772,14 @@ export default function LostItem() {
           <Grid item sm={6}>
             {/* First Name */}
             <List className={classes.inputField}>
-              <Typography>First Name *</Typography>
+              <Typography>Full Name*</Typography>
               <span>
-                (Please enter your first name(This will appear on your
+                (Please enter your full name(This will appear on your
                 submission))
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
-                name="firstname"
+                name="name"
                 control={control}
                 defaultValue=""
                 rules={{
@@ -766,14 +790,15 @@ export default function LostItem() {
                   <TextField
                     variant="outlined"
                     fullWidth
-                    id="firstname"
-                    label="First Name"
+                    id="name"
+                    disabled
+                    label="Full Name"
                     error={Boolean(errors.firstname)}
                     helperText={
                       errors.firstname
                         ? errors.firstname.type === "minLength"
-                          ? "First Name Code length should be more than 1"
-                          : "First Name Code color is required"
+                          ? "Name Code length should be more than 1"
+                          : "Name is required"
                         : ""
                     }
                     {...field}
@@ -782,8 +807,7 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid item sm={6}>
-            {/* Last Name */}
+          {/* <Grid item sm={6}>
             <List className={classes.inputField}>
               <Typography>Last Name *</Typography>
               <span>
@@ -818,7 +842,7 @@ export default function LostItem() {
                 )}
               />
             </List>
-          </Grid>
+          </Grid> */}
           <Grid item sm={6}>
             {/* Phone Number */}
             <Typography>Phone Number *</Typography>
@@ -839,6 +863,7 @@ export default function LostItem() {
                   <TextField
                     variant="outlined"
                     fullWidth
+                    disabled
                     id="tel"
                     label="Mobile Number"
                     error={Boolean(errors.phone)}
@@ -877,6 +902,7 @@ export default function LostItem() {
                     fullWidth
                     id="email"
                     label="Email"
+                    disabled
                     inputProps={{ type: "email" }}
                     error={Boolean(errors.email)}
                     helperText={
@@ -892,45 +918,40 @@ export default function LostItem() {
               />
             </List>
           </Grid>
-          <Grid
-            container
-            rowSpacing={1}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          >
-            <Grid item xs={6}></Grid>
-            <Grid item sm={2.9}>
-              <ListItem>
-                <Checkbox required={true} />
-                <Typography>
-                  I agree that my data will be collected and shared in the
-                  website.
-                </Typography>
-              </ListItem>
-            </Grid>
+          <Grid item sm={3}>
+            <br /> <br /> <br />
+            <ListItem>
+              <Checkbox required={true} />
+              <Typography>
+                I agree that my data will be collected and shared in the
+                website.
+              </Typography>
+            </ListItem>
+          </Grid>
 
-            <Grid item sm={3}>
-              <List>
-                <ListItem>
-                  <Button
-                    style={{
-                      background: "#366e97",
-                      color: "white",
-                      width: "150px",
-                      height: "70px",
-                    }}
-                    type="submit"
-                    onClick={() =>
-                      dispatch({
-                        type: ITEM_OWNER_INFORMATION,
-                        payload: { itemimageValue: result },
-                      })
-                    }
-                  >
-                    Submit
-                  </Button>
-                </ListItem>
-              </List>
-            </Grid>
+          <Grid item sm={3}>
+            <br /> <br />
+            <List>
+              <ListItem>
+                <Button
+                  style={{
+                    background: "#366e97",
+                    color: "white",
+                    width: "150px",
+                    height: "70px",
+                  }}
+                  type="submit"
+                  onClick={() =>
+                    dispatch({
+                      type: ITEM_OWNER_INFORMATION,
+                      payload: { itemimageValue: result },
+                    })
+                  }
+                >
+                  Submit
+                </Button>
+              </ListItem>
+            </List>
           </Grid>
         </Grid>
       </form>
