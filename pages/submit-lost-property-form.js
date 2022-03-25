@@ -128,7 +128,9 @@ export default function LostItem(props) {
       reader.addEventListener("load", (e) => {
         setResult(e.target.result);
       });
-
+      if (result[0].size > 500 * 1024) {
+        alert("Image size is too big");
+      }
       reader.readAsDataURL(imageFile);
     }
 
@@ -333,6 +335,7 @@ export default function LostItem(props) {
             <div style={{ marginBottom: 10 }}></div>
             <Datetime
               selected={startTime}
+              required={true}
               onChange={(time) => setStartTime(time)}
             />
           </Grid>

@@ -37,7 +37,7 @@ export default function Home() {
             citizen to easily find their lost properties.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
-          {/* <NextLink href="/submit-lost-item-form" passHref>
+          <NextLink href="/submit-lost-property-form" passHref>
             <Button
               variant="outlined"
               style={{ width: 250, height: 60, marginRight: 30 }}
@@ -45,19 +45,15 @@ export default function Home() {
               Submit Lost Property
             </Button>
           </NextLink>
-          <NextLink href={"/lost-property"}>
-            <Button variant="contained" style={{ width: 250, height: 60 }}>
-              Claim Property
-            </Button>
-          </NextLink>
-          <NextLink href="/submit-lost-item-form" passHref>
+
+          <NextLink href="/submit-found-property-form" passHref>
             <Button
-              variant="outlined"
+              variant="contained"
               style={{ width: 250, height: 60, marginRight: 30 }}
             >
-              Submit Lost Property
+              Submit Found Property
             </Button>
-          </NextLink> */}
+          </NextLink>
         </Grid>
         <Grid item xs={6}>
           <Image src={announcement} />

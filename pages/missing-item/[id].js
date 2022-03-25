@@ -92,7 +92,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Brand: </b> {profile.brand}
+                <b> Type: </b> {profile.brand}
               </Typography>
             </CardContent>
             <CardContent
@@ -230,7 +230,7 @@ export default function ItemDetails(props) {
                 height: "70px",
               }}
             >
-              <Typography variant="h6">CLAIM PROPERTY</Typography>
+              <Typography variant="h6">Found It</Typography>
             </Button>
           </NextLink>
         </Grid>

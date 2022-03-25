@@ -240,9 +240,7 @@ export default function UserEditPost(props) {
             </Card>
           </div>
         </Grid>
-        <Grid item xs={12}>
-          MAP HERE
-        </Grid>
+        <Grid item xs={12}></Grid>
         <Grid item xs={10}>
           <NextLink href={"/user-view-post"}>
             <Button

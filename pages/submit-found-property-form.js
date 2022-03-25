@@ -333,6 +333,7 @@ export default function FoundItem(props) {
             <div style={{ marginBottom: 10 }}></div>
             <Datetime
               selected={startTime}
+              required={true}
               onChange={(time) => setStartTime(time)}
             />
           </Grid>

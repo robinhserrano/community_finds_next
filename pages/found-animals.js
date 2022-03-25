@@ -42,10 +42,8 @@ import NextLink from "next/link";
 
 //
 export async function getServerSideProps() {
-  const postsQuery = firestore.collectionGroup("foundItems");
-  // .where("status", "==", "missing");
-  // .orderBy('createdAt', 'desc')
-  // .limit(LIMIT);
+  const postsQuery = firestore.collectionGroup("missingItems");
+
   const posts = (await postsQuery.get()).docs.map(postToJSON);
 
   // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
@@ -57,8 +55,9 @@ export async function getServerSideProps() {
   };
 }
 
-export default function FoundItem(props) {
+export default function MissingAnimals(props) {
   const [posts, setPosts] = useState(props.posts);
+
   //NEWCODE
   const [currentUser, setUser] = useState();
 
@@ -70,15 +69,15 @@ export default function FoundItem(props) {
         return doc.id.includes(loggedInUser);
       });
     } else {
-      router.push("/login?redirect=/lost-property");
+      router.push("/login?redirect=/found-property");
     }
   }, []);
   //NEWCODE
-
   const missingItems = posts.filter((itemLost) => {
     return (
+      itemLost.category.toLowerCase().includes("animals") &&
       itemLost.status.toLowerCase().includes("missing") &&
-      itemLost.propertycategory.toLowerCase().includes("found property")
+      itemLost.propertycategory.toLowerCase().includes("lost property")
     );
   });
 
@@ -281,13 +280,13 @@ export default function FoundItem(props) {
                       title={info.category}
                       image={info.image}
                       height={300}
-                      width={200}
+                      width={150}
                       alt={"no image"}
                       style={{ borderStyle: "solid", borderColor: "#3a7196" }}
                     />
                     <CardContent>
                       <Typography>
-                        <b> {info.propertycategory}: </b> {info.name}
+                        <b>{info.propertycategory}: </b> {info.name}
                       </Typography>
                     </CardContent>
                     <CardContent>
@@ -303,7 +302,7 @@ export default function FoundItem(props) {
                           fullWidth
                           style={{ marginBottom: "20px" }}
                         >
-                          <Typography>View Details</Typography>
+                          <Typography>View Property</Typography>
                         </Button>
                       </NextLink>
                       <NextLink href={`/claim-item-form/${info.id}`} passHref>

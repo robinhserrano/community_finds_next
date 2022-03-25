@@ -110,7 +110,7 @@ export default function FoundItem(props) {
               <CardContent align="center" style={{ borderStyle: "solid" }}>
                 <Typography variant="h4">Categories</Typography>
               </CardContent>
-              <NextLink href={"/found-item"} passHref>
+              <NextLink href="/lost-property" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -122,7 +122,7 @@ export default function FoundItem(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-animals"} passHref>
+              <NextLink href="/missing-animals" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -139,7 +139,7 @@ export default function FoundItem(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-bags"} passHref>
+              <NextLink href="/missing-bags" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -151,7 +151,7 @@ export default function FoundItem(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-cash"} passHref>
+              <NextLink href="/missing-cash" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -168,7 +168,7 @@ export default function FoundItem(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-clothing"} passHref>
+              <NextLink href="/missing-clothing" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -185,7 +185,7 @@ export default function FoundItem(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-document"} passHref>
+              <NextLink href="/missing-document" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -202,7 +202,7 @@ export default function FoundItem(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-electronics"} passHref>
+              <NextLink href="/missing-electronics" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -219,7 +219,7 @@ export default function FoundItem(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-keys"} passHref>
+              <NextLink href="/missing-keys" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}
@@ -231,7 +231,7 @@ export default function FoundItem(props) {
                   </Typography>
                 </CardActionArea>
               </NextLink>
-              <NextLink href={"/missing-wallets"} passHref>
+              <NextLink href="/missing-wallets" passHref>
                 <CardActionArea
                   style={{ display: "flex" }}
                   className={classes.parentFlexRight}

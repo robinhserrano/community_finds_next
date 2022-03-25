@@ -126,13 +126,14 @@ export default function ClaimLostItemForm(props) {
   const profile = slugClient.find((items) => items.id === id);
 
   if (!profile) {
-    return <div>The property here was already claimed</div>;
+    return <div>The property here was already found</div>;
   }
 
   const submitHandler = async ({
     brand,
     result,
     information,
+    addInformation,
     name,
     phone,
     email,
@@ -148,9 +149,8 @@ export default function ClaimLostItemForm(props) {
           claim_image: itemimageValue,
           claim_location: nameLocation,
           claim_information: information,
-          // date: lostdDate,
+          claim_additional: addInformation,
           claim_locationtype: typelocation,
-          //mapbox:
           claim_timeLost: lostTime,
           claim_fullname: name,
           claim_phone: phone,
@@ -175,7 +175,7 @@ export default function ClaimLostItemForm(props) {
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
             <Typography variant="h3">
-              Claim {profile.propertycategory}
+              Found {profile.propertycategory}
             </Typography>
             <br />
             <Typography variant="h5" style={{ backgroundColor: "lightgray" }}>
@@ -185,9 +185,8 @@ export default function ClaimLostItemForm(props) {
             <br />
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              Please provide us the most accurate information about the property
-              so that we could determine that you are the real owner of this
-              property.
+              please provide us your contact details /credentials to keep the
+              owner updated regarding the status of the item you've found.
             </Typography>
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
@@ -195,7 +194,7 @@ export default function ClaimLostItemForm(props) {
             </Typography>
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              Please indicate the date of the property when you lost/found it.
+              Please indicate the date of the property when you found it.
             </Typography>
           </Grid>
           <Grid item xs={3}>
@@ -235,7 +234,7 @@ export default function ClaimLostItemForm(props) {
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Brand: </b>
+                  <b>Type: </b>
                   {profile.brand}
                 </Typography>
               </CardContent>
@@ -458,10 +457,50 @@ export default function ClaimLostItemForm(props) {
               </List>
             </Grid>
             <Grid item xs={6}>
+              <List className={classes.inputField}>
+                <Typography>Additional Information *</Typography>
+                <span>
+                  Please provide any additional details/description of your
+                  found property.
+                </span>
+                <div style={{ marginBottom: 10 }}></div>
+                <Controller
+                  name="addInformation"
+                  control={control}
+                  defaultValue=""
+                  rules={{
+                    required: true,
+                    minLength: 10,
+                  }}
+                  render={({ field }) => (
+                    <TextField
+                      variant="outlined"
+                      fullWidth
+                      id="addInformation"
+                      label="Additional Information"
+                      error={Boolean(errors.addInformation)}
+                      helperText={
+                        errors.information
+                          ? errors.addInformation.type === "minLength"
+                            ? "Information length should be more than 10"
+                            : "Information is required"
+                          : ""
+                      }
+                      {...field}
+                    />
+                  )}
+                />
+              </List>
+            </Grid>
+            <Grid item xs={6}>
               {/* brand */}
               <List className={classes.inputField}>
-                <Typography>Brand *</Typography>
-                <span>(Ralph Lauren, Samsung, KitchenAid, etc.)</span>
+                <Typography>Type *</Typography>
+                <span>
+                  (Ralph Lauren, Samsung, KitchenAid, etc.)
+                  <br />
+                  (For animals please indicate the breed.)
+                </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
                   name="brand"
@@ -476,7 +515,7 @@ export default function ClaimLostItemForm(props) {
                       variant="outlined"
                       fullWidth
                       id="brand"
-                      label="Brand"
+                      label="Type"
                       error={Boolean(errors.brand)}
                       helperText={
                         errors.brand
