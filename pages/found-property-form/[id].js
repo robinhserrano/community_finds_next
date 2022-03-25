@@ -40,7 +40,7 @@ import firebase from "firebase/compat/app";
 //
 
 export async function getServerSideProps() {
-  const postsQuery = firestore.collectionGroup("foundItems");
+  const postsQuery = firestore.collectionGroup("missingItems");
   const postsQuery2 = firestore.collectionGroup("users");
   // .where('published', '==', true)
   // .orderBy('createdAt', 'desc')
@@ -223,7 +223,7 @@ export default function ClaimLostItemForm(props) {
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
                   <b>{profile.propertycategory}: </b>
-                  {profile.foundPropertyName}
+                  {profile.lostPropertyName}
                 </Typography>
               </CardContent>
               <CardContent>
