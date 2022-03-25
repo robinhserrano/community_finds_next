@@ -7,7 +7,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 //
 export async function getServerSideProps() {
-  const postsQuery = firestore.collectionGroup("missingItems");
+  const postsQuery = firestore.collectionGroup("foundItems");
   // .where('published', '==', true)
   // .orderBy('createdAt', 'desc')
   // .limit(LIMIT);
@@ -37,7 +37,7 @@ export default function UserClaimerInformation(props) {
   const didNotMatch = (e) => {
     try {
       firestore
-        .collection("missingItems")
+        .collection("foundItems")
         .doc(e)
         .update({
           status: "missing",
@@ -96,7 +96,7 @@ export default function UserClaimerInformation(props) {
       </Typography>
       <br /> <br />
       <Typography style={{ fontSize: "50px" }}>
-        {profile.propertycategory}: {profile.lostPropertyName}
+        {profile.propertycategory}: {profile.foundPropertyName}
       </Typography>
       <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
         <i> Property ID: {profile.id}</i>
@@ -112,7 +112,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> {profile.propertycategory}:</b> {profile.lostPropertyName}
+                <b> {profile.propertycategory}:</b> {profile.foundPropertyName}
               </Typography>
             </CardContent>
             <CardContent
@@ -130,7 +130,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Brand: </b> {profile.brand}
+                <b> Type: </b> {profile.brand}
               </Typography>
             </CardContent>
             <CardContent
@@ -192,7 +192,7 @@ export default function UserClaimerInformation(props) {
             >
               <img
                 src={profile.image}
-                alt={profile.name}
+                alt={profile.foundPropertyName}
                 height={600}
                 width={750}
               />
@@ -208,7 +208,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b>Owner Details</b>
+                <b>Finder Details</b>
                 <br />
                 Name: {profile.fullName}
                 <br />
@@ -222,7 +222,7 @@ export default function UserClaimerInformation(props) {
         <Grid item xs={12}></Grid>
 
         <Grid item xs={6}>
-          <Typography variant="h4">Finder Information</Typography>
+          <Typography variant="h4">Owner Information</Typography>
           <Card
             style={{
               borderStyle: "groove",
@@ -268,8 +268,8 @@ export default function UserClaimerInformation(props) {
               </Typography>
               <br />
               <Typography sx={{ color: "red" }} variant="h5">
-                * Before making a decision please make sure to contact the
-                finder to verify that the missing property is yours.
+                *Before returning the property, please make sure to contact the
+                owner to verify the credentials if they truly own the property.
               </Typography>
             </CardContent>
           </Card>
@@ -314,7 +314,7 @@ export default function UserClaimerInformation(props) {
             }}
             onClick={() => didNotMatch(profile.id)}
           >
-            <Typography variant="h6"> NOT MINE </Typography>
+            <Typography variant="h6"> NOT ONWER </Typography>
           </Button>
         </Grid>
         <Grid item xs={2}>
@@ -327,7 +327,7 @@ export default function UserClaimerInformation(props) {
             }}
             onClick={() => claimerSubmitHandler(profile.id)}
           >
-            <Typography variant="h6"> PROPERTY MATCH </Typography>
+            <Typography variant="h6"> OWNER MATCH </Typography>
           </Button>
         </Grid>
       </Grid>

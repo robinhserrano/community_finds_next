@@ -82,7 +82,7 @@ export default function UserEditPost(props) {
       </Typography>
       <br /> <br />
       <Typography style={{ fontSize: "50px" }}>
-        {profile.propertycategory}: {profile.name}
+        {profile.propertycategory}: {profile.lostPropertyName}
       </Typography>
       <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
         <i> Property ID: {profile.id}</i>
@@ -98,7 +98,7 @@ export default function UserEditPost(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> {profile.propertycategory}: </b> {profile.name}
+                <b> {profile.propertycategory}: </b> {profile.lostPropertyName}
               </Typography>
             </CardContent>
             <CardContent
@@ -148,7 +148,7 @@ export default function UserEditPost(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Date and Time Lost/Found: </b> {profile.timeLost}
+                <b> Date and Time Lost: </b> {profile.timeLost}
               </Typography>
             </CardContent>
 
