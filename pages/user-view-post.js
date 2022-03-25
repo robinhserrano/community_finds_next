@@ -89,10 +89,15 @@ export default function UserViewPost(props) {
         {missingItems.map((info) => (
           <TableRow>
             <TableCell>
-              <img src={info.image} alt={info.name} height={100} width={100} />
+              <img
+                src={info.image}
+                alt={info.lostPropertyName}
+                height={100}
+                width={100}
+              />
             </TableCell>
             <TableCell>
-              <Typography>{info.name}</Typography>
+              <Typography>{info.lostPropertyName}</Typography>
             </TableCell>
             <TableCell>
               <Typography>{info.brand}</Typography>

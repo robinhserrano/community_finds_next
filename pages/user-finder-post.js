@@ -86,12 +86,12 @@ export default function UserClaimPost(props) {
         <TableRow>
           <TableCell>Property Picture</TableCell>
           <TableCell>Property Name</TableCell>
-          <TableCell>Property Brand</TableCell>
+          <TableCell>Property Type</TableCell>
           <TableCell>Property Location</TableCell>
           <TableCell>Property Location Type</TableCell>
           <TableCell>Property Status</TableCell>
-          <TableCell>Claimer name</TableCell>
-          <TableCell>Claimer Mobile</TableCell>
+          <TableCell>Finder name</TableCell>
+          <TableCell>Finder Mobile</TableCell>
           <TableCell align="center">Action</TableCell>
           {/* <TableCell align="center">Action</TableCell> */}
         </TableRow>
@@ -107,7 +107,7 @@ export default function UserClaimPost(props) {
               />
             </TableCell>
             <TableCell>
-              <Typography>{info.name}</Typography>
+              <Typography>{info.lostPropertyName}</Typography>
             </TableCell>
             <TableCell>
               <Typography>{info.brand}</Typography>
@@ -122,15 +122,13 @@ export default function UserClaimPost(props) {
               <Typography>{info.status}</Typography>
             </TableCell>
             <TableCell>
-              <Typography>
-                {info.claim_firstname} {info.claim_lastname}
-              </Typography>
+              <Typography>{info.claim_fullname}</Typography>
             </TableCell>
             <TableCell>
               <Typography>{info.claim_phone}</Typography>
             </TableCell>
             <TableCell align="right">
-              <NextLink href={`/user-claimer-information/${info.id}`}>
+              <NextLink href={`/user-finder-information/${info.id}`}>
                 <Button variant="outlined">view</Button>
               </NextLink>
             </TableCell>

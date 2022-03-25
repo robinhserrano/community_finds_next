@@ -288,7 +288,14 @@ export default function FoundItem(props) {
                     />
                     <CardContent>
                       <Typography>
-                        <b> {info.propertycategory}: </b> {info.name}
+                        <b> {info.propertycategory}: </b>{" "}
+                        {info.lostPropertyName}
+                      </Typography>
+                    </CardContent>
+                    <CardContent>
+                      <Typography>
+                        <b> Type: </b>
+                        {info.brand}
                       </Typography>
                     </CardContent>
                     <CardContent>
@@ -307,7 +314,7 @@ export default function FoundItem(props) {
                           <Typography>View Details</Typography>
                         </Button>
                       </NextLink>
-                      <NextLink href={`/found-property-form/${info.id}`}>
+                      <NextLink href={`./found-property-form/${info.id}`}>
                         <Button variant="contained" fullWidth>
                           <Typography>Found Property</Typography>
                         </Button>

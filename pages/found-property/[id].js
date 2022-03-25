@@ -1,13 +1,20 @@
 import React, { useState, useContext } from "react";
 import Navbar from "../../components/Navbar";
-import { firestore, postToJSON, auth } from "../../lib/firebase";
+import { firestore, postToJSON } from "../../lib/firebase";
 import { useRouter } from "next/router";
 import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import NextLink from "next/link";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "next-share";
+
 //
 export async function getServerSideProps() {
-  const postsQuery = firestore.collectionGroup("missingItems");
+  const postsQuery = firestore.collectionGroup("foundItems");
   // .where('published', '==', true)
   // .orderBy('createdAt', 'desc')
   // .limit(LIMIT);
@@ -19,7 +26,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function UserClaimerInformation(props) {
+export default function ItemDetails(props) {
   const [posts, setPosts] = useState(props.posts);
   const router = useRouter();
   const { id } = router.query;
@@ -33,51 +40,6 @@ export default function UserClaimerInformation(props) {
   if (!profile) {
     return <div>Property is no longer here please return to home page</div>;
   }
-
-  const didNotMatch = (e) => {
-    try {
-      firestore
-        .collection("missingItems")
-        .doc(e)
-        .update({
-          status: "missing",
-          claim_brand: "",
-          claim_firstname: "",
-          claim_lastname: "",
-          claim_information: "",
-          claim_locationtype: "",
-          claim_email: "",
-          claim_phone: "",
-          claim_image: "",
-          claim_location: "",
-        })
-        .then(
-          alert(
-            "The Item and claimer post did not match. The property will now  be considered as missing again."
-          )
-        );
-      router.push("/");
-    } catch (error) {
-      console.log(error);
-      alert(error);
-    }
-  };
-
-  const claimerSubmitHandler = (e) => {
-    try {
-      firestore
-        .collection("missingItems")
-        .doc(e)
-        .update({
-          status: "claimed",
-        })
-        .then(alert("The Item is now claimed. Thank you for helping."));
-      router.push("/");
-    } catch (error) {
-      console.log(error);
-      alert(error);
-    }
-  };
 
   return (
     <Navbar>
@@ -112,7 +74,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> {profile.propertycategory}:</b> {profile.name}
+                <b>{profile.propertycategory}:</b> {profile.name}
               </Typography>
             </CardContent>
             <CardContent
@@ -130,7 +92,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                <b> Brand: </b> {profile.brand}
+                <b> Type: </b> {profile.brand}
               </Typography>
             </CardContent>
             <CardContent
@@ -190,11 +152,11 @@ export default function UserClaimerInformation(props) {
                 borderStyle: "ridge",
               }}
             >
-              <img
+              <Image
                 src={profile.image}
                 alt={profile.name}
                 height={600}
-                width={750}
+                width={700}
               />
             </CardContent>
           </Card>
@@ -208,7 +170,7 @@ export default function UserClaimerInformation(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Owner Details
+                Contact Details
                 <br />
                 Name: {profile.firstname} {profile.lastname}
                 <br />
@@ -219,69 +181,10 @@ export default function UserClaimerInformation(props) {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12}></Grid>
-
-        <Grid item xs={6}>
-          <Typography variant="h4">Claimer Information</Typography>
-          <Card
-            style={{
-              borderStyle: "groove",
-              borderRadius: "10px",
-            }}
-          >
-            <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
-            <CardContent>
-              <Typography style={{ fontSize: "25px" }}>
-                <b> Name: </b>
-                {profile.claim_firstname} {profile.claim_lastname}
-              </Typography>
-            </CardContent>
-            <CardContent>
-              <Typography style={{ fontSize: "25px" }}>
-                <b>Email: </b>
-                {profile.claim_email}
-              </Typography>
-            </CardContent>
-            <CardContent>
-              <Typography style={{ fontSize: "25px" }}>
-                <b>Phone Number: </b>
-                {profile.claim_phone}
-              </Typography>
-            </CardContent>
-            <CardContent>
-              <Typography style={{ fontSize: "25px" }}>
-                <b>Location: </b>
-                {profile.claim_locationtype} {profile.location}
-              </Typography>
-            </CardContent>
-            <CardContent>
-              <Typography style={{ fontSize: "25px" }}>
-                <b>Item Description: </b>
-                {profile.claim_information}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={6}>
-          <br /> <br />
-          <Card>
-            <CardContent
-              style={{ backgroundColor: "#346e98", borderRadius: "10px" }}
-            ></CardContent>
-            <CardContent>
-              <img
-                src={profile.claim_image}
-                alt={profile.name}
-                height={600}
-                width={700}
-              />
-            </CardContent>
-          </Card>
-        </Grid>
-        <div style={{ marginTop: "3%" }}></div>
-        <Grid item xs={8}>
-          <NextLink href={"/user-claim-post"}>
+        <Grid item xs={7}>
+          <NextLink href={"/lost-property"}>
             <Button
+              variant="outlined"
               style={{
                 width: "200px",
                 height: "70px",
@@ -291,32 +194,45 @@ export default function UserClaimerInformation(props) {
             </Button>
           </NextLink>
         </Grid>
-
-        <Grid item xs={2}>
-          <Button
-            style={{
-              background: "red",
-              color: "white",
-              width: "200px",
-              height: "70px",
-            }}
-            onClick={() => didNotMatch(profile.id)}
+        {/* <Grid item xs={1}>
+          <Typography>Share on </Typography>
+        </Grid> */}
+        <Grid item xs={3}>
+          {/* need manipulation of data into variable para maging dynamic */}
+          <FacebookShareButton
+            url={`https://missing-item/${profile.id}`}
+            quote={
+              "next-share is a social share buttons for your next React apps."
+            }
+            hashtag={"#missing"}
+            style={{ marginRight: "20px" }}
           >
-            <Typography variant="h6"> NOT OWNER </Typography>
-          </Button>
+            <FacebookIcon size={70} round />
+          </FacebookShareButton>
+
+          <TwitterShareButton
+            url={`https://missing-item/${profile.id}`}
+            quote={
+              "next-share is a social share buttons for your next React apps."
+            }
+            hashtag={"#missing"}
+          >
+            <TwitterIcon size={70} round />
+          </TwitterShareButton>
         </Grid>
         <Grid item xs={2}>
-          <Button
-            style={{
-              background: "green",
-              color: "white",
-              width: "200px",
-              height: "70px",
-            }}
-            onClick={() => claimerSubmitHandler(profile.id)}
-          >
-            <Typography variant="h6"> OWNER MATCH </Typography>
-          </Button>
+          <NextLink href={`./found-property-form/${profile.id}`}>
+            <Button
+              style={{
+                background: "#366e97",
+                color: "white",
+                width: "250px",
+                height: "70px",
+              }}
+            >
+              <Typography variant="h6">Found It</Typography>
+            </Button>
+          </NextLink>
         </Grid>
       </Grid>
     </Navbar>

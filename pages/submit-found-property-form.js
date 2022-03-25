@@ -170,7 +170,7 @@ export default function FoundItem(props) {
         .set({
           id: lostItemId,
           user_id: auth.currentUser.uid,
-          found_name: itemLost,
+          foundPropertyName: itemLost,
           propertycategory: propertycategory,
           category: category,
           brand: brand,
@@ -190,7 +190,7 @@ export default function FoundItem(props) {
         .then(() =>
           alert("Missing Property has been Submitted to Cloud Firestore")
         );
-      router.push("/found-item");
+      router.push("/lost-property");
     } catch (err) {
       alert(err);
     }
@@ -332,8 +332,8 @@ export default function FoundItem(props) {
             </span>
             <div style={{ marginBottom: 10 }}></div>
             <Datetime
-              selected={startTime}
               required={true}
+              selected={startTime}
               onChange={(time) => setStartTime(time)}
             />
           </Grid>

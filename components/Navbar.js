@@ -139,6 +139,11 @@ export default function Navbar({ title, children }) {
                   </NextLink>
                 </MenuItem>
                 <MenuItem>
+                  <NextLink href={"/user-finder-post"} passHref>
+                    Finder
+                  </NextLink>
+                </MenuItem>
+                <MenuItem>
                   <NextLink href={"/user-claim-post"} passHref>
                     Claimer
                   </NextLink>

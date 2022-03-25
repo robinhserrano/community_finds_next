@@ -128,9 +128,7 @@ export default function LostItem(props) {
       reader.addEventListener("load", (e) => {
         setResult(e.target.result);
       });
-      if (result[0].size > 500 * 1024) {
-        alert("Image size is too big");
-      }
+
       reader.readAsDataURL(imageFile);
     }
 
@@ -172,7 +170,7 @@ export default function LostItem(props) {
         .set({
           id: lostItemId,
           user_id: auth.currentUser.uid,
-          found_name: itemLost,
+          lostPropertyName: itemLost,
           propertycategory: propertycategory,
           category: category,
           brand: brand,
@@ -192,7 +190,7 @@ export default function LostItem(props) {
         .then(() =>
           alert("Missing Property has been Submitted to Cloud Firestore")
         );
-      router.push("/found-item");
+      router.push("/lost-property");
     } catch (err) {
       alert(err);
     }

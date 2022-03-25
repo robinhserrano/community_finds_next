@@ -70,7 +70,6 @@ export default function Profile(props) {
   }, []);
   //NEW CODE
 
-
   const submitHandler = async ({
     name,
     email,
@@ -92,6 +91,11 @@ export default function Profile(props) {
               <NextLink href="/user-view-post" passHref>
                 <ListItem button component="a">
                   <ListItemText primary="View Post" />
+                </ListItem>
+              </NextLink>
+              <NextLink href="/user-finder-post" passHref>
+                <ListItem button component="a">
+                  <ListItemText primary="Finder" />
                 </ListItem>
               </NextLink>
               <NextLink href="/user-claim-post" passHref>
