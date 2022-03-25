@@ -89,9 +89,13 @@ export default function MissingBags(props) {
       setPosts(filteredPosts);
     } else {
       const filter = missingItems.filter((missing) => {
-        return missing.name
+        return (missing.lostPropertyName
           .toLowerCase()
-          .includes(e.target.value.toLowerCase());
+          .includes(e.target.value.toLowerCase()) || missing.location
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase()) || missing.brand
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase()))
       });
       setPosts(filter);
     }
