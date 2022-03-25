@@ -221,7 +221,7 @@ export default function ItemDetails(props) {
           </TwitterShareButton>
         </Grid>
         <Grid item xs={2}>
-          <NextLink href={`/claim-item-form/${profile.id}`}>
+          <NextLink href={`/found-property-form/${info.id}`} passHref>
             <Button
               style={{
                 background: "#366e97",

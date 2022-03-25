@@ -78,7 +78,7 @@ export default function ClaimLostItemForm(props) {
       setValue("email", profileName[0].email);
       setValue("phone", profileName[0].phone);
     } else {
-      router.push("/login?redirect=/submit-found-property-form");
+      router.push("/login");
     }
   }, []);
   //NEWCODE

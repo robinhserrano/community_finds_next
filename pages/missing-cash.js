@@ -305,7 +305,7 @@ export default function MissingCash(props) {
                           <Typography>View Property</Typography>
                         </Button>
                       </NextLink>
-                      <NextLink href={`/claim-item-form/${info.id}`} passHref>
+                      <NextLink href={`/found-property-form/${info.id}`}>
                         <Button variant="contained" fullWidth>
                           <Typography>Claim Property</Typography>
                         </Button>

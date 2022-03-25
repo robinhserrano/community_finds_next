@@ -307,7 +307,7 @@ export default function FoundItem(props) {
                           <Typography>View Details</Typography>
                         </Button>
                       </NextLink>
-                      <NextLink href={`/claim-item-form/${info.id}`} passHref>
+                      <NextLink href={`/found-property-form/${info.id}`}>
                         <Button variant="contained" fullWidth>
                           <Typography>Found Property</Typography>
                         </Button>
