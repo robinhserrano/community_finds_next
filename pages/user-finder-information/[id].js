@@ -50,6 +50,7 @@ export default function UserClaimerInformation(props) {
           claim_phone: "",
           claim_image: "",
           claim_location: "",
+          claim_additional: "",
         })
         .then(
           alert(
@@ -258,6 +259,12 @@ export default function UserClaimerInformation(props) {
               <Typography style={{ fontSize: "25px" }}>
                 <b>Item Description: </b>
                 {profile.claim_information}
+              </Typography>
+            </CardContent>
+            <CardContent>
+              <Typography style={{ fontSize: "25px" }}>
+                <b>Additional Information: </b>
+                {profile.claim_additional}
               </Typography>
             </CardContent>
           </Card>

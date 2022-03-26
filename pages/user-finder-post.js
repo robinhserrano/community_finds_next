@@ -62,6 +62,7 @@ export default function UserClaimPost(props) {
       itemLost.status.toLowerCase().includes("processing")
     );
   });
+
   const claimerSubmitHandler = (e) => {
     try {
       firestore

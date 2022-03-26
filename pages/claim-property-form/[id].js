@@ -458,10 +458,10 @@ export default function ClaimLostItemForm(props) {
             </Grid>
             <Grid item xs={6}>
               <List className={classes.inputField}>
-                <Typography>Additional Information *</Typography>
+                <Typography> Additional Information *</Typography>
                 <span>
-                  Please provide any additional details/description of your
-                  found property.
+                  Please provide additional details/description of your found
+                  property.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -480,7 +480,7 @@ export default function ClaimLostItemForm(props) {
                       label="Additional Information"
                       error={Boolean(errors.addInformation)}
                       helperText={
-                        errors.information
+                        errors.addInformation
                           ? errors.addInformation.type === "minLength"
                             ? "Information length should be more than 10"
                             : "Information is required"
