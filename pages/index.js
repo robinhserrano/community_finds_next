@@ -1,5 +1,5 @@
 import { Button, Grid, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import NextLink from "next/link";
 import Image from "next/image";
@@ -7,9 +7,10 @@ import announcement from "../public/images/announcement.jpg";
 import ease from "../public/images/ease-of-use.png";
 import match from "../public/images/match.png";
 import online from "../public/images/online.png";
+
 //
 
-export default function Home() {
+export default function Home(props) {
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
@@ -20,6 +21,7 @@ export default function Home() {
       // setUser(foundUser);
     }
   }, []);
+
   return (
     <Navbar>
       <div style={{ marginTop: "30px" }}></div>

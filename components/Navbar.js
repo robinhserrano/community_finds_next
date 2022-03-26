@@ -22,6 +22,7 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { firestore, postToJSON } from "../lib/firebase";
 //
+var ls = require("local-storage");
 
 export default function Navbar({ title, children }) {
   const classes = useStyles();
@@ -140,12 +141,16 @@ export default function Navbar({ title, children }) {
                 </MenuItem>
                 <MenuItem>
                   <NextLink href={"/user-finder-post"} passHref>
-                    Finder
+                    <Badge badgeContent={ls.get("finderList")} color="primary">
+                      Finder
+                    </Badge>
                   </NextLink>
                 </MenuItem>
                 <MenuItem>
                   <NextLink href={"/user-claim-post"} passHref>
-                    Claimer
+                    <Badge badgeContent={ls.get("claimList")} color="primary">
+                      Claimer
+                    </Badge>
                   </NextLink>
                 </MenuItem>
                 <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
