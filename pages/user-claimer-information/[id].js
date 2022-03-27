@@ -42,8 +42,7 @@ export default function UserClaimerInformation(props) {
         .update({
           status: "missing",
           claim_brand: "",
-          claim_firstname: "",
-          claim_lastname: "",
+          claim_fullname: "",
           claim_information: "",
           claim_locationtype: "",
           claim_email: "",
