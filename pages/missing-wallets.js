@@ -263,7 +263,7 @@ export default function MissingWallet(props) {
               <input
                 type="search"
                 className={classes.search}
-                placeholder="Search/Enter the Property that you're looking for here"
+                placeholder="Search"
                 value={missingItems.name}
                 onChange={missingItemSearchHandler}
               />

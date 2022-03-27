@@ -91,13 +91,15 @@ export default function FoundItem(props) {
       setPosts(filteredPosts);
     } else {
       const filter = missingItems.filter((missing) => {
-        return (missing.foundPropertyName
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase()) || missing.location
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase()) || missing.brand
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase()))
+        return (
+          missing.foundPropertyName
+            .toLowerCase()
+            .includes(e.target.value.toLowerCase()) ||
+          missing.location
+            .toLowerCase()
+            .includes(e.target.value.toLowerCase()) ||
+          missing.brand.toLowerCase().includes(e.target.value.toLowerCase())
+        );
       });
       setPosts(filter);
     }
@@ -261,7 +263,7 @@ export default function FoundItem(props) {
               <input
                 type="search"
                 className={classes.search}
-                placeholder="Search/Enter the Property that you're looking for here"
+                placeholder="Search"
                 value={missingItems.name}
                 onChange={missingItemSearchHandler}
               />

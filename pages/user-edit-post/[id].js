@@ -176,7 +176,7 @@ export default function UserEditPost(props) {
                 borderStyle: "ridge",
               }}
             >
-              <Image
+              <img
                 src={profile.image}
                 alt={profile.name}
                 height={600}
