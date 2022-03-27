@@ -65,6 +65,7 @@ export default function Register() {
             console.log(firebase.auth().currentUser.emailVerified);
             var user = firebase.auth().currentUser;
             user.sendEmailVerification();
+            alert("The verification has been sent to your email.");
             console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
             console.log(firebase.auth().currentUser.emailVerified);
             console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");

@@ -70,7 +70,7 @@ export default function FoundItem(props) {
         return doc.id.includes(loggedInUser);
       });
     } else {
-      router.push("/login?redirect=/lost-property");
+      router.push("/login?redirect=/found-property");
     }
   }, []);
   //NEWCODE
