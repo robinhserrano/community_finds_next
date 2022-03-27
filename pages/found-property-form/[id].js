@@ -194,7 +194,7 @@ export default function ClaimLostItemForm(props) {
             </Typography>
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              Please indicate the date of the property when you lost it.
+              Please indicate the date of the property when you found it.
             </Typography>
           </Grid>
           <Grid item xs={3}>
@@ -425,7 +425,7 @@ export default function ClaimLostItemForm(props) {
                 <Typography> Property Description *</Typography>
                 <span>
                   Please provide details/description of the property that you
-                  lost.
+                  found.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -460,8 +460,8 @@ export default function ClaimLostItemForm(props) {
               <List className={classes.inputField}>
                 <Typography>Additional Information *</Typography>
                 <span>
-                  Please provide any additional details/description of your lost
-                  property.
+                  Please provide any additional details/description of your
+                  found property.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -533,9 +533,9 @@ export default function ClaimLostItemForm(props) {
             <Grid item xs={6}>
               {/* Where did you Found It? */}
               <List className={classes.inputField}>
-                <Typography>Where did you lost It *</Typography>
+                <Typography>Where did you found It *</Typography>
                 <span>
-                  (Please provide an approximate location of the lost property
+                  (Please provide an approximate location of the found property
                   (Bar, Restaurant, Park, etc.))
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
@@ -624,7 +624,7 @@ export default function ClaimLostItemForm(props) {
               <List className={classes.inputField}>
                 <Typography>Place/Location *</Typography>
                 <span>
-                  Please Specify the Area from where you have lost the property
+                  Please Specify the Area from where you have found the property
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -658,11 +658,12 @@ export default function ClaimLostItemForm(props) {
             </Grid>
             <Grid item xs={6}>
               {/* Date and Time Found */}
-              <Typography>Date lost and Time lost *</Typography>
+              <Typography>Date and Time found *</Typography>
               <span>
-                (Please add the approximate date of when the property was lost.)
+                (Please add the approximate date of when the property was
+                found.)
                 <br />
-                (Please add the approximate time of day the property was lost.)
+                (Please add the approximate time of day the property was found.)
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Datetime
