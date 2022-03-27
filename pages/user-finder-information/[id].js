@@ -275,7 +275,7 @@ export default function UserClaimerInformation(props) {
               <br />
               <Typography sx={{ color: "red" }} variant="h5">
                 * Before making a decision please make sure to contact the
-                finder to verify that the missing property is yours.
+                finder to verify that the found property is yours.
               </Typography>
             </CardContent>
           </Card>
