@@ -39,6 +39,7 @@ import walletIcon from "../public/images/wallet.png";
 import documentIcon from "../public/images/documentIcon.png";
 import { firestore, postToJSON } from "../lib/firebase";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 //
 export async function getServerSideProps() {
@@ -55,7 +56,8 @@ export async function getServerSideProps() {
   };
 }
 
-export default function MissingAnimals(props) {
+export default function FoundAnimals(props) {
+  const router = useRouter();
   const [posts, setPosts] = useState(props.posts);
 
   //NEWCODE
