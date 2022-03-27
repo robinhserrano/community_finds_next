@@ -171,7 +171,7 @@ export default function LostItem(props) {
           id: lostItemId,
           user_id: auth.currentUser.uid,
           lostPropertyName: itemLost,
-          propertycategory: propertycategory,
+          propertycategory: "Lost Property",
           category: category,
           brand: brand,
           primaryColor: primaryColor,
@@ -250,8 +250,7 @@ export default function LostItem(props) {
       {/* pasok sa grid para mahati screeen sosa */}
       <form onSubmit={handleSubmit(submitHandler)}>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item sm={6}>
-            {/* Property Category */}
+          {/* <Grid item sm={6}>
             <List className={classes.inputField}>
               <Typography>Property Category *</Typography>
               <span>(Lost Property)</span>
@@ -283,7 +282,7 @@ export default function LostItem(props) {
                 </Select>
               </FormControl>
             </List>
-          </Grid>
+          </Grid> */}
 
           <Grid item sm={6}>
             {/* item Property */}
@@ -324,6 +323,7 @@ export default function LostItem(props) {
           </Grid>
           <Grid item sm={6}>
             {/* Date and Time Lost */}
+
             <Typography>Date Lost and Time Lost *</Typography>
             <span>
               (Please add the approximate date of when the item was lost.)
@@ -368,7 +368,6 @@ export default function LostItem(props) {
             </List>
           </Grid>
           <Grid item sm={6}>
-            <br />
             {/* Additional Information */}
             <List className={classes.inputField}>
               <Typography>Additional Information *</Typography>

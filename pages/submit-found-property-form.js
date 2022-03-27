@@ -171,7 +171,7 @@ export default function FoundItem(props) {
           id: lostItemId,
           user_id: auth.currentUser.uid,
           foundPropertyName: itemLost,
-          propertycategory: propertycategory,
+          propertycategory: "Found Property",
           category: category,
           brand: brand,
           primaryColor: primaryColor,
@@ -250,8 +250,7 @@ export default function FoundItem(props) {
       {/* pasok sa grid para mahati screeen sosa */}
       <form onSubmit={handleSubmit(submitHandler)}>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item sm={6}>
-            {/* Property Category */}
+          {/* <Grid item sm={6}>
             <List className={classes.inputField}>
               <Typography>Property Category *</Typography>
               <span>(Found Property)</span>
@@ -283,7 +282,7 @@ export default function FoundItem(props) {
                 </Select>
               </FormControl>
             </List>
-          </Grid>
+          </Grid> */}
 
           <Grid item sm={6}>
             {/* item Property */}
@@ -368,7 +367,7 @@ export default function FoundItem(props) {
             </List>
           </Grid>
           <Grid item sm={6}>
-            <br />
+            {/* <br /> */}
             {/* Additional Information */}
             <List className={classes.inputField}>
               <Typography>Additional Information *</Typography>
