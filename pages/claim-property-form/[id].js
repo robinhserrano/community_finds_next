@@ -425,7 +425,7 @@ export default function ClaimLostItemForm(props) {
                 <Typography> Property Description *</Typography>
                 <span>
                   Please provide details/description of the property that you
-                  find.
+                  lost.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -460,7 +460,7 @@ export default function ClaimLostItemForm(props) {
               <List className={classes.inputField}>
                 <Typography> Additional Information *</Typography>
                 <span>
-                  Please provide additional details/description of your found
+                  Please provide additional details/description of your lost
                   property.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
@@ -533,9 +533,9 @@ export default function ClaimLostItemForm(props) {
             <Grid item xs={6}>
               {/* Where did you Found It? */}
               <List className={classes.inputField}>
-                <Typography>Where did you Found It *</Typography>
+                <Typography>Where did you Lost It *</Typography>
                 <span>
-                  (Please provide an approximate location of the Found property
+                  (Please provide an approximate location of the lost property
                   (Bar, Restaurant, Park, etc.))
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
@@ -658,10 +658,9 @@ export default function ClaimLostItemForm(props) {
             </Grid>
             <Grid item xs={6}>
               {/* Date and Time Found */}
-              <Typography>Date Found and Time Found *</Typography>
+              <Typography>Date and Time Lost *</Typography>
               <span>
-                (Please add the approximate date of when the property was
-                found.)
+                (Please add the approximate date of when the property was lost.)
                 <br />
                 (Please add the approximate time of day the property was found.)
               </span>
