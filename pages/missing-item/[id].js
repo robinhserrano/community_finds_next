@@ -152,9 +152,9 @@ export default function ItemDetails(props) {
                 borderStyle: "ridge",
               }}
             >
-              <Image
+              <img
                 src={profile.image}
-                alt={profile.name}
+                alt={profile.lostPropertyName}
                 height={600}
                 width={700}
               />
