@@ -194,7 +194,7 @@ export default function ClaimLostItemForm(props) {
             </Typography>
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              Please indicate the date of the property when you found it.
+              Please indicate the date of the property when you lost it.
             </Typography>
           </Grid>
           <Grid item xs={3}>
