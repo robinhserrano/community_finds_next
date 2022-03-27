@@ -193,7 +193,7 @@ export default function UserClaimerInformation(props) {
             >
               <img
                 src={profile.image}
-                alt={profile.name}
+                alt={profile.lostPropertyName}
                 height={600}
                 width={750}
               />
@@ -290,7 +290,7 @@ export default function UserClaimerInformation(props) {
             <CardContent>
               <img
                 src={profile.claim_image}
-                alt={profile.name}
+                alt={profile.lostPropertyName}
                 height={600}
                 width={700}
               />

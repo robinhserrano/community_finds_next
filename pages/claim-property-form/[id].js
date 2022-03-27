@@ -223,7 +223,7 @@ export default function ClaimLostItemForm(props) {
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
                   <b>{profile.propertycategory}: </b>
-                  {profile.name}
+                  {profile.foundPropertyName}
                 </Typography>
               </CardContent>
               <CardContent>
@@ -241,7 +241,7 @@ export default function ClaimLostItemForm(props) {
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
                   <b>Date and Time Lost: </b>
-                  {profile.date}
+                  {profile.timeLost}
                 </Typography>
               </CardContent>
               <CardContent>
