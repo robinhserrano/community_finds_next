@@ -56,7 +56,7 @@ export default function ClaimedItems(props) {
               </CardContent>
               <CardContent>
                 <Typography style={{ textAlign: "center" }}>
-                  properties Returned: {info.lostPropertyName}
+                  Properties Returned: {info.lostPropertyName}
                 </Typography>
               </CardContent>
             </Card>
@@ -75,7 +75,7 @@ export default function ClaimedItems(props) {
               </CardContent>
               <CardContent>
                 <Typography style={{ textAlign: "center" }}>
-                  properties Claimed: {info.foundPropertyName}
+                  Properties Claimed: {info.foundPropertyName}
                 </Typography>
               </CardContent>
             </Card>
