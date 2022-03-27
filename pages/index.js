@@ -32,7 +32,7 @@ export default function Home(props) {
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
-            Community finds is a community base online platform that aims to
+            Community finds is a community-base online platform that aims to
             help and it is generalize for the citizen of Balibago Angeles City.
             They can report both lost and found properties in this website. Once
             the property were reported in our system, with that it can help the

@@ -251,7 +251,7 @@ export default function UserClaimerInformation(props) {
             <CardContent>
               <Typography style={{ fontSize: "25px" }}>
                 <b>Location: </b>
-                {profile.claim_locationtype} {profile.location}
+                {profile.claim_locationtype} {profile.claim_location}
               </Typography>
             </CardContent>
             <CardContent>

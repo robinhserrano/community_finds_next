@@ -185,7 +185,7 @@ export default function ClaimLostItemForm(props) {
             <br />
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              please provide us your contact details /credentials to keep the
+              Please provide us your contact details/credentials to keep the
               owner updated regarding the status of the item you've found.
             </Typography>
             <Typography variant="h6">

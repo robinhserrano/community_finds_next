@@ -170,7 +170,7 @@ export default function ItemDetails(props) {
               }}
             >
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
-                Contact Details
+                <b>Contact Details</b>
                 <br />
                 Name: {profile.fullName}
                 <br />
