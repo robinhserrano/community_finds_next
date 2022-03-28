@@ -95,7 +95,7 @@ export default function UserClaimerInformation(props) {
         </div>
       </Typography>
       <br /> <br />
-      <Typography style={{ fontSize: "50px" }}>
+      <Typography variant="h3">
         {profile.propertycategory}: {profile.lostPropertyName}
       </Typography>
       <Typography style={{ fontSize: "25px", fontWeight: 200 }}>

@@ -290,8 +290,8 @@ export default function LostItem(props) {
             <List className={classes.inputField}>
               <Typography> Property Lost Name *</Typography>
               <span>
-                (Dog, Jacket, Smartphone, Wallet, etc.) This field may
-                auto-populate
+                Dog, Jacket, Smartphone, Wallet, etc. This field may
+                auto-populate.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -327,9 +327,9 @@ export default function LostItem(props) {
 
             <Typography>Date Lost and Time Lost *</Typography>
             <span>
-              (Please add the approximate date of when the item was lost.)
+              Please add the approximate date of when the item was lost.
               <br />
-              (Please add the approximate time of day the item was lost.)
+              Please add the approximate time of day the item was lost.
             </span>
             <div style={{ marginBottom: 10 }}></div>
             <Datetime
@@ -342,7 +342,7 @@ export default function LostItem(props) {
             {/* category */}
             <List className={classes.inputField}>
               <Typography>Category *</Typography>
-              <span>(Animals/Pets, Clothing, Electronics, Documents etc.)</span>
+              <span>Animals/Pets, Clothing, Electronics, Documents etc.</span>
               <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">
@@ -409,9 +409,9 @@ export default function LostItem(props) {
             {/* brand */}
             <List className={classes.inputField}>
               <Typography>Type *</Typography>
-              <span>(Ralph Lauren, Samsung, KitchenAid, etc.)</span>
+              <span>Ralph Lauren, Samsung, KitchenAid, etc.</span>
               <br />
-              <span>(For animals please indicate the breed)</span>
+              <span>For animals please indicate the breed</span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="brand"
@@ -447,7 +447,7 @@ export default function LostItem(props) {
               <Typography>Primary Color *</Typography>
               <span>
                 Please add the color that best represents the lost property
-                (Black, Red, Blue, etc.)
+                Black, Red, Blue, etc.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -484,8 +484,8 @@ export default function LostItem(props) {
             <List className={classes.inputField}>
               <Typography>Secondary Item Color </Typography>
               <span>
-                Please add a color that acts as a less dominant (Leave blank if
-                not applicable.)
+                Please add a color that acts as a less dominant. Leave blank if
+                not applicable.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -520,8 +520,8 @@ export default function LostItem(props) {
             {/* Upload Image */}
             <Typography>Upload Image</Typography>
             <span>
-              (This image will display on the Website. Do not enter high
-              resolution images such as 4k resolution.)
+              This image will display on the Website. Do not enter high
+              resolution images such as 4k resolution.
             </span>
             <div style={{ marginBottom: 10 }}></div>
             <div className="App">
@@ -569,8 +569,8 @@ export default function LostItem(props) {
             <List className={classes.inputField}>
               <Typography>Where did you Lost It *</Typography>
               <span>
-                Please provide an approximate location of the lost property
-                (Bar, Restaurant, Park, etc.)
+                Please provide an approximate location of the lost property Bar,
+                Restaurant, Park, etc.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <FormControl fullWidth>
@@ -655,8 +655,7 @@ export default function LostItem(props) {
             <List className={classes.inputField}>
               <Typography>Zip Code *</Typography>
               <span>
-                (Please provide your zip code(2009) This field may
-                auto-populate.)
+                Please provide your zip code 2009. This field may auto-populate.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -774,8 +773,8 @@ export default function LostItem(props) {
             <List className={classes.inputField}>
               <Typography>Full Name*</Typography>
               <span>
-                (Please enter your full name(This will appear on your
-                submission))
+                Please enter your full name. This will appear on your
+                submission.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -847,7 +846,7 @@ export default function LostItem(props) {
             {/* Phone Number */}
             <Typography>Phone Number *</Typography>
             <span>
-              (Please enter the phone number to display on your submission )
+              Please enter the phone number to display on your submission.
             </span>
             <List className={classes.inputField}>
               <div style={{ marginBottom: 10 }}></div>
@@ -885,7 +884,7 @@ export default function LostItem(props) {
             {/* Email */}
             <Typography>Email *</Typography>
             <span>
-              Please enter your email(This will appear on your submission)
+              Please enter your email. This will appear on your submission.
             </span>
             <List className={classes.inputField}>
               <Controller

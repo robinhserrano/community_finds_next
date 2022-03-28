@@ -185,8 +185,8 @@ export default function ClaimLostItemForm(props) {
             <br />
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
-              Please provide us your contact details/credentials to keep the
-              owner updated regarding the status of the item you've found.
+              Please provide us your credentials to prove your ownership of this
+              item.
             </Typography>
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
@@ -269,8 +269,8 @@ export default function ClaimLostItemForm(props) {
               <List className={classes.inputField}>
                 <Typography>Full Name *</Typography>
                 <span>
-                  (Please enter your full name(This will appear on your
-                  submission))
+                  Please enter your full name. This will appear on your
+                  submission
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -342,7 +342,7 @@ export default function ClaimLostItemForm(props) {
               {/* Phone Number */}
               <Typography>Phone Number *</Typography>
               <span>
-                (Please enter the phone number to display on your submission )
+                Please enter the phone number to display on your submission.
               </span>
               <List className={classes.inputField}>
                 <div style={{ marginBottom: 10 }}></div>
@@ -380,7 +380,7 @@ export default function ClaimLostItemForm(props) {
               {/* Email */}
               <Typography>Email *</Typography>
               <span>
-                Please enter your email(This will appear on your submission)
+                Please enter your email. This will appear on your submission.
               </span>
               <List className={classes.inputField}>
                 <Controller
@@ -497,9 +497,9 @@ export default function ClaimLostItemForm(props) {
               <List className={classes.inputField}>
                 <Typography>Type *</Typography>
                 <span>
-                  (Ralph Lauren, Samsung, KitchenAid, etc.)
+                  Ralph Lauren, Samsung, KitchenAid, etc.
                   <br />
-                  (For animals please indicate the breed.)
+                  For animals please indicate the breed.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -535,8 +535,8 @@ export default function ClaimLostItemForm(props) {
               <List className={classes.inputField}>
                 <Typography>Where did you Lost It *</Typography>
                 <span>
-                  (Please provide an approximate location of the lost property
-                  (Bar, Restaurant, Park, etc.))
+                  Please provide an approximate location of the lost property
+                  Bar, Restaurant, Park, etc.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <FormControl fullWidth>
@@ -660,9 +660,9 @@ export default function ClaimLostItemForm(props) {
               {/* Date and Time Found */}
               <Typography>Date and Time Lost *</Typography>
               <span>
-                (Please add the approximate date of when the property was lost.)
+                Please add the approximate date of when the property was lost.
                 <br />
-                (Please add the approximate time of day the property was found.)
+                Please add the approximate time of day the property was found.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Datetime
@@ -674,8 +674,8 @@ export default function ClaimLostItemForm(props) {
               {/* Upload Image */}
               <Typography>Upload Image </Typography>
               <span>
-                (This image will display on the Website. Do not enter high
-                resolution images such as 4k resolution.)
+                This image will display on the Website. Do not enter high
+                resolution images such as 4k resolution.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <div className="App">
