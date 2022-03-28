@@ -56,7 +56,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function FoundAnimals(props) {
+export default function FoundfAnimals(props) {
   const router = useRouter();
   const [posts, setPosts] = useState(props.posts);
 

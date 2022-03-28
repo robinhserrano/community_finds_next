@@ -17,7 +17,7 @@ import { Controller, useForm } from "react-hook-form";
 import { auth, googleAuthProvider, firestore } from "../lib/firebase";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import Image from "next/image";
-import sideImage from "../public/images/login.jpg";
+import sideImage from "../public/images/login.png";
 import firebase from "firebase/compat/app";
 
 export default function Login() {
@@ -62,7 +62,7 @@ export default function Login() {
     <Box sx={{ width: "100%" }}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={7}>
-          <Image src={sideImage} alt="logo" width={1200} height={1000} />
+          <Image src={sideImage} alt="logo" width={1200} height={1040} />
         </Grid>
         <Grid item xs={5}>
           <Grid container spacing={3}>

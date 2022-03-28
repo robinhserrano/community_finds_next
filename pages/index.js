@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import NextLink from "next/link";
 import Image from "next/image";
-import announcement from "../public/images/announcement.jpg";
+import announcement from "../public/images/register.png";
 import ease from "../public/images/ease-of-use.png";
 import match from "../public/images/match.png";
 import online from "../public/images/online.png";
@@ -147,6 +147,8 @@ export default function Home(props) {
         </Grid>
         <Grid item xs={6} style={{ marginTop: "60px", marginBottom: "30px" }}>
           <Typography variant="h5" style={{ textAlign: "center" }}>
+            <Image src={ease} height={250} width={250} alt={"Online image"} />
+            <br />
             <b>Ease of Use</b>
           </Typography>
           <Typography style={{ fontSize: "18px", textAlign: "center" }}>
@@ -157,6 +159,8 @@ export default function Home(props) {
 
         <Grid item xs={6} style={{ marginTop: "60px", marginBottom: "30px" }}>
           <Typography variant="h5" style={{ textAlign: "center" }}>
+            <Image src={online} height={250} width={250} alt={"Online image"} />
+            <br />
             <b>Online</b>
           </Typography>
           <Typography style={{ fontSize: "18px", textAlign: "center" }}>

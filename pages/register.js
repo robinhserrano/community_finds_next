@@ -18,7 +18,7 @@ import { auth, firestore } from "../lib/firebase";
 import firebase from "firebase/compat/app";
 // import { collection, addDoc, doc } from "firebase/firestore";
 import Image from "next/image";
-import bgImage from "../public/images/register.jpg";
+import bgImage from "../public/images/register.png";
 // import firebase from 'firebase/compat/app';
 
 export default function Register() {

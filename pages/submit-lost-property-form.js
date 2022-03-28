@@ -24,7 +24,7 @@ import { Controller, useForm } from "react-hook-form";
 import Navbar from "../components/Navbar";
 import useStyles from "../utils/styles";
 import Image from "next/image";
-import sideImage from "../public/images/search.png";
+import sideImage from "../public/images/lost-form.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Datetime from "react-datetime";
