@@ -95,7 +95,10 @@ export default function UserClaimerInformation(props) {
         </div>
       </Typography>
       <br /> <br />
-      <Typography variant="h3">{profile.foundPropertyName}</Typography>
+      <Typography variant="h3">
+        {profile.propertycategory} &nbsp;
+        {profile.foundPropertyName}
+      </Typography>
       <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
         <i> Property ID: {profile.id}</i>
       </Typography>

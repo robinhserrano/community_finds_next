@@ -244,7 +244,7 @@ export default function FoundItem(props) {
             </Typography>
           </Grid>
           <Grid item sm={6}>
-            <Image src={sideImage} alt="logo" width={500} height={500} />
+            <Image src={sideImage} alt="logo" width={550} height={500} />
           </Grid>
         </Grid>
       </div>
