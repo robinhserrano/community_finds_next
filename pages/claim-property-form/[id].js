@@ -186,7 +186,7 @@ export default function ClaimLostItemForm(props) {
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
               Please provide us your credentials to prove your ownership of this
-              item.
+              property.
             </Typography>
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
