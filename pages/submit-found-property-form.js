@@ -239,8 +239,8 @@ export default function FoundItem(props) {
             <Typography variant="h7">
               <b style={{ color: "red" }}>* </b>
               Please be descriptive when submitting your found property report,
-              the more information you give us the better chance you have of
-              retrieving your Properties.
+              the more information you give us the better chance of returning
+              the property to the rightful owner
             </Typography>
           </Grid>
           <Grid item sm={6}>
