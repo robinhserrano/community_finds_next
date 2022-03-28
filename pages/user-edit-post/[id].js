@@ -178,7 +178,7 @@ export default function UserEditPost(props) {
             >
               <img
                 src={profile.image}
-                alt={profile.name}
+                alt={profile.lostPropertyName}
                 height={600}
                 width={700}
               />
@@ -196,7 +196,7 @@ export default function UserEditPost(props) {
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
                 <b>Contact Details</b>
                 <br />
-                Name: {profile.firstname} {profile.lastname}
+                Name: {profile.fullName}
                 <br />
                 Email: {profile.email}
                 <br />

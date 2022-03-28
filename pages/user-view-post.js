@@ -97,7 +97,7 @@ export default function UserViewPost(props) {
           <TableCell>Property Picture</TableCell>
           <TableCell>Property Name</TableCell>
           <TableCell>Property Type</TableCell>
-          <TableCell>Property Location</TableCell>
+          <TableCell align="center">Property Location</TableCell>
           <TableCell>Property Location Type</TableCell>
           <TableCell>Property Status</TableCell>
           <TableCell align="center">Action</TableCell>

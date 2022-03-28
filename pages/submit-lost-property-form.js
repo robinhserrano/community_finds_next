@@ -228,11 +228,12 @@ export default function LostItem(props) {
             <Typography variant="h3">Submit Lost Properties</Typography>
             <br /> <br />
             <Typography variant="h5">
-              ✔ Verified Users are able to view submitted Lost Properties.{" "}
+              ✔ Verified users are able to view submitted Lost Properties.{" "}
             </Typography>
             <br /> <br />
             <Typography variant="h5">
-              ✔ The Location Is Only Limited to Balibago Angeles City.
+              ✔ The location is only limited to Balibago, Angeles City,
+              Pampanga.
             </Typography>
             <br /> <br />
             <Typography variant="h7">
