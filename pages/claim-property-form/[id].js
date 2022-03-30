@@ -662,7 +662,7 @@ export default function ClaimLostItemForm(props) {
               <span>
                 Please add the approximate date of when the property was lost.
                 <br />
-                Please add the approximate time of day the property was found.
+                Please add the approximate time of day the property was lost.
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Datetime
