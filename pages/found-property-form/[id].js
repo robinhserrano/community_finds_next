@@ -160,7 +160,7 @@ export default function ClaimLostItemForm(props) {
         })
         .then(() =>
           alert(
-            "Your claim is now being process. Wait for the owner to contact or reach you!"
+            "Your found property is now being process. Wait for the owner to contact you."
           )
         );
       router.push("/");
