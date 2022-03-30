@@ -45,10 +45,11 @@ export default function TermsAndConditions() {
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
           &emsp; Personal information may be collected from you during (a) the
-          registration process, (b) submitting found item(s), (c) and submitting
-          lost item(s). This information may include your name, phone number,
-          e-mail address, and passwords. We ask that you provide only your own
-          personal information, not personal information concerning anyone else.
+          registration process, (b) submitting found property, (c) and
+          submitting lost property. This information may include your name,
+          phone number, e-mail address, and passwords. We ask that you provide
+          only your own personal information, not personal information
+          concerning anyone else.
         </Typography>
         <br /> <br />
         <Typography variant="h4">How We Use Information</Typography>
