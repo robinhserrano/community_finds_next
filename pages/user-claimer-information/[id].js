@@ -23,21 +23,6 @@ export default function UserClaimerInformation(props) {
   const [posts, setPosts] = useState(props.posts);
   const router = useRouter();
   const { id } = router.query;
-  //NEWCODE
-  const [currentUser, setUser] = useState();
-
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      setUser(loggedInUser);
-      const profileName = posts.filter((doc) => {
-        return doc.id.includes(loggedInUser);
-      });
-    } else {
-      router.push("/login");
-    }
-  }, []);
-  //NEWCODE
 
   const slugClient = posts.filter((items) => {
     return items.id.toLowerCase().includes(id);
