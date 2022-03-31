@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import { firestore, postToJSON } from "../../lib/firebase";
 import { useRouter } from "next/router";
@@ -30,6 +30,21 @@ export default function ItemDetails(props) {
   const [posts, setPosts] = useState(props.posts);
   const router = useRouter();
   const { id } = router.query;
+  //NEWCODE
+  const [currentUser, setUser] = useState();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+      const profileName = posts.filter((doc) => {
+        return doc.id.includes(loggedInUser);
+      });
+    } else {
+      router.push("/login");
+    }
+  }, []);
+  //NEWCODE
 
   const slugClient = posts.filter((items) => {
     return items.id.toLowerCase().includes(id);
