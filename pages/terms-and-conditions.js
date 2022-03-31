@@ -17,16 +17,16 @@ export default function TermsAndConditions() {
         </Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          &emsp; You must read, agree with and accept all of the terms and
-          conditions contained in this User Agreement. These Terms of Use
-          constitute a legally binding agreement made between you, whether
-          personally or on behalf of an entity and Community Finds, concerning
-          your access to and use of the Website. You agree that by accessing the
-          Website, you have read, understood, and agreed to be bound by all of
-          these Terms of Use. Please click on the checkbox upon registering to
-          the Website if you accept these terms and conditions. Please
-          understand that if you refuse to accept these terms and conditions,
-          you will not be able to use our Website Services.
+          &emsp; You must read, agree with all of the terms and conditions
+          contained in this User Agreement. These Terms of Use constitute a
+          legally binding agreement made between you, whether personally or on
+          behalf of an entity and Community Finds, concerning your access to and
+          use of the Website. You agree that by accessing the Website, you have
+          read, understood, and agreed to be bound by all of these Terms of Use.
+          Please click on the checkbox upon registering to the Website if you
+          accept these terms and conditions. Please understand that if you
+          refuse to accept these terms and conditions, you will not be able to
+          use our Website Services.
         </Typography>
         <br /> <br />
         <Typography variant="h4">Collecting Personal Information</Typography>
