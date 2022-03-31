@@ -24,9 +24,9 @@ export default function TermsAndConditions() {
           use of the Website. You agree that by accessing the Website, you have
           read, understood, and agreed to be bound by all of these Terms of Use.
           Please click on the checkbox upon registering to the Website if you
-          accept these terms and conditions. Please understand that if you
-          refuse to accept these terms and conditions, you will not be able to
-          use our Website Services.
+          agree these terms and conditions. Please understand that if you refuse
+          to agree these terms and conditions, you will not be able to use our
+          Website Services.
         </Typography>
         <br /> <br />
         <Typography variant="h4">Collecting Personal Information</Typography>
