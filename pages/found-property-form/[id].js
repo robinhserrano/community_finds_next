@@ -114,10 +114,9 @@ export default function ClaimLostItemForm(props) {
   const profile = slugClient.find((items) => items.id === id);
 
   useEffect(() => {
-    console.log("CURRENT USER: ", currentUser);
     var initialUser =
       currentUser == null ? localStorage.getItem("user") : currentUser;
-    console.log("INITIAL USER: ", initialUser);
+    // console.log("INITIAL USER: ", initialUser);
     if (initialUser === profile.user_id) {
       router.push("/lost-property");
       alert("You cannot claim your own property");

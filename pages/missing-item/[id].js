@@ -215,7 +215,11 @@ export default function ItemDetails(props) {
         <Grid item xs={3}>
           {/* need manipulation of data into variable para maging dynamic */}
           <FacebookShareButton
+<<<<<<< HEAD
             url={`https://community-finds.herokuapp.com/missing-item/${profile.id}`}
+=======
+           url={`https://community-finds.herokuapp.com/missing-item/${profile.id}`}
+>>>>>>> ac612e95e51be368d09a1c6e9a7a1c9175b3283d
             quote={
               "next-share is a social share buttons for your next React apps."
             }
@@ -226,7 +230,11 @@ export default function ItemDetails(props) {
           </FacebookShareButton>
 
           <TwitterShareButton
+<<<<<<< HEAD
             url={`https://community-finds.herokuapp.com/missing-item/${profile.id}`}
+=======
+          url={`https://community-finds.herokuapp.com/missing-item/${profile.id}`}
+>>>>>>> ac612e95e51be368d09a1c6e9a7a1c9175b3283d
             quote={
               "next-share is a social share buttons for your next React apps."
             }

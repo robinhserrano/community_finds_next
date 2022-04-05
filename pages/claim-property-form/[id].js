@@ -67,20 +67,6 @@ export default function ClaimLostItemForm(props) {
 
   // //NEWCODE
   const [currentUser, setUser] = useState();
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      setUser(loggedInUser);
-      const profileName = posts2.filter((doc) => {
-        return doc.id.includes(loggedInUser);
-      });
-      setValue("name", profileName[0].name);
-      setValue("email", profileName[0].email);
-      setValue("phone", profileName[0].phone);
-    } else {
-      router.push("/login");
-    }
-  }, []);
   //NEWCODE
 
   const [typelocation, setTypeLocation] = React.useState("");
@@ -128,10 +114,27 @@ export default function ClaimLostItemForm(props) {
   if (!profile) {
     return <div>The property here was already found</div>;
   }
-  if (currentUser === profile.user_id) {
-    window.alert("You cannot claim your own property");
-    router.push("/found-property");
-  }
+  useEffect(() => {
+    var initialUser =
+      currentUser == null ? localStorage.getItem("user") : currentUser;
+    // console.log("INITIAL USER: ", initialUser);
+    if (initialUser === profile.user_id) {
+      router.push("/found-property");
+      alert("You cannot claim your own property");
+    }
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+      const profileName = posts2.filter((doc) => {
+        return doc.id.includes(loggedInUser);
+      });
+      setValue("name", profileName[0].name);
+      setValue("email", profileName[0].email);
+      setValue("phone", profileName[0].phone);
+    } else {
+      router.push("/login");
+    }
+  }, []);
 
   const submitHandler = async ({
     brand,
