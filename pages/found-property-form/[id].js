@@ -67,20 +67,7 @@ export default function ClaimLostItemForm(props) {
 
   // //NEWCODE
   const [currentUser, setUser] = useState();
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      setUser(loggedInUser);
-      const profileName = posts2.filter((doc) => {
-        return doc.id.includes(loggedInUser);
-      });
-      setValue("name", profileName[0].name);
-      setValue("email", profileName[0].email);
-      setValue("phone", profileName[0].phone);
-    } else {
-      router.push("/login");
-    }
-  }, []);
+
   //NEWCODE
 
   const [typelocation, setTypeLocation] = React.useState("");
@@ -116,6 +103,7 @@ export default function ClaimLostItemForm(props) {
   const { result, uploader } = useDisplayImage();
 
   const [posts, setPosts] = useState(props.posts);
+
   const router = useRouter();
   const { id } = router.query;
 
@@ -124,6 +112,32 @@ export default function ClaimLostItemForm(props) {
   });
 
   const profile = slugClient.find((items) => items.id === id);
+
+  useEffect(() => {
+    console.log("CURRENT USER: ", currentUser);
+    var initialUser =
+      currentUser == null ? localStorage.getItem("user") : currentUser;
+    console.log("INITIAL USER: ", initialUser);
+    if (initialUser === profile.user_id) {
+      router.push("/lost-property");
+      alert("You cannot claim your own property");
+    }
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setUser(loggedInUser);
+      const profileName = posts2.filter((doc) => {
+        return doc.id.includes(loggedInUser);
+      });
+      setValue("name", profileName[0].name);
+      setValue("email", profileName[0].email);
+      setValue("phone", profileName[0].phone);
+    } else {
+      router.push("/login");
+    }
+  }, []);
+  // useEffect(() => {
+
+  // }, []);
 
   if (!profile) {
     return <div>The property here was already claimed</div>;
@@ -240,13 +254,13 @@ export default function ClaimLostItemForm(props) {
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Date and Time Found: </b>
+                  <b>Date and Time Lost: </b>
                   {profile.timeLost}
                 </Typography>
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Location Found: </b>
+                  <b>Location Lost: </b>
                   {profile.location} - {profile.locationtype}
                 </Typography>
               </CardContent>

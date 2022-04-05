@@ -128,6 +128,10 @@ export default function ClaimLostItemForm(props) {
   if (!profile) {
     return <div>The property here was already found</div>;
   }
+  if (currentUser === profile.user_id) {
+    window.alert("You cannot claim your own property");
+    router.push("/found-property");
+  }
 
   const submitHandler = async ({
     brand,
@@ -240,13 +244,13 @@ export default function ClaimLostItemForm(props) {
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Date and Time Lost: </b>
+                  <b>Date and Time Found: </b>
                   {profile.timeLost}
                 </Typography>
               </CardContent>
               <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
-                  <b>Location Lost: </b>
+                  <b>Location Found: </b>
                   {profile.location} - {profile.locationtype}
                 </Typography>
               </CardContent>

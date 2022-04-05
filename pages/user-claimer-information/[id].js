@@ -321,7 +321,7 @@ export default function UserClaimerInformation(props) {
             }}
             onClick={() => didNotMatch(profile.id)}
           >
-            <Typography variant="h6"> NOT ONWER </Typography>
+            <Typography variant="h6"> NOT OWNER </Typography>
           </Button>
         </Grid>
         <Grid item xs={2}>
