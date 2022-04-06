@@ -256,6 +256,12 @@ export default function UserClaimerInformation(props) {
             </CardContent>
             <CardContent>
               <Typography style={{ fontSize: "25px" }}>
+                <b>Time Found: </b>
+                {profile.claim_timeLost}
+              </Typography>
+            </CardContent>
+            <CardContent>
+              <Typography style={{ fontSize: "25px" }}>
                 <b>Item Description: </b>
                 {profile.claim_information}
               </Typography>

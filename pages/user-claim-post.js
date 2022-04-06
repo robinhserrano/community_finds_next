@@ -99,7 +99,7 @@ export default function UserClaimPost(props) {
         {missingItems.map((info) => (
           <TableRow>
             <TableCell>
-              <Image
+              <img
                 src={info.image}
                 alt={info.foundPropertyName}
                 height={100}
