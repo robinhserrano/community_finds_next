@@ -40,11 +40,6 @@ export default function UserEditPost(props) {
 
   const profile = slugClient.find((items) => items.id === id);
 
-  if (currentUser === profile.user_id) {
-    window.alert("You cannot claim your own property");
-    router.push("/lost-property");
-  }
-
   if (!profile) {
     return <div>Item no longer here please return to home page</div>;
   }
