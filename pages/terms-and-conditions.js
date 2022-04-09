@@ -56,7 +56,7 @@ export default function TermsAndConditions() {
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
           &emsp; Unless otherwise described elsewhere in this Statement, we will
-          not disclose any personal information collected from users.We use the
+          not disclose any personal information collected from users. We use the
           information you provide specifically for many purposes, including:
           <br /> <br />
           1. to allow you to register to use our services;
