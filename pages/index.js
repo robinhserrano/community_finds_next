@@ -32,11 +32,11 @@ export default function Home(props) {
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
-            Community Finds is a community-based online platform that aims to
-            help and it is generalize for the citizen of Barangay Balibago,
-            Angeles City. They can report both lost and found properties in this
-            website. Once the property were reported in our system, with that it
-            can help the citizen to easily find their lost properties.
+            A community-based online platform that aims to help and it is
+            generalize for the citizen of Barangay Balibago, Angeles City. They
+            can report both lost and found properties in this website. Once the
+            property were reported in our system, with that it can help the
+            citizen to easily find their lost properties.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <NextLink href="/submit-lost-property-form" passHref>
@@ -62,7 +62,7 @@ export default function Home(props) {
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h3">
-            <b>Community Finds Guidelines</b>
+            <b>Community Guidelines</b>
           </Typography>
           <br />
           <Typography variant="h5" style={{ textAlign: "justify" }}>
