@@ -32,11 +32,11 @@ export default function Home(props) {
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
-            Community finds is a community-base online platform that aims to
-            help and it is generalize for the citizen of Balibago Angeles City.
-            They can report both lost and found properties in this website. Once
-            the property were reported in our system, with that it can help the
-            citizen to easily find their lost properties.
+            Community Finds is a community-based online platform that aims to
+            help and it is generalize for the citizen of Barangay Balibago,
+            Angeles City. They can report both lost and found properties in this
+            website. Once the property were reported in our system, with that it
+            can help the citizen to easily find their lost properties.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <NextLink href="/submit-lost-property-form" passHref>
@@ -74,7 +74,7 @@ export default function Home(props) {
             lost property and other necessary information. This is to provide
             the residents and nonresidents a greater opportunity of finding
             their lost properties. Community Finds is also a place to provide
-            inspiration and motivation to others to post their found property
+            inspiration and motivation for others to post their found property
             and to return it to the rightful owner. The guidelines below help
             keep the community to fully understand and make it possible to
             understand Community Finds.

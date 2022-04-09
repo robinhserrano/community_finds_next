@@ -609,8 +609,8 @@ export default function LostItem(props) {
                   <MenuItem value={"Junk Shop"}>Junk Shop</MenuItem>
                   <MenuItem value={"Sari-Sari Store"}>Sari-Sari Store</MenuItem>
 
-                  <MenuItem value={"Convinient Store"}>
-                    Convinient Store
+                  <MenuItem value={"Convenience Store"}>
+                    Convenience Store
                   </MenuItem>
                   <MenuItem value={"Hospitals"}>Hospital</MenuItem>
                   <MenuItem value={"Cemetery"}>Cemetery</MenuItem>

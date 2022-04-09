@@ -58,7 +58,7 @@ export default function TermsAndConditions() {
           &emsp; Unless otherwise described elsewhere in this Statement, we will
           not disclose any personal information collected from users.We use the
           information you provide specifically for many purposes, including:
-          <br />
+          <br /> <br />
           1. to allow you to register to use our services;
           <br />
           2. to ensure the continued smooth operation of our service;
@@ -114,15 +114,15 @@ export default function TermsAndConditions() {
         <Typography variant="h4">Modification of the Service</Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          We reserve the right to modify the contents of this Website at any
-          time, but we have no obligation to update any information on our
+          &emsp; We reserve the right to modify the contents of this Website at
+          any time, but we have no obligation to update any information on our
           Website. You agree that it is your responsibility to monitor changes
           to our Website.
           <br /> <br />
-          We reserve the right at any time to modify or discontinue the Service
-          (or any part or content thereof) without notice at any time.
+          &emsp;We reserve the right at any time to modify or discontinue the
+          Service (or any part or content thereof) without notice at any time.
           <br /> <br />
-          We will not be liable to you or to any third-party for any
+          &emsp;We will not be liable to you or to any third-party for any
           modification, change, suspension or discontinuance of the Service.
         </Typography>
         <br /> <br />

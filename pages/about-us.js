@@ -30,15 +30,15 @@ export default function AboutUs() {
       <Typography variant="h5" style={{ textAlign: "justify" }}>
         Like all great ideas, Community Finds was born from a problem that we
         knew we could help. It is the output of a Capstone Project developed and
-        brainstormed by our team composed of four, young aspiring Web
-        Developers. The idea of Community Finds emerged when we are thinking of
-        a project that could help a locality solve one of its emerging issues.
-        Now we’re focusing on helping the community of Barangay Balibago in
-        Angeles City, Pampanga, Central Luzon.
+        brainstormed by our team composed of four young aspiring Web Developers.
+        The idea of Community Finds emerged when we are thinking of a project
+        that could help a locality solve one of its emerging issues. Now we’re
+        focusing on helping the community of Barangay Balibago in Angeles City,
+        Pampanga, Central Luzon.
       </Typography>
       <br />
       <Typography variant="h5" style={{ textAlign: "justify" }}>
-        Barangay Balibago has been described as "the entertainment district of
+        Barangay Balibago has been described as "The Entertainment District of
         Angeles City, Pampanga”. It offers a thriving nightlife with a variety
         of great restaurants, retail centers, bars, clubs, and casinos. Also,
         with a population of over 45,798 people, it has the largest population
