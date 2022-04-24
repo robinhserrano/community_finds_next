@@ -534,9 +534,13 @@ export default function LostItem(props) {
                   style={{ display: "none" }}
                   value={imageInput}
                   onChange={(e) => {
-                    setImage(e.target.files[0]);
-                    uploader(e);
-                    setImageInput(event.target.value);
+                    if (e.target.files[0].size < 900000) {
+                      setImage(e.target.files[0]);
+                      uploader(e);
+                      setImageInput(event.target.value);
+                    } else {
+                      alert("Image size to large, Maximum image size is 900kb");
+                    }
                   }}
                 />
                 <Button variant="contained" component="span">
