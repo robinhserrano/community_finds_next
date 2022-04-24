@@ -534,9 +534,20 @@ export default function FoundItem(props) {
                   style={{ display: "none" }}
                   value={imageInput}
                   onChange={(e) => {
-                    setImage(e.target.files[0]);
-                    uploader(e);
-                    setImageInput(event.target.value);
+                    try {
+                      if (e.target.files[0].size < 900000) {
+                        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                        console.log(e.target.files[0].size);
+                        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                        setImage(e.target.files[0]);
+                        uploader(e);
+                        setImageInput(event.target.value);
+                      } else {
+                        alert("Image size is too large");
+                      }
+                    } catch (err) {
+                      alert(err);
+                    }
                   }}
                 />
                 <Button variant="contained" component="span">
