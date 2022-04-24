@@ -187,20 +187,25 @@ export default function Register() {
                 rules={{
                   required: true,
                   minLength: 11,
+                  maxLength: 11,
+                  pattern: /^[0-9]*$/,
                 }}
                 render={({ field }) => (
                   <TextField
                     variant="outlined"
                     fullWidth
-                    id="tel"
+                    id="num"
                     label="Mobile Number"
                     value={phone}
                     onInput={(e) => setPhone(e.target.value)}
                     error={Boolean(errors.phone)}
                     helperText={
                       errors.phone
-                        ? errors.phone.type === "minLength"
-                          ? "Phone number length should 11 Digits"
+                        ? errors.phone.type === "minLength" ||
+                          errors.phone.type === "maxLength"
+                          ? "Phone number length should be 11 digits"
+                          : errors.phone.type === "pattern"
+                          ? "Phone number must not contain characters"
                           : "Phone number is required"
                         : ""
                     }
