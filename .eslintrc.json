@@ -1,5 +1,5 @@
 
 {
   "env":{"browser": true,"node":true, "es7": true},
-  "extends": ["eslint:recommended", "next", "next/babel","next/core-web-vitals"]
+  "extends": ["eslint:recommended", "next","next/core-web-vitals"]
 }
