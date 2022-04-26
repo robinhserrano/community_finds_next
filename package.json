@@ -2,8 +2,8 @@
   "name": "community_finds",
   "private": true,
   "scripts": {
-    "dev": "export NODE_OPTIONS=--openssl-legacy-provider; next dev",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider; next build",
+    "dev": next dev",
+    "build":  next build",
     "start": "next start -p $PORT",
     "lint": "next lint"
   },
