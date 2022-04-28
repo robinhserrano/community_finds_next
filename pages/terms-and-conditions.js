@@ -32,19 +32,19 @@ export default function TermsAndConditions() {
         <Typography variant="h4">Collecting Personal Information</Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          &emsp; You can access our Website without providing us with any
+          &emsp;You can access our website without providing us with any
           confidential personal information. However, we may collect other
-          personal information in various locations on our Website as more
+          personal information in various locations on our website as more
           particularly described below. Our primary goal in collecting these
           information is to provide you, the user, with a customized experience
-          on our Website and to deliver better service, and more relevant
+          on our website and to deliver better service, and more relevant
           content to other users.
         </Typography>
         <br /> <br />
         <Typography variant="h4">Personal Data We Collect</Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          &emsp; Personal information may be collected from you during (a) the
+          &emsp;Personal information may be collected from you during (a) the
           registration process, (b) submitting found property, (c) and
           submitting lost property. This information may include your name,
           phone number, e-mail address, and passwords. We ask that you provide
@@ -55,7 +55,7 @@ export default function TermsAndConditions() {
         <Typography variant="h4">How We Use Information</Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          &emsp; Unless otherwise described elsewhere in this Statement, we will
+          &emsp; Unless otherwise described elsewhere in this statement, we will
           not disclose any personal information collected from users. We use the
           information you provide specifically for many purposes, including:
           <br /> <br />
@@ -68,13 +68,13 @@ export default function TermsAndConditions() {
           <br />
           4. to prevent or investigate actual or suspected fraud, hacking,
           infringement, or other misconduct involving our services, or this
-          Website;
+          website;
         </Typography>
         <br /> <br />
         <Typography variant="h4">Description of Service</Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          &emsp; The Services are operated through our Website Community Finds
+          &emsp; The services are operated through our website Community Finds
           which provide users with a unique online resource for the purpose of
           reuniting lost properties with their respective owners. Using a manual
           matching system to connect those who lost a property to those who have
@@ -87,12 +87,12 @@ export default function TermsAndConditions() {
         <Typography variant="h4">Requirements</Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          &emsp; By using this Website, you represent, acknowledge and agree
+          &emsp; By using this website, you represent, acknowledge and agree
           that you are at least 18 years of age and above. If you are a parent
-          or legal guardian of a Minor, you hereby agree to bind the Minor to
-          these Terms. The users are responsible for acquiring access to the
-          Service, which may necessitate the payment of third-party fees (such
-          as Internet Service Provider).
+          or legal guardian of a minor, you hereby agree to bind the minor to
+          these terms. The users are responsible for acquiring access to the
+          service, which may necessitate the payment of third-party fees (such
+          as internet service provider).
         </Typography>
         <br /> <br />
         <Typography variant="h4">
@@ -102,9 +102,9 @@ export default function TermsAndConditions() {
         <Typography style={{ textAlign: "justify" }} variant="h5">
           &emsp;We take reasonable precautions to protect the personal
           information we collect from users. When users submit personal
-          information via the Website, the information is housed in a secure
+          information via the website, the information is housed in a secure
           firebase database. While we strive to protect your personal
-          information, you should know that information sent over the Internet,
+          information, you should know that information sent over the internet,
           whether by e-mail or by using one of our online forms, is not
           necessarily secure against interception. Therefore, we cannot be
           responsible for such interception and cannot guarantee the security of
@@ -114,13 +114,13 @@ export default function TermsAndConditions() {
         <Typography variant="h4">Modification of the Service</Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          &emsp; We reserve the right to modify the contents of this Website at
+          &emsp; We reserve the right to modify the contents of this website at
           any time, but we have no obligation to update any information on our
-          Website. You agree that it is your responsibility to monitor changes
-          to our Website.
+          website. You agree that it is your responsibility to monitor changes
+          to our website.
           <br /> <br />
           &emsp;We reserve the right at any time to modify or discontinue the
-          Service (or any part or content thereof) without notice at any time.
+          service (or any part or content thereof) without notice at any time.
           <br /> <br />
           &emsp;We will not be liable to you or to any third-party for any
           modification, change, suspension or discontinuance of the Service.
