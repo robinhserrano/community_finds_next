@@ -32,9 +32,9 @@ export default function Home(props) {
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
-            A community-based online platform that aims to help in reporting
-            both lost and found properties within Barangay Balibago, Angeles
-            City.
+            <br /> A community-based online platform that aims to help in
+            reporting both lost and found properties within Barangay Balibago,
+            Angeles City.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <NextLink href="/submit-lost-property-form" passHref>
