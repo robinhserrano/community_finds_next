@@ -32,11 +32,9 @@ export default function Home(props) {
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <Typography variant="h5" style={{ textAlign: "justify" }}>
-            A community-based online platform that aims to help and it is
-            generalize for the citizen of Barangay Balibago, Angeles City. They
-            can report both lost and found properties in this website. Once the
-            property were reported in our system, with that it can help the
-            citizen to easily find their lost properties.
+            A community-based online platform that aims to help in reporting
+            both lost and found properties within Barangay Balibago, Angeles
+            City.
           </Typography>
           <div style={{ marginBottom: "30px" }}></div>
           <NextLink href="/submit-lost-property-form" passHref>
@@ -67,17 +65,20 @@ export default function Home(props) {
           <br />
           <Typography variant="h5" style={{ textAlign: "justify" }}>
             When you use Community Finds, you join a community of people from
-            Barangay Balibago who can post their lost or found property within
-            the area. Aside from that, persons who are not residents of the
-            region but are certain to have lost their property inside the area
-            may utilize the Community Finds by uploading the specifics of their
-            lost property and other necessary information. This is to provide
-            the residents and nonresidents a greater opportunity of finding
-            their lost properties. Community Finds is also a place to provide
-            inspiration and motivation for others to post their found property
-            and to return it to the rightful owner. The guidelines below help
-            keep the community to fully understand and make it possible to
-            understand Community Finds.
+            Barangay Balibago who can post their lost or found properties within
+            the area. Non-residents of the barangay who are certain to have lost
+            their property within the area, may utilize the Community Finds by
+            uploading the details of the lost property and other helpful
+            information to help them find the lost item.
+            <br /> <br />
+            The online platform provides the residents and non-residents a
+            better chance of finding their lost properties. Community Finds is
+            also a place to provide inspiration and motivation for others to
+            post their found property and to return it to the rightful owner.
+            <br /> <br />
+            The following guidelines will help in the upkeep of Community Finds
+            in serving its purpose and ensure a safe environment for the members
+            of the community.
           </Typography>
         </Grid>
         <Grid item xs={12}></Grid>
@@ -87,7 +88,7 @@ export default function Home(props) {
           </Typography>
           <br />
           <Typography variant="h5">
-            <li> Treat others online as you would treat them in real life. </li>
+            <li>Treat others online as you would treat them in real life.</li>
             <li>
               Respect the personal information of other community members.
             </li>
@@ -98,7 +99,7 @@ export default function Home(props) {
             <li>Complete all the details needed in the lost and found form.</li>
             <li>
               Use proper judgment or discretion while interacting with other
-              users;
+              users.
             </li>
             <li>
               Community Finds recommends you to go to the barangay hall or the
@@ -137,34 +138,15 @@ export default function Home(props) {
           </Typography>
           <br />
           <Typography variant="h6">
-            <li>Only verified user can use this website.</li>
             <li>
-              Community Finds makes sure the collection of information that you
-              will provide are secured following the RA 10173 or Data Privacy
-              Act of 2012.
+              Only those who register and verify their accounts will be given
+              access of the website’s functionalities.
             </li>
-          </Typography>
-        </Grid>
-        <Grid item xs={6} style={{ marginTop: "60px", marginBottom: "30px" }}>
-          <Typography variant="h5" style={{ textAlign: "center" }}>
-            <Image src={ease} height={250} width={450} alt={"Online image"} />
-            <br />
-            <b>Ease of Use</b>
-          </Typography>
-          <Typography style={{ fontSize: "18px", textAlign: "center" }}>
-            Submitting lost or found properties is simple and hassle free. Input
-            the required information and let our system go to work.
-          </Typography>
-        </Grid>
-
-        <Grid item xs={6} style={{ marginTop: "60px", marginBottom: "30px" }}>
-          <Typography variant="h5" style={{ textAlign: "center" }}>
-            <Image src={online} height={250} width={450} alt={"Online image"} />
-            <br />
-            <b>Online</b>
-          </Typography>
-          <Typography style={{ fontSize: "18px", textAlign: "center" }}>
-            Community Finds is an online platform that is available to anyone.
+            <li>
+              Community Finds ensures collection and handling of user
+              information are within the mandate of RA 10173 or Data Privacy Act
+              of 2012.
+            </li>
           </Typography>
         </Grid>
       </Grid>
