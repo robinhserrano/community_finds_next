@@ -129,32 +129,29 @@ export default function TermsAndConditions() {
         <Typography variant="h4">Prohibited Activities</Typography>
         <br /> <br />
         <Typography style={{ textAlign: "justify" }} variant="h5">
-          &emsp;You may not access or use the Site for any purpose other than
-          that for which we make the Site available. The Site may not be used in
+          &emsp;You may not access or use the site for any purpose other than
+          that for which we make the site available. The site may not be used in
           connection with any commercial endeavors except those that are
           specifically endorsed or approved by us.
           <br /> <br />
-          &emsp;As a condition of use, you promise not to use the Services for
+          &emsp;As a condition of use, you promise not to use the services for
           any purpose that is unlawful or prohibited by these Terms, or any
-          other purpose not reasonably intended by. As a user of the Site, you
+          other purpose not reasonably intended by. As a user of the site, you
           agree not to:
           <br /> <br />
-          1. Use any information obtained from the Site in order to harass,
+          1. Use any information obtained from the site in order to harass,
           abuse, or harm another person.
           <br />
-          2. Make improper use of our support services or submit false reports
-          of abuse or misconduct.
-          <br />
-          3. Upload of images that contain adult content. This includes nudity,
+          2.Upload of images that contain adult content. This includes nudity,
           depictions of people in explicit or suggestive positions, or
           activities that are overly suggestive or sexually provocative.
           <br />
-          4. Upload of content that is inappropriate, illegal and unsafe.
+          3. Upload of content that is inappropriate, illegal and unsafe.
           <br />
-          5. Promoting the sale or use of illicit or recreational drugs, or
+          4. Promoting the sale or use of illicit or recreational drugs, or
           other unsafe substances, products or supplements.
           <br />
-          6. Attempt to impersonate another user or person or use the username
+          5. Attempt to impersonate another user or person or use the username
           of another user.
           <br /> <br /> <br /> <br />
         </Typography>
