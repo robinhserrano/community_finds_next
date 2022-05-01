@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 
   textStyle: {
     font: "SansSerif",
-    fontSize: "18px",
+    fontSize: "13px",
     letterSpacing: "1px",
     marginRight: "30px",
   },

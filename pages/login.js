@@ -73,7 +73,7 @@ export default function Login() {
                 style={{
                   marginTop: 150,
                   backgroundColor: "white",
-                  width: 700,
+                  width: 500,
                   height: 500,
                 }}
               >

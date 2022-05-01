@@ -95,7 +95,7 @@ export default function Register() {
         title="Register"
         style={{
           marginLeft: "30%",
-          marginTop: 150,
+          marginTop: 20,
           backgroundColor: "white",
           width: 700,
           height: 750,

@@ -70,7 +70,7 @@ export default function Navbar({ title, children }) {
             <Typography
               style={{
                 font: "SansSerif",
-                fontSize: "15px",
+                fontSize: "12px",
                 letterSpacing: "1px",
               }}
             >
@@ -93,7 +93,7 @@ export default function Navbar({ title, children }) {
             <Typography
               style={{
                 font: "SansSerif",
-                fontSize: "15px",
+                fontSize: "12px",
                 letterSpacing: "1px",
               }}
             >
@@ -162,7 +162,7 @@ export default function Navbar({ title, children }) {
                 <Typography
                   style={{
                     font: "SansSerif",
-                    fontSize: "15px",
+                    fontSize: "12px",
                     letterSpacing: "1px",
                   }}
                 >
