@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography, Card, CardContent } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import NextLink from "next/link";
@@ -7,10 +7,42 @@ import announcement from "../public/images/register.png";
 import ease from "../public/images/ease-of-use.png";
 import match from "../public/images/match.png";
 import online from "../public/images/online.png";
-
+import ItemCards from "./card";
+import ClaimedItems from "./claimed-items";
+import { firestore, postToJSON } from "../lib/firebase";
 //
 
+export async function getServerSideProps() {
+  const postsQuery = firestore.collectionGroup("missingItems");
+  const postsQuery2 = firestore.collectionGroup("foundItems");
+  // .where("status", "==", "missing");
+  // .orderBy('createdAt', 'desc')
+  // .limit(LIMIT);
+  const posts = (await postsQuery.get()).docs.map(postToJSON);
+  const posts2 = (await postsQuery2.get()).docs.map(postToJSON);
+  //   console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  //   console.log(posts);
+  //   console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  //   console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+  //   console.log(posts2);
+  //   console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+
+  return {
+    props: { posts, posts2 },
+  };
+}
+
 export default function Home(props) {
+  const [posts, setPosts] = useState(props.posts);
+  const [posts2, setPosts2] = useState(props.posts2);
+
+  const missingItems = posts.filter((itemLost) => {
+    return itemLost;
+  });
+  const missingItems2 = posts2.filter((itemLost) => {
+    return itemLost;
+  });
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
@@ -149,6 +181,64 @@ export default function Home(props) {
             </li>
           </Typography>
         </Grid>
+      </Grid>
+      <div style={{ margin: "20px" }} />
+      <div>
+        <Typography
+          style={{ textAlign: "center", marginBottom: "20px" }}
+          variant="h3"
+        >
+          Featured Properties
+        </Typography>
+      </div>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {missingItems.map((info) => (
+          <Grid item xs={2} sm={2} md={3}>
+            <Card style={{ width: 250, marginLeft: "20px" }}>
+              <CardContent>
+                <img
+                  src={info.image}
+                  alt={info.lostPropertyName}
+                  height={180}
+                  width={220}
+                />
+              </CardContent>
+              <CardContent>
+                <Typography>Lost Property: {info.lostPropertyName}</Typography>
+              </CardContent>
+              <CardContent>
+                <Typography>Type: {info.brand}</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+
+        {missingItems2.map((info) => (
+          <Grid item xs={2} sm={2} md={3}>
+            <Card style={{ width: 250, marginLeft: "20px" }}>
+              <CardContent>
+                <img
+                  src={info.image}
+                  alt={info.foundPropertyName}
+                  height={180}
+                  width={220}
+                />
+              </CardContent>
+              <CardContent>
+                <Typography>
+                  Found Property: {info.foundPropertyName}
+                </Typography>
+              </CardContent>
+              <CardContent>
+                <Typography>Type: {info.brand}</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
       </Grid>
     </Navbar>
   );
