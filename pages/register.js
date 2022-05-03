@@ -34,7 +34,9 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [suffix, setSuffix] = useState("");
 
   const { redirect } = router.query;
   const submitHandler = async () => {
@@ -55,7 +57,9 @@ export default function Register() {
               .doc(authUser.user.uid)
               .set({
                 id: authUser.user.uid,
-                name: name,
+                firstname: firstname,
+                lastname: lastname,
+                suffix: suffix,
                 email: email,
                 phone: phone,
                 password: password,
@@ -98,7 +102,7 @@ export default function Register() {
           marginTop: 20,
           backgroundColor: "white",
           width: 700,
-          height: 750,
+          height: 700,
           position: "absolute",
         }}
       >
@@ -125,21 +129,21 @@ export default function Register() {
                 }}
                 render={({ field }) => (
                   <TextField
-                    style={{ width: " 200px" }}
+                    style={{ width: " 200px", marginRight: "32px" }}
                     variant="outlined"
                     fullWidth
-                    id="name"
+                    id="firstname"
                     label="First Name"
-                    type={"name"}
-                    value={name}
-                    onInput={(e) => setName(e.target.value)}
-                    inputProps={{ type: "name" }}
-                    error={Boolean(errors.name)}
+                    type={"firstname"}
+                    value={firstname}
+                    onInput={(e) => setFirstName(e.target.value)}
+                    inputProps={{ type: "firstname" }}
+                    error={Boolean(errors.firstname)}
                     helperText={
-                      errors.name
-                        ? errors.name.type === "minLength"
-                          ? "Name length is more than 1"
-                          : "Name is required"
+                      errors.firstname
+                        ? errors.firstname.type === "minLength"
+                          ? "First Name length is more than 1"
+                          : "First Name is required"
                         : ""
                     }
                     {...field}
@@ -156,21 +160,21 @@ export default function Register() {
                 }}
                 render={({ field }) => (
                   <TextField
-                    style={{ width: " 200px" }}
+                    style={{ width: " 200px", marginRight: "32px" }}
                     variant="outlined"
                     fullWidth
-                    id="name"
+                    id="lastname"
                     label="Last Name"
-                    type={"name"}
-                    value={name}
-                    onInput={(e) => setName(e.target.value)}
-                    inputProps={{ type: "name" }}
-                    error={Boolean(errors.name)}
+                    type={"lastname"}
+                    value={lastname}
+                    onInput={(e) => setLastName(e.target.value)}
+                    inputProps={{ type: "lastname" }}
+                    error={Boolean(errors.lastname)}
                     helperText={
-                      errors.name
-                        ? errors.name.type === "minLength"
-                          ? "Name length is more than 1"
-                          : "Name is required"
+                      errors.lastname
+                        ? errors.lastname.type === "minLength"
+                          ? "Last Name length is more than 1"
+                          : "Last Name is required"
                         : ""
                     }
                     {...field}
@@ -183,23 +187,23 @@ export default function Register() {
                 defaultValue=""
                 rules={{
                   required: false,
-                  minLength: 2,
+                  minLength: 1,
                 }}
                 render={({ field }) => (
                   <TextField
                     style={{ width: " 200px" }}
                     variant="outlined"
                     fullWidth
-                    id="name"
+                    id="suffix"
                     label="Suffix"
-                    type={"name"}
-                    value={name}
-                    onInput={(e) => setName(e.target.value)}
-                    inputProps={{ type: "name" }}
-                    error={Boolean(errors.name)}
+                    type={"suffix"}
+                    value={suffix}
+                    onInput={(e) => setSuffix(e.target.value)}
+                    inputProps={{ type: "suffix" }}
+                    error={Boolean(errors.suffix)}
                     helperText={
-                      errors.name
-                        ? errors.name.type === "minLength"
+                      errors.suffix
+                        ? errors.suffix.type === "minLength"
                           ? "Suffix length is more than 1"
                           : "Suffix is required"
                         : ""

@@ -62,7 +62,9 @@ export default function Profile(props) {
     const profileName = posts.filter((doc) => {
       return doc.id.includes(loggedInUser);
     });
-    setValue("name", profileName[0].name);
+    setValue("firstname", profileName[0].firstname);
+    setValue("lastname", profileName[0].lastname);
+    setValue("suffix", profileName[0].suffix);
     setValue("email", profileName[0].email);
     setValue("phone", profileName[0].phone);
 
@@ -71,7 +73,9 @@ export default function Profile(props) {
   //NEW CODE
 
   const submitHandler = async ({
-    name,
+    firstname,
+    lastname,
+    suffix,
     email,
     password,
     confirmPassword,
@@ -120,7 +124,7 @@ export default function Profile(props) {
                   <List>
                     <ListItem>
                       <Controller
-                        name="name"
+                        name="firstname"
                         control={control}
                         defaultValue=""
                         rules={{
@@ -132,15 +136,15 @@ export default function Profile(props) {
                             variant="outlined"
                             fullWidth
                             disabled={true}
-                            id="name"
-                            label="Name"
-                            inputProps={{ type: "name" }}
-                            error={Boolean(errors.name)}
+                            id="firstname"
+                            label="firstname"
+                            inputProps={{ type: "firstname" }}
+                            error={Boolean(errors.firstname)}
                             helperText={
-                              errors.name
-                                ? errors.name.type === "minLength"
-                                  ? "Name length is more than 1"
-                                  : "Name is required"
+                              errors.firstname
+                                ? errors.firstname.type === "minLength"
+                                  ? "First Name length is more than 1"
+                                  : "First Name is required"
                                 : ""
                             }
                             {...field}
