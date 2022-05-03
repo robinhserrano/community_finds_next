@@ -100,7 +100,7 @@ export default function UserClaimerInformation(props) {
         {profile.foundPropertyName}
       </Typography>
       <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
-        <i> Property ID: {profile.id}</i>
+        {/* <i> Property ID: {profile.id}</i> */}
       </Typography>
       <br /> <br /> <br /> <br />
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -195,7 +195,7 @@ export default function UserClaimerInformation(props) {
                 src={profile.image}
                 alt={profile.foundPropertyName}
                 height={600}
-                width={750}
+                width={520}
               />
             </CardContent>
           </Card>
@@ -208,10 +208,10 @@ export default function UserClaimerInformation(props) {
                 borderStyle: "groove",
               }}
             >
-              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+              <Typography style={{ fontSize: "30px", marginLeft: "30px" }}>
                 <b>Finder Details</b>
                 <br />
-                Name: {profile.fullName}
+                Name: {profile.firstname} {profile.lastname} {profile.suffix}
                 <br />
                 Email: {profile.email}
                 <br />
@@ -234,7 +234,8 @@ export default function UserClaimerInformation(props) {
             <CardContent>
               <Typography style={{ fontSize: "25px" }}>
                 <b> Name: </b>
-                {profile.claim_fullname}
+                {profile.claim_firstname} {profile.claim_lastname}{" "}
+                {profile.claim_suffix}
               </Typography>
             </CardContent>
             <CardContent>
@@ -298,13 +299,13 @@ export default function UserClaimerInformation(props) {
                 src={profile.claim_image}
                 alt={profile.name}
                 height={600}
-                width={700}
+                width={520}
               />
             </CardContent>
           </Card>
         </Grid>
         <div style={{ marginTop: "3%" }}></div>
-        <Grid item xs={8}>
+        <Grid item xs={7}>
           <NextLink href={"/user-claim-post"}>
             <Button
               style={{
@@ -330,6 +331,7 @@ export default function UserClaimerInformation(props) {
             <Typography variant="h6"> NOT OWNER </Typography>
           </Button>
         </Grid>
+        <Grid item xs={1}></Grid>
         <Grid item xs={2}>
           <Button
             style={{

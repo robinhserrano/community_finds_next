@@ -123,7 +123,9 @@ export default function UserClaimPost(props) {
               <Typography>{info.status}</Typography>
             </TableCell>
             <TableCell>
-              <Typography>{info.claim_fullname}</Typography>
+              <Typography>
+                {info.claim_firstname} {info.claim_lastname} {info.claim_suffix}
+              </Typography>
             </TableCell>
             <TableCell>
               <Typography>{info.claim_phone}</Typography>

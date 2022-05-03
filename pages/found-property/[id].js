@@ -167,11 +167,11 @@ export default function ItemDetails(props) {
                 borderStyle: "ridge",
               }}
             >
-              <Image
+              <img
                 src={profile.image}
                 alt={profile.foundPropertyName}
-                height={490}
-                width={600}
+                height={600}
+                width={540}
               />
             </CardContent>
           </Card>
@@ -184,10 +184,10 @@ export default function ItemDetails(props) {
                 borderStyle: "groove",
               }}
             >
-              <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
+              <Typography style={{ fontSize: "30px", marginLeft: "30px" }}>
                 <b>Contact Details</b>
                 <br />
-                Name: {profile.fullName}
+                Name: {profile.firstname} {profile.lastname} {profile.suffix}
                 <br />
                 Email: {profile.email}
                 <br />
