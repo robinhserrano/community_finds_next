@@ -75,9 +75,9 @@ export default function ItemDetails(props) {
       <Typography variant="h3">
         {profile.propertycategory}: {profile.foundPropertyName}
       </Typography>
-      <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
+      {/* <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
         <i> Property ID: {profile.id}</i>
-      </Typography>
+      </Typography> */}
       <br /> <br /> <br /> <br />
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
@@ -110,7 +110,7 @@ export default function ItemDetails(props) {
                 <b> Type: </b> {profile.brand}
               </Typography>
             </CardContent>
-            <CardContent
+            {/* <CardContent
               style={{
                 borderStyle: "groove",
               }}
@@ -118,8 +118,8 @@ export default function ItemDetails(props) {
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
                 <b> Primary Color: </b> {profile.primaryColor}
               </Typography>
-            </CardContent>
-            <CardContent
+            </CardContent> */}
+            {/* <CardContent
               style={{
                 borderStyle: "groove",
               }}
@@ -127,10 +127,10 @@ export default function ItemDetails(props) {
               <Typography style={{ fontSize: "35px", marginLeft: "30px" }}>
                 <b> Secondary Color: </b> {profile.secondaryColor}
               </Typography>
-            </CardContent>
+            </CardContent> */}
           </Card>
         </Grid>
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <Card>
             <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
             <CardContent
@@ -158,7 +158,7 @@ export default function ItemDetails(props) {
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
+        </Grid> */}
         <Grid item xs={6}>
           <Card>
             <CardContent
@@ -170,8 +170,8 @@ export default function ItemDetails(props) {
               <Image
                 src={profile.image}
                 alt={profile.foundPropertyName}
-                height={600}
-                width={700}
+                height={490}
+                width={600}
               />
             </CardContent>
           </Card>

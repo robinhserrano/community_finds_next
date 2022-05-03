@@ -37,10 +37,10 @@ export default function Home(props) {
   const [posts2, setPosts2] = useState(props.posts2);
 
   const missingItems = posts.filter((itemLost) => {
-    return itemLost;
+    return itemLost.status.toLowerCase().includes("missing");
   });
   const missingItems2 = posts2.filter((itemLost) => {
-    return itemLost;
+    return itemLost.status.toLowerCase().includes("missing");
   });
 
   useEffect(() => {

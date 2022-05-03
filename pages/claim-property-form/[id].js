@@ -185,10 +185,10 @@ export default function ClaimLostItemForm(props) {
               Claim {profile.propertycategory} {profile.foundPropertyName}
             </Typography>
             <br />
-            <Typography variant="h5" style={{ backgroundColor: "lightgray" }}>
+            {/* <Typography variant="h5" style={{ backgroundColor: "lightgray" }}>
               <b>Property ID: </b>
               {profile.id}
-            </Typography>
+            </Typography> */}
             <br />
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>
@@ -245,18 +245,18 @@ export default function ClaimLostItemForm(props) {
                   {profile.brand}
                 </Typography>
               </CardContent>
-              <CardContent>
+              {/* <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
                   <b>Date and Time Found: </b>
                   {profile.timeLost}
                 </Typography>
-              </CardContent>
-              <CardContent>
+              </CardContent> */}
+              {/* <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
                   <b>Location Found: </b>
                   {profile.location} - {profile.locationtype}
                 </Typography>
-              </CardContent>
+              </CardContent> */}
             </Card>
           </Grid>
         </Grid>

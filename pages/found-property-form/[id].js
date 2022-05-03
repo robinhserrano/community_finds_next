@@ -191,10 +191,10 @@ export default function ClaimLostItemForm(props) {
               Found {profile.propertycategory} {profile.lostPropertyName}
             </Typography>
             <br />
-            <Typography variant="h5" style={{ backgroundColor: "lightgray" }}>
+            {/* <Typography variant="h5" style={{ backgroundColor: "lightgray" }}>
               <b>Property ID: </b>
               {profile.id}
-            </Typography>
+            </Typography> */}
             <br />
             <Typography variant="h6">
               <b style={{ color: "red" }}>* </b>

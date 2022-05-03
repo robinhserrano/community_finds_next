@@ -75,9 +75,9 @@ export default function ItemDetails(props) {
       <Typography variant="h3">
         {profile.propertycategory}: {profile.lostPropertyName}
       </Typography>
-      <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
+      {/* <Typography style={{ fontSize: "25px", fontWeight: 200 }}>
         <i> Property ID: {profile.id}</i>
-      </Typography>
+      </Typography> */}
       <br /> <br /> <br /> <br />
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
