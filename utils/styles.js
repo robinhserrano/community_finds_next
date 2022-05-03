@@ -51,6 +51,9 @@ const useStyles = makeStyles({
   inputField: {
     width: 550,
   },
+  nameField: {
+    width: 380,
+  },
   searchContainer: {
     position: "center",
     textAlign: "center",

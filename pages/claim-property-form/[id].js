@@ -128,7 +128,9 @@ export default function ClaimLostItemForm(props) {
       const profileName = posts2.filter((doc) => {
         return doc.id.includes(loggedInUser);
       });
-      setValue("name", profileName[0].name);
+      setValue("firstname", profileName[0].firstname);
+      setValue("lastname", profileName[0].lastname);
+      setValue("suffix", profileName[0].suffix);
       setValue("email", profileName[0].email);
       setValue("phone", profileName[0].phone);
     } else {
@@ -141,7 +143,9 @@ export default function ClaimLostItemForm(props) {
     result,
     information,
     addInformation,
-    name,
+    firstname,
+    lastname,
+    suffix,
     phone,
     email,
     nameLocation,
@@ -159,7 +163,9 @@ export default function ClaimLostItemForm(props) {
           claim_additional: addInformation,
           claim_locationtype: typelocation,
           claim_timeLost: lostTime,
-          claim_fullname: name,
+          claim_firstname: firstname,
+          claim_lastname: lastname,
+          claim_suffix: suffix,
           claim_phone: phone,
           claim_email: email,
           claim_user_id: auth.currentUser.uid,
@@ -271,17 +277,17 @@ export default function ClaimLostItemForm(props) {
               <Typography variant="h3">Personal Information</Typography>
             </Grid>
             <Grid item xs={6}></Grid>
-            <Grid item xs={6}>
+            <Grid item sm={4}>
               {/* First Name */}
-              <List className={classes.inputField}>
-                <Typography>Full Name *</Typography>
+              <List className={classes.nameField}>
+                <Typography>Full Name*</Typography>
                 <span>
                   Please enter your full name. This will appear on your
-                  submission
+                  submission.
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
-                  name="name"
+                  name="firstname"
                   control={control}
                   defaultValue=""
                   rules={{
@@ -292,15 +298,15 @@ export default function ClaimLostItemForm(props) {
                     <TextField
                       variant="outlined"
                       fullWidth
-                      disabled
                       id="name"
-                      label="Full Name"
+                      disabled
+                      label="First Name"
                       error={Boolean(errors.firstname)}
                       helperText={
                         errors.firstname
                           ? errors.firstname.type === "minLength"
-                            ? "First Name Code length should be more than 1"
-                            : "First Name Code color is required"
+                            ? "Name Code length should be more than 1"
+                            : "Name is required"
                           : ""
                       }
                       {...field}
@@ -309,12 +315,12 @@ export default function ClaimLostItemForm(props) {
                 />
               </List>
             </Grid>
-            {/* <Grid item xs={6}>
-              <List className={classes.inputField}>
+            <Grid item sm={4}>
+              <List className={classes.nameField}>
                 <Typography>Last Name *</Typography>
                 <span>
-                  (Please enter your last name(This will appear on your
-                  submission) )
+                  Please enter your last name. This will appear on your
+                  submission
                 </span>
                 <div style={{ marginBottom: 10 }}></div>
                 <Controller
@@ -329,6 +335,7 @@ export default function ClaimLostItemForm(props) {
                     <TextField
                       variant="outlined"
                       fullWidth
+                      disabled
                       id="lastname"
                       label="Last Name"
                       error={Boolean(errors.lastname)}
@@ -344,12 +351,49 @@ export default function ClaimLostItemForm(props) {
                   )}
                 />
               </List>
-            </Grid> */}
+            </Grid>
+            <Grid item sm={4}>
+              <List className={classes.nameField}>
+                <Typography>Suffix *</Typography>
+                <span>
+                  Please enter your suffix. This will appear on your submission
+                </span>
+                <div style={{ marginBottom: 10 }}></div>
+                <Controller
+                  name="suffix"
+                  control={control}
+                  defaultValue=""
+                  rules={{
+                    required: true,
+                    minLength: 2,
+                  }}
+                  render={({ field }) => (
+                    <TextField
+                      variant="outlined"
+                      fullWidth
+                      disabled
+                      id="suffix"
+                      label="Suffix"
+                      error={Boolean(errors.lastname)}
+                      helperText={
+                        errors.lastname
+                          ? errors.lastname.type === "minLength"
+                            ? "Suffix Code length should be more than 1"
+                            : "Suffix Code color is required"
+                          : ""
+                      }
+                      {...field}
+                    />
+                  )}
+                />
+              </List>
+            </Grid>
             <Grid item xs={6}>
               {/* Phone Number */}
+              <br />
               <Typography>Phone Number *</Typography>
               <span>
-                Please enter the phone number to display on your submission.
+                Please enter the phone number to display on your submission
               </span>
               <List className={classes.inputField}>
                 <div style={{ marginBottom: 10 }}></div>
@@ -385,11 +429,13 @@ export default function ClaimLostItemForm(props) {
             </Grid>
             <Grid item xs={6}>
               {/* Email */}
+              <br />
               <Typography>Email *</Typography>
               <span>
                 Please enter your email. This will appear on your submission.
               </span>
               <List className={classes.inputField}>
+                <div style={{ marginBottom: 10 }}></div>
                 <Controller
                   name="email"
                   control={control}
@@ -420,7 +466,6 @@ export default function ClaimLostItemForm(props) {
                 />
               </List>
             </Grid>
-            <Grid item sm={6}></Grid>
             <br /> <br /> <br />
             <Grid item xs={6}>
               <Typography variant="h3">Property Description</Typography>

@@ -79,7 +79,9 @@ export default function FoundItem(props) {
       const profileName = posts.filter((doc) => {
         return doc.id.includes(loggedInUser);
       });
-      setValue("name", profileName[0].name);
+      setValue("firstname", profileName[0].firstname);
+      setValue("lastname", profileName[0].lastname);
+      setValue("suffix", profileName[0].suffix);
       setValue("email", profileName[0].email);
       setValue("phone", profileName[0].phone);
     } else {
@@ -156,8 +158,9 @@ export default function FoundItem(props) {
     result,
     nameLocation,
     information,
-    name,
-    // lastname,
+    firstname,
+    lastname,
+    suffix,
     phone,
     email,
   }) => {
@@ -182,7 +185,9 @@ export default function FoundItem(props) {
           information: information,
           locationtype: typelocation,
           timeLost: lostTime,
-          fullName: name,
+          firstname: firstname,
+          lastname: lastname,
+          suffix: suffix,
           phone: phone,
           email: email,
           status: "missing",
@@ -749,7 +754,7 @@ export default function FoundItem(props) {
                 latitude: 15.1685,
                 zoom: 12,
               }}
-              style={{ width: 1400, height: 600 }}
+              style={{ width: "80vw", height: 600 }}
               mapStyle="mapbox://styles/mapbox/streets-v9"
               mapboxAccessToken="pk.eyJ1IjoiY29tbXVuaXR5ZmluZHMiLCJhIjoiY2t6ajlsc3U1MXNtOTJ2bzB0ZXBxd21ncSJ9.2YEDuBOv1PAkUl8VsR9mag"
               maxBounds={[
@@ -779,9 +784,9 @@ export default function FoundItem(props) {
             <br /> <br /> <br />
           </Grid>
           <Grid item sm={6}></Grid>
-          <Grid item sm={6}>
+          <Grid item sm={4}>
             {/* First Name */}
-            <List className={classes.inputField}>
+            <List className={classes.nameField}>
               <Typography>Full Name*</Typography>
               <span>
                 Please enter your full name. This will appear on your
@@ -789,7 +794,7 @@ export default function FoundItem(props) {
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
-                name="name"
+                name="firstname"
                 control={control}
                 defaultValue=""
                 rules={{
@@ -802,7 +807,7 @@ export default function FoundItem(props) {
                     fullWidth
                     id="name"
                     disabled
-                    label="Full Name"
+                    label="First Name"
                     error={Boolean(errors.firstname)}
                     helperText={
                       errors.firstname
@@ -817,12 +822,11 @@ export default function FoundItem(props) {
               />
             </List>
           </Grid>
-          {/* <Grid item sm={6}>
-            <List className={classes.inputField}>
+          <Grid item sm={4}>
+            <List className={classes.nameField}>
               <Typography>Last Name *</Typography>
               <span>
-                (Please enter your last name(This will appear on your
-                submission) )
+                Please enter your last name. This will appear on your submission
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -837,6 +841,7 @@ export default function FoundItem(props) {
                   <TextField
                     variant="outlined"
                     fullWidth
+                    disabled
                     id="lastname"
                     label="Last Name"
                     error={Boolean(errors.lastname)}
@@ -852,9 +857,46 @@ export default function FoundItem(props) {
                 )}
               />
             </List>
-          </Grid> */}
+          </Grid>
+          <Grid item sm={4}>
+            <List className={classes.nameField}>
+              <Typography>Suffix *</Typography>
+              <span>
+                Please enter your suffix. This will appear on your submission
+              </span>
+              <div style={{ marginBottom: 10 }}></div>
+              <Controller
+                name="suffix"
+                control={control}
+                defaultValue=""
+                rules={{
+                  required: true,
+                  minLength: 2,
+                }}
+                render={({ field }) => (
+                  <TextField
+                    variant="outlined"
+                    fullWidth
+                    disabled
+                    id="suffix"
+                    label="Suffix"
+                    error={Boolean(errors.lastname)}
+                    helperText={
+                      errors.lastname
+                        ? errors.lastname.type === "minLength"
+                          ? "Suffix Code length should be more than 1"
+                          : "Suffix Code color is required"
+                        : ""
+                    }
+                    {...field}
+                  />
+                )}
+              />
+            </List>
+          </Grid>
           <Grid item sm={6}>
             {/* Phone Number */}
+            <br />
             <Typography>Phone Number *</Typography>
             <span>
               Please enter the phone number to display on your submission.
@@ -898,6 +940,7 @@ export default function FoundItem(props) {
               Please enter your email. This will appear on your submission.
             </span>
             <List className={classes.inputField}>
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="email"
                 control={control}
@@ -928,7 +971,8 @@ export default function FoundItem(props) {
               />
             </List>
           </Grid>
-          <Grid item sm={3}>
+          <Grid item sm={6}></Grid>
+          <Grid item sm={4}>
             <br /> <br /> <br />
             <ListItem>
               <Checkbox required={true} />
@@ -939,7 +983,7 @@ export default function FoundItem(props) {
             </ListItem>
           </Grid>
 
-          <Grid item sm={3}>
+          <Grid item sm={2}>
             <br /> <br />
             <List>
               <ListItem>

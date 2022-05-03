@@ -754,7 +754,7 @@ export default function LostItem(props) {
                 latitude: 15.1685,
                 zoom: 12,
               }}
-              style={{ width: 1400, height: 600 }}
+              style={{ width: "80vw", height: 600 }}
               mapStyle="mapbox://styles/mapbox/streets-v9"
               mapboxAccessToken="pk.eyJ1IjoiY29tbXVuaXR5ZmluZHMiLCJhIjoiY2t6ajlsc3U1MXNtOTJ2bzB0ZXBxd21ncSJ9.2YEDuBOv1PAkUl8VsR9mag"
               maxBounds={[
@@ -784,9 +784,9 @@ export default function LostItem(props) {
             <br /> <br /> <br />
           </Grid>
           <Grid item sm={6}></Grid>
-          <Grid item sm={6}>
+          <Grid item sm={4}>
             {/* First Name */}
-            <List className={classes.inputField}>
+            <List className={classes.nameField}>
               <Typography>Full Name*</Typography>
               <span>
                 Please enter your full name. This will appear on your
@@ -822,8 +822,8 @@ export default function LostItem(props) {
               />
             </List>
           </Grid>
-          <Grid item sm={6}>
-            <List className={classes.inputField}>
+          <Grid item sm={4}>
+            <List className={classes.nameField}>
               <Typography>Last Name *</Typography>
               <span>
                 Please enter your last name. This will appear on your submission
@@ -858,8 +858,46 @@ export default function LostItem(props) {
               />
             </List>
           </Grid>
+          <Grid item sm={4}>
+            <List className={classes.nameField}>
+              <Typography>Suffix *</Typography>
+              <span>
+                Please enter your suffix. This will appear on your submission
+              </span>
+              <div style={{ marginBottom: 10 }}></div>
+              <Controller
+                name="suffix"
+                control={control}
+                defaultValue=""
+                rules={{
+                  required: true,
+                  minLength: 2,
+                }}
+                render={({ field }) => (
+                  <TextField
+                    variant="outlined"
+                    fullWidth
+                    disabled
+                    id="suffix"
+                    label="Suffix"
+                    error={Boolean(errors.lastname)}
+                    helperText={
+                      errors.lastname
+                        ? errors.lastname.type === "minLength"
+                          ? "Suffix Code length should be more than 1"
+                          : "Suffix Code color is required"
+                        : ""
+                    }
+                    {...field}
+                  />
+                )}
+              />
+            </List>
+          </Grid>
+
           <Grid item sm={6}>
             {/* Phone Number */}
+            <br />
             <Typography>Phone Number *</Typography>
             <span>
               Please enter the phone number to display on your submission.
@@ -903,6 +941,7 @@ export default function LostItem(props) {
               Please enter your email. This will appear on your submission.
             </span>
             <List className={classes.inputField}>
+              <div style={{ marginBottom: 10 }}></div>
               <Controller
                 name="email"
                 control={control}
@@ -933,7 +972,8 @@ export default function LostItem(props) {
               />
             </List>
           </Grid>
-          <Grid item sm={3}>
+          <Grid item sm={6}></Grid>
+          <Grid item sm={4}>
             <br /> <br /> <br />
             <ListItem>
               <Checkbox required={true} />
@@ -944,7 +984,7 @@ export default function LostItem(props) {
             </ListItem>
           </Grid>
 
-          <Grid item sm={3}>
+          <Grid item sm={2}>
             <br /> <br />
             <List>
               <ListItem>
