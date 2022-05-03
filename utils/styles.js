@@ -38,7 +38,7 @@ const useStyles = makeStyles({
     font: "SansSerif",
     fontSize: "13px",
     letterSpacing: "1px",
-    marginRight: "30px",
+    marginRight: "20px",
   },
   form: {
     width: "100%",

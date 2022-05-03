@@ -45,37 +45,36 @@ export default function ClaimedItems(props) {
       >
         {missingItems.map((info) => (
           <Grid item xs={2} sm={2} md={3}>
-            <Card style={{ width: 330 }}>
+            <Card style={{ width: 250, marginLeft: "20px" }}>
               <CardContent>
                 <img
-                  src={info.claim_image}
+                  src={info.image}
                   alt={info.lostPropertyName}
-                  height={300}
-                  width={300}
+                  height={180}
+                  width={220}
                 />
               </CardContent>
               <CardContent>
-                <Typography style={{ textAlign: "center" }}>
-                  Properties Returned: {info.lostPropertyName}
-                </Typography>
+                <Typography>Lost Property: {info.lostPropertyName}</Typography>
               </CardContent>
             </Card>
           </Grid>
         ))}
+
         {missingItems2.map((info) => (
           <Grid item xs={2} sm={2} md={3}>
-            <Card style={{ width: 330 }}>
+            <Card style={{ width: 250, marginLeft: "20px" }}>
               <CardContent>
                 <img
-                  src={info.claim_image}
+                  src={info.image}
                   alt={info.foundPropertyName}
-                  height={300}
-                  width={300}
+                  height={180}
+                  width={220}
                 />
               </CardContent>
               <CardContent>
-                <Typography style={{ textAlign: "center" }}>
-                  Properties Claimed: {info.foundPropertyName}
+                <Typography>
+                  Found Property: {info.foundPropertyName}
                 </Typography>
               </CardContent>
             </Card>

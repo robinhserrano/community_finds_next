@@ -173,7 +173,7 @@ export default function Navbar({ title, children }) {
           )}
         </div>
       </Toolbar>
-      <AppBar position="sticky">
+      <AppBar position="sticky" style={{ width: "100%" }}>
         <Toolbar position="absolute" className={classes.secondAppbar}>
           <div className={classes.logoGrow}></div>
           <NextLink href={"/"} passHref>
