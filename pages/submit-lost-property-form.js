@@ -721,7 +721,7 @@ export default function LostItem(props) {
                 }}
                 render={({ field }) => (
                   <TextField
-                    sx={{ width: "100ch" }}
+                    sx={{ width: "60ch" }}
                     variant="outlined"
                     fullWidth
                     required={false}

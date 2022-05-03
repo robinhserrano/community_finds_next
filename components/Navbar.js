@@ -10,6 +10,7 @@ import {
   Menu,
   MenuItem,
   Badge,
+  Grid,
 } from "@mui/material";
 import useStyles from "../utils/styles";
 import NextLink from "next/link";
@@ -63,6 +64,7 @@ export default function Navbar({ title, children }) {
           {title ? `${title} - Community Finds` : "Community Finds"}
         </title>
       </Head>
+
       <Toolbar className={classes.appbar}>
         <div className={classes.grow}></div>
         <NextLink href="/contact-us" passHref>
@@ -173,6 +175,7 @@ export default function Navbar({ title, children }) {
           )}
         </div>
       </Toolbar>
+
       <AppBar position="sticky" style={{ width: "100%" }}>
         <Toolbar position="absolute" className={classes.secondAppbar}>
           <div className={classes.logoGrow}></div>
@@ -226,6 +229,7 @@ export default function Navbar({ title, children }) {
           </NextLink>
         </Toolbar>
       </AppBar>
+
       <Container className={classes.main}>{children}</Container>
       <footer className={classes.footer}>
         <Typography>All rights reserved. Community Finds 2021-2022.</Typography>
