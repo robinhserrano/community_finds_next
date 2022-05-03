@@ -8,6 +8,11 @@ const useStyles = makeStyles({
       color: "#ffffff",
     },
   },
+  appbarTxt: {
+    font: "SansSerif",
+    fontSize: "12px",
+    letterSpacing: "1px",
+  },
   secondAppbar: {
     backgroundColor: "#ffffff",
     height: 90,
