@@ -79,7 +79,9 @@ export default function LostItem(props) {
       const profileName = posts.filter((doc) => {
         return doc.id.includes(loggedInUser);
       });
-      setValue("name", profileName[0].name);
+      setValue("firstname", profileName[0].firstname);
+      setValue("lastname", profileName[0].lastname);
+      setValue("suffix", profileName[0].suffix);
       setValue("email", profileName[0].email);
       setValue("phone", profileName[0].phone);
     } else {
@@ -156,8 +158,9 @@ export default function LostItem(props) {
     result,
     nameLocation,
     information,
-    name,
-    // lastname,
+    firstname,
+    lastname,
+    suffix,
     phone,
     email,
   }) => {
@@ -182,7 +185,9 @@ export default function LostItem(props) {
           information: information,
           locationtype: typelocation,
           timeLost: lostTime,
-          fullName: name,
+          firstname: firstname,
+          lastname: lastname,
+          suffix: suffix,
           phone: phone,
           email: email,
           status: "missing",
@@ -789,7 +794,7 @@ export default function LostItem(props) {
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
-                name="name"
+                name="firstname"
                 control={control}
                 defaultValue=""
                 rules={{
@@ -802,7 +807,7 @@ export default function LostItem(props) {
                     fullWidth
                     id="name"
                     disabled
-                    label="Full Name"
+                    label="First Name"
                     error={Boolean(errors.firstname)}
                     helperText={
                       errors.firstname
@@ -817,12 +822,11 @@ export default function LostItem(props) {
               />
             </List>
           </Grid>
-          {/* <Grid item sm={6}>
+          <Grid item sm={6}>
             <List className={classes.inputField}>
               <Typography>Last Name *</Typography>
               <span>
-                (Please enter your last name(This will appear on your
-                submission) )
+                Please enter your last name. This will appear on your submission
               </span>
               <div style={{ marginBottom: 10 }}></div>
               <Controller
@@ -837,6 +841,7 @@ export default function LostItem(props) {
                   <TextField
                     variant="outlined"
                     fullWidth
+                    disabled
                     id="lastname"
                     label="Last Name"
                     error={Boolean(errors.lastname)}
@@ -852,7 +857,7 @@ export default function LostItem(props) {
                 )}
               />
             </List>
-          </Grid> */}
+          </Grid>
           <Grid item sm={6}>
             {/* Phone Number */}
             <Typography>Phone Number *</Typography>

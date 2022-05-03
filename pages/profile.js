@@ -133,11 +133,12 @@ export default function Profile(props) {
                         }}
                         render={({ field }) => (
                           <TextField
+                            style={{ width: "250px", marginRight: "8px" }}
                             variant="outlined"
                             fullWidth
                             disabled={true}
                             id="firstname"
-                            label="firstname"
+                            label="First Name"
                             inputProps={{ type: "firstname" }}
                             error={Boolean(errors.firstname)}
                             helperText={
@@ -151,7 +152,66 @@ export default function Profile(props) {
                           />
                         )}
                       />
+                      <Controller
+                        name="lastname"
+                        control={control}
+                        defaultValue=""
+                        rules={{
+                          required: true,
+                          minLength: 2,
+                        }}
+                        render={({ field }) => (
+                          <TextField
+                            style={{ width: "250px", marginRight: "8px" }}
+                            variant="outlined"
+                            fullWidth
+                            disabled={true}
+                            id="lastname"
+                            label="Last Name"
+                            inputProps={{ type: "firstname" }}
+                            error={Boolean(errors.firstname)}
+                            helperText={
+                              errors.firstname
+                                ? errors.firstname.type === "minLength"
+                                  ? "First Name length is more than 1"
+                                  : "First Name is required"
+                                : ""
+                            }
+                            {...field}
+                          />
+                        )}
+                      />
+                      <Controller
+                        name="suffix"
+                        control={control}
+                        defaultValue=""
+                        rules={{
+                          required: false,
+                          minLength: 1,
+                        }}
+                        render={({ field }) => (
+                          <TextField
+                            style={{ width: "250px" }}
+                            variant="outlined"
+                            fullWidth
+                            disabled={true}
+                            id="suffix"
+                            label="Suffix"
+                            inputProps={{ type: "suffix" }}
+                            error={Boolean(errors.suffix)}
+                            helperText={
+                              errors.suffix
+                                ? errors.suffix.type === "minLength"
+                                  ? "suffix length is more than 1"
+                                  : "suffix is required"
+                                : ""
+                            }
+                            {...field}
+                          />
+                        )}
+                      />
                     </ListItem>
+
                     <ListItem>
                       <Controller
                         name="email"
