@@ -106,7 +106,7 @@ export default function Register() {
           <Grid container spacing={3}>
             <Grid item xs={1}></Grid>
             <Grid item xs={10} textAlign="center">
-              <Typography component="h1" variant="h1">
+              <Typography component="h1" variant="h3">
                 Register
               </Typography>
             </Grid>
@@ -116,7 +116,7 @@ export default function Register() {
           <List>
             <ListItem>
               <Controller
-                name="name"
+                name="firstname"
                 control={control}
                 defaultValue=""
                 rules={{
@@ -125,10 +125,11 @@ export default function Register() {
                 }}
                 render={({ field }) => (
                   <TextField
+                    style={{ width: " 200px" }}
                     variant="outlined"
                     fullWidth
                     id="name"
-                    label="Full Name"
+                    label="First Name"
                     type={"name"}
                     value={name}
                     onInput={(e) => setName(e.target.value)}
@@ -139,6 +140,68 @@ export default function Register() {
                         ? errors.name.type === "minLength"
                           ? "Name length is more than 1"
                           : "Name is required"
+                        : ""
+                    }
+                    {...field}
+                  />
+                )}
+              />
+              <Controller
+                name="lastname"
+                control={control}
+                defaultValue=""
+                rules={{
+                  required: true,
+                  minLength: 2,
+                }}
+                render={({ field }) => (
+                  <TextField
+                    style={{ width: " 200px" }}
+                    variant="outlined"
+                    fullWidth
+                    id="name"
+                    label="Last Name"
+                    type={"name"}
+                    value={name}
+                    onInput={(e) => setName(e.target.value)}
+                    inputProps={{ type: "name" }}
+                    error={Boolean(errors.name)}
+                    helperText={
+                      errors.name
+                        ? errors.name.type === "minLength"
+                          ? "Name length is more than 1"
+                          : "Name is required"
+                        : ""
+                    }
+                    {...field}
+                  />
+                )}
+              />
+              <Controller
+                name="suffix"
+                control={control}
+                defaultValue=""
+                rules={{
+                  required: false,
+                  minLength: 2,
+                }}
+                render={({ field }) => (
+                  <TextField
+                    style={{ width: " 200px" }}
+                    variant="outlined"
+                    fullWidth
+                    id="name"
+                    label="Suffix"
+                    type={"name"}
+                    value={name}
+                    onInput={(e) => setName(e.target.value)}
+                    inputProps={{ type: "name" }}
+                    error={Boolean(errors.name)}
+                    helperText={
+                      errors.name
+                        ? errors.name.type === "minLength"
+                          ? "Suffix length is more than 1"
+                          : "Suffix is required"
                         : ""
                     }
                     {...field}
