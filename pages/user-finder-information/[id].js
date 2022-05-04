@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import NextLink from "next/link";
+import { GImageMagnifier } from "@gmana/image-magnifier";
 //
 export async function getServerSideProps() {
   const postsQuery = firestore.collectionGroup("missingItems");
@@ -294,12 +295,17 @@ export default function UserClaimerInformation(props) {
               style={{ backgroundColor: "#346e98", borderRadius: "10px" }}
             ></CardContent>
             <CardContent>
-              <img
+              <GImageMagnifier
+                src={profile.claim_image}
+                height={600}
+                width={520}
+              />
+              {/* <img
                 src={profile.claim_image}
                 alt={profile.lostPropertyName}
                 height={600}
                 width={530}
-              />
+              /> */}
             </CardContent>
           </Card>
         </Grid>

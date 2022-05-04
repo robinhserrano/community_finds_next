@@ -37,6 +37,7 @@ import { ITEM_OWNER_INFORMATION } from "../../redux/actionTypes";
 import "firebase/compat/firestore";
 import { UserContext } from "../../lib/context";
 import firebase from "firebase/compat/app";
+import { GImageMagnifier } from "@gmana/image-magnifier";
 //
 
 export async function getServerSideProps() {
@@ -220,13 +221,14 @@ export default function ClaimLostItemForm(props) {
           <Grid item xs={6}>
             <Card>
               <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
-              <CardContent>
-                <CardMedia
+              <CardContent style={{ alignContent: "center" }}>
+                <GImageMagnifier src={profile.image} height={600} width={520} />
+                {/* <CardMedia
                   component="img"
                   src={profile.image}
                   height={600}
                   width={300}
-                />
+                /> */}
               </CardContent>
             </Card>
           </Grid>

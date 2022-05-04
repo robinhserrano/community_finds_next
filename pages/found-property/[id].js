@@ -11,6 +11,7 @@ import {
   TwitterShareButton,
   TwitterIcon,
 } from "next-share";
+import { GImageMagnifier } from "@gmana/image-magnifier";
 
 //
 export async function getServerSideProps() {
@@ -187,12 +188,14 @@ export default function ItemDetails(props) {
                 borderStyle: "ridge",
               }}
             >
-              <img
+              <GImageMagnifier src={profile.image} height={600} width={520} />
+              {/* <img
                 src={profile.image}
                 alt={profile.foundPropertyName}
                 height={600}
                 width={520}
-              />
+              /> */}
+
               <NextLink href={`./zoom-in-photo/${profile.id}`}>
                 <Button style={{ marginTop: "10px" }}>View Image</Button>
               </NextLink>
