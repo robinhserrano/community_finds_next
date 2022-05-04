@@ -161,23 +161,6 @@ export default function ItemDetails(props) {
         </Grid> */}
         <Grid item xs={6}>
           <Card>
-            <CardContent
-              style={{
-                align: "center",
-                borderStyle: "ridge",
-              }}
-            >
-              <img
-                src={profile.image}
-                alt={profile.foundPropertyName}
-                height={600}
-                width={540}
-              />
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={6}>
-          <Card>
             <CardContent style={{ backgroundColor: "#346e98" }}></CardContent>
             <CardContent
               style={{
@@ -196,6 +179,27 @@ export default function ItemDetails(props) {
             </CardContent>
           </Card>
         </Grid>
+        <Grid item xs={6}>
+          <Card>
+            <CardContent
+              style={{
+                alignItems: "center",
+                borderStyle: "ridge",
+              }}
+            >
+              <img
+                src={profile.image}
+                alt={profile.foundPropertyName}
+                height={600}
+                width={520}
+              />
+              <NextLink href={`./zoom-in-photo/${profile.id}`}>
+                <Button style={{ marginTop: "10px" }}>View Image</Button>
+              </NextLink>
+            </CardContent>
+          </Card>
+        </Grid>
+
         <Grid item xs={7}>
           <NextLink href={"/found-property"}>
             <Button
