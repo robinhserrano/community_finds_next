@@ -290,7 +290,7 @@ export default function FoundItem(props) {
                       image={info.image}
                       height={300}
                       width={200}
-                      alt={"no image"}
+                      alt={"No Image"}
                       style={{ borderStyle: "solid", borderColor: "#3a7196" }}
                     />
                     <CardContent>

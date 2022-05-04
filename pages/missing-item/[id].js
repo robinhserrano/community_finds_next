@@ -173,6 +173,9 @@ export default function ItemDetails(props) {
                 height={600}
                 width={540}
               />
+              <NextLink href={`./zoom-in-photo/${profile.id}`}>
+                <Button style={{ marginTop: "10px" }}>View Image</Button>
+              </NextLink>
             </CardContent>
           </Card>
         </Grid>

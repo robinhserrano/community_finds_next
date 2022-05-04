@@ -40,6 +40,7 @@ import Map, { Marker } from "react-map-gl";
 import Geocode from "react-geocode";
 import { UserContext } from "../lib/context";
 import Cookies from "js-cookie";
+import AltImage from "../public/images/altimage.png";
 
 //
 export async function getServerSideProps() {
@@ -180,6 +181,7 @@ export default function FoundItem(props) {
           primaryColor: primaryColor,
           secondaryColor: secondaryColor,
           image: itemimageValue,
+          altimage: AltImage,
           zipcode: "2009",
           location: address,
           information: information,

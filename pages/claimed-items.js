@@ -30,6 +30,7 @@ export default function ClaimedItems(props) {
   const missingItems2 = posts2.filter((itemLost) => {
     return itemLost.status.toLowerCase().includes("claimed");
   });
+
   return (
     <Navbar>
       <div style={{ marginTop: "4%" }}></div>

@@ -14,7 +14,7 @@ import {
 
 //
 export async function getServerSideProps() {
-  const postsQuery = firestore.collectionGroup("foundItems");
+  const postsQuery = firestore.collectionGroup("missingItems");
   // .where('published', '==', true)
   // .orderBy('createdAt', 'desc')
   // .limit(LIMIT);
@@ -61,7 +61,7 @@ export default function ItemDetails(props) {
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={12}>
           <br /> <br />
-          <NextLink href={`../../found-property/${profile.id}`}>
+          <NextLink href={`../../missing-item/${profile.id}`}>
             <Button
               style={{ height: "50px", width: "200px" }}
               variant="outlined"
