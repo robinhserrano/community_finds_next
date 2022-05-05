@@ -297,12 +297,17 @@ export default function UserClaimerInformation(props) {
               style={{ backgroundColor: "#346e98", borderRadius: "10px" }}
             ></CardContent>
             <CardContent>
-              <img
+              <GImageMagnifier
+                src={profile.claim_image}
+                height={600}
+                width={520}
+              />
+              {/* <img
                 src={profile.claim_image}
                 alt={profile.name}
                 height={600}
                 width={520}
-              />
+              /> */}
             </CardContent>
           </Card>
         </Grid>

@@ -191,12 +191,13 @@ export default function UserClaimerInformation(props) {
                 borderStyle: "ridge",
               }}
             >
-              <img
+              <GImageMagnifier src={profile.image} height={600} width={520} />
+              {/* <img
                 src={profile.image}
                 alt={profile.lostPropertyName}
                 height={600}
                 width={530}
-              />
+              /> */}
             </CardContent>
           </Card>
         </Grid>
