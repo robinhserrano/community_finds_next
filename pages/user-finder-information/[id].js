@@ -3,7 +3,6 @@ import Navbar from "../../components/Navbar";
 import { firestore, postToJSON, auth } from "../../lib/firebase";
 import { useRouter } from "next/router";
 import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
-import Image from "next/image";
 import NextLink from "next/link";
 import { GImageMagnifier } from "@gmana/image-magnifier";
 //
