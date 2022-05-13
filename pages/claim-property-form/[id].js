@@ -38,6 +38,7 @@ import "firebase/compat/firestore";
 import { UserContext } from "../../lib/context";
 import firebase from "firebase/compat/app";
 import { GImageMagnifier } from "@gmana/image-magnifier";
+import ValidImageUploader from "./uploadvalidimageid";
 //
 
 export async function getServerSideProps() {
@@ -101,6 +102,34 @@ export default function ClaimLostItemForm(props) {
   }
 
   const { result, uploader } = useDisplayImage();
+
+  ////////////////////////////////////////////////
+  const [valididimageInput, setValidIdImageInput] = useState("");
+
+  const [imagevalid, setImageValid] = React.useState("");
+  const imageReference = React.useRef(null);
+  const validdispatch = useDispatch();
+  const { itemimagevalidValue } = useSelector((state) => state.page);
+
+  function useDisplayValidImageId() {
+    const [resultvalidid, setResultValidId] = React.useState("");
+
+    function uploaderidvalid(a) {
+      const validimageFile = a.target.files[0];
+
+      const readervalidimageid = new FileReader();
+      readervalidimageid.addEventListener("load", (a) => {
+        setResultValidId(a.target.resultvalidid);
+      });
+
+      readervalidimageid.readAsDataURL(validimageFile);
+    }
+
+    return { resultvalidid, uploaderidvalid };
+  }
+
+  const { resultvalidid, uploaderidvalid } = useDisplayValidImageId();
+  ////////////////////////////////////////////////
 
   const [posts, setPosts] = useState(props.posts);
   const router = useRouter();
@@ -773,6 +802,18 @@ export default function ClaimLostItemForm(props) {
                 />
               )}
             </Grid>
+            //////
+            <Grid item xs={6}>
+              {/* Upload Valid Image */}
+              <Typography>Upload Valid Image Id </Typography>
+              <span>
+                This image will display on the Website. Do not enter high
+                resolution images such as 4k resolution.
+              </span>
+              <div style={{ marginBottom: 10 }}></div>
+              <ValidImageUploader />
+            </Grid>
+            /////
             <Grid item xs={6}>
               {" "}
               <Grid
