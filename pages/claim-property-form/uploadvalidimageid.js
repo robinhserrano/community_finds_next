@@ -25,7 +25,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import Image from "next/image";
 
-export default function ValidImageUploader() {
+export default function ValidImageUploader(props) {
   const hiddenFileInput = useRef(null);
   const [imageInput, setImageInput] = useState("");
   const [image, setImage] = useState("");

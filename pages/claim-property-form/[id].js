@@ -802,10 +802,9 @@ export default function ClaimLostItemForm(props) {
                 />
               )}
             </Grid>
-            //////
             <Grid item xs={6}>
               {/* Upload Valid Image */}
-              <Typography>Upload Valid Image Id </Typography>
+              <Typography>Upload Valid Image Id * </Typography>
               <span>
                 This image will display on the Website. Do not enter high
                 resolution images such as 4k resolution.
@@ -813,9 +812,8 @@ export default function ClaimLostItemForm(props) {
               <div style={{ marginBottom: 10 }}></div>
               <ValidImageUploader />
             </Grid>
-            /////
+            <Grid item xs={6}></Grid>
             <Grid item xs={6}>
-              {" "}
               <Grid
                 container
                 rowSpacing={1}
