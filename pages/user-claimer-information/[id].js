@@ -302,15 +302,18 @@ export default function UserClaimerInformation(props) {
                 height={600}
                 width={520}
               />
-              {/* <img
-                src={profile.claim_image}
-                alt={profile.name}
+            </CardContent>
+            <CardContent>
+              <Typography>Valid ID</Typography>
+              <GImageMagnifier
+                src={profile.claim_valididimage}
                 height={600}
                 width={520}
-              /> */}
+              />
             </CardContent>
           </Card>
         </Grid>
+
         <div style={{ marginTop: "3%" }}></div>
         <Grid item xs={7}>
           <NextLink href={"/user-claim-post"}>
