@@ -22,13 +22,19 @@ import {
   Select,
   ListSubheader,
 } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import { ITEM_OWNER_INFORMATION } from "../../redux/actionTypes";
+
+var ValidPicture;
 
 export default function ValidImageUploader(props) {
+  const { itemvalidimageidValue } = useSelector((state) => state.page);
+  const dispatch = useDispatch();
+
   const hiddenFileInput = useRef(null);
-  const [imageInput, setImageInput] = useState("");
-  const [image, setImage] = useState("");
+  const [pictureInput, setPictureInput] = useState("");
+  const [imagepicture, setImagePicture] = useState("");
 
   const handleChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -46,15 +52,15 @@ export default function ValidImageUploader(props) {
     hiddenFileInput.current.click();
   };
 
-  function useDisplayImage() {
-    const [result, setResult] = React.useState("");
+  function displayValidIdImage() {
+    const [result, setValidImageId] = React.useState("");
 
     function uploader(i) {
       const imageFile = i.target.files[0];
 
       const reader = new FileReader();
       reader.addEventListener("load", (i) => {
-        setResult(i.target.result);
+        setValidImageId(i.target.result);
       });
 
       reader.readAsDataURL(imageFile);
@@ -63,7 +69,7 @@ export default function ValidImageUploader(props) {
     return { result, uploader };
   }
 
-  const { result, uploader } = useDisplayImage();
+  const { result, uploader } = displayValidIdImage();
 
   return (
     <div>
@@ -71,16 +77,20 @@ export default function ValidImageUploader(props) {
       <input
         type="file"
         ref={hiddenFileInput}
-        value={imageInput}
+        value={pictureInput}
         onChange={(i) => {
           try {
             if (i.target.files[0].size < 900000) {
               console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
               console.log(i.target.files[0].size);
               console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
-              setImage(i.target.files[0]);
+              setImagePicture(i.target.files[0]);
               uploader(i);
-              setImageInput(event.target.value);
+              setPictureInput(event.target.value);
+              ValidPicture = event.target.value;
+              console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+              console.log(ValidPicture);
+              console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
             } else {
               alert("Image size is too large");
             }
@@ -106,6 +116,27 @@ export default function ValidImageUploader(props) {
           />
         )}
       </div>
+
+      <Button
+        style={{
+          background: "#366e97",
+          color: "white",
+          width: "70px",
+          height: "70px",
+        }}
+        onClick={() =>
+          dispatch({
+            type: ITEM_OWNER_INFORMATION,
+            payload: {
+              itemvalidimageidValue: result,
+            },
+          })
+        }
+      >
+        Submit
+      </Button>
     </div>
   );
 }
+
+export { ValidPicture };

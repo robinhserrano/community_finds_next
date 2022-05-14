@@ -39,6 +39,9 @@ import { UserContext } from "../../lib/context";
 import firebase from "firebase/compat/app";
 import { GImageMagnifier } from "@gmana/image-magnifier";
 import ValidImageUploader from "./uploadvalidimageid";
+import { ValidPicture } from "./uploadvalidimageid";
+import { Uploader } from "uploader";
+import { UploadButton } from "react-uploader";
 //
 
 export async function getServerSideProps() {
@@ -78,11 +81,12 @@ export default function ClaimLostItemForm(props) {
   const [startTime, setStartTime] = React.useState("");
   const lostTime = startTime.toString();
   const [imageInput, setImageInput] = useState("");
-
+  const [pictureUrl, setPictureUrl] = useState("");
   const [image, setImage] = React.useState("");
   const imageRef = React.useRef(null);
   const dispatch = useDispatch();
   const { itemimageValue } = useSelector((state) => state.page);
+  const { itemvalidimageidValue } = useSelector((state) => state.page);
 
   function useDisplayImage() {
     const [result, setResult] = React.useState("");
@@ -109,7 +113,6 @@ export default function ClaimLostItemForm(props) {
   const [imagevalid, setImageValid] = React.useState("");
   const imageReference = React.useRef(null);
   const validdispatch = useDispatch();
-  const { itemimagevalidValue } = useSelector((state) => state.page);
 
   function useDisplayValidImageId() {
     const [resultvalidid, setResultValidId] = React.useState("");
@@ -167,7 +170,7 @@ export default function ClaimLostItemForm(props) {
       router.push("/login");
     }
   }, []);
-
+  var validpictureurl;
   const submitHandler = async ({
     brand,
     result,
@@ -196,6 +199,7 @@ export default function ClaimLostItemForm(props) {
           claim_firstname: firstname,
           claim_lastname: lastname,
           claim_suffix: suffix,
+          claim_valididimage: pictureUrl,
           claim_phone: phone,
           claim_email: email,
           claim_user_id: auth.currentUser.uid,
@@ -211,6 +215,43 @@ export default function ClaimLostItemForm(props) {
       alert(err);
     }
   };
+  console.log("tttttttttttttttttttttttttttttttttttttt");
+  console.log(ValidPicture);
+  // console.log(
+  //   Convert.ToBase64String(System.IO.File.ReadAllBytes(ValidPicture))
+  // );
+  // var reader = new FileReader();
+  // reader.onloadend = function () {
+  //   console.log("RESULT", reader.result);
+  // };
+  // reader.readAsDataURL(ValidPicture);
+  // var xhr = new XMLHttpRequest();
+  // xhr.open("GET", ValidPicture, true);
+  // xhr.responseType = "blob";
+  // xhr.onload = function (e) {
+  //   console.log(this.response);
+  //   var reader = new FileReader();
+  //   reader.onload = function (event) {
+  //     var res = event.target.result;
+  //     console.log(res);
+  //   };
+  //   var file = this.response;
+  //   reader.readAsDataURL(file);
+  // };
+
+  // xhr.send();
+  console.log(itemvalidimageidValue);
+  console.log("tttttttttttttttttttttttttttttttttttttt");
+  // console.log("ffffffffffffffffffffffffffffffffffffff");
+  // console.log(pictureimage);
+  // console.log("ffffffffffffffffffffffffffffffffffffff");
+  var validimagepicturevalue = itemvalidimageidValue;
+
+  const uploaderImage = new Uploader({
+    // Get production API keys from Upload.io
+    apiKey: "free",
+  });
+
   return (
     <Navbar>
       <div>
@@ -282,6 +323,7 @@ export default function ClaimLostItemForm(props) {
                   {profile.brand}
                 </Typography>
               </CardContent>
+
               {/* <CardContent>
                 <Typography style={{ fontSize: "28px", marginLeft: "30px" }}>
                   <b>Date and Time Found: </b>
@@ -810,7 +852,17 @@ export default function ClaimLostItemForm(props) {
                 resolution images such as 4k resolution.
               </span>
               <div style={{ marginBottom: 10 }}></div>
-              <ValidImageUploader />
+              <UploadButton
+                uploader={uploaderImage}
+                options={{ multi: true }}
+                onComplete={(files) => setPictureUrl(files[0].fileUrl)}
+              >
+                {({ onClick }) => (
+                  <button onClick={onClick}>Upload a file...</button>
+                )}
+              </UploadButton>
+
+              {/** <ValidImageUploader /> */}
             </Grid>
             <Grid item xs={6}></Grid>
             <Grid item xs={6}>
@@ -835,7 +887,9 @@ export default function ClaimLostItemForm(props) {
                         onClick={() =>
                           dispatch({
                             type: ITEM_OWNER_INFORMATION,
-                            payload: { itemimageValue: result },
+                            payload: {
+                              itemimageValue: result,
+                            },
                           })
                         }
                       >

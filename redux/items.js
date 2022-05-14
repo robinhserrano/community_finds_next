@@ -4,6 +4,7 @@ const initialState = {
   itemdatelostValue: "",
   itemtimelostValue: "",
   itemimageValue: [],
+  itemvalidimageidValue: [],
   itemtypelocationValue: "",
 };
 
@@ -14,6 +15,7 @@ const itemReducer = (state = initialState, action) => {
         itemdatelostValue: action.payload.itemdatelostValue,
         itemtimelostValue: action.payload.itemtimelostValue,
         itemimageValue: action.payload.itemimageValue,
+        itemvalidimageidValue: action.payload.itemvalidimageidValue,
         itemtypelocationValue: action.payload.itemtypelocationValue,
       };
 
