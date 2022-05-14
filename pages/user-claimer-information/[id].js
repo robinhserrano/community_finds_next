@@ -49,6 +49,7 @@ export default function UserClaimerInformation(props) {
           claim_email: "",
           claim_phone: "",
           claim_image: "",
+          claim_valididimage: "",
           claim_location: "",
           claim_additional: "",
         })
