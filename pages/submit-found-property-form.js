@@ -862,7 +862,7 @@ export default function FoundItem(props) {
           </Grid>
           <Grid item sm={4}>
             <List className={classes.nameField}>
-              <Typography>Suffix *</Typography>
+              <Typography>Suffix</Typography>
               <span>
                 Please enter your suffix. This will appear on your submission
               </span>
