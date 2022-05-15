@@ -372,7 +372,7 @@ export default function ClaimLostItemForm(props) {
                   control={control}
                   defaultValue=""
                   rules={{
-                    required: true,
+                    required: false,
                     minLength: 2,
                   }}
                   render={({ field }) => (

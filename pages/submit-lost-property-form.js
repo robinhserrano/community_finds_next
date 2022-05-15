@@ -870,7 +870,7 @@ export default function LostItem(props) {
                 control={control}
                 defaultValue=""
                 rules={{
-                  required: true,
+                  required: false,
                   minLength: 2,
                 }}
                 render={({ field }) => (

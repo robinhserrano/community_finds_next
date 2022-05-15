@@ -872,7 +872,7 @@ export default function FoundItem(props) {
                 control={control}
                 defaultValue=""
                 rules={{
-                  required: true,
+                  required: false,
                   minLength: 2,
                 }}
                 render={({ field }) => (
